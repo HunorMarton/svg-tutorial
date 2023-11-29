@@ -1,0 +1,82 @@
+---
+export interface Props {
+  size: number;
+}
+
+const { size } = Astro.props as Props;
+
+const lightsOn = false;
+---
+
+<svg
+  class="lights"
+  width={400 * size}
+  height={200 * size}
+  viewBox="-200 -100 400 200"
+>
+  <defs>
+    <g id="bulb">
+      <path d="M 0,0 Q 20 25 0 40 Q -20 25 0 0"></path>
+      <rect x="-6" y="-1" width="12" height="10" rx="3" fill="#5F4C6C"></rect>
+    </g>
+  </defs>
+
+  <path d="M -140 -60 Q -70 -50 0 -60 Q 110 -70 110 10"></path>
+  <line x1="-70" y1="-15" x2="-70" y2="-55"></line>
+  <line x1="30" y1="-25" x2="30" y2="-60"></line>
+  <use
+    class="b"
+    href="#bulb"
+    x="-120"
+    y="-45"
+    transform="rotate(5)"
+    fill={lightsOn ? "#FFC05B" : "white"}></use>
+  <use
+    class="b"
+    href="#bulb"
+    x="-70"
+    y="-15"
+    fill={lightsOn ? "#F86285" : "white"}></use>
+  <use
+    class="b"
+    href="#bulb"
+    x="-20"
+    y="-57"
+    transform="rotate(-5)"
+    fill={lightsOn ? "#03A8A8" : "white"}></use>
+  <use
+    class="b"
+    href="#bulb"
+    x="30"
+    y="-25"
+    fill={lightsOn ? "#748CEF" : "white"}></use>
+
+  <rect x="90" y="10" width="40" height="40" fill="lightgray"></rect>
+  <circle id="button" cx="110" cy="30" r="15" fill="red"></circle>
+</svg>
+
+<script>
+  console.log("Hello");
+
+  let lightsOn = false;
+  document.getElementById("button")?.addEventListener("click", () => {
+    const bulbs = document.querySelectorAll(".b");
+    bulbs[0].setAttribute("fill", lightsOn ? "white" : "#FFC05B");
+    bulbs[1].setAttribute("fill", lightsOn ? "white" : "#F86285");
+    bulbs[2].setAttribute("fill", lightsOn ? "white" : "#03A8A8");
+    bulbs[3].setAttribute("fill", lightsOn ? "white" : "#748CEF");
+    lightsOn = !lightsOn;
+  });
+</script>
+
+<style>
+  .lights {
+    fill: none;
+    stroke: #5f4c6c;
+    stroke-width: 2;
+  }
+
+  .lights #button {
+    cursor: pointer;
+  }
+</style>

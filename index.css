@@ -1,0 +1,12 @@
+.code-section {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.source-code {
+  color: white;
+  background-color: #333333;
+  padding: 2em;
+  border-radius: 5px;
+  overflow: scroll;
+}

@@ -1,0 +1,236 @@
+---
+import Day from "../components/Day.astro";
+import Decoration from "../components/Decoration.astro";
+import Tree from "./Tree.astro";
+import Gingerbread from "../components/Gingerbread.astro";
+import House from "../components/House.astro";
+import DecorationWithClip from "../components/DecorationWithClip.astro";
+import Star from "../components/Star.astro";
+import Snowflake from "../components/Snowflake.astro";
+import Forest from "../components/Forest.astro";
+import DecorationWithGradient from "../components/DecorationWithGradient.astro";
+import Snowman from "../components/Snowman.astro";
+import ThreeWithCurves from "../components/ThreeWithCurves.astro";
+import Gift from "../components/Gift.astro";
+import Bell from "../components/Bell.astro";
+import Candy from "../components/Candy.astro";
+import Ribbon from "../components/Ribbon.astro";
+import Bear from "../components/Bear.astro";
+import Text from "../components/Text.astro";
+import Sled from "./Sled.astro";
+import RingingBell from "../components/RingingBell.astro";
+import Snowing from "../components/Snowing.astro";
+import Background from "../components/Background.astro";
+import Clock from "../components/Clock.astro";
+import Lights from "../components/Lights.astro";
+import Diagram from "../components/Diagram.astro";
+import SnowGlobe from "../components/SnowGlobe.astro";
+---
+
+<div class="App">
+  <div class="grid">
+    <header>
+      <h1>Learn to code SVG</h1>
+      <p>Click a tile to reveal an image and its source code</p>
+    </header>
+    <div class="block">
+      <Day day={1} Component={Decoration} link="basic-shapes" />
+      <Day day={2} Component={Tree} link="polygon" />
+      <Day day={3} Component={Gingerbread} link="gingerbread-figure" />
+      <Day day={4} Component={House} link="house" />
+      <Day day={5} Component={DecorationWithClip} link="clip-path" />
+    </div>
+    <div class="block">
+      <Day day={6} Component={Star} link="transform" />
+      <Day day={7} Component={Snowflake} link="path" />
+      <Day day={8} Component={Forest} link="forest" />
+      <Day day={9} Component={DecorationWithGradient} link="gradient" />
+      <Day day={10} Component={Snowman} link="snowman" />
+    </div>
+
+    <div class="block">
+      <Day day={11} Component={ThreeWithCurves} link="quadratic-bezier" />
+      <Day day={12} Component={Gift} link="cubic-bezier" />
+      <Day day={13} Component={Bell} link="bell" />
+      <Day day={14} Component={Candy} link="arc" />
+    </div>
+
+    <div class="big-block">
+      <Day day={15} Component={Ribbon} link="ribbon" />
+
+      <div class="twitter">
+        Say Hello
+        <a href="https://twitter.com/HunorBorbely" target="_blank">
+          @HunorBorbely
+        </a>
+      </div>
+
+      <Day day={16} Component={Bear} link="bear" />
+      <Day day={17} Component={Text} link="text-path" />
+      <Day day={18} Component={Sled} link="path-based-animation" />
+      <Day day={19} Component={RingingBell} link="animation-on-hover" />
+      <Day day={20} Component={Snowing} link="snowing" />
+      <Day day={21} Component={Background} link="background-pattern" />
+    </div>
+
+    <div class="small-block">
+      <Day day={22} Component={Clock} link="clock" />
+      <Day day={23} Component={Lights} link="interaction" />
+      <Day day={24} Component={Diagram} link="data-driven-diagram" />
+      <Day day={25} Component={SnowGlobe} link="multiple-components" />
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .App {
+    display: flex;
+    justify-content: center;
+    color: white;
+  }
+
+  @media (min-width: 770px) and (min-height: 770px) {
+    .App {
+      align-items: center;
+      height: 100vh;
+    }
+  }
+
+  header h1 {
+    font-family: "Fredoka One", cursive;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(12, auto);
+    gap: 10px;
+    padding: 50px;
+  }
+
+  .grid .block:nth-of-type(1) {
+    grid-row: 2/4;
+    grid-column: 1/4;
+  }
+
+  .grid .block:nth-of-type(2) {
+    grid-row: 4/6;
+    grid-column: 1/4;
+  }
+
+  .grid .block:nth-of-type(3) {
+    grid-row: 6/8;
+    grid-column: 1/4;
+  }
+
+  .grid .big-block {
+    grid-row: 8/11;
+    grid-column: 1/4;
+  }
+
+  .grid .small-block {
+    grid-row: 11;
+    grid-column: 1/4;
+  }
+
+  @media (min-width: 770px) {
+    .grid {
+      grid-template-columns: repeat(6, auto);
+      grid-template-rows: repeat(6, auto);
+    }
+
+    .grid .block:nth-of-type(1) {
+      grid-row: 2/4;
+      grid-column: 1/4;
+    }
+
+    .grid .block:nth-of-type(2) {
+      grid-row: 4/6;
+      grid-column: 1/4;
+    }
+
+    .grid .block:nth-of-type(3) {
+      grid-row: 1/3;
+      grid-column: 4/7;
+    }
+
+    .grid .big-block {
+      grid-row: 3/6;
+      grid-column: 4/7;
+    }
+
+    .grid .small-block {
+      grid-row: 6;
+      grid-column: 1/6;
+    }
+  }
+
+  .block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: inherit;
+  }
+
+  .big-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: inherit;
+  }
+
+  .small-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: inherit;
+  }
+
+  @media (min-width: 770px) {
+    .small-block {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+    }
+  }
+
+  .block:nth-of-type(1) *:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 1/3;
+  }
+
+  .block:nth-of-type(2) *:nth-of-type(5) {
+    grid-column: 3;
+    grid-row: 1/3;
+  }
+
+  .block:nth-of-type(3) *:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 1/3;
+  }
+
+  .block:nth-of-type(3) *:nth-of-type(4) {
+    grid-column: 3;
+    grid-row: 1/3;
+  }
+
+  .big-block *:nth-child(5) {
+    grid-column: 2/4;
+    grid-row: 2;
+  }
+
+  .small-block *:nth-child(2) {
+    grid-column: 2/4;
+    grid-row: 1;
+  }
+
+  .twitter {
+    color: #f5eed7;
+    font-size: 0.8em;
+    background-color: #16212b;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+</style>

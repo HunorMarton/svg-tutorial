@@ -1,6 +1,8 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props as Props;
@@ -8,62 +10,56 @@ const { title } = Astro.props as Props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<script>
-			import { webVitals } from "../lib/vitals";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script>
+      import { webVitals } from "../lib/vitals";
 
-			let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ID;
+      let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ID;
 
-			if (analyticsId) {
-				webVitals({
-					path: location.pathname,
-					params: location.search,
-					analyticsId,
-				});
-			}
-		</script>
-	</head>
-	<body>
-		<slot />
-	</body>
+      if (analyticsId) {
+        webVitals({
+          path: location.pathname,
+          params: location.search,
+          analyticsId,
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+    <style is:global>
+      @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+      body {
+        background-color: #151515;
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      a,
+      a:visited {
+        color: inherit;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      header {
+        height: 120px;
+        margin: 0;
+        grid-row: 1;
+        grid-column: 1/4;
+      }
+
+      svg {
+        border-radius: 10px;
+      }
+    </style>
+  </body>
 </html>
-<style>
-	:root {
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-
-		--color-text: hsl(12, 5%, 4%);
-		--color-bg: hsl(10, 21%, 95%);
-		--color-border: hsl(17, 24%, 90%);
-	}
-
-	html {
-		font-family: system-ui, sans-serif;
-		font-size: var(--font-size-base);
-		color: var(--color-text);
-		background-color: var(--color-bg);
-	}
-
-	body {
-		margin: 0;
-	}
-
-	:global(h1) {
-		font-size: var(--font-size-xl);
-	}
-
-	:global(h2) {
-		font-size: var(--font-size-lg);
-	}
-
-	:global(code) {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>

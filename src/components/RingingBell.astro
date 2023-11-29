@@ -1,0 +1,54 @@
+---
+export interface Props {
+  size: number;
+}
+
+const { size } = Astro.props as Props;
+---
+
+<svg
+  class="bell"
+  width={200 * size}
+  height={200 * size}
+  viewBox="-100 -100 200 200"
+>
+  <g stroke="#001514" stroke-width="2">
+    <circle cx="0" cy="-45" r="7" fill="#4F6D7A"></circle>
+    <circle class="bell-tongue" cx="0" cy="50" r="10" fill="#F79257"></circle>
+    <path
+      d="
+        M -50 40
+        L -50 50
+        L 50 50
+        L 50 40
+        Q 40 40 40 10
+        C 40 -60 -40 -60 -40 10
+        Q -40 40 -50 40"
+      fill="#FDEA96"></path>
+  </g>
+</svg>
+
+<style>
+  .bell:hover {
+    transform-origin: center 30%;
+  }
+
+  .bell:hover,
+  .bell:hover .bell-tongue {
+    animation-duration: 0.5s;
+    animation-delay: -0.25s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-name: ring;
+  }
+
+  @keyframes ring {
+    from {
+      transform: rotate(-20deg);
+    }
+    to {
+      transform: rotate(20deg);
+    }
+  }
+</style>

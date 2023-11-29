@@ -1,0 +1,74 @@
+---
+title: "Day 18: Path-based Animation"
+component: Sled
+---
+
+Another fun use of paths is to create animation paths. This method is not SVG only. We are using the `offset-path` CSS property here that works for any other HTML tag as well. But if you check the value of this attribute, you see that we define a path the same way as we do for SVGs.
+
+To break this down into two parts, first, we have the track. We define this as a single path.
+
+<div style="display: flex; justify-content: center">
+<svg width="400" height="200" viewBox="-200 -100 400 200" fill="none">
+  <path stroke="#E0CEB9" stroke-width="4" d="M-200 80 L -80 80 Q 80 80 70 -10 A 70 70 0 0 0 -70 -10 Q -80 80 80 80 L 200 80" />
+</svg>
+</div>
+
+And then we have a sled, that is made out of two different paths grouped together.
+
+<div style="display: flex; justify-content: center">
+<svg width="400" height="200" viewBox="-200 -100 400 200" fill="none">
+  <g class="sleigh">
+    <path
+      d="
+      M -30 -2 L 30 -2 A 10 10 0 0 0 30 -22
+      M -20 -2 L -20 -17
+      M 20 -2 L 20 -17"
+      stroke="#AF6455"
+      stroke-width="5"
+    />
+    <path d="M -27 -17 L 27 -17" stroke="#7A504F" stroke-width="6" />
+  </g>
+</svg>
+</div>
+
+Neither of these are very interesting on their own. What is new, is that we can add an animation where the animation path is essentially the same as the path of the track. The animation path is only slightly different to make the sledge fit the path even better. By default, the bottom-middle part of the sled would move along the path and the beginning and end of it would slightly sink into the path. Instead of that alter the path to raise the sled slightly at some tight turns.
+
+```html
+<svg width="400" height="200" viewBox="-200 -100 400 200" fill="none">
+  <path
+    stroke="#E0CEB9"
+    stroke-width="4"
+    d="M-200 80 L -80 80 Q 80 80 70 -10 A 70 70 0 0 0 -70 -10 Q -80 80 80 80 L 200 80"
+  />
+
+  <g class="sleigh">
+    <path
+      d="
+      M -30 -2 L 30 -2 A 10 10 0 0 0 30 -22
+      M -20 -2 L -20 -17
+      M 20 -2 L 20 -17"
+      stroke="#AF6455"
+      stroke-width="5"
+    />
+    <path d="M -27 -17 L 27 -17" stroke="#7A504F" stroke-width="6" />
+  </g>
+</svg>
+```
+
+```css
+.sleigh {
+  offset-path: path(
+    "M-200 80 L -90 80 Q 60 80 60 -10 A 50 50 0 0 0 -60 -10 Q -60 80 90 80 L 200 80"
+  );
+  animation: roller-coaster 6000ms infinite linear;
+}
+
+@keyframes roller-coaster {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+```
