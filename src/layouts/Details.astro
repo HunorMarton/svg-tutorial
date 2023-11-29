@@ -71,6 +71,7 @@ const Component = componentNamesObject[component];
     <title>{title}</title>
     <script>
       import { webVitals } from "../lib/vitals";
+      import { inject } from "@vercel/analytics";
 
       let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ID;
 
@@ -81,6 +82,7 @@ const Component = componentNamesObject[component];
           analyticsId,
         });
       }
+      inject();
     </script>
   </head>
   <body>
