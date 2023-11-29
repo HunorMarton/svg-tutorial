@@ -1,0 +1,61 @@
+---
+export interface Props {
+  size: number;
+}
+
+const { size } = Astro.props as Props;
+---
+
+<svg
+  class="gift"
+  width={200 * size}
+  height={200 * size}
+  viewBox="-100 -100 200 200"
+>
+  <path
+    class="ribbon"
+    d="
+        M 0 -50
+        L 30 -50
+        C 50 -50 50 -70 30 -65
+        L 0 -50
+        "
+  ></path>
+
+  <path
+    class="ribbon"
+    d="
+        M 0 -50
+        L -30 -50
+        C -50 -50 -50 -70 -30 -65
+        L 0 -50
+        "
+  ></path>
+
+  <circle cx="0" cy="-50" r="10" fill="#a9172a"></circle>
+
+  <rect class="box" x="-60" y="-40" width="120" height="100"></rect>
+  <rect class="box" x="-70" y="-47" width="140" height="20"></rect>
+  <rect class="stripe" x="-20" y="-40" width="40" height="100"></rect>
+  <rect class="stripe" x="-25" y="-47" width="50" height="20"></rect>
+</svg>
+
+<style>
+  .gift .box {
+    fill: #d1495b;
+    stroke: black;
+    stroke-width: 2px;
+  }
+
+  .gift .stripe {
+    fill: white;
+    stroke: black;
+    stroke-width: 2px;
+  }
+
+  .gift .ribbon {
+    stroke: #b73a3b;
+    stroke-width: 4px;
+    fill: none;
+  }
+</style>

@@ -1,17 +1,20 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 // Use Vercel Edge Functions (Recommended)
-import vercel from '@astrojs/vercel/edge';
+// import vercel from "@astrojs/vercel/edge";
 // Can also use Serverless Functions
 // import vercel from '@astrojs/vercel/serverless';
 // Or a completely static build
-// import vercel from '@astrojs/vercel/static';
+import vercel from "@astrojs/vercel/static";
 
+// https://astro.build/config
 export default defineConfig({
-  output: 'server',
+  output: "static",
   experimental: {
-    assets: true
-   },
+    assets: true,
+    viewTransitions: true,
+  },
   adapter: vercel({
     imageService: true,
   }),
+  integrations: [],
 });

@@ -1,0 +1,44 @@
+---
+export interface Props {
+  size: number;
+}
+
+const { size } = Astro.props as Props;
+---
+
+<svg width={200 * size} height={200 * size} viewBox="-100 -100 200 200">
+  <circle class="head" cx="0" cy="-50" r="30"></circle>
+
+  <circle class="eye" cx="-12" cy="-55" r="3"></circle>
+  <circle class="eye" cx="12" cy="-55" r="3"></circle>
+  <rect class="mouth" x="-10" y="-40" width="20" height="5"></rect>
+
+  <line class="limb" x1="-40" y1="-10" x2="40" y2="-10"></line>
+  <line class="limb" x1="-25" y1="50" x2="0" y2="-15"></line>
+  <line class="limb" x1="25" y1="50" x2="0" y2="-15"></line>
+
+  <circle class="button" cx="0" cy="-10" r="5"></circle>
+  <circle class="button" cx="0" cy="10" r="5"></circle>
+</svg>
+
+<style>
+  .head {
+    fill: #cd803d;
+  }
+
+  .eye {
+    fill: white;
+  }
+  .mouth {
+    fill: none;
+    stroke: white;
+    stroke-width: 2px;
+    rx: 2px;
+  }
+
+  .limb {
+    stroke: #cd803d;
+    stroke-width: 35px;
+    stroke-linecap: round;
+  }
+</style>

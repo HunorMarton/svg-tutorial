@@ -1,0 +1,58 @@
+---
+export interface Props {
+  size: number;
+}
+
+const { size } = Astro.props as Props;
+
+const hour = new Date().getHours() % 12;
+const minute = new Date().getMinutes();
+
+let hourRotation = (360 / 12) * hour;
+let minuteRotation = (360 / 60) * minute;
+---
+
+<script>
+  setTimeout(() => {
+    const hoursDOM = document.getElementById("hours") as SVGLineElement | null;
+    const minutesDom = document.getElementById(
+      "minutes"
+    ) as SVGLineElement | null;
+    if (!hoursDOM || !minutesDom) return; // TODO: is this possible? then cancel the timeout
+
+    const hour = new Date().getHours() % 12;
+    const minute = new Date().getMinutes();
+    hoursDOM.setAttribute("transform", `rotate(${(360 / 12) * hour})`);
+    minutesDom.setAttribute("transform", `rotate(${(360 / 60) * minute})`);
+  }, 1000);
+</script>
+
+<svg
+  class="clock"
+  width={200 * size}
+  height={200 * size}
+  viewBox="-100 -100 200 200"
+>
+  <rect x="-100" y="-100" width="200" height="200" fill="#CD803D"></rect>
+
+  <circle r="55" stroke="#FCCE7B" stroke-width="10" fill="white"></circle>
+  <circle
+    r="45"
+    stroke="#B6705F"
+    stroke-width="6"
+    stroke-dasharray="6 17.56194490192345"
+    stroke-dashoffset="3"
+    fill="none"></circle>
+  <g stroke="#5f4c6c" stroke-linecap="round">
+    <line
+      id="hours"
+      y2="-20"
+      stroke-width="8"
+      transform={`rotate(${hourRotation})`}></line>
+    <line
+      id="minutes"
+      y2="-35"
+      stroke-width="6"
+      transform={`rotate(${minuteRotation})`}></line>
+  </g>
+</svg>

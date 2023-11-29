@@ -1,0 +1,26 @@
+---
+export interface Props {
+  size: number;
+}
+
+const { size } = Astro.props as Props;
+---
+
+<svg width={200 * size} height={200 * size} viewBox="-100 -100 200 200">
+  <clipPath id="ball">
+    <circle cx="0" cy="20" r="70"></circle>
+  </clipPath>
+
+  <circle cx="0" cy="20" r="70" fill="#D1495B"></circle>
+
+  <polyline
+    clip-path="url(#ball)"
+    points="-120 40 -80 0 -40 40 0 0 40 40 80 0 120 40"
+    fill="none"
+    stroke="#9C2D2A"
+    stroke-width="20"></polyline>
+
+  <circle cx="0" cy="-75" r="12" fill="none" stroke="#F79257" stroke-width="2"
+  ></circle>
+  <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257"></rect>
+</svg>
