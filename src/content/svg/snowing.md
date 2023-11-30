@@ -13,6 +13,8 @@ To continue our <a href="/svg/forest">forest example</a> we can add a snowing ef
 
 We extend our <a href="/svg/forest">forest example</a> with simple reusable snowflakes and add a bunch of them to the scene with various CSS classes to set some variation in speed and appearance. Then we add animation in CSS to make them look like snowing. It's a bit glitchy and not the most sophisticated animation, but you get the idea.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
@@ -76,3 +78,5 @@ We extend our <a href="/svg/forest">forest example</a> with simple reusable snow
   animation-duration: 3s;
 }
 ```
+
+</div>

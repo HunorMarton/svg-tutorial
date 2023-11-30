@@ -241,6 +241,8 @@ To draw a candy, we draw a thick line that consists of a straight line and a hal
 
 For the finishing touches, we add a few straight lines inside this shape as markings.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="400" viewBox="-100 -200 200 400">
   <path
@@ -290,3 +292,5 @@ For the finishing touches, we add a few straight lines inside this shape as mark
   stroke-width: 2.5px;
 }
 ```
+
+</div>

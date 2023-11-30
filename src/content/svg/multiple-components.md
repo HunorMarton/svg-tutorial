@@ -10,6 +10,8 @@ If you got this far then give yourself a well-deserved pat on the back as you ju
 
 If you continue on your journey and you start to write more and more complex SVGs then at one point you might find that their code starts to get a bit out of hand. Then you can break them down into components. Here we are using React again, but the same concept applies to any other frontend library that you might use. Mind though that there’s only one SVG tag at the root of the component as there’s still only one image. The child components have their content in group elements.
 
+<div class="code-flex">
+
 ```jsx
 function SnowGlobe() {
   return (
@@ -103,3 +105,5 @@ function Snow() {
   animation-duration: 3s;
 }
 ```
+
+</div>

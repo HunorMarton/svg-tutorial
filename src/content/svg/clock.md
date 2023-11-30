@@ -13,6 +13,8 @@ SVG elements can be manipulated from JavaScript the same way as any other HTML t
 
 There’s another trick here worth mentioning. The dots here showing each hour are drawn as a dashed circle. This works similarly as we can set the `border-style` CSS property for regular HTML elements, but more sophisticated. In SVG we can fine-tune the length of each dash segment and the space in between with the `stroke-dasharray` property. We can also set an offset with `stroke-dashoffset`. That’s what we use here to show the dots for each hour.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <rect x="-100" y="-100" width="200" height="200" fill="#CD803D" />
@@ -49,3 +51,5 @@ There’s another trick here worth mentioning. The dots here showing each hour a
   });
 </script>
 ```
+
+</div>

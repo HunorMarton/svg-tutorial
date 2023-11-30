@@ -11,6 +11,8 @@ next:
 
 Once we know how to create a gradient, we can also draw a snowman. Here we draw two circles with the same radial gradient to make up the body of a snowman. Then we add a polygon for the nose, two circles for the eyes, and two lines for the arm. Simple.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="400" viewBox="-100 -200 200 400">
   <defs>
@@ -32,3 +34,5 @@ Once we know how to create a gradient, we can also draw a snowman. Here we draw 
   <line x1="-65" y1="0" x2="-90" y2="-10" stroke="black" stroke-width="5" />
 </svg>
 ```
+
+</div>

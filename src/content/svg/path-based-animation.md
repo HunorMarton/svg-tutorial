@@ -39,6 +39,8 @@ And then we have a sled, that is made out of two different paths grouped togethe
 
 Neither of these are very interesting on their own. What is new, is that we can add an animation where the animation path is essentially the same as the path of the track. The animation path is only slightly different to make the sledge fit the path even better. By default, the bottom-middle part of the sled would move along the path and the beginning and end of it would slightly sink into the path. Instead of that alter the path to raise the sled slightly at some tight turns.
 
+<div class="code-flex">
+
 ```html
 <svg width="400" height="200" viewBox="-200 -100 400 200" fill="none">
   <path
@@ -78,3 +80,5 @@ Neither of these are very interesting on their own. What is new, is that we can 
   }
 }
 ```
+
+</div>

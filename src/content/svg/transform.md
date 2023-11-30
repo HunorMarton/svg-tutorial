@@ -46,6 +46,8 @@ We can group them with a `g` tag and rotate them together. You can think of the 
 
 Then we `rotate` each arm into the correct position.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <g transform="translate(0 5)">
@@ -72,6 +74,8 @@ Then we `rotate` each arm into the correct position.
   </g>
 </svg>
 ```
+
+</div>
 
 You might notice that we define our polygons to start from the origin of the coordinate system (which is the center of the image). By default, the rotation is also around the origin of the coordinate system.
 

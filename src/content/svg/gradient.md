@@ -63,6 +63,8 @@ Then we define a `radialGradient` in the `defs` section. It has a different synt
 
 We define its ID, center position with `cx` and `cy`, set its radian, and the stop colors. Then we can use it as an attribute for the `fill` property of a shape.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
@@ -84,3 +86,5 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
   <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
 </svg>
 ```
+
+</div>

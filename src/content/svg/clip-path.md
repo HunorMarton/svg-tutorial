@@ -38,6 +38,8 @@ We use clip-path here to make sure that the motif fits perfectly on the ornament
 
 Here we define a `clipPath` with an ID. The content of this clip-path is a circle that matches the size of our ornament. Then we use it to clip the polyline, by setting its `clip-path` property.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
@@ -67,3 +69,5 @@ Here we define a `clipPath` with an ID. The content of this clip-path is a circl
   <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
 </svg>
 ```
+
+</div>

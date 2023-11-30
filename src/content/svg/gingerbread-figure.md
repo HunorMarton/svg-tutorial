@@ -203,6 +203,8 @@ Also, note the `rx` property at the rectangle defining the mouth. This will make
 
 Once we put it all together, and add eyes and buttons, this is how the final code looks like:
 
+<div class="code-flex">
+
 ```html
 <svg class="gingerbread" width="200" height="200" viewBox="-100 -100 200 200">
   <circle class="head" cx="0" cy="-50" r="30" />
@@ -241,3 +243,5 @@ Once we put it all together, and add eyes and buttons, this is how the final cod
   stroke-linecap: round;
 }
 ```
+
+</div>

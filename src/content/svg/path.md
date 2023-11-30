@@ -120,6 +120,8 @@ Then we can move the entire branch path into the `defs` section and reuse it mul
 
 Then we can move the individual branches to their correct position with the `transform` command in the same way as we did with <a href="/svg/transform/">the star example</a>.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
@@ -146,3 +148,5 @@ Then we can move the individual branches to their correct position with the `tra
   <use href="#branch" transform="rotate(300)" />
 </svg>
 ```
+
+</div>

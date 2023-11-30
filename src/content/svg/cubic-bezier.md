@@ -96,6 +96,8 @@ In this example, the ribbon of the gift box uses a cubic Bezier that smoothly co
 
 Apart from the cubic Béziers the rest of this image is mainly just a few rectangles and a circle.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <circle cx="0" cy="-50" r="10" fill="#a9172a" />
@@ -143,3 +145,5 @@ Apart from the cubic Béziers the rest of this image is mainly just a few rectan
   fill: none;
 }
 ```
+
+</div>

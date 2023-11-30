@@ -201,6 +201,8 @@ Then we reach the bottom part with another quadratic bezier that mirrors the pre
 
 We finish the bell, by adding two circles for the bell-clapper, and the hanger.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <g stroke="black" stroke-width="2">
@@ -220,3 +222,5 @@ We finish the bell, by adding two circles for the bell-clapper, and the hanger.
   </g>
 </svg>
 ```
+
+</div>

@@ -169,6 +169,8 @@ Finally, we add another circle as a hanger on top of these. Note that we use the
 
 The final code of the image on the left is as follows:
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <circle cx="0" cy="20" r="70" fill="#D1495B" />
@@ -183,5 +185,7 @@ The final code of the image on the left is as follows:
   />
 </svg>
 ```
+
+</div>
 
 Great! We drew our first SVG image. Now let's get into something more complicated!

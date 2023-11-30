@@ -11,6 +11,8 @@ next:
 
 Drawing shapes is not the only use case for paths. We can also use them to render text along an invisible path. We can define a path in the definitions section and use it in a `textPath` element to make the text go around the circle. Here we use arc again, but you can use any other path and the text will follow the stroke.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
@@ -29,3 +31,5 @@ Drawing shapes is not the only use case for paths. We can also use them to rende
   </text>
 </svg>
 ```
+
+</div>

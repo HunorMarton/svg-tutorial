@@ -82,6 +82,8 @@ Then we can reuse it in a similar way as we did in <a href="/svg/path">the snowf
 
 Here we also position the reused elements by setting an `x` and `y` coordinate and to add some perspective to the image we use the `scale` transformation.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
@@ -100,3 +102,5 @@ Here we also position the reused elements by setting an `x` and `y` coordinate a
   <use href="#tree" x="50" y="30" transform="scale(1.5)" />
 </svg>
 ```
+
+</div>

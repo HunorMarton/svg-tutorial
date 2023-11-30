@@ -13,6 +13,8 @@ This example is a bit of an easter egg because we only have a regular HTML eleme
 
 Normally you wouldn't do that, because you end up with something gibberish in your CSS. If we do that with an SVG though then it’s not that cryptic. This SVG code is still character-encoded, so that’s why you still see some weird parts. The pointy brackets and the hastag key have to be escaped here.
 
+<div class="code-flex">
+
 ```html
 <div class="background" />
 ```
@@ -23,6 +25,8 @@ Normally you wouldn't do that, because you end up with something gibberish in yo
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'%3E%3Cpolygon fill='%230c5c4c' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/%3E%3C/svg%3E");
 }
 ```
+
+</div>
 
 If we look under the hood, this is the image we define in CSS. Because the `background-image` is repeating by default, we only have to define one tile. You might also note that this image doesn't even have a background color set. We also define that in CSS.
 

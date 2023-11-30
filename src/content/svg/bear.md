@@ -186,6 +186,8 @@ Finally, we can add the nose and the mouth as a few paths as follows.
 
 Once we put it all together we end up with the image on the left.
 
+<div class="code-flex">
+
 ```html
 <svg class="bear" width="200" height="200" viewBox="-100 -100 200 200">
   <circle class="ear" cx="-40" cy="-50" r="18"></circle>
@@ -244,3 +246,5 @@ Once we put it all together we end up with the image on the left.
   stroke-width: 2;
 }
 ```
+
+</div>

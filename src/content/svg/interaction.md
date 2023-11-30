@@ -11,6 +11,8 @@ next:
 
 We can not only manipulate SVGs from JavaScript but we can also assign event listeners to parts of SVGs. Here, by clicking the red button we switch on or off the lights. The possibilities are endless. You can even create a full-featured game with SVG and JavaScript.
 
+<div class="code-flex">
+
 <!-- prettier-ignore -->
 ```html
 <svg class="lights" width="200" height="200" viewBox="-100 -100 200 200">
@@ -62,3 +64,5 @@ We can not only manipulate SVGs from JavaScript but we can also assign event lis
   cursor: pointer;
 }
 ```
+
+</div>

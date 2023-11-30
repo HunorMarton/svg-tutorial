@@ -13,6 +13,8 @@ We can also set more traditional animations with CSS. Here we animate the `trans
 
 Here we are reusing <a href="/svg/bell">the bell example</a> we went through earlier, then adding a keyframe animation on `hover` on both the whole bell itself and the bell tongue.
 
+<div class="code-flex">
+
 ```html
 <svg class="bell" width="200" height="200" viewBox="-100 -100 200 200">
   <g stroke="#001514" stroke-width="2">
@@ -57,3 +59,5 @@ Here we are reusing <a href="/svg/bell">the bell example</a> we went through ear
   }
 }
 ```
+
+</div>

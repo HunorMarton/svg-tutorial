@@ -184,6 +184,8 @@ Then we can move the whole shape into a reusable component and use it for both s
 
 We finish up the image by adding an `ellipse` element in the middle and a stroke for the rest.
 
+<div class="code-flex">
+
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
@@ -217,3 +219,5 @@ We finish up the image by adding an `ellipse` element in the middle and a stroke
   />
 </svg>
 ```
+
+</div>

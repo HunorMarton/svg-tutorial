@@ -80,6 +80,8 @@ Then we add a roof on top of it. This is the only thing that is new here. We use
 
 Then we keep adding simple elements for the door, the windows, and the stairs. The final code for the image on the left will be as follows:
 
+<div class="code-flex">
+
 ```html
 <svg class="house" width="200" height="200" viewBox="-100 -100 200 200">
   <polygon class="wall" points="-65,80 -65,-10 0,-70 65,-10 65,80" />
@@ -132,3 +134,5 @@ Then we keep adding simple elements for the door, the windows, and the stairs. T
   stroke-linecap: round;
 }
 ```
+
+</div>

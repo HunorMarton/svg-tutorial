@@ -13,6 +13,8 @@ SVGs also work well with frontend libraries. Here’s an example of a React comp
 
 For simple use cases, you can code your own diagram like this. But if you need more complex diagrams then check out the <a href="https://d3js.org/"  target="_blank" rel="noopener">D3 library</a>. The D3 library uses SVG under to hood to create all sorts of diagrams.
 
+<div class="code-flex">
+
 ```jsx
 function Diagram() {
   const dataPoints = [3, 4, 7, 5, 3, 6];
@@ -38,3 +40,5 @@ function Diagram() {
   );
 }
 ```
+
+</div>
