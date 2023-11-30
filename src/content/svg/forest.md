@@ -41,20 +41,6 @@ First, we create a background out of a rectangle and a circle.
 
 Then we define a tree shape from a simple polygon and a line.
 
-<style>
-  .grid-200 {
-    display: grid;
-    grid-template-grid-200: 202px 1fr;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 0;
-  }
-
-  .grid-200 svg {
-    border: 1px dashed gray;
-  }
-</style>
-
 <div class="grid-200">
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
