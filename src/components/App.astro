@@ -83,10 +83,13 @@ import SnowGlobe from "../components/SnowGlobe.astro";
 </div>
 
 <style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
   .App {
     display: flex;
     justify-content: center;
     color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
 
   @media (min-width: 770px) and (min-height: 770px) {
@@ -96,8 +99,19 @@ import SnowGlobe from "../components/SnowGlobe.astro";
     }
   }
 
+  header {
+    height: 120px;
+    margin: 0;
+    grid-row: 1;
+    grid-column: 1/4;
+  }
+
   header h1 {
     font-family: "Fredoka One", cursive;
+  }
+
+  svg {
+    border-radius: 10px;
   }
 
   .grid {
@@ -105,7 +119,7 @@ import SnowGlobe from "../components/SnowGlobe.astro";
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(12, auto);
     gap: 10px;
-    padding: 50px;
+    padding: 50px 0;
   }
 
   .grid .block:nth-of-type(1) {

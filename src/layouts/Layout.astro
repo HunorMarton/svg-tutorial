@@ -6,7 +6,7 @@ import { ViewTransitions } from "astro:transitions";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>SVG Tutorial</title>
@@ -42,12 +42,9 @@ import { ViewTransitions } from "astro:transitions";
   <body>
     <slot />
     <style is:global>
-      @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
-
       body {
         background-color: #151515;
         margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
 
       a,
@@ -57,17 +54,6 @@ import { ViewTransitions } from "astro:transitions";
 
       * {
         box-sizing: border-box;
-      }
-
-      header {
-        height: 120px;
-        margin: 0;
-        grid-row: 1;
-        grid-column: 1/4;
-      }
-
-      svg {
-        border-radius: 10px;
       }
     </style>
   </body>
