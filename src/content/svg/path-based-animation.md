@@ -13,7 +13,7 @@ Another fun use of paths is to create animation paths. This method is not SVG on
 
 To break this down into two parts, first, we have the track. We define this as a single path.
 
-<div style="display: flex; justify-content: center">
+<div class="center">
 <svg width="400" height="200" viewBox="-200 -100 400 200" fill="none">
   <path stroke="#E0CEB9" stroke-width="4" d="M-200 80 L -80 80 Q 80 80 70 -10 A 70 70 0 0 0 -70 -10 Q -80 80 80 80 L 200 80" />
 </svg>
@@ -21,7 +21,7 @@ To break this down into two parts, first, we have the track. We define this as a
 
 And then we have a sled, that is made out of two different paths grouped together.
 
-<div style="display: flex; justify-content: center">
+<div class="center">
 <svg width="400" height="200" viewBox="-200 -100 400 200" fill="none">
   <g class="sleigh">
     <path

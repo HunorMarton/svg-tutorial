@@ -13,7 +13,7 @@ next:
 
 This ornament is the same as we drew on <a href="/svg/basic-shapes">the first day</a>, except it has a motif on its side defined as a polyline. By default, the polyline wouldn’t match the edge of the circle shape. Without clipping this motif would look like this:
 
-<div style="display: flex; justify-content: center">
+<div class="center">
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <circle cx="0" cy="20" r="70" fill="#D1495B" />
     <polyline
