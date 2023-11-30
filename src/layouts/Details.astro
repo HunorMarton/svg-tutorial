@@ -142,12 +142,12 @@ const Component = componentNamesObject[component];
         background-color: white;
         z-index: 100;
         display: grid;
-        grid-template-columns: auto auto;
+        justify-content: center;
       }
 
-      @media (max-width: 899px) {
+      @media (min-width: 900px) {
         .detail-screen {
-          grid-template-columns: auto;
+          grid-template-columns: 1.2fr minmax(500px, 2fr);
         }
       }
 
@@ -161,28 +161,6 @@ const Component = componentNamesObject[component];
       .columns,
       .details div {
         max-width: 550px;
-      }
-
-      p {
-        line-height: 1.3em;
-      }
-
-      h3 {
-        margin-top: 2.5em;
-      }
-
-      ul {
-        max-width: 510px;
-      }
-
-      ul * {
-        margin-bottom: 0.7em;
-      }
-
-      @media (min-width: 770px) {
-        .detail-screen {
-          grid-template-columns: minmax(400px, auto) auto;
-        }
       }
 
       @media (min-width: 1200px) {
@@ -234,8 +212,22 @@ const Component = componentNamesObject[component];
       }
 
       p {
+        line-height: 1.3em;
         font-family: "Lato", sans-serif;
       }
+
+      h3 {
+        margin-top: 2.5em;
+      }
+
+      ul {
+        max-width: 510px;
+      }
+
+      ul * {
+        margin-bottom: 0.7em;
+      }
+
       code {
         padding: 0 5px 2px;
         background-color: lightgray;
