@@ -182,6 +182,8 @@ Finally, if we draw an ellipse we can also turn it by an angle. We can set this 
 
 </div>
 
+Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of arcs.
+
 ### Drawing a candy
 
 Now after all these introductions we finally got to today's example. The good news is that we are only going to draw a simple arc in this one.

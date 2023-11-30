@@ -5,7 +5,7 @@ component: Diagram
 
 SVGs also work well with frontend libraries. Here’s an example of a React component that generates a data-driven diagram. In this example we have two things. We are generating a list of rectangles to create a column diagram based on some arbitrary data. And we also generate a series of coordinates for a polyline.
 
-For simple use cases, you can code your own diagram like this. But if you need more complex diagrams then check out the <a href="https://d3js.org/">D3 library</a>. The D3 library uses SVG under to hood to create all sorts of diagrams.
+For simple use cases, you can code your own diagram like this. But if you need more complex diagrams then check out the <a href="https://d3js.org/"  target="_blank" rel="noopener">D3 library</a>. The D3 library uses SVG under to hood to create all sorts of diagrams.
 
 ```jsx
 function Diagram() {
