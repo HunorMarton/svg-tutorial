@@ -180,6 +180,7 @@ Also, note the `rx` property at the rectangle defining the mouth. This will make
     y="-40"
     width="20"
     height="5"
+    rx="2"
   />
 </svg>
 ```
@@ -193,7 +194,6 @@ Also, note the `rx` property at the rectangle defining the mouth. This will make
   fill: none;
   stroke: white;
   stroke-width: 2px;
-  rx: 2px;
 }
 ```
 
@@ -209,7 +209,7 @@ Once we put it all together, and add eyes and buttons, this is how the final cod
 
   <circle class="eye" cx="-12" cy="-55" r="3" />
   <circle class="eye" cx="12" cy="-55" r="3" />
-  <rect class="mouth" x="-10" y="-40" width="20" height="5" />
+  <rect class="mouth" x="-10" y="-40" width="20" height="5" rx="2" />
 
   <line class="limb" x1="-40" y1="-10" x2="40" y2="-10" />
   <line class="limb" x1="-25" y1="50" x2="0" y2="-15" />
@@ -233,7 +233,6 @@ Once we put it all together, and add eyes and buttons, this is how the final cod
   fill: none;
   stroke: white;
   stroke-width: 2px;
-  rx: 2px;
 }
 
 .limb {

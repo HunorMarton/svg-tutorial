@@ -81,6 +81,8 @@ Then let's add the face and the eyes. Here's another thing we haven't covered be
     y="-60"
     width="110"
     height="120" 
+     rx="50"
+     ry="30"
   />
   <circle cx="20" cy="-30" r="3" />
   <circle cx="-20" cy="-30" r="3" />
@@ -94,8 +96,6 @@ Then let's add the face and the eyes. Here's another thing we haven't covered be
 
 .bear .face {
   fill: white;
-  rx: 50;
-  ry: 30;
 }
 ```
 
@@ -191,7 +191,7 @@ Once we put it all together we end up with the image on the left.
   <circle class="ear" cx="-40" cy="-50" r="18"></circle>
   <circle class="ear" cx="40" cy="-50" r="18"></circle>
 
-  <rect class="face" x="-55" y="-60" width="110" height="120" />
+  <rect class="face" x="-55" y="-60" width="110" height="120" rx="50" ry="30" />
   <circle cx="20" cy="-30" r="3" />
   <circle cx="-20" cy="-30" r="3" />
 
@@ -236,8 +236,6 @@ Once we put it all together we end up with the image on the left.
 
 .bear .face {
   fill: white;
-  rx: 50;
-  ry: 30;
 }
 
 .bear .mouth {
