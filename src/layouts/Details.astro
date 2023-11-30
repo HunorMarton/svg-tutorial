@@ -101,13 +101,19 @@ const Component = componentNamesObject[component];
   <body>
     <div class="detail-screen">
       <a href=`/` class="close"></a>
-      <div class="content">
+      <div class="image-for-big-screen">
         <Component size="1" />
       </div>
 
       <div class="details">
         <h1>{title}</h1>
+        <div class="image-for-small-screen">
+          <Component size="1" />
+        </div>
         <slot />
+        <div class="image-for-small-screen">
+          <Component size="1" />
+        </div>
       </div>
     </div>
     <style is:global>
@@ -137,6 +143,12 @@ const Component = componentNamesObject[component];
         z-index: 100;
         display: grid;
         grid-template-columns: auto auto;
+      }
+
+      @media (max-width: 899px) {
+        .detail-screen {
+          grid-template-columns: auto;
+        }
       }
 
       .details {
@@ -185,15 +197,26 @@ const Component = componentNamesObject[component];
         }
       }
 
-      .content {
+      .image-for-big-screen {
         display: flex;
         justify-content: center;
-        padding: 50px;
+        padding: 50px 0 50px 0;
       }
 
-      @media (min-width: 770px) {
-        .content {
-          padding: 50px 0 50px 0;
+      @media (max-width: 899px) {
+        .image-for-big-screen {
+          display: none;
+        }
+      }
+
+      .image-for-small-screen {
+        display: flex;
+        justify-content: center;
+      }
+
+      @media (min-width: 900px) {
+        .image-for-small-screen {
+          display: none;
         }
       }
 
@@ -240,6 +263,16 @@ const Component = componentNamesObject[component];
         padding: 10px 0;
       }
 
+      @media (max-width: 599px) {
+        .grid-200 {
+          display: flex;
+          flex-direction: column;
+        }
+        .grid-200 pre {
+          min-width: 250px;
+        }
+      }
+
       .grid-200 svg,
       .grid-200-2 svg {
         border: 1px dashed gray;
@@ -261,6 +294,17 @@ const Component = componentNamesObject[component];
 
       .grid-200-2 *:nth-child(3) {
         grid-column: 2;
+      }
+
+      @media (max-width: 599px) {
+        .grid-200-2 {
+          display: flex;
+          flex-direction: column;
+          justify-items: center;
+        }
+        .grid-200-2 pre {
+          min-width: 250px;
+        }
       }
     </style>
   </body>
