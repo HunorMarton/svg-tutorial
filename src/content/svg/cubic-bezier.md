@@ -1,6 +1,12 @@
 ---
 title: "Day 12: Cubic Bézier"
 component: Gift
+previous:
+  title: Quadratic Bézier
+  link: quadratic-bezier
+next:
+  title: How to draw a Bell?
+  link: bell
 ---
 
 While the quadratic Bézier is great when we want to bend a line, often it’s not flexible enough. With cubic Bézier, we not only have one control point but two. The first control point sets the initial direction of the curve and the second one defines from which direction should the curve arrive at its endpoint.

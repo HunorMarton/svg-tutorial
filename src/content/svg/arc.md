@@ -1,6 +1,12 @@
 ---
 title: "Day 14: Arc"
 component: Candy
+previous:
+  title: Bell
+  link: bell
+next:
+  title: How to draw a Ribbon?
+  link: ribbon
 ---
 
 If you thought that cubic Béziers are the most complicated parts of SVGs then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.

@@ -1,6 +1,12 @@
 ---
 title: "Day 7: Snowflake"
 component: Snowflake
+previous:
+  title: Transform
+  link: transform
+next:
+  title: How to draw a Forest?
+  link: forest
 ---
 
 Instead of repeating the same code over and over again we can also create a definition for a shape and reuse it. Here we define a branch of a snowflake and then use it six times with different rotations.

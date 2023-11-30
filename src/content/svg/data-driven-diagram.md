@@ -1,6 +1,12 @@
 ---
 title: "Day 24: Data-driven Diagram"
 component: Diagram
+previous:
+  title: Interaction
+  link: interaction
+next:
+  title: How to break down an image into multiple components?
+  link: multiple-components
 ---
 
 SVGs also work well with frontend libraries. Here’s an example of a React component that generates a data-driven diagram. In this example we have two things. We are generating a list of rectangles to create a column diagram based on some arbitrary data. And we also generate a series of coordinates for a polyline.

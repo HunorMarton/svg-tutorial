@@ -1,6 +1,12 @@
 ---
 title: "Day 8: Forest"
 component: Forest
+previous:
+  title: Paths
+  link: path
+next:
+  title: How to use Gradients?
+  link: gradient
 ---
 
 Rotation is not the only way we can generate images from simple shapes. In this example, we define a tree shape and then place it at various positions in different sizes to draw a forest.

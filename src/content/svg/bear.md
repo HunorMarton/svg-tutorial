@@ -1,6 +1,12 @@
 ---
 title: "Day 16: Bear"
 component: Bear
+previous:
+  title: Ribbon
+  link: ribbon
+next:
+  title: How to draw text along a path?
+  link: text-path
 ---
 
 As the ultimate drawing challenge let's draw a bear.

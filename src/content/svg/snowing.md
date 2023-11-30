@@ -1,6 +1,12 @@
 ---
 title: "Day 20: Snowing"
 component: Snowing
+previous:
+  title: Animation on hover
+  link: animation-on-hover
+next:
+  title: How to create Background Patterns?
+  link: background-pattern
 ---
 
 To continue our <a href="/svg/forest">forest example</a> we can add a snowing effect with a similar animation. We animate `transform` again, but this time we move many more elements.

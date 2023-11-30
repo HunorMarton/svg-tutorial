@@ -1,6 +1,12 @@
 ---
 title: "Day 6: Star"
 component: Star
+previous:
+  title: Clip-path
+  link: clip-path
+next:
+  title: How to draw Paths?
+  link: path
 ---
 
 ### How to use the `transform` property

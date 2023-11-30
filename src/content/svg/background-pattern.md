@@ -1,6 +1,12 @@
 ---
 title: "Day 21: Background Pattern"
 component: Background
+previous:
+  title: Snowing
+  link: snowing
+next:
+  title: How to draw a Clock that shows the actual time?
+  link: clock
 ---
 
 This example is a bit of an easter egg because we only have a regular HTML element in our document here. For any HTML element, you can set a `background-image` with CSS. For this CSS property, we usually provide a link to an image, but we can also inline one in CSS.

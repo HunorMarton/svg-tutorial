@@ -16,6 +16,11 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<DetaulsLayout title={entry.data.title} component={entry.data.component}>
+<DetaulsLayout
+  title={entry.data.title}
+  component={entry.data.component}
+  previous={entry.data.previous}
+  next={entry.data.next}
+>
   <Content />
 </DetaulsLayout>

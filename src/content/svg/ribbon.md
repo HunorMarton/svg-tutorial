@@ -1,6 +1,12 @@
 ---
 title: "Day 15: Ribbon"
 component: Ribbon
+previous:
+  title: Arc
+  link: arc
+next:
+  title: How to draw a Bear?
+  link: bear
 ---
 
 After we learned about <a href="/svg/quadratic-bezier">quadratic Bézier curves</a> and <a href="/svg/cubic-bezier">cubic Bézier curves</a> let's do another practice round where we use both.

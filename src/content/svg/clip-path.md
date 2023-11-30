@@ -1,6 +1,12 @@
 ---
 title: "Day 5: Christmas Ornament #2"
 component: DecorationWithClip
+previous:
+  title: House
+  link: house
+next:
+  title: How to use the transform property?
+  link: transform
 ---
 
 ### How to use `clip-path`

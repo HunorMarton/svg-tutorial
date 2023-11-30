@@ -58,9 +58,17 @@ const componentNamesObject = {
 export interface Props {
   title: string;
   component: string;
+  previous?: {
+    title: string;
+    link: string;
+  };
+  next?: {
+    title: string;
+    link: string;
+  };
 }
 
-const { title, component } = Astro.props as Props;
+const { title, component, previous, next } = Astro.props as Props;
 const Component = componentNamesObject[component];
 ---
 
@@ -114,6 +122,31 @@ const Component = componentNamesObject[component];
         <div class="image-for-small-screen">
           <Component size="1" />
         </div>
+
+        <nav>
+          <div></div>
+          <div>
+            {
+              next && (
+                <a href={`/svg/${next.link}`}>
+                  <div>
+                    <div>Next</div>
+                    <div>{next.title}</div>
+                  </div>
+                  <svg width="32" height="32" viewBox="0 0 32 32">
+                    <path
+                      d="M2 16 L 30 16 L 20 6 M 30 16 L 20 26"
+                      fill="none"
+                      stroke="#333333"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </a>
+              )
+            }
+          </div>
+        </nav>
       </div>
     </div>
     <style is:global>
@@ -299,6 +332,37 @@ const Component = componentNamesObject[component];
           min-width: 250px;
           max-width: 100%;
         }
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+
+      nav a {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        text-decoration: none;
+      }
+
+      nav > *:nth-child(2) a {
+        border-right: 4px solid lightgray;
+        padding: 20px 20px 20px 30px;
+        text-align: right;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      nav a > div {
+        line-height: 1.8em;
+      }
+
+      nav a > div > div:nth-child(2) {
+        font-weight: bold;
       }
     </style>
   </body>

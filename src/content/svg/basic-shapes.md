@@ -1,6 +1,9 @@
 ---
 title: "Day 1: Basic Shapes"
 component: Decoration
+next:
+  title: "How to draw a Tree shape?"
+  link: polygon
 ---
 
 ### Sizing an SVG

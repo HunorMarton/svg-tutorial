@@ -1,6 +1,12 @@
 ---
 title: "Day 19: Animation on Hover"
 component: RingingBell
+previous:
+  title: Path-based animation
+  link: path-based-animation
+next:
+  title: How to animate a Snowing effect?
+  link: snowing
 ---
 
 We can also set more traditional animations with CSS. Here we animate the `transform` property with keyframes. We can even trigger this effect on mouse hover.

@@ -1,6 +1,12 @@
 ---
 title: "Day 17: Text Path"
 component: Text
+previous:
+  title: Bear
+  link: bear
+next:
+  title: How to animate along a path?
+  link: path-based-animation
 ---
 
 Drawing shapes is not the only use case for paths. We can also use them to render text along an invisible path. We can define a path in the definitions section and use it in a `textPath` element to make the text go around the circle. Here we use arc again, but you can use any other path and the text will follow the stroke.

@@ -1,6 +1,12 @@
 ---
 title: "Day 22: Clock"
 component: Clock
+previous:
+  title: Background patterns
+  link: background-pattern
+next:
+  title: How to add Interaction?
+  link: interaction
 ---
 
 SVG elements can be manipulated from JavaScript the same way as any other HTML tag. In this example, we are using a short code snipped to show the actual time on a clock. We access the hour and minute hands in JavaScript with `getElementById` then set their `transform` attribute with a rotation that reflects the current time.

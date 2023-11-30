@@ -1,6 +1,9 @@
 ---
 title: "Day 25: Multi-component Snow Globe"
 component: SnowGlobe
+previous:
+  title: Data-driven-diagram
+  link: data-driven-diagram
 ---
 
 If you got this far then give yourself a well-deserved pat on the back as you just learned the basics of SVGs with many cool use cases.

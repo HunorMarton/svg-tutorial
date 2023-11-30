@@ -1,6 +1,12 @@
 ---
 title: "Day 10: Snowman"
 component: Snowman
+previous:
+  title: Gradient
+  link: gradient
+next:
+  title: How to draw Quadratic Bézier curves?
+  link: quadratic-bezier
 ---
 
 Once we know how to create a gradient, we can also draw a snowman. Here we draw two circles with the same radial gradient to make up the body of a snowman. Then we add a polygon for the nose, two circles for the eyes, and two lines for the arm. Simple.

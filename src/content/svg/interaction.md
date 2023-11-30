@@ -1,6 +1,12 @@
 ---
 title: "Day 23: Interaction"
 component: Lights
+previous:
+  title: Clock
+  link: clock
+next:
+  title: How to generate a Diagram?
+  link: data-driven-diagram
 ---
 
 We can not only manipulate SVGs from JavaScript but we can also assign event listeners to parts of SVGs. Here, by clicking the red button we switch on or off the lights. The possibilities are endless. You can even create a full-featured game with SVG and JavaScript.

@@ -1,6 +1,12 @@
 ---
 title: "Day 9: Christmas Ornament #3"
 component: DecorationWithGradient
+previous:
+  title: Forest
+  link: forest
+next:
+  title: How to draw a Snowman?
+  link: snowman
 ---
 
 The filling of a shape can be defined as a gradient. Here we apply a radial gradient to our Christmas decoration to have a subtle 3D effect. Here we are reusing the same image we saw in <a href="/svg/basic-shapes">the first example</a> again.

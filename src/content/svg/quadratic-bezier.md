@@ -1,6 +1,12 @@
 ---
 title: "Day 11: Quadratic Bézier"
 component: ThreeWithCurves
+previous:
+  title: Snowman
+  link: snowman
+next:
+  title: How to draw a Cubic Bézier curve?
+  link: cubic-bezier
 ---
 
 The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve which not only needs an endpoint but also has a control point.

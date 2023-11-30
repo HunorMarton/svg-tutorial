@@ -1,6 +1,12 @@
 ---
 title: "Day 2: Tree"
 component: Tree
+previous:
+  title: Basic Shapes
+  link: basic-shapes
+next:
+  title: How to draw a Gingerbread Figure?
+  link: gingerbread-figure
 ---
 
 ### How to use the `polygon` element

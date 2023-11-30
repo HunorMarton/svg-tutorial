@@ -1,6 +1,12 @@
 ---
 title: "Day 3: Gingerbread Figure"
 component: Gingerbread
+previous:
+  title: Tree
+  link: polygon
+next:
+  title: How to draw a House?
+  link: house
 ---
 
 ### Moving styling properties to CSS

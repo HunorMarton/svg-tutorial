@@ -1,6 +1,12 @@
 ---
 title: "Day 13: Bell"
 component: Bell
+previous:
+  title: Cubic Bézier
+  link: cubic-bezier
+next:
+  title: How to draw an Arc?
+  link: arc
 ---
 
 Let’s have another example with cubic and quadratic beziers.

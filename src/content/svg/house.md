@@ -1,6 +1,12 @@
 ---
 title: "Day 4: House"
 component: House
+previous:
+  title: Gingerbread Figure
+  link: gingerbread-figure
+next:
+  title: How to use clip-path?
+  link: clip-path
 ---
 
 In this example, we combine everything we learned so far. We use circles, rectangles, lines, polylines, and polygons here.
