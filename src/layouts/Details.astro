@@ -68,7 +68,20 @@ const Component = componentNamesObject[component];
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
     <title>{`${title} - SVG Tutorial`}</title>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={`${title} - SVG Tutorial`} />
+    <meta
+      property="og:description"
+      content="Explore the fundamentals of Scalable Vector Graphics (SVG). Learn how to create and manipulate SVG images with JavaScript, animatie them with CSS. Or turn things around and generate graphics from code."
+    />
+    <meta property="og:site_name" content="SVG Tutorial" />
+
+    <meta property="og:image" content="svg-tutorial.com/image.png" />
+    <meta property="og:url" content="svg-tutorial.com" />
     <script>
       import { webVitals } from "../lib/vitals";
       import { inject } from "@vercel/analytics";
