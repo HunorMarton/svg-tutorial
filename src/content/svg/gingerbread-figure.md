@@ -1,6 +1,7 @@
 ---
 title: "Day 3: How to Make a Gingerbread Figure with SVG"
 component: Gingerbread
+image: gingerbread-figure
 previous:
   title: Tree
   link: polygon

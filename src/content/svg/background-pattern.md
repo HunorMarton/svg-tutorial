@@ -1,6 +1,7 @@
 ---
 title: "Day 21: How to Create Background Patterns with SVG and CSS"
 component: Background
+image: background-pattern
 previous:
   title: Snowing
   link: snowing

@@ -1,6 +1,7 @@
 ---
 title: "Day 4: How to Build a House with SVG"
 component: House
+image: house
 previous:
   title: Gingerbread Figure
   link: gingerbread-figure

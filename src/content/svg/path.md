@@ -1,6 +1,7 @@
 ---
 title: "Day 7: Snowflake"
 component: Snowflake
+image: snowflake
 previous:
   title: Transform
   link: transform

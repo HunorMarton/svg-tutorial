@@ -1,6 +1,7 @@
 ---
 title: "Day 16: How to Draw a Bear with SVG"
 component: Bear
+image: bear
 previous:
   title: Ribbon
   link: ribbon

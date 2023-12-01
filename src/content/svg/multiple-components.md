@@ -1,6 +1,7 @@
 ---
 title: "Day 25: How to Break Down an SVG Image into Multiple Components"
 component: SnowGlobe
+image: multiple-components
 previous:
   title: Data-driven-diagram
   link: data-driven-diagram

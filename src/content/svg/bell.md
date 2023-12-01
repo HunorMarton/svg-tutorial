@@ -1,6 +1,7 @@
 ---
 title: "Day 13: How to Draw a Bell with SVG"
 component: Bell
+image: bell
 previous:
   title: Cubic Bézier
   link: cubic-bezier

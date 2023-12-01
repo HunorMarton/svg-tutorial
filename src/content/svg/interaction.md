@@ -1,6 +1,7 @@
 ---
 title: "Day 23: How to Add Interaction to SVG elements with JavaScript"
 component: Lights
+image: interaction
 previous:
   title: Clock
   link: clock

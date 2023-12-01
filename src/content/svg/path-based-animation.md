@@ -1,6 +1,7 @@
 ---
 title: "Day 18: How to Animate Along a Path with SVG"
 component: Sled
+image: path-based-animation
 previous:
   title: Text-path
   link: text-path

@@ -1,6 +1,7 @@
 ---
 title: "Day 15: How to Draw a Ribbon with SVG"
 component: Ribbon
+image: ribbon
 previous:
   title: Arc
   link: arc

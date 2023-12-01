@@ -1,6 +1,7 @@
 ---
 title: "Day 6: Star"
 component: Star
+image: star
 previous:
   title: Clip-path
   link: clip-path

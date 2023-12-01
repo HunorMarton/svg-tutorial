@@ -1,6 +1,7 @@
 ---
 title: "Day 2: How to Build a Christmas Tree with SVG"
 component: Tree
+image: christmas-tree
 previous:
   title: Basic Shapes
   link: basic-shapes

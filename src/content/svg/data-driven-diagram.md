@@ -1,6 +1,7 @@
 ---
 title: "Day 24: How to Generate an SVG Diagram from JavaScript"
 component: Diagram
+image: diagram
 previous:
   title: Interaction
   link: interaction

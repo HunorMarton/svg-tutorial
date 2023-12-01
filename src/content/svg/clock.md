@@ -1,6 +1,7 @@
 ---
 title: "Day 22: How to Draw a Clock that Shows the Actual Time with SVG and JavaScript"
 component: Clock
+image: clock
 previous:
   title: Background patterns
   link: background-pattern

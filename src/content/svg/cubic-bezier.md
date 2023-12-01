@@ -1,6 +1,7 @@
 ---
 title: "Day 12: How to Draw Cubic Bézier Curves with SVG"
 component: Gift
+image: cubic-bezier
 previous:
   title: Quadratic Bézier
   link: quadratic-bezier

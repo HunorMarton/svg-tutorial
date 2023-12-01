@@ -1,6 +1,7 @@
 ---
 title: "Day 10: How to Draw a Snowman with SVG"
 component: Snowman
+image: snowman
 previous:
   title: Gradient
   link: gradient

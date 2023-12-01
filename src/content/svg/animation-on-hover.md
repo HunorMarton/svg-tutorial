@@ -1,6 +1,7 @@
 ---
 title: "Day 19: How to Add Animation on Hover of an SVG element"
 component: RingingBell
+image: animation-on-hover
 previous:
   title: Path-based animation
   link: path-based-animation

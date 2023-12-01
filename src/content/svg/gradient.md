@@ -1,6 +1,7 @@
 ---
 title: "Day 9: How to Use Gradients with SVG"
 component: DecorationWithGradient
+image: gradient
 previous:
   title: Forest
   link: forest

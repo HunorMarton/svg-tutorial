@@ -1,6 +1,7 @@
 ---
 title: "Day 5: Christmas Ornament #2"
 component: DecorationWithClip
+image: clip-path
 previous:
   title: House
   link: house

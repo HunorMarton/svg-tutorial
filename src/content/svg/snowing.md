@@ -1,6 +1,7 @@
 ---
 title: "Day 20: How to Animate a Snowing effect with SVG and CSS"
 component: Snowing
+image: snowing
 previous:
   title: Animation on hover
   link: animation-on-hover

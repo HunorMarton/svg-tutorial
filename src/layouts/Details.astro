@@ -58,6 +58,7 @@ const componentNamesObject = {
 export interface Props {
   title: string;
   component: string;
+  image: string;
   previous?: {
     title: string;
     link: string;
@@ -68,7 +69,7 @@ export interface Props {
   };
 }
 
-const { title, component, previous, next } = Astro.props as Props;
+const { title, component, image, previous, next } = Astro.props as Props;
 const Component = componentNamesObject[component];
 ---
 
@@ -88,7 +89,10 @@ const Component = componentNamesObject[component];
     />
     <meta property="og:site_name" content="SVG Tutorial" />
 
-    <meta property="og:image" content="https://svg-tutorial.com/image.png" />
+    <meta
+      property="og:image"
+      content={`https://svg-tutorial.com/${image}.png`}
+    />
     <meta property="og:url" content="svg-tutorial.com" />
     <script>
       import { webVitals } from "../lib/vitals";

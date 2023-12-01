@@ -1,6 +1,7 @@
 ---
 title: "Day 14: How to Draw an Arc with SVG"
 component: Candy
+image: arc
 previous:
   title: Bell
   link: bell

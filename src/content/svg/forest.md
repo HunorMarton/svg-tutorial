@@ -1,6 +1,7 @@
 ---
 title: "Day 8: How to Draw a Forest with SVG"
 component: Forest
+image: forest
 previous:
   title: Paths
   link: path
