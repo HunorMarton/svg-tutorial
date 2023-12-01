@@ -1,6 +1,7 @@
 ---
 title: "Day 9: How to Use Gradients with SVG"
 component: DecorationWithGradient
+description: In this example we draw another Christmas Ornament with SVG and learn how to draw a radial gradient.
 image: gradient
 previous:
   title: Forest

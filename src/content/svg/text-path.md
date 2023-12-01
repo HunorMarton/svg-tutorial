@@ -1,6 +1,7 @@
 ---
 title: "Day 17: How to Draw Text Along a Path with SVG"
 component: Text
+description: In this example we learn how draw a text along a path with SVG.
 image: text-path
 previous:
   title: Bear

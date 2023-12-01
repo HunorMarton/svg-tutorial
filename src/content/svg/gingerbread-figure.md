@@ -1,6 +1,7 @@
 ---
 title: "Day 3: How to Make a Gingerbread Figure with SVG"
 component: Gingerbread
+description: In the third example we learn how to draw a Gingerbread Figure with SVG. We also learn how to move the styling properties to CSS and how to make rounded lines and rectangles.
 image: gingerbread-figure
 previous:
   title: Tree

@@ -1,6 +1,7 @@
 ---
 title: "Day 21: How to Create Background Patterns with SVG and CSS"
 component: Background
+description: In this example we learn how to create background patterns with SVG and CSS.
 image: background-pattern
 previous:
   title: Snowing

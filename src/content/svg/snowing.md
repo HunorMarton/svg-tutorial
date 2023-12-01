@@ -1,6 +1,7 @@
 ---
 title: "Day 20: How to Animate a Snowing effect with SVG and CSS"
 component: Snowing
+description: In this example we learn how to create a snowing animation with SVG and CSS.
 image: snowing
 previous:
   title: Animation on hover

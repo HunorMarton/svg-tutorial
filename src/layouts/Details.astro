@@ -58,6 +58,7 @@ const componentNamesObject = {
 export interface Props {
   title: string;
   component: string;
+  description: string;
   image: string;
   previous?: {
     title: string;
@@ -69,7 +70,8 @@ export interface Props {
   };
 }
 
-const { title, component, image, previous, next } = Astro.props as Props;
+const { title, component, description, image, previous, next } =
+  Astro.props as Props;
 const Component = componentNamesObject[component];
 ---
 
@@ -83,10 +85,7 @@ const Component = componentNamesObject[component];
     <title>{`${title} - SVG Tutorial`}</title>
     <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={`${title} - SVG Tutorial`} />
-    <meta
-      property="og:description"
-      content="Explore the fundamentals of Scalable Vector Graphics (SVG). Learn how to create and manipulate SVG images with JavaScript, animatie them with CSS. Or turn things around and generate graphics from code."
-    />
+    <meta property="og:description" content={description} />
     <meta property="og:site_name" content="SVG Tutorial" />
 
     <meta

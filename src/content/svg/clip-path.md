@@ -1,6 +1,7 @@
 ---
 title: "Day 5: Christmas Ornament #2"
 component: DecorationWithClip
+description: In this example we draw a Christmas Ornament with a decorational motif on the side of it with SVG and learn how to clip-path.
 image: clip-path
 previous:
   title: House

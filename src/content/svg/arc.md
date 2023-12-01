@@ -1,6 +1,7 @@
 ---
 title: "Day 14: How to Draw an Arc with SVG"
 component: Candy
+description: In this example we draw a Candy with SVG and learn how to use draw an arc.
 image: arc
 previous:
   title: Bell

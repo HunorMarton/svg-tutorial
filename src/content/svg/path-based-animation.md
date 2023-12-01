@@ -1,6 +1,7 @@
 ---
 title: "Day 18: How to Animate Along a Path with SVG"
 component: Sled
+description: In this example we learn how to animate a sled along a path.
 image: path-based-animation
 previous:
   title: Text-path

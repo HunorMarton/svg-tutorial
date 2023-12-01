@@ -1,6 +1,7 @@
 ---
 title: "Day 16: How to Draw a Bear with SVG"
 component: Bear
+description: In this example we draw a Bear with SVG and practice all that we have learned so far.
 image: bear
 previous:
   title: Ribbon

@@ -1,6 +1,7 @@
 ---
 title: "Day 7: Snowflake"
 component: Snowflake
+description: In this example we draw a Snowflake with SVG, learn how to draw basic paths and how to reuse image elements.
 image: snowflake
 previous:
   title: Transform

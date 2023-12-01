@@ -1,6 +1,7 @@
 ---
 title: "Day 15: How to Draw a Ribbon with SVG"
 component: Ribbon
+description: In this example we draw a Ribbon with SVG and practice quadratic and cubic bézier curves.
 image: ribbon
 previous:
   title: Arc

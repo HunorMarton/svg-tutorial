@@ -1,6 +1,7 @@
 ---
 title: "Day 6: Star"
 component: Star
+description: In this example we draw a Star with SVG and learn how to use the transform property.
 image: star
 previous:
   title: Clip-path

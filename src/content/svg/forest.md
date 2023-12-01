@@ -1,6 +1,7 @@
 ---
 title: "Day 8: How to Draw a Forest with SVG"
 component: Forest
+description: In this example we draw a Forest with SVG and learn how to reuse and transform image elements.
 image: forest
 previous:
   title: Paths

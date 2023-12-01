@@ -1,6 +1,7 @@
 ---
 title: "Day 2: How to Build a Christmas Tree with SVG"
 component: Tree
+description: In the second example we draw a Christmas Tree with SVG and learn how to use the polygon element.
 image: christmas-tree
 previous:
   title: Basic Shapes
