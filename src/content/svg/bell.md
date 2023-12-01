@@ -1,11 +1,11 @@
 ---
-title: "Day 13: Bell"
+title: "Day 13: How to Draw a Bell with SVG"
 component: Bell
 previous:
   title: Cubic Bézier
   link: cubic-bezier
 next:
-  title: How to draw an Arc?
+  title: How to Draw an Arc with SVG
   link: arc
 ---
 

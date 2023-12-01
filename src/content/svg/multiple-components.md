@@ -1,12 +1,12 @@
 ---
-title: "Day 25: Multi-component Snow Globe"
+title: "Day 25: How to Break Down an SVG Image into Multiple Components"
 component: SnowGlobe
 previous:
   title: Data-driven-diagram
   link: data-driven-diagram
 ---
 
-If you got this far then give yourself a well-deserved pat on the back as you just learned the basics of SVGs with many cool use cases.
+If you got this far then give yourself a well-deserved pat on the back as you just learned the basics of SVG with many cool use cases.
 
 If you continue on your journey and you start to write more and more complex SVGs then at one point you might find that their code starts to get a bit out of hand. Then you can break them down into components. Here we are using React again, but the same concept applies to any other frontend library that you might use. Mind though that there’s only one SVG tag at the root of the component as there’s still only one image. The child components have their content in group elements.
 

@@ -1,11 +1,11 @@
 ---
-title: "Day 22: Clock"
+title: "Day 22: How to Draw a Clock that Shows the Actual Time with SVG and JavaScript"
 component: Clock
 previous:
   title: Background patterns
   link: background-pattern
 next:
-  title: How to add Interaction?
+  title: How to Add Interaction to SVG elements with JavaScript
   link: interaction
 ---
 

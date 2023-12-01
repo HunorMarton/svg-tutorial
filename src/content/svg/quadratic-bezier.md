@@ -1,11 +1,11 @@
 ---
-title: "Day 11: Quadratic Bézier"
+title: "Day 11: How to Draw Quadratic Bézier Curves with SVG"
 component: ThreeWithCurves
 previous:
   title: Snowman
   link: snowman
 next:
-  title: How to draw a Cubic Bézier curve?
+  title: How to Draw Cubic Bézier Curves with SVG
   link: cubic-bezier
 ---
 

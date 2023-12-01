@@ -1,11 +1,11 @@
 ---
-title: "Day 20: Snowing"
+title: "Day 20: How to Animate a Snowing effect with SVG and CSS"
 component: Snowing
 previous:
   title: Animation on hover
   link: animation-on-hover
 next:
-  title: How to create Background Patterns?
+  title: How to Create Background Patterns with SVG and CSS
   link: background-pattern
 ---
 

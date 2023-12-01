@@ -1,8 +1,8 @@
 ---
-title: "Day 1: Basic Shapes"
+title: "Day 1: How to Draw Basic Shapes with SVG"
 component: Decoration
 next:
-  title: "How to draw a Tree shape?"
+  title: How to Build a Christmas Tree with SVG
   link: polygon
 ---
 

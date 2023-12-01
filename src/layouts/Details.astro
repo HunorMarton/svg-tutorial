@@ -124,28 +124,25 @@ const Component = componentNamesObject[component];
         </div>
 
         <nav>
-          <div></div>
-          <div>
-            {
-              next && (
-                <a href={`/svg/${next.link}`}>
-                  <div>
-                    <div>Next</div>
-                    <div>{next.title}</div>
-                  </div>
-                  <svg width="32" height="32" viewBox="0 0 32 32">
-                    <path
-                      d="M2 16 L 30 16 L 20 6 M 30 16 L 20 26"
-                      fill="none"
-                      stroke="#333333"
-                      stroke-width="4"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </a>
-              )
-            }
-          </div>
+          {
+            next && (
+              <a href={`/svg/${next.link}`}>
+                <div>
+                  <div>Next</div>
+                  <div>{next.title}</div>
+                </div>
+                <svg width="32" height="32" viewBox="0 0 32 32">
+                  <path
+                    d="M2 16 L 30 16 L 20 6 M 30 16 L 20 26"
+                    fill="none"
+                    stroke="#333333"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </a>
+            )
+          }
         </nav>
       </div>
     </div>
@@ -191,6 +188,7 @@ const Component = componentNamesObject[component];
       }
 
       .details p,
+      .details h1,
       .columns,
       .details div:not(.code-flex) {
         max-width: 550px;
@@ -365,9 +363,9 @@ const Component = componentNamesObject[component];
         text-decoration: none;
       }
 
-      nav > *:nth-child(2) a {
+      nav a {
         border-right: 4px solid lightgray;
-        padding: 20px 20px 20px 30px;
+        padding: 20px 20px 20px 20px;
         text-align: right;
       }
 
@@ -381,6 +379,7 @@ const Component = componentNamesObject[component];
 
       nav a > div > div:nth-child(2) {
         font-weight: bold;
+        text-wrap: balance;
       }
     </style>
   </body>

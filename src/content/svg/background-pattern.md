@@ -1,11 +1,11 @@
 ---
-title: "Day 21: Background Pattern"
+title: "Day 21: How to Create Background Patterns with SVG and CSS"
 component: Background
 previous:
   title: Snowing
   link: snowing
 next:
-  title: How to draw a Clock that shows the actual time?
+  title: How to Draw a Clock that Shows the Actual Time with SVG and JavaScript
   link: clock
 ---
 

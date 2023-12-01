@@ -1,11 +1,11 @@
 ---
-title: "Day 2: Tree"
+title: "Day 2: How to Build a Christmas Tree with SVG"
 component: Tree
 previous:
   title: Basic Shapes
   link: basic-shapes
 next:
-  title: How to draw a Gingerbread Figure?
+  title: How to Make a Gingerbread Figure with SVG
   link: gingerbread-figure
 ---
 

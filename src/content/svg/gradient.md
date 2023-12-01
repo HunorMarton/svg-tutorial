@@ -1,11 +1,11 @@
 ---
-title: "Day 9: Christmas Ornament #3"
+title: "Day 9: How to Use Gradients with SVG"
 component: DecorationWithGradient
 previous:
   title: Forest
   link: forest
 next:
-  title: How to draw a Snowman?
+  title: How to Draw a Snowman with SVG
   link: snowman
 ---
 

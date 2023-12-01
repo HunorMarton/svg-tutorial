@@ -1,15 +1,15 @@
 ---
-title: "Day 24: Data-driven Diagram"
+title: "Day 24: How to Generate an SVG Diagram from JavaScript"
 component: Diagram
 previous:
   title: Interaction
   link: interaction
 next:
-  title: How to break down an image into multiple components?
+  title: How to Break Down an SVG Image into Multiple Components
   link: multiple-components
 ---
 
-SVGs also work well with frontend libraries. Here’s an example of a React component that generates a data-driven diagram. In this example we have two things. We are generating a list of rectangles to create a column diagram based on some arbitrary data. And we also generate a series of coordinates for a polyline.
+SVG also work well with frontend libraries. Here’s an example of a React component that generates a data-driven diagram. In this example we have two things. We are generating a list of rectangles to create a column diagram based on some arbitrary data. And we also generate a series of coordinates for a polyline.
 
 For simple use cases, you can code your own diagram like this. But if you need more complex diagrams then check out the <a href="https://d3js.org/"  target="_blank" rel="noopener">D3 library</a>. The D3 library uses SVG under to hood to create all sorts of diagrams.
 

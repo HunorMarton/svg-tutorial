@@ -1,11 +1,11 @@
 ---
-title: "Day 19: Animation on Hover"
+title: "Day 19: How to Add Animation on Hover of an SVG element"
 component: RingingBell
 previous:
   title: Path-based animation
   link: path-based-animation
 next:
-  title: How to animate a Snowing effect?
+  title: How to Animate a Snowing effect with SVG and CSS
   link: snowing
 ---
 

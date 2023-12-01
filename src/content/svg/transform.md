@@ -5,11 +5,11 @@ previous:
   title: Clip-path
   link: clip-path
 next:
-  title: How to draw Paths?
+  title: How to Draw Paths with SVG
   link: path
 ---
 
-### How to use the `transform` property
+### How to use the `transform` property of SVG elements
 
 A star is a simple shape. We could define it as a bunch of polygons and set each point individually. But then we would need to know each coordinate. Instead of that, we can define just one arm, and then repeat it five times with a rotation to get the same shape. We will use the `transform` attribute to set a rotation.
 

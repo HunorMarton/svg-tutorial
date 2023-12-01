@@ -1,11 +1,11 @@
 ---
-title: "Day 12: Cubic Bézier"
+title: "Day 12: How to Draw Cubic Bézier Curves with SVG"
 component: Gift
 previous:
   title: Quadratic Bézier
   link: quadratic-bezier
 next:
-  title: How to draw a Bell?
+  title: How to Draw a Bell with SVG
   link: bell
 ---
 

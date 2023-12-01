@@ -1,11 +1,11 @@
 ---
-title: "Day 3: Gingerbread Figure"
+title: "Day 3: How to Make a Gingerbread Figure with SVG"
 component: Gingerbread
 previous:
   title: Tree
   link: polygon
 next:
-  title: How to draw a House?
+  title: How to Build a House with SVG
   link: house
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: "Day 17: Text Path"
+title: "Day 17: How to Draw Text Along a Path with SVG"
 component: Text
 previous:
   title: Bear
   link: bear
 next:
-  title: How to animate along a path?
+  title: How to Animate Along a Path with SVG
   link: path-based-animation
 ---
 

@@ -1,15 +1,15 @@
 ---
-title: "Day 14: Arc"
+title: "Day 14: How to Draw an Arc with SVG"
 component: Candy
 previous:
   title: Bell
   link: bell
 next:
-  title: How to draw a Ribbon?
+  title: How to Draw a Ribbon with SVG
   link: ribbon
 ---
 
-If you thought that cubic Béziers are the most complicated parts of SVGs then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.
+If you thought that cubic Béziers are the most complicated parts of an SVG then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.
 
 ### The different parameters of an SVG arc
 

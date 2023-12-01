@@ -1,11 +1,11 @@
 ---
-title: "Day 4: House"
+title: "Day 4: How to Build a House with SVG"
 component: House
 previous:
   title: Gingerbread Figure
   link: gingerbread-figure
 next:
-  title: How to use clip-path?
+  title: How to use clip-path with SVG
   link: clip-path
 ---
 

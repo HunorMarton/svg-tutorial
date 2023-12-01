@@ -1,11 +1,11 @@
 ---
-title: "Day 10: Snowman"
+title: "Day 10: How to Draw a Snowman with SVG"
 component: Snowman
 previous:
   title: Gradient
   link: gradient
 next:
-  title: How to draw Quadratic Bézier curves?
+  title: How to Draw Quadratic Bézier Curves with SVG
   link: quadratic-bezier
 ---
 

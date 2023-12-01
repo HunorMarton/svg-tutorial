@@ -5,13 +5,13 @@ previous:
   title: Transform
   link: transform
 next:
-  title: How to draw a Forest?
+  title: How to Draw a Forest with SVG
   link: forest
 ---
 
 Instead of repeating the same code over and over again we can also create a definition for a shape and reuse it. Here we define a branch of a snowflake and then use it six times with different rotations.
 
-### Paths
+### How to Draw Paths with SVG
 
 The branch is defined as a `path`. The path is the most powerful SVG tag. We can define pretty much anything with paths and if you open any SVG file, you will see paths mostly.
 

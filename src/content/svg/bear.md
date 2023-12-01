@@ -1,11 +1,11 @@
 ---
-title: "Day 16: Bear"
+title: "Day 16: How to Draw a Bear with SVG"
 component: Bear
 previous:
   title: Ribbon
   link: ribbon
 next:
-  title: How to draw text along a path?
+  title: How to Draw Text Along a Path with SVG
   link: text-path
 ---
 

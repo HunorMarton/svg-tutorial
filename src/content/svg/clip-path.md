@@ -5,11 +5,11 @@ previous:
   title: House
   link: house
 next:
-  title: How to use the transform property?
+  title: How to use the transform property of SVG elements
   link: transform
 ---
 
-### How to use `clip-path`
+### How to use `clip-path` with SVG
 
 This ornament is the same as we drew on <a href="/svg/basic-shapes">the first day</a>, except it has a motif on its side defined as a polyline. By default, the polyline wouldn’t match the edge of the circle shape. Without clipping this motif would look like this:
 

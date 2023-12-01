@@ -1,11 +1,11 @@
 ---
-title: "Day 8: Forest"
+title: "Day 8: How to Draw a Forest with SVG"
 component: Forest
 previous:
   title: Paths
   link: path
 next:
-  title: How to use Gradients?
+  title: How to Use Gradients with SVG
   link: gradient
 ---
 

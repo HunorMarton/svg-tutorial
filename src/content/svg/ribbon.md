@@ -1,11 +1,11 @@
 ---
-title: "Day 15: Ribbon"
+title: "Day 15: How to Draw a Ribbon with SVG"
 component: Ribbon
 previous:
   title: Arc
   link: arc
 next:
-  title: How to draw a Bear?
+  title: How to Draw a Bear with SVG
   link: bear
 ---
 
