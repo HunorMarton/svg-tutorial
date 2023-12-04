@@ -1,8 +1,9 @@
 ---
-title: "Day 5: Christmas Ornament #2"
+day: 5
+title: How to use clip-path with SVG
 component: DecorationWithClip
 description: In this example we draw a Christmas Ornament with a decorational motif on the side of it with SVG and learn how to clip-path.
-image: clip-path
+id: clip-path
 previous:
   title: House
   link: house
@@ -10,8 +11,6 @@ next:
   title: How to use the transform property of SVG elements
   link: transform
 ---
-
-### How to use `clip-path` with SVG
 
 This ornament is the same as we drew on <a href="/svg/basic-shapes">the first day</a>, except it has a motif on its side defined as a polyline. By default, the polyline wouldn’t match the edge of the circle shape. Without clipping this motif would look like this:
 

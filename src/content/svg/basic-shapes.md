@@ -1,8 +1,9 @@
 ---
-title: "Day 1: How to Draw Basic Shapes with SVG"
+day: 1
+title: How to Draw Basic Shapes with SVG
 component: Decoration
 description: Learn how to draw basic shaped with SVG. In the first example we draw a Christmas Ornament with two circles and a rectangle element.
-image: basic-shapes
+id: basic-shapes
 next:
   title: How to Build a Christmas Tree with SVG
   link: polygon

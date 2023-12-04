@@ -56,10 +56,11 @@ const componentNamesObject = {
 };
 
 export interface Props {
+  id: string;
+  day: number;
   title: string;
   component: string;
   description: string;
-  image: string;
   previous?: {
     title: string;
     link: string;
@@ -70,8 +71,10 @@ export interface Props {
   };
 }
 
-const { title, component, description, image, previous, next } =
+const { id, day, title, component, description, previous, next } =
   Astro.props as Props;
+
+const longTitle = `Day ${day}: ${title}`;
 const Component = componentNamesObject[component];
 ---
 
@@ -82,21 +85,19 @@ const Component = componentNamesObject[component];
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>{`${title} - SVG Tutorial`}</title>
+    <title>{`${longTitle} - SVG Tutorial`}</title>
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:title" content={`${title} - SVG Tutorial`} />
-    <meta name="twitter:title" content={`${title} - SVG Tutorial`} />
+    <meta property="og:title" content={`${longTitle} - SVG Tutorial`} />
+    <meta name="twitter:title" content={`${longTitle} - SVG Tutorial`} />
     <meta property="og:description" content={description} />
     <meta name="twitter:description" content={description} />
     <meta property="og:site_name" content="SVG Tutorial" />
     <meta name="twitter:site" content="@HunorBorbely" />
     <meta name="twitter:creator" content="@HunorBorbely" />
 
-    <meta
-      property="og:image"
-      content={`https://svg-tutorial.com/${image}.png`}
-    />
+    <meta property="og:image" content={`https://svg-tutorial.com/${id}.png`} />
+    <meta name="twitter:image" content={`https://svg-tutorial.com/${id}.png`} />
     <meta property="og:url" content="svg-tutorial.com" />
     <script>
       import { webVitals } from "../lib/vitals";
@@ -114,6 +115,7 @@ const Component = componentNamesObject[component];
       inject();
     </script>
   </head>
+
   <body>
     <div class="detail-screen">
       <a href=`/` class="close"></a>
@@ -122,13 +124,24 @@ const Component = componentNamesObject[component];
       </div>
 
       <div class="details">
-        <h1>{title}</h1>
+        <h1>{longTitle}</h1>
         <div class="image-for-small-screen">
           <Component size="1" />
         </div>
         <slot />
         <div class="image-for-small-screen">
           <Component size="1" />
+        </div>
+
+        <div class="center">
+          <a
+            class="twitter-share-button"
+            href={`https://twitter.com/intent/tweet?text=I just learned ${title} by @HunorBorbely: https://svg-tutorial.com/svg/${id}`}
+            target="_blank"
+            rel="noopener"
+          >
+            Share this Article</a
+          >
         </div>
 
         <nav>
@@ -358,6 +371,11 @@ const Component = componentNamesObject[component];
         }
       }
 
+      .twitter-share-button {
+        text-decoration: none;
+        padding: 20px;
+      }
+
       nav {
         display: flex;
         justify-content: space-between;
@@ -367,8 +385,10 @@ const Component = componentNamesObject[component];
       nav a {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         gap: 20px;
         text-decoration: none;
+        width: 100%;
       }
 
       nav a {
@@ -377,6 +397,7 @@ const Component = componentNamesObject[component];
         text-align: right;
       }
 
+      .twitter-share-button:hover,
       nav a:hover {
         text-decoration: underline;
       }

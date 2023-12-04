@@ -1,8 +1,9 @@
 ---
-title: "Day 19: How to Add Animation on Hover of an SVG element"
+day: 19
+title: How to Add Animation on Hover of an SVG element
 component: RingingBell
 description: In this example we learn how to animate an SVG bell on mouse hover with CSS.
-image: animation-on-hover
+id: animation-on-hover
 previous:
   title: Path-based animation
   link: path-based-animation

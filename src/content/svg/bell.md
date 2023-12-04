@@ -1,8 +1,9 @@
 ---
-title: "Day 13: How to Draw a Bell with SVG"
+day: 13
+title: How to Draw a Bell with SVG
 component: Bell
 description: In this example we draw a Bell with SVG and practice drawing complex paths that combine quadratic and cubic bézier curves.
-image: bell
+id: bell
 previous:
   title: Cubic Bézier
   link: cubic-bezier

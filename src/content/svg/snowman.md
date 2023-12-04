@@ -1,8 +1,9 @@
 ---
-title: "Day 10: How to Draw a Snowman with SVG"
+day: 10
+title: How to Draw a Snowman with SVG
 component: Snowman
 description: In this example we draw a Snowman with SVG and practice radial gradients.
-image: snowman
+id: snowman
 previous:
   title: Gradient
   link: gradient
