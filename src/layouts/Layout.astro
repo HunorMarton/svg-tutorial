@@ -53,7 +53,24 @@ import { ViewTransitions } from "astro:transitions";
   </head>
   <body>
     <slot />
+    <footer>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/kBT90nwUb_o?si=X6zQ4Ju4kl7AeGVC"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+      <div>
+        Made by <a href="https://bio.link/hunor" target="_blank" rel="noopener"
+          >Hunor Márton Borbély</a
+        > in 2023
+      </div>
+    </footer>
     <style is:global>
+      @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
       body {
         background-color: #151515;
         margin: 0;
@@ -66,6 +83,24 @@ import { ViewTransitions } from "astro:transitions";
 
       * {
         box-sizing: border-box;
+      }
+
+      footer {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      footer > * {
+        padding: 20px 20px 50px 20px;
+      }
+
+      footer iframe {
+        max-width: 100%;
       }
     </style>
   </body>
