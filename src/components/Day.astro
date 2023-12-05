@@ -2,10 +2,11 @@
 export interface Props {
   day: number;
   Component: any;
-  link?: string;
+  title: string;
+  link: string;
 }
 
-const { day, Component, link } = Astro.props as Props;
+const { day, Component, title, link } = Astro.props as Props;
 ---
 
 <script>
@@ -24,8 +25,9 @@ const { day, Component, link } = Astro.props as Props;
   });
 </script>
 
-<a href=`/svg/${link}` id={`day-${day}`} class="day">
-  <Component size="0.6" />
+<a href=`/svg/${link}` id={`day-${day}`} class="day" title={title}>
+  <Component title={title} size="0.6" />
+  <div class="title">{title}</div>
   <div class="cover">{day}</div>
 </a>
 
@@ -59,6 +61,19 @@ const { day, Component, link } = Astro.props as Props;
     font-size: 3em;
     transform-origin: left top;
     transition: 1s ease-in-out;
+  }
+
+  .day .title {
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
   }
 
   .day:hover {

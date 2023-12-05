@@ -1,9 +1,10 @@
 ---
 export interface Props {
+  title?: string;
   size: number;
 }
 
-const { size } = Astro.props as Props;
+const { title, size } = Astro.props as Props;
 
 const dataPoints = [3, 4, 7, 5, 3, 6];
 const sineWave = Array.from({ length: 115 })
@@ -12,6 +13,7 @@ const sineWave = Array.from({ length: 115 })
 ---
 
 <svg width={200 * size} height={200 * size} viewBox="-100 -100 200 200">
+  <title>{title}</title>
   {
     dataPoints.map((dataPoint, index) => (
       <rect

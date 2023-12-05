@@ -1,9 +1,10 @@
 ---
 export interface Props {
+  title?: string;
   size: number;
 }
 
-const { size } = Astro.props as Props;
+const { title, size } = Astro.props as Props;
 
 const hour = new Date().getHours() % 12;
 const minute = new Date().getMinutes();
@@ -33,6 +34,7 @@ let minuteRotation = (360 / 60) * minute;
   height={200 * size}
   viewBox="-100 -100 200 200"
 >
+  <title>{title}</title>
   <rect x="-100" y="-100" width="200" height="200" fill="#CD803D"></rect>
 
   <circle r="55" stroke="#FCCE7B" stroke-width="10" fill="white"></circle>

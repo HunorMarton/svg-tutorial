@@ -1,9 +1,10 @@
 ---
 export interface Props {
+  title?: string;
   size: number;
 }
 
-const { size } = Astro.props as Props;
+const { title, size } = Astro.props as Props;
 ---
 
 <svg
@@ -12,6 +13,7 @@ const { size } = Astro.props as Props;
   height={200 * size}
   viewBox="-100 -100 200 200"
 >
+  <title>{title}</title>
   <g transform="translate(0 5)">
     <g>
       <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7"></polygon>

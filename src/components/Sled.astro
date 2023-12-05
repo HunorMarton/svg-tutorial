@@ -1,9 +1,10 @@
 ---
 export interface Props {
+  title?: string;
   size: number;
 }
 
-const { size } = Astro.props as Props;
+const { title, size } = Astro.props as Props;
 ---
 
 <svg
@@ -12,6 +13,7 @@ const { size } = Astro.props as Props;
   viewBox="-200 -100 400 200"
   fill="none"
 >
+  <title>{title}</title>
   <path
     stroke="#E0CEB9"
     stroke-width="4"

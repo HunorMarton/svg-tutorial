@@ -1,9 +1,10 @@
 ---
 export interface Props {
+  title?: string;
   size: number;
 }
 
-const { size } = Astro.props as Props;
+const { title, size } = Astro.props as Props;
 
 const lightsOn = false;
 ---
@@ -14,6 +15,7 @@ const lightsOn = false;
   height={200 * size}
   viewBox="-200 -100 400 200"
 >
+  <title>{title}</title>
   <defs>
     <g id="bulb">
       <path d="M 0,0 Q 20 25 0 40 Q -20 25 0 0"></path>

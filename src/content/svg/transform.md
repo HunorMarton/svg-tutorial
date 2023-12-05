@@ -1,6 +1,6 @@
 ---
 day: 6
-title: How to Draw a Star with SVG"
+title: How to Draw a Star with SVG
 component: Star
 description: In this example we draw a Star with SVG and learn how to use the transform property.
 id: transform
