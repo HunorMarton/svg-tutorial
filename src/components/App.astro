@@ -1,5 +1,6 @@
 ---
 import Day from "../components/Day.astro";
+import Arrow from "../components/Arrow.astro";
 import Decoration from "../components/Decoration.astro";
 import Tree from "./Tree.astro";
 import Gingerbread from "../components/Gingerbread.astro";
@@ -8,7 +9,6 @@ import DecorationWithClip from "../components/DecorationWithClip.astro";
 import Star from "../components/Star.astro";
 import Snowflake from "../components/Snowflake.astro";
 import Forest from "../components/Forest.astro";
-import DecorationWithGradient from "../components/DecorationWithGradient.astro";
 import Snowman from "../components/Snowman.astro";
 import ThreeWithCurves from "../components/ThreeWithCurves.astro";
 import Gift from "../components/Gift.astro";
@@ -68,33 +68,33 @@ import SnowGlobe from "../components/SnowGlobe.astro";
     <div class="block">
       <Day
         day={6}
+        Component={Arrow}
+        link="basic-path"
+        title="How to Draw a Basic Path with SVG"
+      />
+      <Day
+        day={7}
         Component={Star}
         link="transform"
         title="How to Draw a Star with SVG"
       />
       <Day
-        day={7}
+        day={8}
         Component={Snowflake}
-        link="path"
+        link="use"
         title="How to Draw a Snowflake with SVG"
       />
       <Day
-        day={8}
+        day={9}
         Component={Forest}
         link="forest"
         title="How to Draw a Forest with SVG"
       />
       <Day
-        day={9}
-        Component={DecorationWithGradient}
-        link="gradient"
-        title="How to Use Gradients with SVG"
-      />
-      <Day
         day={10}
         Component={Snowman}
-        link="snowman"
-        title="How to Draw a Snowman with SVG"
+        link="gradient"
+        title="How to Use Gradients with SVG"
       />
     </div>
 

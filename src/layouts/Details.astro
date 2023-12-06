@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 
+import Arrow from "../components/Arrow.astro";
 import Decoration from "../components/Decoration.astro";
 import Tree from "../components/Tree.astro";
 import Gingerbread from "../components/Gingerbread.astro";
@@ -28,6 +29,7 @@ import Diagram from "../components/Diagram.astro";
 import SnowGlobe from "../components/SnowGlobe.astro";
 
 const componentNamesObject = {
+  Arrow,
   Decoration,
   Tree,
   Gingerbread,
@@ -159,6 +161,7 @@ const Component = componentNamesObject[component];
                     stroke="#333333"
                     stroke-width="4"
                     stroke-linecap="round"
+                    stroke-linejoin="round"
                   />
                 </svg>
               </a>

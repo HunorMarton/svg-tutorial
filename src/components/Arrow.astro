@@ -1,0 +1,19 @@
+---
+export interface Props {
+  title?: string;
+  size: number;
+}
+
+const { title, size } = Astro.props as Props;
+---
+
+<svg width={200 * size} height={200 * size} viewBox="-100 -100 200 200">
+  <title>{title}</title>
+  <path
+    d="M -70 0 L 70 0 L 30 -50 M 70 0 L 30 50"
+    fill="none"
+    stroke="#D1495B"
+    stroke-width="25"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+</svg>

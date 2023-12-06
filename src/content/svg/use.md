@@ -1,9 +1,9 @@
 ---
-day: 7
+day: 8
 title: How to Draw a Snowflake with SVG
 component: Snowflake
 description: In this example we draw a Snowflake with SVG, learn how to draw basic paths and how to reuse image elements.
-id: path
+id: use # used for the 'Share this Article' link and preview image lookup
 previous:
   title: Transform
   link: transform
@@ -14,13 +14,7 @@ next:
 
 Instead of repeating the same code over and over again we can also create a definition for a shape and reuse it. Here we define a branch of a snowflake and then use it six times with different rotations.
 
-### How to Draw Paths with SVG
-
-The branch is defined as a `path`. The path is the most powerful SVG tag. We can define pretty much anything with paths and if you open any SVG file, you will see paths mostly.
-
-The shape of the path is defined by the `d` attribute. Here we define several drawing commands. A command always starts with a letter defining the command type and ends with a coordinate. Here we only have the two most simple commands, move to and line to. The move to command moves the cursor to a point without drawing a line and the line to command draws a straight line from the previous point. A command always continues the previous command so when we draw a line we only define the endpoint. The starting point will be the previous command’s endpoint. This path is a bit unusual because there are several move to commands in it to draw the main branch and each side branches with the same path.
-
-We can draw a simple line – the main branch – by using the move to (`M`) and line to (`L`) commands:
+The branch is defined as a `path`. Earlier we already covered <a href="/svg/basic-path">how to draw basic paths</a>. Here we draw the branch in a similar way. We can draw a simple line – the main branch – by using the move to (`M`) and line to (`L`) commands:
 
 <div class="grid-200">
 

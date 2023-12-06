@@ -1,15 +1,15 @@
 ---
-day: 6
+day: 7
 title: How to Draw a Star with SVG
 component: Star
 description: In this example we draw a Star with SVG and learn how to use the transform property.
-id: transform
+id: transform # used for the 'Share this Article' link and preview image lookup
 previous:
   title: Clip-path
   link: clip-path
 next:
-  title: How to Draw Paths with SVG
-  link: path
+  title: How to reuse image elements with SVG
+  link: use
 ---
 
 ### How to use the `transform` property of SVG elements
