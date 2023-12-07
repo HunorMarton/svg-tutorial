@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import TableOfContents from "../components/TableOfContents.astro";
 ---
 
 <!DOCTYPE html>
@@ -53,7 +54,9 @@ import { ViewTransitions } from "astro:transitions";
   </head>
   <body>
     <slot />
+
     <footer>
+      <TableOfContents />
       <iframe
         width="560"
         height="315"
@@ -62,6 +65,7 @@ import { ViewTransitions } from "astro:transitions";
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
+
       <div>
         SVG Tutorial made by <a
           href="https://bio.link/hunor"
@@ -93,12 +97,13 @@ import { ViewTransitions } from "astro:transitions";
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        padding: 20px 20px 50px 20px;
 
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
 
       footer > * {
-        padding: 20px 20px 50px 20px;
+        padding: 20px 0 20px 0;
       }
 
       footer iframe {
