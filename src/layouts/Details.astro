@@ -186,23 +186,39 @@ const Component = componentNamesObject[component];
                   Share this site
                 </a>{" "}
                 if you liked it and follow me{" "}
-                <a href="https://twitter.com/@HunorBorbely">@HunorBorbely</a>
+                <a
+                  href="https://twitter.com/@HunorBorbely"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  @HunorBorbely
+                </a>
                 for more.
               </p>
               <p>
                 Also, check out my
-                <a href="https://www.youtube.com/@HunorMartonBorbely">
+                <a
+                  href="https://www.youtube.com/@HunorMartonBorbely"
+                  target="_blank"
+                  rel="noopener"
+                >
                   YouTube Channel
                 </a>
                 where in the next video we are going to cover how to recreate
-                the class game Gorillas with JavaScript and HTML Canvas.
+                the classic game Gorillas with JavaScript and HTML Canvas.
               </p>
-              <Image
-                src={gorillas}
-                alt="Up Next on YouTube"
-                width={550}
-                quality={100}
-              />
+              <a
+                href="https://www.youtube.com/@HunorMartonBorbely"
+                target="_blank"
+                rel="noopener"
+              >
+                <Image
+                  src={gorillas}
+                  alt="Up Next on YouTube"
+                  width={550}
+                  quality={100}
+                />
+              </a>
             </div>
           )
         }
