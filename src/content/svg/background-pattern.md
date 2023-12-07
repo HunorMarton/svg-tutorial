@@ -62,4 +62,4 @@ Also note, that because this image is not defined as part of the HTML document s
 
 </div>
 
-This is a great way to create background patterns with only a few lines of code in CSS. If you like this idea check out <a href="svgbackgrounds.com" target="_blank" rel="noopener">svgbackgrounds.com</a> for a lot more great patterns.
+This is a great way to create background patterns with only a few lines of code in CSS. If you like this idea check out <a href="https://www.svgbackgrounds.com/" target="_blank" rel="noopener">svgbackgrounds.com</a> for a lot more great patterns.
