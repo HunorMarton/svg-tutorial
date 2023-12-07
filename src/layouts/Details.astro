@@ -1,6 +1,9 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 
+import { Image } from "astro:assets";
+import gorillas from "../assets/Gorillas.jpeg";
+
 import Arrow from "../components/Arrow.astro";
 import Decoration from "../components/Decoration.astro";
 import Tree from "../components/Tree.astro";
@@ -168,6 +171,41 @@ const Component = componentNamesObject[component];
             )
           }
         </nav>
+
+        {
+          !next && (
+            <div class="end">
+              <h3>Congratulations!</h3>
+              <p>You reached the end of this tutorial series.</p>
+              <p>
+                <a
+                  href={`https://twitter.com/intent/tweet?text=I just learned how code code SVGs by @HunorBorbely: https://svg-tutorial.com/`}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Share this site
+                </a>{" "}
+                if you liked it and follow me{" "}
+                <a href="https://twitter.com/@HunorBorbely">@HunorBorbely</a>
+                for more.
+              </p>
+              <p>
+                Also, check out my
+                <a href="https://www.youtube.com/@HunorMartonBorbely">
+                  YouTube Channel
+                </a>
+                where in the next video we are going to cover how to recreate
+                the class game Gorillas with JavaScript and HTML Canvas.
+              </p>
+              <Image
+                src={gorillas}
+                alt="Up Next on YouTube"
+                width={550}
+                quality={100}
+              />
+            </div>
+          )
+        }
       </div>
     </div>
     <style is:global>
@@ -412,6 +450,15 @@ const Component = componentNamesObject[component];
       nav a > div > div:nth-child(2) {
         font-weight: bold;
         text-wrap: balance;
+      }
+
+      .end {
+        padding: 40px 0;
+        border-top: 4px solid lightgray;
+      }
+
+      .end a {
+        text-decoration: none;
       }
     </style>
   </body>
