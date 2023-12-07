@@ -80,7 +80,7 @@ In these next examples, we have a line that bends towards the control point repr
 
 </div>
 
-Click here for <a href="https://hunormarton.github.io/svg-curves/quadratic" target="_blank" rel="noopener">an interactive demo</a> of Quadratic Béziers.
+Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of Quadratic Béziers.
 
 In the example, we have a series of quadratic beziers where the control points get further and further away from the center of the tree as the path goes down.
 

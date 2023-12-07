@@ -53,7 +53,7 @@ Again, let's see an example, where the circles represent the control points.
 
 </div>
 
-Click here for <a href="https://hunormarton.github.io/svg-curves/cubic" target="_blank" rel="noopener">an interactive demo</a> of Cubic Béziers.
+Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of Cubic Béziers (select Cubic Bézier at the top of the page).
 
 Cubic Béziers are great when we want to continue the flow of a line. If the direction of the control points matches the directions of the line before and the line after the curve, then we have a smooth transition between the path segments.
 
