@@ -1,24 +1,30 @@
 ---
 export interface Props {
+  id?: string;
   title?: string;
   size: number;
 }
 
-const { title, size } = Astro.props as Props;
+const { id, title, size } = Astro.props as Props;
 ---
 
-<svg width={200 * size} height={400 * size} viewBox="-100 -200 200 400">
+<svg
+  width={200 * size}
+  height={400 * size}
+  viewBox="-100 -200 200 400"
+  style={size == 1 ? "background-color: lightblue;" : ""}
+>
   <title>{title}</title>
   <defs>
-    <radialGradient id="snowball" cx="0.25" cy="0.25" r="1">
+    <radialGradient id={`snowball-${id}`} cx="0.25" cy="0.25" r="1">
       <stop offset="0%" stop-color="white"></stop>
       <stop offset="50%" stop-color="white"></stop>
       <stop offset="100%" stop-color="#d6d6d6"></stop>
     </radialGradient>
   </defs>
 
-  <circle cx="0" cy="60" r="80" fill="url(#snowball)"></circle>
-  <circle cx="0" cy="-40" r="50" fill="url(#snowball)"></circle>
+  <circle cx="0" cy="60" r="80" fill={`url(#snowball-${id})`}></circle>
+  <circle cx="0" cy="-40" r="50" fill={`url(#snowball-${id})`}></circle>
   <polygon points="10,-46 50,-40 10,-34" fill="#e66465"></polygon>
 
   <circle cx="0" cy="-55" r="5"></circle>

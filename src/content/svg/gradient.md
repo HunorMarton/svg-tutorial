@@ -20,13 +20,13 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
 
 <svg width="200" height="200" viewBox="-100 -100 200 200" style="background-color: lightblue">
   <defs>
-    <radialGradient id="snowball" cx="0.25" cy="0.25" r="1">
+    <radialGradient id="snowball0" cx="0.25" cy="0.25" r="1">
       <stop offset="0%" stop-color="white" />
       <stop offset="50%" stop-color="white" />
       <stop offset="100%" stop-color="#d6d6d6" />
     </radialGradient>
   </defs>
-  <circle cx="0" cy="0" r="80" fill="url(#snowball)" />
+  <circle cx="0" cy="0" r="80" fill="url(#snowball0)" />
 </svg>
 
 <!-- prettier-ignore -->
@@ -75,7 +75,12 @@ For the snowman we draw two circles with the same radial gradient to make up the
 <div class="code-flex">
 
 ```html
-<svg width="200" height="400" viewBox="-100 -200 200 400">
+<svg
+  width="200"
+  height="400"
+  viewBox="-100 -200 200 400"
+  style="background-color: lightblue"
+>
   <defs>
     <radialGradient id="snowball" cx="0.25" cy="0.25" r="1">
       <stop offset="0%" stop-color="white" />

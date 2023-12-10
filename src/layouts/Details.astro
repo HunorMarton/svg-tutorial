@@ -125,17 +125,17 @@ const Component = componentNamesObject[component];
     <div class="detail-screen">
       <a href=`/` class="close"></a>
       <div class="image-for-big-screen">
-        <Component size="1" />
+        <Component size="1" id="big" />
       </div>
 
       <div class="details">
         <h1>{longTitle}</h1>
         <div class="image-for-small-screen">
-          <Component size="1" />
+          <Component size="1" id="top" />
         </div>
         <slot />
         <div class="image-for-small-screen">
-          <Component size="1" />
+          <Component size="1" id="bottom" />
         </div>
 
         <div class="center">

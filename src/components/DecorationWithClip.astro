@@ -1,22 +1,23 @@
 ---
 export interface Props {
+  id?: string;
   title?: string;
   size: number;
 }
 
-const { title, size } = Astro.props as Props;
+const { id, title, size } = Astro.props as Props;
 ---
 
 <svg width={200 * size} height={200 * size} viewBox="-100 -100 200 200">
   <title>{title}</title>
-  <clipPath id="ball">
+  <clipPath id={`ball-${id}`}>
     <circle cx="0" cy="20" r="70"></circle>
   </clipPath>
 
   <circle cx="0" cy="20" r="70" fill="#D1495B"></circle>
 
   <polyline
-    clip-path="url(#ball)"
+    clip-path={`url(#ball-${id})`}
     points="-120 40 -80 0 -40 40 0 0 40 40 80 0 120 40"
     fill="none"
     stroke="#9C2D2A"
