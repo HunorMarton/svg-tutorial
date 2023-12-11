@@ -12,17 +12,16 @@ next:
   link: cubic-bezier
 ---
 
-The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve which not only needs an endpoint but also has a control point.
+The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve. We not only set the endpoint but we also have to set a control point.
 
-The control point is an invisible coordinate to which the line is bending to, but not touching it.
-
-In these next examples, we have a line that bends towards the control point represented by the circle. Note, that the control point and the circle have the same coordinates.
+The control point is an invisible coordinate to which the line is bending to, but not touching it. Look at this happy face! Here the invisible control point is at the middle of the bottom of the image (at `0,100`).
 
 <div class="grid-200">
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <path d="M -50,50 Q 0,-50 50,50" fill="none" stroke="red"  />
-    <circle cx="0" cy="-50" r="2" />
+    <circle cx="-50" cy="-50" r="20" />
+    <circle cx="50" cy="-50" r="20" />
+    <path d="M -70,50 Q 0,100 70,50" fill="none" stroke="black" stroke-width="10" stroke-linecap="round" />
   </svg>
 
 <!-- prettier-ignore -->
@@ -32,28 +31,29 @@ In these next examples, we have a line that bends towards the control point repr
   height="200"
   viewBox="-100 -100 200 200"
 >
+  <circle cx="-50" cy="-50" r="20" />
+  <circle cx="50" cy="-50" r="20" />
   <path 
     d="
-      M -50,50 
-      Q 0,-50 50,50" 
-    fill="none"
-    stroke="red"
-  />
-  <circle 
-    cx="0"
-    cy="-50"
-    r="2" 
+      M -70,50 
+      Q 0,100 70,50" 
+    fill="none" 
+    stroke="black" 
+    stroke-width="10" 
+    stroke-linecap="round" 
   />
 </svg>
 ```
 
 </div>
 
+In the example above the control point is at the same distance of the two endpoints. This is not necessary. In the example below we mark the control point with a circle. Note, that the control point and the circle have the same coordinates.
+
 <div class="grid-200">
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <path d="M -50,50 Q 50,-50 50,50" fill="none" stroke="red"  />
-    <circle cx="50" cy="-50" r="2" />
+    <path d="M -50,50 Q 50,-50 50,50" fill="none" stroke="black" stroke-width="5"  />
+    <circle cx="50" cy="-50" r="5" />
   </svg>
 
 <!-- prettier-ignore -->
@@ -68,12 +68,13 @@ In these next examples, we have a line that bends towards the control point repr
       M -50,50 
       Q 50,-50 50,50" 
     fill="none"
-    stroke="red"
+    stroke="black"
+    stroke-width="5"
   />
   <circle 
     cx="50"
     cy="-50"
-    r="2" 
+    r="5" 
   />
 </svg>
 ```
@@ -82,7 +83,7 @@ In these next examples, we have a line that bends towards the control point repr
 
 Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of Quadratic Béziers (select Quadratic Bézier at the top of the page).
 
-In the example, we have a series of quadratic beziers where the control points get further and further away from the center of the tree as the path goes down.
+In today's example, we have a series of quadratic beziers where the control points get further and further away from the center of the tree as the path goes down.
 
 <div class="code-flex">
 
