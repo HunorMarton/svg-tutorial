@@ -84,7 +84,77 @@ Then we continue and draw to more lines the same way. What is cool about paths, 
 
 </div>
 
-Then to get to our example for today, we can draw an arrow in a very similar way. We start with the same line in the middle, then we continue the line to draw the upper wing.
+Here's another example made with a move two command and two line to commands.
+
+<div class="grid-200">
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <path 
+    d="M -30 -20 L 0 10 L 30 -20"
+    fill="none"
+    stroke="black"
+    stroke-width="80"
+    stroke-linecap="round"/>
+</svg>
+
+<!-- prettier-ignore -->
+```html
+<svg
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <path
+    d="
+        M -30 -20 
+        L   0  10 
+        L  30 -20"
+    fill="none"
+    stroke="black"
+    stroke-width="80"
+    stroke-linecap="round"
+  />
+</svg>
+```
+
+</div>
+
+In the example above if we reduce the value of the `stroke-width` property, then we realize that the code above is actually a simple V shape.
+
+<div class="grid-200">
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <path 
+    d="M -30 -20 L 0 10 L 30 -20"
+    fill="none"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"/>
+</svg>
+
+<!-- prettier-ignore -->
+```html
+<svg
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <path
+    d="
+        M -30 -20 
+        L   0  10 
+        L  30 -20"
+    fill="none"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+</svg>
+```
+
+</div>
+
+Then to get to our example for today, we can draw an arrow in a very similar way. We start with a line in the middle, then we continue the line to draw the upper wing.
 
 <div class="grid-200">
 
