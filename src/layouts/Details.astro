@@ -1,73 +1,17 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 
-import Arrow from "../components/Arrow.astro";
-import Decoration from "../components/Decoration.astro";
-import Tree from "../components/Tree.astro";
-import Gingerbread from "../components/Gingerbread.astro";
-import House from "../components/House.astro";
-import DecorationWithClip from "../components/DecorationWithClip.astro";
-import Star from "../components/Star.astro";
-import Snowflake from "../components/Snowflake.astro";
-import Forest from "../components/Forest.astro";
-import DecorationWithGradient from "../components/DecorationWithGradient.astro";
-import Snowman from "../components/Snowman.astro";
-import ThreeWithCurves from "../components/ThreeWithCurves.astro";
-import Gift from "../components/Gift.astro";
-import Bell from "../components/Bell.astro";
-import Candy from "../components/Candy.astro";
-import Ribbon from "../components/Ribbon.astro";
-import Bear from "../components/Bear.astro";
-import Text from "../components/Text.astro";
-import Sled from "../components/Sled.astro";
-import RingingBell from "../components/RingingBell.astro";
-import Snowing from "../components/Snowing.astro";
-import Background from "../components/Background.astro";
-import Clock from "../components/Clock.astro";
-import Lights from "../components/Lights.astro";
-import Diagram from "../components/Diagram.astro";
-import SnowGlobe from "../components/SnowGlobe.astro";
-
 import Close from "../components/CloseButton.astro";
 import Markdown from "../components/Markdown.astro";
 import Share from "../components/ShareThisArticle.astro";
 import Next from "../components/Next.astro";
 import End from "../components/End.astro";
 
-const componentNamesObject = {
-  Arrow,
-  Decoration,
-  Tree,
-  Gingerbread,
-  House,
-  DecorationWithClip,
-  Star,
-  Snowflake,
-  Forest,
-  DecorationWithGradient,
-  Snowman,
-  ThreeWithCurves,
-  Gift,
-  Bell,
-  Candy,
-  Ribbon,
-  Bear,
-  Text,
-  Sled,
-  RingingBell,
-  Snowing,
-  Background,
-  Clock,
-  Lights,
-  Diagram,
-  SnowGlobe,
-};
-
 export interface Props {
   id: string;
   day: number;
   title: string;
-  component: string;
+  Component: any;
   description: string;
   previous?: {
     title: string;
@@ -79,11 +23,10 @@ export interface Props {
   };
 }
 
-const { id, day, title, component, description, previous, next } =
+const { id, day, title, Component, description, previous, next } =
   Astro.props as Props;
 
 const longTitle = `Day ${day}: ${title}`;
-const Component = componentNamesObject[component];
 ---
 
 <!DOCTYPE html>

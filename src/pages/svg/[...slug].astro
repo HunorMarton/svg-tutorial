@@ -2,6 +2,33 @@
 import { getCollection } from "astro:content";
 import DetailsLayout from "../../layouts/Details.astro";
 
+import Arrow from "../../components/Arrow.astro";
+import Decoration from "../../components/Decoration.astro";
+import Tree from "../../components/Tree.astro";
+import Gingerbread from "../../components/Gingerbread.astro";
+import House from "../../components/House.astro";
+import DecorationWithClip from "../../components/DecorationWithClip.astro";
+import Star from "../../components/Star.astro";
+import Snowflake from "../../components/Snowflake.astro";
+import Forest from "../../components/Forest.astro";
+import DecorationWithGradient from "../../components/DecorationWithGradient.astro";
+import Snowman from "../../components/Snowman.astro";
+import ThreeWithCurves from "../../components/ThreeWithCurves.astro";
+import Gift from "../../components/Gift.astro";
+import Bell from "../../components/Bell.astro";
+import Candy from "../../components/Candy.astro";
+import Ribbon from "../../components/Ribbon.astro";
+import Bear from "../../components/Bear.astro";
+import Text from "../../components/Text.astro";
+import Sled from "../../components/Sled.astro";
+import RingingBell from "../../components/RingingBell.astro";
+import Snowing from "../../components/Snowing.astro";
+import Background from "../../components/Background.astro";
+import Clock from "../../components/Clock.astro";
+import Lights from "../../components/Lights.astro";
+import Diagram from "../../components/Diagram.astro";
+import SnowGlobe from "../../components/SnowGlobe.astro";
+
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const entries = await getCollection("svg");
@@ -14,13 +41,45 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// 3. Look up component
+const componentNamesObject = {
+  Arrow,
+  Decoration,
+  Tree,
+  Gingerbread,
+  House,
+  DecorationWithClip,
+  Star,
+  Snowflake,
+  Forest,
+  DecorationWithGradient,
+  Snowman,
+  ThreeWithCurves,
+  Gift,
+  Bell,
+  Candy,
+  Ribbon,
+  Bear,
+  Text,
+  Sled,
+  RingingBell,
+  Snowing,
+  Background,
+  Clock,
+  Lights,
+  Diagram,
+  SnowGlobe,
+};
+
+const Component = componentNamesObject[entry.data.component];
 ---
 
 <DetailsLayout
   id={entry.data.id}
   day={entry.data.day}
   title={entry.data.title}
-  component={entry.data.component}
+  Component={Component}
   description={entry.data.description}
   previous={entry.data.previous}
   next={entry.data.next}
