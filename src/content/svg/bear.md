@@ -14,7 +14,7 @@ next:
 
 As the ultimate drawing challenge let's draw a bear.
 
-We start with the ears. These are two circles that both have the `fill` and the `stroke` attributes set. We also defined a class on the SVG element to set the background color. Note, that here we set the regular `background-color` CSS property and not the `fill` attribute. Fill works with shapes, but the SVG tag itself is not a shape.
+We start with the ears. These are two circles that both have the `fill` and the `stroke` attributes set. We also defined a class on the SVG element to set the background color. Note, that here we set the regular `background-color` CSS property and not the `fill` attribute. Fill works with shapes, but the SVG element itself is not a shape.
 
 <div class="grid-200-2">
 

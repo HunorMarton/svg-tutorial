@@ -12,7 +12,7 @@ next:
   link: transform
 ---
 
-Once we covered basic shapes, it's time to move on to the `path` element. The path is the most powerful SVG tag. We can define pretty much anything with paths and if you open any SVG file, you will mostly see paths.
+Once we covered basic shapes, it's time to move on to the `path` element. The path is the most powerful SVG element. We can define pretty much anything with paths and if you open any SVG file, you will mostly see paths.
 
 The shape of the path is defined by the `d` attribute. Here we define several drawing commands. A command always starts with a letter defining the command type and ends with a coordinate. Here we only have the two most basic commands, move-to and line-to. The move-to command moves the cursor to a point without drawing a line and the line-to command draws a straight line from the previous point. A command always continues the previous command. When we draw a line we only define the endpoint. The starting point will be the previous command’s endpoint.
 
@@ -84,7 +84,7 @@ Then we continue and draw to more lines the same way. What is cool about paths, 
 
 </div>
 
-Here's another example made with a move two command and two line to commands.
+Here's another example made with a move to command and two line to commands.
 
 <div class="grid-200">
 

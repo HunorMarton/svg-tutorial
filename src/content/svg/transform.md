@@ -45,7 +45,7 @@ First, let's define an arm. In this example, each arm consists of two polygons.
 
 </div>
 
-We can group them with a `g` tag and rotate them together. You can think of the `g` tag as the `div` tag in HTML. It can contain other elements and attributes defined on the group tag apply to its children.
+We can group them with a `g` element and rotate them together. You can think of the `g` element as the `div` element in HTML. It can contain other elements and attributes defined on the group element apply to its children.
 
 Then we `rotate` each arm into the correct position.
 

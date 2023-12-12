@@ -12,7 +12,7 @@ next:
   link: interaction
 ---
 
-SVG elements can be manipulated from JavaScript the same way as any other HTML tag. In this example, we are using a short code snipped to show the actual time on a clock. We access the hour and minute hands in JavaScript with `getElementById` then set their `transform` attribute with a rotation that reflects the current time.
+SVG elements can be manipulated from JavaScript the same way as any other HTML element. In this example, we are using a short code snipped to show the actual time on a clock. We access the hour and minute hands in JavaScript with `getElementById` then set their `transform` attribute with a rotation that reflects the current time.
 
 There’s another trick here worth mentioning. The dots here showing each hour are drawn as a dashed circle. This works similarly as we can set the `border-style` CSS property for regular HTML elements, but more sophisticated. In SVG we can fine-tune the length of each dash segment and the space in between with the `stroke-dasharray` property. We can also set an offset with `stroke-dashoffset`. That’s what we use here to show the dots for each hour.
 

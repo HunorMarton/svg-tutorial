@@ -9,7 +9,7 @@ next:
   link: polygon
 ---
 
-SVG has a similar syntax as HTML. They are both based on XML. Since HTML5 we can simply include the code of an SVG image inside an HTML file like below.
+SVG (Scalable Vector Graphics) has a similar syntax as HTML. They are both based on XML. Since HTML5 we can simply inline the code of an SVG image inside an HTML file like below.
 
 ```html
 <html>
@@ -26,7 +26,7 @@ In this tutorial series, we learn the foundations of the SVG syntax step by step
 
 ### Sizing an SVG
 
-Before we start drawing, we have to talk about the `svg` tag itself. The SVG element contains the image elements and defines the frame of our image. It sets the inner size and the outer size of the image.
+Before we start drawing, we have to talk about the `svg` element itself. The SVG element contains the image elements and defines the frame of our image. It sets the inner size and the outer size of the image.
 
 The `width` and `height` properties define how much space the image takes up in the browser. There's also a `viewBox` property that defines a coordinate system for the image elements. The first two values in viewBox define the top-left coordinate in the image and the last two define the size from the perspective of the image elements.
 
@@ -115,7 +115,7 @@ Note that now the center position of the circle is `0,0`.
 
 </div>
 
-SVGs often have an `xmlns` property as well. This, however – if the image is embedded in HTML – can be omitted.
+SVGs often have an `xmlns` property as well. This, however – if the image is inlined in HTML – can be omitted.
 
 ### How to draw a Christmas Ornament
 

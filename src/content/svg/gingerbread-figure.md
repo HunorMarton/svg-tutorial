@@ -14,7 +14,7 @@ next:
 
 ### Moving styling properties to CSS
 
-Since our SVG is living inside an HTML file now, we can assign CSS classes to each tag and move some of the attributes to CSS. We can only move the presentation attributes though. Position attributes and attributes that define the shapes have to stay in HTML. But colors, stroke, and font attributes can be moved to CSS.
+Since our SVG is living inside an HTML file now, we can assign CSS classes to each element and move some of the attributes to CSS. We can only move the presentation attributes though. Position attributes and attributes that define the shapes have to stay in HTML. But colors, stroke, and font attributes can be moved to CSS.
 
 <div class="grid-200-2">
 
