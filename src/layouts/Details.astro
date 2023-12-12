@@ -38,6 +38,12 @@ const longTitle = `Day ${day}: ${title}`;
     <meta name="generator" content={Astro.generator} />
     <title>{`${longTitle} - SVG Tutorial`}</title>
     <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="Hunor Márton Borbély" />
+    <meta
+      property="article:published_time"
+      content="2023-12-01T08:00:00+00:00"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:title" content={`${longTitle} - SVG Tutorial`} />
     <meta name="twitter:title" content={`${longTitle} - SVG Tutorial`} />
@@ -74,7 +80,7 @@ const longTitle = `Day ${day}: ${title}`;
         <Component size="1" id="big" />
       </div>
 
-      <div class="details">
+      <article>
         <h1>{longTitle}</h1>
         <div class="image-for-small-screen">
           <Component size="1" id="top" />
@@ -89,7 +95,7 @@ const longTitle = `Day ${day}: ${title}`;
         <Share id={id} title={title} />
         {next && <Next next={next} />}
         {!next && <End />}
-      </div>
+      </article>
 
       <Close />
     </div>
@@ -123,27 +129,36 @@ const longTitle = `Day ${day}: ${title}`;
         justify-content: center;
       }
 
-      .details {
-        overflow: scroll;
-        max-height: 100%;
-
-        padding: 40px;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-      }
-
       @media (min-width: 900px) {
         .detail-screen {
           grid-template-columns: 1.2fr minmax(500px, 2fr);
         }
       }
 
-      .details p,
-      .details h1,
+      article {
+        overflow: scroll;
+        max-height: 100%;
+
+        padding: 40px;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      article p,
+      article h1,
       .columns,
-      .details div:not(.code-flex) {
+      article div:not(.code-flex) {
         max-width: 550px;
+      }
+
+      @media (min-width: 900px) {
+        article h1 {
+          font-size: 2em;
+          margin-block-start: 0.83em;
+          margin-block-end: 0.83em;
+        }
       }
 
       @media (min-width: 1200px) {
@@ -152,7 +167,7 @@ const longTitle = `Day ${day}: ${title}`;
           height: calc(100% - 30px);
           border-radius: 10px;
         }
-        .details {
+        article {
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
         }
