@@ -1,9 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 
-import { Image } from "astro:assets";
-import gorillas from "../assets/Gorillas.jpeg";
-
 import Arrow from "../components/Arrow.astro";
 import Decoration from "../components/Decoration.astro";
 import Tree from "../components/Tree.astro";
@@ -30,6 +27,12 @@ import Clock from "../components/Clock.astro";
 import Lights from "../components/Lights.astro";
 import Diagram from "../components/Diagram.astro";
 import SnowGlobe from "../components/SnowGlobe.astro";
+
+import Close from "../components/CloseButton.astro";
+import Markdown from "../components/Markdown.astro";
+import Share from "../components/ShareThisArticle.astro";
+import Next from "../components/Next.astro";
+import End from "../components/End.astro";
 
 const componentNamesObject = {
   Arrow,
@@ -124,7 +127,7 @@ const Component = componentNamesObject[component];
 
   <body>
     <div class="detail-screen">
-      <a href=`/` class="close"></a>
+      <Close />
       <div class="image-for-big-screen">
         <Component size="1" id="big" />
       </div>
@@ -134,95 +137,16 @@ const Component = componentNamesObject[component];
         <div class="image-for-small-screen">
           <Component size="1" id="top" />
         </div>
-        <slot />
+        <Markdown>
+          <slot />
+        </Markdown>
         <div class="image-for-small-screen">
           <Component size="1" id="bottom" />
         </div>
 
-        <div class="center">
-          <a
-            class="twitter-share-button"
-            href={`https://twitter.com/intent/tweet?text=I just learned ${title} by @HunorBorbely: https://svg-tutorial.com/svg/${id}`}
-            target="_blank"
-            rel="noopener"
-          >
-            Share this Article</a
-          >
-        </div>
-
-        <nav>
-          {
-            next && (
-              <a href={`/svg/${next.link}`}>
-                <div>
-                  <div>Next</div>
-                  <div>{next.title}</div>
-                </div>
-                <svg width="32" height="32" viewBox="0 0 32 32">
-                  <path
-                    d="M2 16 L 30 16 L 20 6 M 30 16 L 20 26"
-                    fill="none"
-                    stroke="#333333"
-                    stroke-width="4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            )
-          }
-        </nav>
-
-        {
-          !next && (
-            <div class="end">
-              <h3>Congratulations!</h3>
-              <p>You reached the end of this tutorial series.</p>
-              <p>
-                <a
-                  href={`https://twitter.com/intent/tweet?text=I just learned how code SVGs in HTML by @HunorBorbely: https://svg-tutorial.com`}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Share this site
-                </a>{" "}
-                if you liked it and follow me{" "}
-                <a
-                  href="https://twitter.com/@HunorBorbely"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  @HunorBorbely
-                </a>
-                for more.
-              </p>
-              <p>
-                Also, check out my
-                <a
-                  href="https://www.youtube.com/@HunorMartonBorbely"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  YouTube Channel
-                </a>
-                where in the next video we are going to cover how to recreate
-                the classic game Gorillas with JavaScript and HTML Canvas.
-              </p>
-              <a
-                href="https://www.youtube.com/@HunorMartonBorbely"
-                target="_blank"
-                rel="noopener"
-              >
-                <Image
-                  src={gorillas}
-                  alt="Up Next on YouTube"
-                  width={550}
-                  quality={100}
-                />
-              </a>
-            </div>
-          )
-        }
+        <Share id={id} title={title} />
+        {next && <Next next={next} />}
+        {!next && <End />}
       </div>
     </div>
     <style is:global>
@@ -306,181 +230,6 @@ const Component = componentNamesObject[component];
         .image-for-small-screen {
           display: none;
         }
-      }
-
-      .close {
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: gray;
-        cursor: pointer;
-
-        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 100 100'><path d='M 30 30 L 70 70 M 30 70 L 70 30' stroke='white' stroke-width='10' /></svg>");
-      }
-
-      p {
-        line-height: 1.3em;
-        font-family: "Lato", sans-serif;
-      }
-
-      h3 {
-        margin-top: 2.5em;
-      }
-
-      ul {
-        max-width: 510px;
-      }
-
-      ul * {
-        margin-bottom: 0.7em;
-      }
-
-      code {
-        padding: 0 5px 2px;
-        background-color: lightgray;
-      }
-
-      pre {
-        color: white;
-        background-color: #333333;
-        padding: 2em;
-        border-radius: 5px;
-        overflow: scroll;
-        max-width: 100%;
-      }
-
-      pre code {
-        background-color: inherit;
-        padding: 0;
-      }
-
-      .grid-200 {
-        display: grid;
-        grid-template-columns: 202px 1fr;
-        align-items: center;
-        justify-content: center;
-        column-gap: 10px;
-        padding: 10px 0;
-      }
-
-      @media (max-width: 599px) {
-        .grid-200 {
-          display: flex;
-          flex-direction: column;
-        }
-        .grid-200 pre {
-          min-width: 250px;
-          max-width: 100%;
-        }
-      }
-
-      .grid-200 svg,
-      .grid-200-2 svg {
-        border: 1px dashed gray;
-      }
-
-      .grid-200-2 {
-        display: grid;
-        grid-template-columns: 202px 1fr;
-        grid-template-rows: auto auto;
-        align-items: center;
-        justify-content: center;
-        column-gap: 10px;
-        padding: 10px 0;
-      }
-
-      .grid-200-2 *:nth-child(1) {
-        grid-row: 1/3;
-      }
-
-      .grid-200-2 *:nth-child(3) {
-        grid-column: 2;
-      }
-
-      @media (max-width: 599px) {
-        .grid-200-2 {
-          display: flex;
-          flex-direction: column;
-          justify-items: center;
-        }
-        .grid-200-2 pre {
-          min-width: 250px;
-          max-width: 100%;
-        }
-      }
-
-      .center {
-        display: flex;
-        justify-content: center;
-      }
-
-      @media (max-width: 500px) {
-        .code-flex {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-        }
-
-        .code-flex pre {
-          width: 100%;
-        }
-      }
-
-      .twitter-share-button {
-        text-decoration: none;
-        padding: 20px;
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 50px;
-      }
-
-      nav a {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 20px;
-        text-decoration: none;
-        width: 100%;
-      }
-
-      nav a {
-        border-right: 4px solid lightgray;
-        padding: 20px 20px 20px 20px;
-        text-align: right;
-      }
-
-      .twitter-share-button:hover,
-      nav a:hover {
-        text-decoration: underline;
-      }
-
-      nav a > div {
-        line-height: 1.8em;
-      }
-
-      nav a > div > div:nth-child(2) {
-        font-weight: bold;
-        text-wrap: balance;
-      }
-
-      .end {
-        padding: 40px 0;
-        border-top: 4px solid lightgray;
-      }
-
-      .end a {
-        text-decoration: none;
-      }
-
-      .end img {
-        max-width: 100%;
-        height: auto;
       }
     </style>
   </body>

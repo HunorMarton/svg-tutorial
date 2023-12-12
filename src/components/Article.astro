@@ -1,0 +1,27 @@
+---
+export interface Props {
+  id: string;
+  title: string;
+  next?: {
+    title: string;
+    link: string;
+  };
+}
+
+const { id, title, next } = Astro.props as Props;
+---
+
+<div class="details">
+  <h1>{longTitle}</h1>
+  <div class="image-for-small-screen">
+    <Component size="1" id="top" />
+  </div>
+  <slot />
+  <div class="image-for-small-screen">
+    <Component size="1" id="bottom" />
+  </div>
+
+  <Share id={id} title={title} />
+  {next && <Next next={next} />}
+  {!next && <End />}
+</div>

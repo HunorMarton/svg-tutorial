@@ -1,0 +1,64 @@
+---
+export interface Props {
+  next: {
+    title: string;
+    link: string;
+  };
+}
+
+const { next } = Astro.props as Props;
+---
+
+<nav>
+  <a href={`/svg/${next.link}`}>
+    <div>
+      <div>Next</div>
+      <div>{next.title}</div>
+    </div>
+    <svg width="32" height="32" viewBox="0 0 32 32">
+      <path
+        d="M2 16 L 30 16 L 20 6 M 30 16 L 20 26"
+        fill="none"
+        stroke="#333333"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </a>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  nav a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  nav a {
+    border-right: 4px solid lightgray;
+    padding: 20px 20px 20px 20px;
+    text-align: right;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  nav a > div {
+    line-height: 1.8em;
+  }
+
+  nav a > div > div:nth-child(2) {
+    font-weight: bold;
+    text-wrap: balance;
+  }
+</style>

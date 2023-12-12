@@ -1,0 +1,30 @@
+---
+export interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props as Props;
+---
+
+<div class="center">
+  <a
+    class="twitter-share-button"
+    href={`https://twitter.com/intent/tweet?text=I just learned ${title} by @HunorBorbely: https://svg-tutorial.com/svg/${id}`}
+    target="_blank"
+    rel="noopener"
+  >
+    Share this Article</a
+  >
+</div>
+
+<style>
+  .twitter-share-button {
+    text-decoration: none;
+    padding: 20px;
+  }
+
+  .twitter-share-button:hover {
+    text-decoration: underline;
+  }
+</style>
