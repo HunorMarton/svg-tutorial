@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import TableOfContents from "../components/TableOfContents.astro";
+import Share from "../components/ShareThisSite.astro";
 const title = "SVG Tutorial - Learn how to code images in HTML with SVG";
 const description =
   "Learn the fundamentals of Scalable Vector Graphics (SVG) from the basics up to advanced concepts like animation and interactivity.";
@@ -66,6 +67,7 @@ const description =
           rel="noopener">Hunor Márton Borbély</a
         > in 2023
       </div>
+      <Share />
     </footer>
     <style is:global>
       @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
@@ -93,6 +95,7 @@ const description =
         padding: 20px 20px 50px 20px;
 
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 0.8em;
       }
 
       footer > * {
