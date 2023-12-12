@@ -76,21 +76,21 @@ const longTitle = `Day ${day}: ${title}`;
 
   <body>
     <div class="detail-screen">
-      <div class="image-for-big-screen">
+      <figure class="image-for-big-screen">
         <Component size="1" id="big" />
-      </div>
+      </figure>
 
       <article>
         <h1>{longTitle}</h1>
-        <div class="image-for-small-screen">
+        <figure class="image-for-small-screen">
           <Component size="1" id="top" />
-        </div>
+        </figure>
         <Markdown>
           <slot />
         </Markdown>
-        <div class="image-for-small-screen">
+        <figure class="image-for-small-screen">
           <Component size="1" id="bottom" />
-        </div>
+        </figure>
 
         <Share id={id} title={title} />
         {next && <Next next={next} />}
@@ -133,6 +133,11 @@ const longTitle = `Day ${day}: ${title}`;
         .detail-screen {
           grid-template-columns: 1.2fr minmax(500px, 2fr);
         }
+      }
+
+      figure {
+        margin: 0;
+        padding: 0;
       }
 
       article {
