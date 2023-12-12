@@ -70,25 +70,30 @@ const longTitle = `Day ${day}: ${title}`;
 
   <body>
     <div class="detail-screen">
-      <div class="image-for-big-screen">
-        <Component size="1" id="big" />
+      <div class="main-image-container">
+        <div class="image-for-big-screen">
+          <Component size="1" id="big" />
+        </div>
       </div>
 
       <div class="details">
-        <h1>{longTitle}</h1>
-        <div class="image-for-small-screen">
-          <Component size="1" id="top" />
-        </div>
-        <Markdown>
-          <slot />
-        </Markdown>
-        <div class="image-for-small-screen">
-          <Component size="1" id="bottom" />
-        </div>
+        <div></div>
+        <div>
+          <h1>{longTitle}</h1>
+          <div class="image-for-small-screen">
+            <Component size="1" id="top" />
+          </div>
+          <Markdown>
+            <slot />
+          </Markdown>
+          <div class="image-for-small-screen">
+            <Component size="1" id="bottom" />
+          </div>
 
-        <Share id={id} title={title} />
-        {next && <Next next={next} />}
-        {!next && <End />}
+          <Share id={id} title={title} />
+          {next && <Next next={next} />}
+          {!next && <End />}
+        </div>
       </div>
 
       <Close />
@@ -118,15 +123,21 @@ const longTitle = `Day ${day}: ${title}`;
         height: 100%;
         background-color: white;
         overflow: hidden;
+      }
 
-        display: grid;
-        justify-content: center;
+      .main-image-container {
+        position: absolute;
       }
 
       .details {
         overflow: scroll;
         max-height: 100%;
+      }
 
+      .main-image-container,
+      .details {
+        display: grid;
+        justify-content: center;
         padding: 40px;
         width: 100%;
         max-width: 100%;
@@ -134,15 +145,21 @@ const longTitle = `Day ${day}: ${title}`;
       }
 
       @media (min-width: 900px) {
-        .detail-screen {
+        .main-image-container,
+        .details {
           grid-template-columns: 1.2fr minmax(500px, 2fr);
         }
+      }
+
+      .details > div {
+        max-width: 100%;
+        overflow: hidden;
       }
 
       .details p,
       .details h1,
       .columns,
-      .details div:not(.code-flex) {
+      .details > div > div:not(.code-flex) {
         max-width: 550px;
       }
 
@@ -161,7 +178,6 @@ const longTitle = `Day ${day}: ${title}`;
       .image-for-big-screen {
         display: flex;
         justify-content: center;
-        align-items: center;
         padding: 50px 0 50px 0;
       }
 
