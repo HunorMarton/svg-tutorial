@@ -16,7 +16,15 @@ If you thought that <a href="/svg/cubic-bezier">cubic Béziers</a> are the most 
 
 ### The different parameters of an SVG arc
 
-The last two parameters (`40, 40`) are still the endpoint of the arc. Arcs have five extra parameters on top of that though. The first two defines a horizontal and vertical radius (`70, 70`). If we draw a circle, those two values are the same.
+The arc to command has 7 parameters.
+
+<div class="command">
+
+`A rx ry rotation large-arc-flag sweep-flag x y`
+
+</div>
+
+The last two parameters (`40, 40`) are still the endpoint of the arc. The first two defines a horizontal and vertical radius (`70, 70`). If we draw a circle, those two values are the same.
 
 <div class="grid-200">
 
