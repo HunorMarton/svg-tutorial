@@ -12,11 +12,11 @@ next:
   link: ribbon
 ---
 
-If you thought that cubic Béziers are the most complicated parts of an SVG then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.
+If you thought that <a href="/svg/cubic-bezier">cubic Béziers</a> are the most complicated parts of an SVG then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.
 
 ### The different parameters of an SVG arc
 
-The last two parameters are still the endpoint of the arc. Arcs have five extra parameters on top of that though. With the first two, we define a horizontal and vertical radius for the arc.
+The last two parameters (`40, 40`) are still the endpoint of the arc. Arcs have five extra parameters on top of that though. The first two defines a horizontal and vertical radius (`70, 70`). If we draw a circle, those two values are the same.
 
 <div class="grid-200">
 
@@ -51,7 +51,7 @@ The last two parameters are still the endpoint of the arc. Arcs have five extra 
 
 </div>
 
-You might realize, that even with the same starting point and endpoint, and the same radiuses, there are actually four different variations. The 5th argument is a boolean flag, that tells us if we want to flip the arc the other way.
+You might realize, that even with the same starting point and endpoint, and the same radiuses, there can be four different variations. The 5th argument is a boolean flag, and we can use it to flip the arc the other way (now it changed to `1`).
 
 <div class="grid-200">
 
@@ -86,7 +86,7 @@ You might realize, that even with the same starting point and endpoint, and the 
 
 </div>
 
-You might notice that in both cases, the arc ends up the shortest possible way with these parameters. It is also possible to go the long way and still keep the same start and endpoints, and the same radiuses. Then the 4th argument is another boolean flag that sets if we want to want to the long way. This also has two variations. You can mirror it, by flipping the 5th argument to the other value.
+You might notice that in both cases, the arc ends up the shortest possible way with these parameters. It is also possible to go the long way and still keep the same start and endpoints, and the same radiuses. Then the 4th argument is another boolean flag that sets if we want to want to go the long way (now we also chaned it to `1`). This also has two variations. You can mirror it, by flipping the 5th argument to the other value.
 
 <div class="grid-200">
 
@@ -121,7 +121,7 @@ You might notice that in both cases, the arc ends up the shortest possible way w
 
 </div>
 
-To complicate things even further, if we set the horizontal and vertical radiuses to two different values then we end up with an arc of an ellipse. Again, the same start and end points, and this also has 4 different variations.
+To complicate things even further, if we set the horizontal and vertical radiuses to two different values then we end up with an arc of an ellipse (`70, 40`). Again, the same start and end points, and this also has 4 different variations.
 
 <div class="grid-200">
 
@@ -156,7 +156,7 @@ To complicate things even further, if we set the horizontal and vertical radiuse
 
 </div>
 
-Finally, if we draw an ellipse we can also turn it by an angle. We can set this by the 3rd parameter. What makes things even more twisted, is that our imaginary ellipse is not rotated around its center, because this arc still has to maintain the same start and end points.
+Finally, if we draw an ellipse we can also turn it by an angle. We can set this by the 3rd parameter (`30`). What makes things even more twisted, is that our imaginary ellipse is not rotated around its center, because this arc still has to maintain the same start and end points. In case we draw a circle, the rotation does not affect the arc.
 
 <div class="grid-200">
 
@@ -195,7 +195,7 @@ Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank
 
 ### Drawing a candy
 
-Now after all these introductions we finally got to today's example. The good news is that we are only going to draw a simple arc in this one.
+Now after all these introductions we finally got to today's example. We are only going to draw a simple arc in this one.
 
 <div class="grid-200-2">
 
