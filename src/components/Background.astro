@@ -7,18 +7,26 @@ export interface Props {
 const { title, size } = Astro.props as Props;
 ---
 
-<div
-  class="background"
-  style={{ width: `${200 * size}px`, height: `${200 * size}px` }}
->
-</div>
+<div class:list={["background", { round: size < 1 }]}></div>
 
-<style>
+<style define:vars={{ size }}>
   .background {
-    display: inline-block;
-    border-radius: 10px;
+    display: block;
+
+    width: 100%;
+    height: calc(200px * var(--size));
 
     background-color: #38755b;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'%3E%3Cpolygon fill='%230c5c4c' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/%3E%3C/svg%3E");
+  }
+
+  .round {
+    border-radius: 10px;
+  }
+
+  @media (min-width: 900px) {
+    .background {
+      height: 100%;
+    }
   }
 </style>
