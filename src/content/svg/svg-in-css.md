@@ -1,9 +1,9 @@
 ---
 day: 21
-title: How to Create Background Patterns with SVG and CSS
+title: How to Inline SVG in CSS
 component: Background
-description: In this example we learn how to create background patterns with SVG and CSS.
-id: background-pattern
+description: In this example we learn how to Inline SVG in CSS, and how to create background patterns.
+id: svg-in-css
 previous:
   title: Snowing
   link: snowing

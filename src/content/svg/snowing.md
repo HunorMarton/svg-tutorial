@@ -8,8 +8,8 @@ previous:
   title: Animation on hover
   link: animation-on-hover
 next:
-  title: How to Create Background Patterns with SVG and CSS
-  link: background-pattern
+  title: How to Inline SVG in CSS
+  link: svg-in-css
 ---
 
 To continue our <a href="/svg/forest">forest example</a> we can add a snowing effect with a similar animation. We animate `transform` again, but this time we move many more elements.

@@ -5,8 +5,8 @@ component: Clock
 description: In this example we learn how to create a clock with SVG and JavaScript that shows the actual time.
 id: clock
 previous:
-  title: Background patterns
-  link: background-pattern
+  title: SVG in CSS
+  link: svg-in-css
 next:
   title: How to Add Interaction to SVG elements with JavaScript
   link: interaction
