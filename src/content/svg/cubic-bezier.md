@@ -130,19 +130,19 @@ Apart from the cubic Béziers the rest of this image is mainly just a few rectan
 ```
 
 ```css
-.gift .box {
+.box {
   fill: #d1495b;
   stroke: black;
   stroke-width: 2px;
 }
 
-.gift .stripe {
+.stripe {
   fill: white;
   stroke: black;
   stroke-width: 2px;
 }
 
-.gift .ribbon {
+.ribbon {
   stroke: #b73a3b;
   stroke-width: 4px;
   fill: none;
