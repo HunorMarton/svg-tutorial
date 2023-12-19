@@ -12,28 +12,65 @@ next:
   link: clock
 ---
 
-This example is a bit of an easter egg because we only have a regular HTML element in our document here. For any HTML element, you can set a `background-image` with CSS. For this CSS property, we usually provide a link to an image, but we can also inline one in CSS.
+In many cases an inlined SVG feels like a bit like noise in HTML. If we add an icon then the icon itself feels more like styling than content that should be part of the DOM structure itself. The good news is, we can move SVG images entirely into CSS.
 
-Normally you wouldn't do that, because you end up with something gibberish in your CSS. If we do that with an SVG though then it’s not that cryptic. This SVG code is still character-encoded, so that’s why you still see some weird parts. The pointy brackets and the hastag key have to be escaped here.
-
-<div class="code-flex">
+For example, let's take the close button on this page at the top right corner. In HTML the close button is simply an anchor element with a class:
 
 ```html
-<div class="background" />
+<a href="/" class="close"></a>
 ```
 
+Then in CSS we can set a `background-image` property. For this CSS property, we usually provide a link to an image, but we can also inline an SVG:
+
 ```css
-.background {
-  background-color: #38755b;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'%3E%3Cpolygon fill='%230c5c4c' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/%3E%3C/svg%3E");
+.close {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: gray;
+
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 100 100'><path d='M 30 30 L 70 70 M 30 70 L 70 30' stroke='white' stroke-width='10' /></svg>");
 }
+```
+
+The inlined SVG above is simply an X as follows (except that the `stroke` property is set to black in this case for visibility). The gray circle around it is made with CSS (by setting the `background-color` and the `border-radius` properties).
+
+<div class="grid-200">
+
+<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 100 100'>
+<path d='M 30 30 L 70 70 M 30 70 L 70 30' stroke='black' stroke-width='10' />
+</svg>
+
+<!-- prettier-ignore -->
+```html
+<svg 
+  xmlns='http://www.w3.org/2000/svg' 
+  width='50' 
+  height='50' 
+  viewBox='0 0 100 100'
+>
+  <path 
+    d='
+      M 30 30 
+      L 70 70 
+      M 30 70 
+      L 70 30'
+    stroke='black' 
+    stroke-width='10' 
+  />
+</svg>
 ```
 
 </div>
 
-If we look under the hood, this is the image we define in CSS. Because the `background-image` is repeating by default, we only have to define one tile. You might also note that this image doesn't even have a background color set. We also define that in CSS.
+When we inline an SVG in CSS, we need to set the XML namespace property. Earlier we inlined SVGs into HTML and in that case it's optional. In CSS we have to set the `xmlns` property.
 
-Also note, that because this image is not defined as part of the HTML document structure, we also need to set the `xmlns` property.
+### Background Patterns with SVG in CSS
+
+We can also use this technique to generate a background pattern. By default if the image we define in `background-image` is smaller than the element itself, then the image will repeat itself.
+
+In the main example for today we simply repeat the following SVG:
 
 <div class="grid-200">
 
@@ -61,5 +98,24 @@ Also note, that because this image is not defined as part of the HTML document s
 ```
 
 </div>
+
+In this example we encode some special characters in the inlined string. In the example below we encode the pointy brackets (`<` and `>`) and the `#` key in the color value to make sure it works in every browser. This makes it hard to read, but what we have here is still a simple SVG.
+
+<div class="code-flex">
+
+```html
+<div class="background" />
+```
+
+```css
+.background {
+  background-color: #38755b;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'%3E%3Cpolygon fill='%230c5c4c' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/%3E%3C/svg%3E");
+}
+```
+
+</div>
+
+You might also note that this SVG image doesn't even have a background color set. We set that in CSS.
 
 This is a great way to create background patterns with only a few lines of code in CSS. If you like this idea check out <a href="https://www.svgbackgrounds.com/" target="_blank" rel="noopener">svgbackgrounds.com</a> for a lot more great patterns.
