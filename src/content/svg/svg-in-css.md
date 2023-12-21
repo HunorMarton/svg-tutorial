@@ -74,25 +74,21 @@ In the main example for today we simply repeat the following SVG:
 
 <div class="grid-200">
 
-<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'><polygon fill='#0c5c4c' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/></svg>
+<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'><polyline fill="none" stroke="#0c5c4c" stroke-width="42.4" points="-30 0 60 90 150 0"/></svg>
 
 <!-- prettier-ignore -->
 ```html
 <svg 
   xmlns='http://www.w3.org/2000/svg' 
-  width="50"
-  height="50"
-  viewBox="0 0 120 120"
+  width='50'
+  height='50'
+  viewBox='0 0 120 120'
 >
-  <polygon 
-    fill="#0c5c4c"
-    points="
-      120 120 60 120 
-      90 90 120 60 
-      120 0 120 0 
-      60 60 0 0 
-      0 60 30 90 
-      60 120 120 120"
+  <polyline
+    fill='none'
+    stroke='#0c5c4c'
+    stroke-width='42.4'
+    points='-30 0 60 90 150 0'
   />
 </svg>
 ```
@@ -110,7 +106,7 @@ In this example we encode some special characters in the inlined string. In the 
 ```css
 .background {
   background-color: #38755b;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'%3E%3Cpolygon fill='%230c5c4c' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'%3E%3Cpolyline fill='none' stroke='%230c5c4c' stroke-width='42.4' points='-30 0 60 90 150 0' /%3E%3C/svg%3E");
 }
 ```
 
