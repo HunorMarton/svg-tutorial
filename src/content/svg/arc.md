@@ -248,7 +248,7 @@ Now after all these introductions we finally got to today's example. We are only
 
 </div>
 
-To draw a candy, we draw a thick line that consists of a straight line and a half circle. Then we draw the same line again, with a lightly thinner stroke width. By setting two different colors for them, they will look as if one is the border of the other.
+To draw a candy, we draw a thick line that consists of a straight line and a half circle. Then we draw the same line again, with a slightly thinner stroke width. By setting two different colors for them, they will look as if one is the border of the other.
 
 For the finishing touches, we add a few straight lines inside this shape as markings.
 
