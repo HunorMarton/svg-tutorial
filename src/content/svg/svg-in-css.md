@@ -12,7 +12,7 @@ next:
   link: clock
 ---
 
-In many cases, an inlined SVG feels like a bit of noise in HTML. If we add an icon then the icon itself feels more like styling than content that should be part of the DOM structure itself. The good news is, we can move SVG images entirely into CSS.
+In many cases, an inlined SVG feels like a bit of noise in HTML. If we add an icon then the icon itself feels more like styling than content that should be part of the DOM structure. The good news is, we can move SVG images entirely into CSS.
 
 For example, let's take the close button on this page at the top right corner. In HTML the close button is simply an anchor element with a class:
 
