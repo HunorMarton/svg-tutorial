@@ -272,13 +272,6 @@ declare module 'astro:content' {
   collection: "svg";
   data: any
 } & { render(): Render[".md"] };
-"gradient - old.md": {
-	id: "gradient - old.md";
-  slug: "gradient---old";
-  body: string;
-  collection: "svg";
-  data: any
-} & { render(): Render[".md"] };
 "gradient.md": {
 	id: "gradient.md";
   slug: "gradient";
