@@ -1,6 +1,6 @@
 ---
 day: 22
-title: How to Draw a Clock with SVG and JavaScript that Shows the Actual Time
+title: How to Draw a Clock with SVG and JavaScript
 component: Clock
 description: In this example we learn how to create a clock with SVG and JavaScript that shows the actual time.
 id: clock
