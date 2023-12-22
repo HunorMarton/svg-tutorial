@@ -14,18 +14,19 @@ let minuteRotation = (360 / 60) * minute;
 ---
 
 <script>
-  setTimeout(() => {
-    const hoursDOM = document.getElementById("hours") as SVGLineElement | null;
-    const minutesDom = document.getElementById(
-      "minutes"
-    ) as SVGLineElement | null;
-    if (!hoursDOM || !minutesDom) return; // TODO: is this possible? then cancel the timeout
-
+  function setTime() {
     const hour = new Date().getHours() % 12;
     const minute = new Date().getMinutes();
-    hoursDOM.setAttribute("transform", `rotate(${(360 / 12) * hour})`);
-    minutesDom.setAttribute("transform", `rotate(${(360 / 60) * minute})`);
-  }, 1000);
+
+    document.querySelectorAll(".hours").forEach((hourHandDOM) => {
+      hourHandDOM.setAttribute("transform", `rotate(${(360 / 12) * hour})`);
+    });
+    document.querySelectorAll(".minutes").forEach((minuteHandDOM) => {
+      minuteHandDOM.setAttribute("transform", `rotate(${(360 / 60) * minute})`);
+    });
+  }
+  setTime();
+  setTimeout(setTime, 10 * 1000);
 </script>
 
 <svg
@@ -47,12 +48,12 @@ let minuteRotation = (360 / 60) * minute;
     fill="none"></circle>
   <g stroke="#5f4c6c" stroke-linecap="round">
     <line
-      id="hours"
+      class="hours"
       y2="-20"
       stroke-width="8"
       transform={`rotate(${hourRotation})`}></line>
     <line
-      id="minutes"
+      class="minutes"
       y2="-35"
       stroke-width="6"
       transform={`rotate(${minuteRotation})`}></line>
