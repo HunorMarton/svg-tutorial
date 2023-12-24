@@ -47,7 +47,7 @@ We start with the front itself. Note that we not only have a class on the wall e
 
 </div>
 
-Then we add a roof on top of it. This is the only thing that is new here. We use a `polyline`. The difference between a polyline and a polygon is that a polygon will always close itself, and the polyline will stay open. Note that we are using the `stroke-linecap` property again as we did with <a href="/svg/gingerbread-figure">the gingerbread figure example</a>.
+Then we add a roof on top of it. This is the only thing that is new here. We use a `polyline`. The difference between a polyline and a polygon is that a polygon will always close itself, and the polyline will stay open. Note that we are using the `stroke-linecap` property again as we did with [the gingerbread figure example](/svg/gingerbread-figure).
 
 <div class="grid-200-2">
 

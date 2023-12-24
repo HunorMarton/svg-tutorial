@@ -12,7 +12,7 @@ next:
   link: ribbon
 ---
 
-If you thought that <a href="/svg/cubic-bezier">cubic Béziers</a> are the most complicated parts of an SVG then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.
+If you thought that [cubic Béziers](/svg/cubic-bezier) are the most complicated parts of an SVG then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.
 
 ### The different parameters of an SVG arc
 

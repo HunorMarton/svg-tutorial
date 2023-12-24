@@ -14,7 +14,7 @@ next:
 
 Instead of repeating the same code over and over again we can also create a definition for a shape and reuse it. Here we define a branch of a snowflake and then use it six times with different rotations.
 
-The branch is defined as a `path`. Earlier we already covered <a href="/svg/basic-path">how to draw basic paths</a>. Here we draw the branch in a similar way. We can draw a simple line – the main branch – by using the move to (`M`) and line to (`L`) commands:
+The branch is defined as a `path`. Earlier we already covered [how to draw basic paths](/svg/basic-path). Here we draw the branch in a similar way. We can draw a simple line – the main branch – by using the move to (`M`) and line to (`L`) commands:
 
 <div class="grid-200">
 
@@ -115,7 +115,7 @@ The finished branch would look like this:
 
 Then we can move the entire branch path into the `defs` section and reuse it multiple times with the `use` command the following way.
 
-Then we can move the individual branches to their correct position with the `transform` command in the same way as we did with <a href="/svg/transform/">the star example</a>.
+Then we can move the individual branches to their correct position with the `transform` command in the same way as we did with [the star example](/svg/transform).
 
 <div class="code-flex">
 

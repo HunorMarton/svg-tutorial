@@ -12,7 +12,7 @@ next:
   link: basic-path
 ---
 
-This ornament is the same as we drew on <a href="/svg/basic-shapes">the first day</a>, except it has a motif on its side defined as a polyline. By default, the polyline wouldn’t match the edge of the circle shape. Without clipping this motif would look like this:
+This ornament is the same as we drew on [the first day](/svg/basic-shapes), except it has a motif on its side defined as a polyline. By default, the polyline wouldn’t match the edge of the circle shape. Without clipping this motif would look like this:
 
 <div class="center">
   <svg width="200" height="200" viewBox="-100 -100 200 200">

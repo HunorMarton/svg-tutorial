@@ -81,7 +81,7 @@ Then we define a tree shape from a simple polygon and a line.
 
 </div>
 
-Then we can reuse it in a similar way as we did in <a href="/svg/path">the snowflake example</a>. We move it to the `defs` section, wrap it into a group element, set an ID for it, and then reuse it with the `use` element.
+Then we can reuse it in a similar way as we did in [the snowflake example](/svg/use). We move it to the `defs` section, wrap it into a group element, set an ID for it, and then reuse it with the `use` element.
 
 Here we also position the reused elements by setting an `x` and `y` coordinate and to add some perspective to the image we use the `scale` transformation.
 

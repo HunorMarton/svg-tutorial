@@ -84,4 +84,4 @@ You might notice that we define our polygons to start from the origin of the coo
 
 Because we have five arms, the bottom of the image is a bit shorter than the top of the image. To center the image, we can group the whole star together and use the `translate` transformation to move everything down by 5 units along the Y coordinates.
 
-In this example, we had to copy-paste the code for each arm over and over again. In <a href="/svg/use">the next example</a>, we will see how to reuse shapes.
+In this example, we had to copy-paste the code for each arm over and over again. In [the next example](/svg/use), we will see how to reuse shapes.

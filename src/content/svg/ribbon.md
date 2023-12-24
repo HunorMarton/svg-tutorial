@@ -12,7 +12,7 @@ next:
   link: bear
 ---
 
-After we learned about <a href="/svg/quadratic-bezier">quadratic Bézier curves</a> and <a href="/svg/cubic-bezier">cubic Bézier curves</a> let's do another practice round where we use both.
+After we learned about [quadratic Bézier curves](/svg/quadratic-bezier) and [cubic Bézier curves](/svg/cubic-bezier) let's do another practice round where we use both.
 
 We start with the right side of the ribbon with a quadratic Bézier curve. The dot represents the control point again.
 

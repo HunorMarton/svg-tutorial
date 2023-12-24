@@ -14,7 +14,7 @@ next:
 
 We can also set more traditional animations with CSS. Here we animate the `transform` property with keyframes. We can even trigger this effect on mouse hover.
 
-Here we are reusing <a href="/svg/bell">the bell example</a> we went through earlier, then adding a keyframe animation on `hover` on both the whole bell itself and the bell tongue.
+Here we are reusing [the bell example](/svg/bell) we went through earlier, then adding a keyframe animation on `hover` on both the whole bell itself and the bell tongue.
 
 <div class="code-flex">
 
