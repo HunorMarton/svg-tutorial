@@ -1,16 +1,16 @@
 ---
 export interface Props {
-  id: string;
+  slug: string;
   title: string;
 }
 
-const { id, title } = Astro.props as Props;
+const { slug, title } = Astro.props as Props;
 ---
 
 <div class="center">
   <a
     class="twitter-share-button"
-    href={`https://twitter.com/intent/tweet?text=I just learned ${title} by @HunorBorbely: https://svg-tutorial.com/svg/${id}`}
+    href={`https://twitter.com/intent/tweet?text=I just learned ${title} by @HunorBorbely: https://svg-tutorial.com/svg/${slug}`}
     target="_blank"
     rel="noopener"
   >

@@ -3,7 +3,6 @@ day: 9
 title: How to Draw a Forest with SVG
 component: Forest
 description: In this example we draw a Forest with SVG and learn how to reuse and transform image elements.
-id: forest # used for the 'Share this Article' link and preview image lookup
 previous:
   title: Paths
   link: path

@@ -3,7 +3,6 @@ day: 6
 title: How to Draw Basic Paths with SVG
 component: Arrow
 description: In this example we draw a hamburger menu icon and simple arrow and learn how to draw basic paths with SVG.
-id: basic-path # used for the 'Share this Article' link and preview image lookup
 previous:
   title: Clip-Path
   link: clip-path

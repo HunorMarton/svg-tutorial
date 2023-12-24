@@ -3,7 +3,6 @@ day: 21
 title: How to Inline SVG in CSS
 component: Background
 description: In this example we learn how to Inline SVG in CSS, and how to create background patterns.
-id: svg-in-css
 previous:
   title: Snowing
   link: snowing

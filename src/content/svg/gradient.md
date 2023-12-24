@@ -3,7 +3,6 @@ day: 10
 title: How to Use Gradients with SVG
 component: Snowman
 description: In this example we draw a Snowman with SVG and practice radial gradients.
-id: gradient
 previous:
   title: Forest
   link: forest

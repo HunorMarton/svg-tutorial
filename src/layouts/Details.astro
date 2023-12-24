@@ -8,7 +8,7 @@ import Next from "../components/Next.astro";
 import End from "../components/End.astro";
 
 export interface Props {
-  id: string;
+  slug: string;
   day: number;
   title: string;
   Component: any;
@@ -23,7 +23,7 @@ export interface Props {
   };
 }
 
-const { id, day, title, Component, description, previous, next } =
+const { slug, day, title, Component, description, previous, next } =
   Astro.props as Props;
 
 const longTitle = `Day ${day}: ${title}`;
@@ -54,8 +54,14 @@ const longTitle = `Day ${day}: ${title}`;
     <meta name="twitter:site" content="@HunorBorbely" />
     <meta name="twitter:creator" content="@HunorBorbely" />
 
-    <meta property="og:image" content={`https://svg-tutorial.com/${id}.png`} />
-    <meta name="twitter:image" content={`https://svg-tutorial.com/${id}.png`} />
+    <meta
+      property="og:image"
+      content={`https://svg-tutorial.com/${slug}.png`}
+    />
+    <meta
+      name="twitter:image"
+      content={`https://svg-tutorial.com/${slug}.png`}
+    />
     <meta property="og:url" content="svg-tutorial.com" />
     <script>
       import { webVitals } from "../lib/vitals";
@@ -92,7 +98,7 @@ const longTitle = `Day ${day}: ${title}`;
           <Component size="1" id="bottom" />
         </figure>
 
-        <Share id={id} title={title} />
+        <Share slug={slug} title={title} />
         {next && <Next next={next} />}
         {!next && <End />}
       </article>

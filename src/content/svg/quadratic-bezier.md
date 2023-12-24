@@ -3,7 +3,6 @@ day: 11
 title: How to Draw Quadratic Bézier Curves with SVG
 component: ThreeWithCurves
 description: In this example we draw a Tree with SVG and learn how to draw quadratic bézier curces.
-id: quadratic-bezier
 previous:
   title: Snowman
   link: snowman

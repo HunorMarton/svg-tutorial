@@ -3,7 +3,6 @@ day: 12
 title: How to Draw Cubic Bézier Curves with SVG
 component: Gift
 description: In this example we draw a Gift with SVG and learn how to draw cubic bézier curves.
-id: cubic-bezier
 previous:
   title: Quadratic Bézier
   link: quadratic-bezier

@@ -3,7 +3,6 @@ day: 5
 title: How to use clip-path with SVG
 component: DecorationWithClip
 description: In this example we draw a Christmas Ornament with a decorational motif on the side of it with SVG and learn how to clip-path.
-id: clip-path # used for the 'Share this Article' link and preview image lookup
 previous:
   title: House
   link: house

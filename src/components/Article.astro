@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  id: string;
+  slug: string;
   title: string;
   next?: {
     title: string;
@@ -8,7 +8,7 @@ export interface Props {
   };
 }
 
-const { id, title, next } = Astro.props as Props;
+const { slug, title, next } = Astro.props as Props;
 ---
 
 <div class="details">
@@ -21,7 +21,7 @@ const { id, title, next } = Astro.props as Props;
     <Component size="1" id="bottom" />
   </div>
 
-  <Share id={id} title={title} />
+  <Share slug={slug} title={title} />
   {next && <Next next={next} />}
   {!next && <End />}
 </div>
