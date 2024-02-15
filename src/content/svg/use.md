@@ -1,5 +1,5 @@
 ---
-day: 8
+day: 7
 title: How to reuse image elements with SVG
 component: Snowflake
 description: In this example we draw a Snowflake with SVG, learn how to draw basic paths and how to reuse image elements.
@@ -108,7 +108,9 @@ The finished branch would look like this:
 
 ### Reusing image elements
 
-Then we can move the entire branch path into the `defs` section and reuse it multiple times with the `use` command the following way.
+Then we can move the entire branch path into the `defs` section. The `defs` section is a hidden compartment of our image. Things here don't show up on the screen, but we can refer to them and use them later.
+
+Once we defined a branch, we can reuse it multiple times with the `use` command the following way.
 
 Then we can move the individual branches to their correct position with the `transform` command in the same way as we did with [the star example](/svg/transform).
 

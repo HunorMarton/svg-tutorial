@@ -1,5 +1,5 @@
 ---
-day: 6
+day: 9
 title: How to use clip-path with SVG
 component: DecorationWithClip
 description: In this example we draw a Christmas Ornament with a decorational motif on the side of it with SVG and learn how to clip-path.
@@ -28,7 +28,7 @@ This ornament is the same as we drew on [the first day](/svg/basic-shapes), exce
   </svg>
 </div>
 
-We use clip-path here to make sure that the motif fits perfectly on the ornament. The clip-path is defined in the definitions section. The `defs` section is a hidden compartment of our image. Things here don't show up on the screen, but we can refer to them and use them later.
+We use clip-path here to make sure that the motif fits perfectly on the ornament. The clip-path is defined in the definitions section.
 
 Here we define a `clipPath` with an ID. The content of this clip-path is a circle that matches the size of our ornament. Then we use it to clip the polyline, by setting its `clip-path` property.
 

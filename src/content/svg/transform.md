@@ -1,5 +1,5 @@
 ---
-day: 7
+day: 6
 title: How to use the transform property of SVG elements
 component: Star
 description: In this example we draw a Star with SVG and learn how to use the transform property.
