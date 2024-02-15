@@ -3,9 +3,6 @@ day: 17
 title: How to Draw Text Along a Path with SVG
 component: Text
 description: In this example we learn how draw a text along a path with SVG.
-next:
-  title: How to Animate Along a Path with SVG
-  link: path-based-animation
 ---
 
 Drawing shapes is not the only use case for paths. We can also use them to render text along an invisible path. We can define a path in the definitions section and use it in a `textPath` element to make the text go around the circle. Here we use arc again, but you can use any other path and the text will follow the stroke.

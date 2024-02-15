@@ -3,9 +3,6 @@ day: 20
 title: How to Animate a Snowing effect with SVG and CSS
 component: Snowing
 description: In this example we learn how to create a snowing animation with SVG and CSS.
-next:
-  title: How to Inline SVG in CSS
-  link: svg-in-css
 ---
 
 To continue our [forest example](/svg/forest) we can add a snowing effect with a similar animation. We animate `transform` again, but this time we move many more elements.

@@ -3,9 +3,6 @@ day: 16
 title: How to Draw a Bear with SVG
 component: Bear
 description: In this example we draw a Bear with SVG and practice all that we have learned so far.
-next:
-  title: How to Draw Text Along a Path with SVG
-  link: text-path
 ---
 
 As the ultimate drawing challenge let's draw a bear.

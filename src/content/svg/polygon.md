@@ -3,9 +3,6 @@ day: 2
 title: How to Build a Christmas Tree with SVG
 component: Tree
 description: In the second example we draw a Christmas Tree with SVG and learn how to use the polygon element.
-next:
-  title: How to Make a Gingerbread Figure with SVG
-  link: gingerbread-figure
 ---
 
 ### How to use the `polygon` element

@@ -2,10 +2,7 @@
 day: 11
 title: How to Draw Quadratic Bézier Curves with SVG
 component: ThreeWithCurves
-description: In this example we draw a Tree with SVG and learn how to draw quadratic bézier curces.
-next:
-  title: How to Draw Cubic Bézier Curves with SVG
-  link: cubic-bezier
+description: In this example we draw a Tree with SVG and learn how to draw quadratic bézier curves.
 ---
 
 The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve. We not only set the endpoint but we also have to set a control point.

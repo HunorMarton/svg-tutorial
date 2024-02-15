@@ -1,14 +1,11 @@
 ---
 day: 7
-title: How to Draw a Star with SVG
+title: How to use the transform property of SVG elements
 component: Star
 description: In this example we draw a Star with SVG and learn how to use the transform property.
-next:
-  title: How to reuse image elements with SVG
-  link: use
 ---
 
-### How to use the `transform` property of SVG elements
+### How to Draw a Star with SVG
 
 A star is a simple shape. We could define it as a bunch of polygons and set each point individually. But then we would need to know each coordinate. Instead of that, we can define just one arm, and then repeat it five times with a rotation to get the same shape. We will use the `transform` attribute to set a rotation.
 

@@ -3,9 +3,6 @@ day: 19
 title: How to Add Animation on Hover of an SVG element
 component: RingingBell
 description: In this example we learn how to animate an SVG bell on mouse hover with CSS.
-next:
-  title: How to Animate a Snowing effect with SVG and CSS
-  link: snowing
 ---
 
 We can also set more traditional animations with CSS. Here we animate the `transform` property with keyframes. We can even trigger this effect on mouse hover.

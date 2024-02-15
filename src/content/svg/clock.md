@@ -3,9 +3,6 @@ day: 22
 title: How to Draw a Clock with SVG and JavaScript
 component: Clock
 description: In this example we learn how to create a clock with SVG and JavaScript that shows the actual time.
-next:
-  title: How to Add Interaction to SVG elements with JavaScript
-  link: interaction
 ---
 
 SVG elements can be manipulated from JavaScript the same way as any other HTML element. In this example, we are using a short code snipped to show the actual time on a clock. We access the hour and minute hands in JavaScript with `getElementById` then set their `transform` attribute with a rotation that reflects the current time.

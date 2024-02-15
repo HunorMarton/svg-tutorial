@@ -187,16 +187,16 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		
-	};
-
-	type DataEntryMap = {
 		"svg": {
 };
 
 	};
 
+	type DataEntryMap = {
+		
+	};
+
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = never;
+	type ContentConfig = typeof import("../src/content/config");
 }

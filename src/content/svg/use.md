@@ -1,12 +1,11 @@
 ---
 day: 8
-title: How to Draw a Snowflake with SVG
+title: How to reuse image elements with SVG
 component: Snowflake
 description: In this example we draw a Snowflake with SVG, learn how to draw basic paths and how to reuse image elements.
-next:
-  title: How to Draw a Forest with SVG
-  link: forest
 ---
+
+### How to Draw a Snowflake with SVG
 
 Instead of repeating the same code over and over again we can also create a definition for a shape and reuse it. Here we define a branch of a snowflake and then use it six times with different rotations.
 

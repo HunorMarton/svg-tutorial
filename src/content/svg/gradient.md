@@ -3,9 +3,6 @@ day: 10
 title: How to Use Gradients with SVG
 component: Snowman
 description: In this example we draw a Snowman with SVG and practice radial gradients.
-next:
-  title: How to Draw Quadratic Bézier Curves with SVG
-  link: quadratic-bezier
 ---
 
 The filling of a shape can be defined as a gradient. Today add a subtle 3D effect to our Christmas decoration and build a snowman.

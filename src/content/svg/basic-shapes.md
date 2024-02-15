@@ -3,9 +3,6 @@ day: 1
 title: How to Draw Basic Shapes with SVG
 component: Decoration
 description: Learn how to draw basic shaped with SVG. In the first example we draw a Christmas Ornament with two circles and a rectangle element.
-next:
-  title: How to Build a Christmas Tree with SVG
-  link: polygon
 ---
 
 SVG (Scalable Vector Graphics) has a similar syntax as HTML. They are both based on XML. Since HTML5 we can simply inline the code of an SVG image inside an HTML file like below.

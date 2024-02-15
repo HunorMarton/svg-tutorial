@@ -3,9 +3,6 @@ day: 12
 title: How to Draw Cubic Bézier Curves with SVG
 component: Gift
 description: In this example we draw a Gift with SVG and learn how to draw cubic bézier curves.
-next:
-  title: How to Draw a Bell with SVG
-  link: bell
 ---
 
 While the quadratic Bézier is great when we want to bend a line, often it’s not flexible enough. With cubic Bézier, we not only have one control point but two. The first control point sets the initial direction of the curve and the second one defines from which direction should the curve arrive at its endpoint.

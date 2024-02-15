@@ -3,9 +3,6 @@ day: 14
 title: How to Draw an Arc with SVG
 component: Candy
 description: In this example we draw a Candy with SVG and learn how to use draw an arc.
-next:
-  title: How to Draw a Ribbon with SVG
-  link: ribbon
 ---
 
 If you thought that [cubic Béziers](/svg/cubic-bezier) are the most complicated parts of an SVG then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.

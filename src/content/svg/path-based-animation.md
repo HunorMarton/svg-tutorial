@@ -3,9 +3,6 @@ day: 18
 title: How to Animate Along a Path with SVG
 component: Sled
 description: In this example we learn how to animate a sled along a path.
-next:
-  title: How to Add Animation on Hover of an SVG element
-  link: animation-on-hover
 ---
 
 Another fun use of paths is to create animation paths. This method is not SVG only. We are using the `offset-path` CSS property here that works for any other HTML element as well. But if you check the value of this attribute, you see that we define a path the same way as we do for an SVG.

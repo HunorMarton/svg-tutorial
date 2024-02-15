@@ -3,9 +3,6 @@ day: 23
 title: How to Add Interaction to SVG elements with JavaScript
 component: Lights
 description: In this example we learn how to make an SVG image interactive with JavaScript.
-next:
-  title: How to Generate an SVG Diagram from JavaScript
-  link: data-driven-diagram
 ---
 
 We can not only manipulate an SVG from JavaScript but we can also assign event listeners to parts of an SVG. Here, by clicking the red button we switch on or off the lights. The possibilities are endless. You can even create a full-featured game with SVG and JavaScript.

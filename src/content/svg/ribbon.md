@@ -3,9 +3,6 @@ day: 15
 title: How to Draw a Ribbon with SVG
 component: Ribbon
 description: In this example we draw a Ribbon with SVG and practice quadratic and cubic bézier curves.
-next:
-  title: How to Draw a Bear with SVG
-  link: bear
 ---
 
 After we learned about [quadratic Bézier curves](/svg/quadratic-bezier) and [cubic Bézier curves](/svg/cubic-bezier) let's do another practice round where we use both.

@@ -1,19 +1,22 @@
 ---
+import { getCollection } from "astro:content";
+
 export interface Props {
-  next: {
-    title: string;
-    link: string;
-  };
+  day: number;
 }
 
-const { next } = Astro.props as Props;
+const { day } = Astro.props as Props;
+
+const entry = (await getCollection("svg")).find(
+  (entry) => entry.data.day === day
+);
 ---
 
 <nav>
-  <a href={`/svg/${next.link}`}>
+  <a href={`/svg/${entry.slug}`}>
     <div>
       <div>Next</div>
-      <div>{next.title}</div>
+      <div>{entry.data.title}</div>
     </div>
     <svg width="32" height="32" viewBox="0 0 32 32">
       <path

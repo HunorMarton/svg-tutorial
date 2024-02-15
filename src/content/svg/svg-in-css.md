@@ -3,9 +3,6 @@ day: 21
 title: How to Inline SVG in CSS
 component: Background
 description: In this example we learn how to Inline SVG in CSS, and how to create background patterns.
-next:
-  title: How to Draw a Clock that Shows the Actual Time with SVG and JavaScript
-  link: clock
 ---
 
 In many cases, an inlined SVG feels like a bit of noise in HTML. If we add an icon then the icon itself feels more like styling than content that should be part of the DOM structure. The good news is, we can move SVG images entirely into CSS.

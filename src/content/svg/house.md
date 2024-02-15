@@ -3,9 +3,6 @@ day: 4
 title: How to Build a House with SVG
 component: House
 description: In this example we draw a House with SVG. and learn how to use the polygon element. We practice using polygons, polylines, rectangles and circles to draw more complex shapes.
-next:
-  title: How to Draw Basic Paths with SVG
-  link: basic-path
 ---
 
 In this example, we combine everything we learned so far. We use circles, rectangles, lines, polylines, and polygons here.

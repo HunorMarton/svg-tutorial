@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import { ViewTransitions } from "astro:transitions";
 
 import Close from "../components/CloseButton.astro";
@@ -13,20 +14,14 @@ export interface Props {
   title: string;
   Component: any;
   description: string;
-  previous?: {
-    title: string;
-    link: string;
-  };
-  next?: {
-    title: string;
-    link: string;
-  };
 }
 
-const { slug, day, title, Component, description, previous, next } =
-  Astro.props as Props;
+const { slug, day, title, Component, description } = Astro.props as Props;
 
 const longTitle = `Day ${day}: ${title}`;
+
+const numberOfEntries = (await getCollection("svg")).length;
+const thereIsNext = day !== numberOfEntries;
 ---
 
 <!DOCTYPE html>
@@ -99,8 +94,8 @@ const longTitle = `Day ${day}: ${title}`;
         </figure>
 
         <Share slug={slug} title={title} />
-        {next && <Next next={next} />}
-        {!next && <End />}
+        {thereIsNext && <Next day={day + 1} />}
+        {!thereIsNext && <End />}
       </article>
 
       <Close />
