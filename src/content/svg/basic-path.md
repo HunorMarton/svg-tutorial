@@ -1,14 +1,11 @@
 ---
-day: 6
+day: 5
 title: How to Draw Basic Paths with SVG
 component: Arrow
 description: In this example we draw a hamburger menu icon and simple arrow and learn how to draw basic paths with SVG.
-previous:
-  title: Clip-Path
-  link: clip-path
 next:
-  title: How to use the transform property of SVG elements
-  link: transform
+  title: How to use clip-path with SVG
+  link: clip-path
 ---
 
 Once we covered basic shapes, it's time to move on to the `path` element. The path is the most powerful SVG element. We can define pretty much anything with paths and if you open any SVG file, you will mostly see paths.

@@ -3,9 +3,6 @@ day: 25
 title: How to Break Down an SVG Image into Multiple Components
 component: SnowGlobe
 description: In this example we learn how to break down more complex SVG images into multiple components.
-previous:
-  title: Data-driven-diagram
-  link: data-driven-diagram
 ---
 
 If you got this far then give yourself a well-deserved pat on the back as you just learned the basics of SVG with many cool use cases.

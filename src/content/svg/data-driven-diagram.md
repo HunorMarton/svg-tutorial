@@ -3,9 +3,6 @@ day: 24
 title: How to Generate an SVG Diagram from JavaScript
 component: Diagram
 description: In this example we learn how to draw a data driven SVG diagram with JavaScript.
-previous:
-  title: Interaction
-  link: interaction
 next:
   title: How to Break Down an SVG Image into Multiple Components
   link: multiple-components

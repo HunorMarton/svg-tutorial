@@ -3,9 +3,6 @@ day: 8
 title: How to Draw a Snowflake with SVG
 component: Snowflake
 description: In this example we draw a Snowflake with SVG, learn how to draw basic paths and how to reuse image elements.
-previous:
-  title: Transform
-  link: transform
 next:
   title: How to Draw a Forest with SVG
   link: forest

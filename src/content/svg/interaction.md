@@ -3,9 +3,6 @@ day: 23
 title: How to Add Interaction to SVG elements with JavaScript
 component: Lights
 description: In this example we learn how to make an SVG image interactive with JavaScript.
-previous:
-  title: Clock
-  link: clock
 next:
   title: How to Generate an SVG Diagram from JavaScript
   link: data-driven-diagram

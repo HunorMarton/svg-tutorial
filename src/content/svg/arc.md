@@ -3,9 +3,6 @@ day: 14
 title: How to Draw an Arc with SVG
 component: Candy
 description: In this example we draw a Candy with SVG and learn how to use draw an arc.
-previous:
-  title: Bell
-  link: bell
 next:
   title: How to Draw a Ribbon with SVG
   link: ribbon
