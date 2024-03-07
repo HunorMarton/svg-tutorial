@@ -194,7 +194,44 @@ Finally, if we draw an ellipse we can also turn it by an angle. We can set this 
 
 Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of arcs.
 
-### Drawing a candy
+### Drawing a Moon Icon
+
+After drawing a [Sun Icon](/svg/use) it's time to draw a Moon icon. You can also check out this [YouTube tutorial](https://youtu.be/GUSUA72t7p0) that covers this icon in more details.
+
+In this example, we draw a single path. We start with a move-to command to get to the starting position (upper corner). Then, we draw two arcs. We draw a longer arc to get down to the bottom corner and then return to the starting position with a shorter arc.
+
+<div class="grid-200">
+
+<svg width="200" height="200" viewBox="0 0 30 30">
+  <path
+    d="
+    M 23, 5
+    A 12 12 0 1 0 23, 25
+    A 12 12 0 0 1 23, 5"
+  />
+</svg>
+
+<!-- prettier-ignore -->
+```html
+<svg 
+  width="200"
+  height="200"
+  viewBox="0 0 30 30"
+>
+  <path
+    d="
+    M 23, 5
+    A 12 12 0 1 0 23, 25
+    A 12 12 0 0 1 23, 5"
+  />
+</svg>
+```
+
+</div>
+
+Note how these two arcs look very different despite using the same radiuses. The large arc flag and the sweep flag mirror each other. The first arc goes the long way between the two endpoints, and the second goes the short way. Note that the first one goes counterclockwise (as it goes down), and the second goes clockwise (as it goes up).
+
+### Drawing a Candy
 
 Now after all these introductions we finally got to today's example. We are only going to draw a simple arc in this one.
 

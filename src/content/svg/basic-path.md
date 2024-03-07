@@ -157,7 +157,7 @@ In the example above if we reduce the value of the `stroke-width` property, then
 
 Did you know you can put not only videos on full screen but any other web elements as well? Click the icon below to see how it works.
 
-How would you do the full-screen icon below?
+How would you do the full-screen icon below? Check out this [YouTube tutorial](https://youtu.be/jX3mIQdQQ2w?si=oisc74y6ouJp_JZf) to learn how.
 
 Hint: You can always right-click on an SVG in the browser, select Inspect, and check its source code.
 

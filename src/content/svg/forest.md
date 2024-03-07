@@ -74,9 +74,12 @@ Then we define a tree shape from a simple polygon and a line.
 
 </div>
 
-Then we can reuse it in a similar way as we did in [the snowflake example](/svg/use). We move it to the `defs` section, wrap it into a group element, set an ID for it, and then reuse it with the `use` element.
+This tree shape, however, shouldn't appear on the UI like this.
+We can hide it by moving the entire tree into the `defs` section. The `defs` section is a hidden compartment of our image. Things here don't show up on the screen, but we can refer to them and use them later.
 
-Here we also position the reused elements by setting an `x` and `y` coordinate and to add some perspective to the image we use the `scale` transformation.
+Then, we can reuse it similarly as in [the snowflake example](/svg/use). We wrap the two elements into a group, set an `id`, and then reuse it with the `use` element.
+
+Here, we also position the reused elements by setting an `x` and `y` coordinate, and we use the `scale` transformation to add some perspective to the image.
 
 <div class="code-flex">
 
