@@ -200,26 +200,6 @@ Click this icon to open this page in full screen
 </div>
 </div>
 
-<script>
-  const fullscreenButton = document.getElementById("fullscreen");
-  const enterFullscreen = document.getElementById("enter-fullscreen");
-  const exitFullscreen = document.getElementById("exit-fullscreen");
-
-  fullscreenButton.addEventListener('click', toggleFullscreen);
-
-  function toggleFullscreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-      enterFullscreen.setAttribute("stroke", "transparent");
-      exitFullscreen.setAttribute("stroke", "black");
-    } else {
-      document.exitFullscreen();
-      enterFullscreen.setAttribute("stroke", "black");
-      exitFullscreen.setAttribute("stroke", "transparent");
-    }
-  }
-</script>
-
 ### Arrow icon
 
 Then to get to our example for today, we can draw an arrow in a very similar way. We start with a line in the middle, then we continue the line to draw the upper wing.

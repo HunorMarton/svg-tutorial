@@ -1,5 +1,29 @@
 <slot />
 
+<script>
+  // Add any scripts that are needed by the MD files
+
+  // Start: basic-path.md
+  const fullscreenButton = document.getElementById("fullscreen");
+  const enterFullscreen = document.getElementById("enter-fullscreen");
+  const exitFullscreen = document.getElementById("exit-fullscreen");
+
+  fullscreenButton?.addEventListener("click", function () {
+    if (enterFullscreen && exitFullscreen) {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        enterFullscreen.setAttribute("stroke", "transparent");
+        exitFullscreen.setAttribute("stroke", "black");
+      } else {
+        document.exitFullscreen();
+        enterFullscreen.setAttribute("stroke", "black");
+        exitFullscreen.setAttribute("stroke", "transparent");
+      }
+    }
+  });
+  // End: basic-path.md
+</script>
+
 <style is:global>
   p {
     line-height: 1.3em;
