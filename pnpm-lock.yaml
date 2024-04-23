@@ -11,6 +11,12 @@ dependencies:
   '@astrojs/vercel':
     specifier: 7.5.3
     version: 7.5.3(astro@4.6.3)
+  '@fontsource/fredoka-one':
+    specifier: ^5.0.5
+    version: 5.0.5
+  '@fontsource/lato':
+    specifier: ^5.0.21
+    version: 5.0.21
   '@vercel/analytics':
     specifier: ^1.2.2
     version: 1.2.2
@@ -816,6 +822,14 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource/fredoka-one@5.0.5:
+    resolution: {integrity: sha512-cSpibxKqsrZCGJAisYkptDcr0O+gjk8h0RQxIqoiXEhXMaI2x7wc8Zyl6HyUUTTH5wHxi0tlM7zyQ4zwADVHiw==}
+    dev: false
+
+  /@fontsource/lato@5.0.21:
+    resolution: {integrity: sha512-UubLwvJO2bKuhWv6+ocx2Bou/pPIT6q7VpYaHIW7ZDaLPQY3uYAhveJg6P7Lvz5HYHyLba8JUc3yP7wvcqA8zQ==}
+    dev: false
 
   /@jridgewell/gen-mapping@0.3.5:
     resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}

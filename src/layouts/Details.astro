@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import "@fontsource/lato";
 
 import Close from "../components/CloseButton.astro";
 import Markdown from "../components/Markdown.astro";
@@ -100,9 +101,6 @@ const thereIsNext = day !== numberOfEntries;
       <Close />
     </div>
     <style is:global>
-      @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-
       html,
       body {
         height: 100%;
