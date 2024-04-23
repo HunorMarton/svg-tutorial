@@ -43,7 +43,9 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 // 3. Look up component
-const componentNamesObject = {
+const componentNamesObject: {
+  [key: string]: any;
+} = {
   Arrow,
   Decoration,
   Tree,
@@ -81,8 +83,6 @@ const Component = componentNamesObject[entry.data.component];
   title={entry.data.title}
   Component={Component}
   description={entry.data.description}
-  previous={entry.data.previous}
-  next={entry.data.next}
 >
   <Content />
 </DetailsLayout>

@@ -10,6 +10,8 @@ const { day } = Astro.props as Props;
 const entry = (await getCollection("svg")).find(
   (entry) => entry.data.day === day
 );
+
+if (!entry) return;
 ---
 
 <nav>

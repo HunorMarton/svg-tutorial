@@ -9,75 +9,13 @@ declare module 'astro:content' {
 }
 
 declare module 'astro:content' {
-	export { z } from 'astro/zod';
-
 	type Flatten<T> = T extends { [K: string]: infer U } ? U : never;
-	export type CollectionEntry<C extends keyof AnyEntryMap> = Flatten<AnyEntryMap[C]>;
 
-	// TODO: Remove this when having this fallback is no longer relevant. 2.3? 3.0? - erika, 2023-04-04
-	/**
-	 * @deprecated
-	 * `astro:content` no longer provide `image()`.
-	 *
-	 * Please use it through `schema`, like such:
-	 * ```ts
-	 * import { defineCollection, z } from "astro:content";
-	 *
-	 * defineCollection({
-	 *   schema: ({ image }) =>
-	 *     z.object({
-	 *       image: image(),
-	 *     }),
-	 * });
-	 * ```
-	 */
-	export const image: never;
+	export type CollectionKey = keyof AnyEntryMap;
+	export type CollectionEntry<C extends CollectionKey> = Flatten<AnyEntryMap[C]>;
 
-	// This needs to be in sync with ImageMetadata
-	export type ImageFunction = () => import('astro/zod').ZodObject<{
-		src: import('astro/zod').ZodString;
-		width: import('astro/zod').ZodNumber;
-		height: import('astro/zod').ZodNumber;
-		format: import('astro/zod').ZodUnion<
-			[
-				import('astro/zod').ZodLiteral<'png'>,
-				import('astro/zod').ZodLiteral<'jpg'>,
-				import('astro/zod').ZodLiteral<'jpeg'>,
-				import('astro/zod').ZodLiteral<'tiff'>,
-				import('astro/zod').ZodLiteral<'webp'>,
-				import('astro/zod').ZodLiteral<'gif'>,
-				import('astro/zod').ZodLiteral<'svg'>
-			]
-		>;
-	}>;
-
-	type BaseSchemaWithoutEffects =
-		| import('astro/zod').AnyZodObject
-		| import('astro/zod').ZodUnion<[BaseSchemaWithoutEffects, ...BaseSchemaWithoutEffects[]]>
-		| import('astro/zod').ZodDiscriminatedUnion<string, import('astro/zod').AnyZodObject[]>
-		| import('astro/zod').ZodIntersection<BaseSchemaWithoutEffects, BaseSchemaWithoutEffects>;
-
-	type BaseSchema =
-		| BaseSchemaWithoutEffects
-		| import('astro/zod').ZodEffects<BaseSchemaWithoutEffects>;
-
-	export type SchemaContext = { image: ImageFunction };
-
-	type DataCollectionConfig<S extends BaseSchema> = {
-		type: 'data';
-		schema?: S | ((context: SchemaContext) => S);
-	};
-
-	type ContentCollectionConfig<S extends BaseSchema> = {
-		type?: 'content';
-		schema?: S | ((context: SchemaContext) => S);
-	};
-
-	type CollectionConfig<S> = ContentCollectionConfig<S> | DataCollectionConfig<S>;
-
-	export function defineCollection<S extends BaseSchema>(
-		input: CollectionConfig<S>
-	): CollectionConfig<S>;
+	export type ContentCollectionKey = keyof ContentEntryMap;
+	export type DataCollectionKey = keyof DataEntryMap;
 
 	type AllValuesOf<T> = T extends any ? T[keyof T] : never;
 	type ValidContentEntrySlug<C extends keyof ContentEntryMap> = AllValuesOf<
@@ -86,7 +24,7 @@ declare module 'astro:content' {
 
 	export function getEntryBySlug<
 		C extends keyof ContentEntryMap,
-		E extends ValidContentEntrySlug<C> | (string & {})
+		E extends ValidContentEntrySlug<C> | (string & {}),
 	>(
 		collection: C,
 		// Note that this has to accept a regular string too, for SSR
@@ -111,7 +49,7 @@ declare module 'astro:content' {
 
 	export function getEntry<
 		C extends keyof ContentEntryMap,
-		E extends ValidContentEntrySlug<C> | (string & {})
+		E extends ValidContentEntrySlug<C> | (string & {}),
 	>(entry: {
 		collection: C;
 		slug: E;
@@ -120,7 +58,7 @@ declare module 'astro:content' {
 		: Promise<CollectionEntry<C> | undefined>;
 	export function getEntry<
 		C extends keyof DataEntryMap,
-		E extends keyof DataEntryMap[C] | (string & {})
+		E extends keyof DataEntryMap[C] | (string & {}),
 	>(entry: {
 		collection: C;
 		id: E;
@@ -129,7 +67,7 @@ declare module 'astro:content' {
 		: Promise<CollectionEntry<C> | undefined>;
 	export function getEntry<
 		C extends keyof ContentEntryMap,
-		E extends ValidContentEntrySlug<C> | (string & {})
+		E extends ValidContentEntrySlug<C> | (string & {}),
 	>(
 		collection: C,
 		slug: E
@@ -138,7 +76,7 @@ declare module 'astro:content' {
 		: Promise<CollectionEntry<C> | undefined>;
 	export function getEntry<
 		C extends keyof DataEntryMap,
-		E extends keyof DataEntryMap[C] | (string & {})
+		E extends keyof DataEntryMap[C] | (string & {}),
 	>(
 		collection: C,
 		id: E
@@ -168,11 +106,11 @@ declare module 'astro:content' {
 			? {
 					collection: C;
 					slug: ValidContentEntrySlug<C>;
-			  }
+				}
 			: {
 					collection: C;
 					id: keyof DataEntryMap[C];
-			  }
+				}
 	>;
 	// Allow generic `string` to avoid excessive type errors in the config
 	// if `dev` is not running to update as you edit.
@@ -188,6 +126,181 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"svg": {
+"animation-on-hover.md": {
+	id: "animation-on-hover.md";
+  slug: "animation-on-hover";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"arc.md": {
+	id: "arc.md";
+  slug: "arc";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"basic-path.md": {
+	id: "basic-path.md";
+  slug: "basic-path";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"basic-shapes.md": {
+	id: "basic-shapes.md";
+  slug: "basic-shapes";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"bear.md": {
+	id: "bear.md";
+  slug: "bear";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"bell.md": {
+	id: "bell.md";
+  slug: "bell";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"clip-path.md": {
+	id: "clip-path.md";
+  slug: "clip-path";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"clock.md": {
+	id: "clock.md";
+  slug: "clock";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"cubic-bezier.md": {
+	id: "cubic-bezier.md";
+  slug: "cubic-bezier";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"data-driven-diagram.md": {
+	id: "data-driven-diagram.md";
+  slug: "data-driven-diagram";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"forest.md": {
+	id: "forest.md";
+  slug: "forest";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"gingerbread-figure.md": {
+	id: "gingerbread-figure.md";
+  slug: "gingerbread-figure";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"gradient.md": {
+	id: "gradient.md";
+  slug: "gradient";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"house.md": {
+	id: "house.md";
+  slug: "house";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"interaction.md": {
+	id: "interaction.md";
+  slug: "interaction";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"multiple-components.md": {
+	id: "multiple-components.md";
+  slug: "multiple-components";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"path-based-animation.md": {
+	id: "path-based-animation.md";
+  slug: "path-based-animation";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"polygon.md": {
+	id: "polygon.md";
+  slug: "polygon";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"quadratic-bezier.md": {
+	id: "quadratic-bezier.md";
+  slug: "quadratic-bezier";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"ribbon.md": {
+	id: "ribbon.md";
+  slug: "ribbon";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"snowing.md": {
+	id: "snowing.md";
+  slug: "snowing";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"svg-in-css.md": {
+	id: "svg-in-css.md";
+  slug: "svg-in-css";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"text-path.md": {
+	id: "text-path.md";
+  slug: "text-path";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"transform.md": {
+	id: "transform.md";
+  slug: "transform";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
+"use.md": {
+	id: "use.md";
+  slug: "use";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".md"] };
 };
 
 	};
@@ -198,5 +311,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = typeof import("../src/content/config");
+	export type ContentConfig = typeof import("../src/content/config.js");
 }

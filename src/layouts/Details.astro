@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import { ViewTransitions } from "astro:transitions";
 
 import Close from "../components/CloseButton.astro";
 import Markdown from "../components/Markdown.astro";
@@ -24,7 +23,7 @@ const numberOfEntries = (await getCollection("svg")).length;
 const thereIsNext = day !== numberOfEntries;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />

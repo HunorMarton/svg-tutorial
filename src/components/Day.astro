@@ -13,13 +13,13 @@ const { day, Component, title, link } = Astro.props as Props;
   document.querySelectorAll(".day").forEach((element) => {
     element.addEventListener("mouseenter", (event) => {
       const target = event.currentTarget as HTMLElement;
-      target.style["z-index"] = 10;
+      target.style.zIndex = "10";
     });
     element.addEventListener("mouseleave", (event) => {
       const target = event.currentTarget as HTMLElement;
       // Add a delay to leave enough time for the door to close
       setTimeout(() => {
-        target.style["z-index"] = 1;
+        target.style.zIndex = "1";
       }, 1000);
     });
   });
