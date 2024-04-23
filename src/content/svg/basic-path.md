@@ -169,7 +169,7 @@ button {
 </style>
 
 <div style="display: flex; gap: 10px; align-items: center">
-<button id="fullscreen" onclick="toggleFullscreen()">
+<button id="fullscreen">
   <svg width="30" height="30">
     <path
       id="enter-fullscreen"
@@ -201,8 +201,11 @@ Click this icon to open this page in full screen
 </div>
 
 <script>
+  const fullscreenButton = document.getElementById("fullscreen");
   const enterFullscreen = document.getElementById("enter-fullscreen");
   const exitFullscreen = document.getElementById("exit-fullscreen");
+
+  fullscreenButton.addEventListener('click', toggleFullscreen);
 
   function toggleFullscreen() {
     if (!document.fullscreenElement) {
