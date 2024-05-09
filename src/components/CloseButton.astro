@@ -1,5 +1,14 @@
 <a href=`/` class="close"></a>
 
+<script>
+  document.addEventListener("astro:page-load", () => {
+    document.querySelector(".close")?.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.history.back();
+    });
+  });
+</script>
+
 <style>
   .close {
     position: absolute;
@@ -12,5 +21,9 @@
     cursor: pointer;
 
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 100 100'><path d='M 30 30 L 70 70 M 30 70 L 70 30' stroke='white' stroke-width='10' /></svg>");
+
+    &:hover {
+      background-color: rgb(108, 108, 108);
+    }
   }
 </style>
