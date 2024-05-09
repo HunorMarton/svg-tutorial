@@ -10,24 +10,26 @@ const { day, Component, title, link } = Astro.props as Props;
 ---
 
 <script>
-  document.querySelectorAll(".day").forEach((element) => {
-    element.addEventListener("mouseenter", (event) => {
-      const target = event.currentTarget as HTMLElement;
-      target.style.zIndex = "10";
-    });
-    element.addEventListener("mouseleave", (event) => {
-      const target = event.currentTarget as HTMLElement;
-      // Add a delay to leave enough time for the door to close
-      setTimeout(() => {
-        target.style.zIndex = "1";
-      }, 1000);
+  document.addEventListener("astro:page-load", () => {
+    document.querySelectorAll(".day").forEach((element) => {
+      element.addEventListener("mouseenter", (event) => {
+        const target = event.currentTarget as HTMLElement;
+        target.style.zIndex = "10";
+      });
+      element.addEventListener("mouseleave", (event) => {
+        const target = event.currentTarget as HTMLElement;
+        // Add a delay to leave enough time for the door to close
+        setTimeout(() => {
+          target.style.zIndex = "1";
+        }, 1000);
+      });
     });
   });
 </script>
 
 <a href=`/svg/${link}` id={`day-${day}`} class="day" title={title}>
   <Component title={title} size="0.6" />
-  <div class="title">{title}</div>
+  <div class="title" transition:name={`day-${day}`}>{title}</div>
   <div class="cover">{day}</div>
 </a>
 

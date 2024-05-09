@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { ViewTransitions } from "astro:transitions";
 import "@fontsource/lato";
 
 import Close from "../components/CloseButton.astro";
@@ -73,10 +74,12 @@ const thereIsNext = day !== numberOfEntries;
       }
       inject();
     </script>
+
+    <ViewTransitions />
   </head>
 
   <body>
-    <div class="detail-screen">
+    <div class="detail-screen" transition:name={`day-${day}`}>
       <figure class="image-for-big-screen">
         <Component size="1" id="big" />
       </figure>

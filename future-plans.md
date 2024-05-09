@@ -6,6 +6,6 @@
 - Arc: Add Jin-Jang to arc?
 - Add an example about foreignObject and replace Ribbon with (maybe a mobile frame with some HTML content)
 - Update text path thumbnail to something that follows the path
-- Fix view transitioning
 - Close on background click
 - Add windmill animation from Gorillas
+- When integrating svg-curves maybe take the scrolling from the left side of this: https://www.salesforce.com/eu/products/analytics/overview/

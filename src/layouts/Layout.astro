@@ -1,5 +1,6 @@
 ---
 import "@fontsource/fredoka-one";
+import { ViewTransitions } from "astro:transitions";
 
 import TableOfContents from "../components/TableOfContents.astro";
 import Share from "../components/ShareThisSite.astro";
@@ -46,6 +47,8 @@ const description =
       }
       inject();
     </script>
+
+    <ViewTransitions />
   </head>
   <body>
     <slot />

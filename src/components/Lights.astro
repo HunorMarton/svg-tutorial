@@ -58,28 +58,30 @@ const lightsOn = false;
 </svg>
 
 <script>
-  let lightsOn = false;
-  function eventHandler() {
-    const bulbs = document.querySelectorAll(".b");
-    console.log(bulbs);
-    bulbs[0]?.setAttribute("fill", lightsOn ? "white" : "#FFC05B");
-    bulbs[1]?.setAttribute("fill", lightsOn ? "white" : "#F86285");
-    bulbs[2]?.setAttribute("fill", lightsOn ? "white" : "#03A8A8");
-    bulbs[3]?.setAttribute("fill", lightsOn ? "white" : "#748CEF");
-    bulbs[4]?.setAttribute("fill", lightsOn ? "white" : "#FFC05B");
-    bulbs[5]?.setAttribute("fill", lightsOn ? "white" : "#F86285");
-    bulbs[6]?.setAttribute("fill", lightsOn ? "white" : "#03A8A8");
-    bulbs[7]?.setAttribute("fill", lightsOn ? "white" : "#748CEF");
-    bulbs[8]?.setAttribute("fill", lightsOn ? "white" : "#FFC05B");
-    bulbs[9]?.setAttribute("fill", lightsOn ? "white" : "#F86285");
-    bulbs[10]?.setAttribute("fill", lightsOn ? "white" : "#03A8A8");
-    bulbs[11]?.setAttribute("fill", lightsOn ? "white" : "#748CEF");
-    lightsOn = !lightsOn;
-  }
+  document.addEventListener("astro:page-load", () => {
+    let lightsOn = false;
+    function eventHandler() {
+      const bulbs = document.querySelectorAll(".b");
+      console.log(bulbs);
+      bulbs[0]?.setAttribute("fill", lightsOn ? "white" : "#FFC05B");
+      bulbs[1]?.setAttribute("fill", lightsOn ? "white" : "#F86285");
+      bulbs[2]?.setAttribute("fill", lightsOn ? "white" : "#03A8A8");
+      bulbs[3]?.setAttribute("fill", lightsOn ? "white" : "#748CEF");
+      bulbs[4]?.setAttribute("fill", lightsOn ? "white" : "#FFC05B");
+      bulbs[5]?.setAttribute("fill", lightsOn ? "white" : "#F86285");
+      bulbs[6]?.setAttribute("fill", lightsOn ? "white" : "#03A8A8");
+      bulbs[7]?.setAttribute("fill", lightsOn ? "white" : "#748CEF");
+      bulbs[8]?.setAttribute("fill", lightsOn ? "white" : "#FFC05B");
+      bulbs[9]?.setAttribute("fill", lightsOn ? "white" : "#F86285");
+      bulbs[10]?.setAttribute("fill", lightsOn ? "white" : "#03A8A8");
+      bulbs[11]?.setAttribute("fill", lightsOn ? "white" : "#748CEF");
+      lightsOn = !lightsOn;
+    }
 
-  document
-    .querySelectorAll(".button")
-    .forEach((button) => button.addEventListener("click", eventHandler));
+    document
+      .querySelectorAll(".button")
+      .forEach((button) => button.addEventListener("click", eventHandler));
+  });
 </script>
 
 <style>
