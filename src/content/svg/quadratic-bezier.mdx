@@ -6,6 +6,7 @@ description: In this example we draw a Tree with SVG and learn how to draw quadr
 ---
 
 import Example from "../../components/markdown/Example.astro";
+import Final from "../../components/markdown/Final.astro";
 
 The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve. We not only set the endpoint but we also have to set a control point.
 
@@ -80,7 +81,7 @@ Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank
 
 In today's example, we have a series of quadratic beziers where the control points get further and further away from the center of the tree as the path goes down.
 
-<div class="code-flex">
+<Final>
 
 ```html
 <svg width="200" height="400" viewBox="-100 -200 200 400">
@@ -117,7 +118,7 @@ In today's example, we have a series of quadratic beziers where the control poin
 </svg>
 ```
 
-</div>
+</Final>
 
 If we break down each quadratic bézier above into two line segments with the same coordinates, that would look like this:
 

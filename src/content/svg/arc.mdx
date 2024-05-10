@@ -5,8 +5,9 @@ component: Candy
 description: In this example we draw a Candy with SVG and learn how to use draw an arc.
 ---
 
-import Example from "../../components/markdown/Example.astro";
 import Command from "../../components/markdown/Command.astro";
+import Example from "../../components/markdown/Example.astro";
+import Final from "../../components/markdown/Final.astro";
 
 If you thought that [cubic Béziers](/svg/cubic-bezier) are the most complicated parts of an SVG then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.
 
@@ -285,7 +286,7 @@ To draw a candy, we draw a thick line that consists of a straight line and a hal
 
 For the finishing touches, we add a few straight lines inside this shape as markings.
 
-<div class="code-flex">
+<Final>
 
 ```html
 <svg width="200" height="400" viewBox="-100 -200 200 400">
@@ -337,4 +338,4 @@ For the finishing touches, we add a few straight lines inside this shape as mark
 }
 ```
 
-</div>
+</Final>

@@ -6,6 +6,7 @@ description: In this example we draw a Forest with SVG and learn how to reuse an
 ---
 
 import Example from "../../components/markdown/Example.astro";
+import Final from "../../components/markdown/Final.astro";
 
 Rotation is not the only way we can generate images from simple shapes. In this example, we define a tree shape and then place it at various positions in different sizes to draw a forest.
 
@@ -83,7 +84,7 @@ Then, we can reuse it similarly as in [the snowflake example](/svg/use). We wrap
 
 Here, we also position the reused elements by setting an `x` and `y` coordinate, and we use the `scale` transformation to add some perspective to the image.
 
-<div class="code-flex">
+<Final>
 
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -104,4 +105,4 @@ Here, we also position the reused elements by setting an `x` and `y` coordinate,
 </svg>
 ```
 
-</div>
+</Final>

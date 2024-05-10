@@ -6,6 +6,7 @@ description: In this example we draw a Star with SVG and learn how to use the tr
 ---
 
 import Example from "../../components/markdown/Example.astro";
+import Final from "../../components/markdown/Final.astro";
 
 ### How to Draw a Star with SVG
 
@@ -44,7 +45,7 @@ We can group them with a `g` element and rotate them together. You can think of 
 
 Then we `rotate` each arm into the correct position.
 
-<div class="code-flex">
+<Final>
 
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -73,7 +74,7 @@ Then we `rotate` each arm into the correct position.
 </svg>
 ```
 
-</div>
+</Final>
 
 You might notice that we define our polygons to start from the origin of the coordinate system (which is the center of the image). By default, the rotation is also around the origin of the coordinate system.
 

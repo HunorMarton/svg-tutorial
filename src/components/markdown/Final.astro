@@ -1,0 +1,17 @@
+<div class="markdown-final">
+  <slot />
+</div>
+
+<style>
+  @media (max-width: 500px) {
+    .markdown-final {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .markdown-final pre {
+      width: 100%;
+    }
+  }
+</style>

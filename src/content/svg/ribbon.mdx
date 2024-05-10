@@ -6,6 +6,7 @@ description: In this example we draw a Ribbon with SVG and practice quadratic an
 ---
 
 import Example from "../../components/markdown/Example.astro";
+import Final from "../../components/markdown/Final.astro";
 
 After we learned about [quadratic Bézier curves](/svg/quadratic-bezier) and [cubic Bézier curves](/svg/cubic-bezier) let's do another practice round where we use both.
 
@@ -182,7 +183,7 @@ Then we can move the whole shape into a reusable component and use it for both s
 
 We finish up the image by adding an `ellipse` element in the middle and a stroke for the rest.
 
-<div class="code-flex">
+<Final>
 
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -218,4 +219,4 @@ We finish up the image by adding an `ellipse` element in the middle and a stroke
 </svg>
 ```
 
-</div>
+</Final>

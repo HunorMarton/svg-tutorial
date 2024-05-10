@@ -6,6 +6,7 @@ description: In this example we learn how to Inline SVG in CSS, and how to creat
 ---
 
 import Example from "../../components/markdown/Example.astro";
+import Final from "../../components/markdown/Final.astro";
 
 In many cases, an inlined SVG feels like a bit of noise in HTML. If we add an icon then the icon itself feels more like styling than content that should be part of the DOM structure. The good news is, we can move SVG images entirely into CSS.
 
@@ -92,7 +93,7 @@ In the main example for today we simply repeat the following SVG:
 
 In this example we encode some special characters in the inlined string. In the example below we encode the pointy brackets (`<` and `>`) and the `#` key in the color value to make sure it works in every browser. This makes it hard to read, but what we have here is still a simple SVG.
 
-<div class="code-flex">
+<Final>
 
 ```html
 <div class="background" />
@@ -105,7 +106,7 @@ In this example we encode some special characters in the inlined string. In the 
 }
 ```
 
-</div>
+</Final>
 
 You might also note that this SVG image doesn't even have a background color set. We set that in CSS.
 

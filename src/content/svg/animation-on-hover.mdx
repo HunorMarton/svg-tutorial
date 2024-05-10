@@ -5,11 +5,13 @@ component: RingingBell
 description: In this example we learn how to animate an SVG bell on mouse hover with CSS.
 ---
 
+import Final from "../../components/markdown/Final.astro";
+
 We can also set more traditional animations with CSS. Here we animate the `transform` property with keyframes. We can even trigger this effect on mouse hover.
 
 Here we are reusing [the bell example](/svg/bell) we went through earlier, then adding a keyframe animation on `hover` on both the whole bell itself and the bell tongue.
 
-<div class="code-flex">
+<Final>
 
 ```html
 <svg class="bell" width="200" height="200" viewBox="-100 -100 200 200">
@@ -56,4 +58,4 @@ Here we are reusing [the bell example](/svg/bell) we went through earlier, then 
 }
 ```
 
-</div>
+</Final>

@@ -6,6 +6,7 @@ description: In this example we draw a Gift with SVG and learn how to draw cubic
 ---
 
 import Example from "../../components/markdown/Example.astro";
+import Final from "../../components/markdown/Final.astro";
 
 While the quadratic Bézier is great when we want to bend a line, often it’s not flexible enough. With cubic Bézier, we not only have one control point but two. The first control point sets the initial direction of the curve and the second one defines from which direction should the curve arrive at its endpoint.
 
@@ -94,7 +95,7 @@ In this example, the ribbon of the gift box uses a cubic Bezier that smoothly co
 
 Apart from the cubic Béziers the rest of this image is mainly just a few rectangles and a circle.
 
-<div class="code-flex">
+<Final>
 
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -144,4 +145,4 @@ Apart from the cubic Béziers the rest of this image is mainly just a few rectan
 }
 ```
 
-</div>
+</Final>

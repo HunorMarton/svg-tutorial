@@ -1,0 +1,48 @@
+---
+export interface Props {
+  title?: string;
+  size: number;
+}
+
+const { title, size } = Astro.props as Props;
+---
+
+<svg width="200" height="250" id="windmill">
+  <title>{title}</title>
+  <defs>
+    <path id="arm" d="M -7 -20 C -7 -10 7 -10 7 -20 L 2 -80 L -2 -80"></path>
+  </defs>
+  <g transform="translate(100, 100)">
+    <g id="windmill-head">
+      <circle r="8"></circle>
+      <use href="#arm"></use>
+      <use href="#arm" transform="rotate(+120)"></use>
+      <use href="#arm" transform="rotate(-120)"></use>
+    </g>
+  </g>
+  <path transform="translate(100, 0)" d="M -7 250 L 7 250 L 3 115 L -3 115"
+  ></path>
+</svg>
+
+<style>
+  #windmill {
+    fill: rgba(0, 0, 0, 0.5);
+    transform-origin: bottom;
+  }
+
+  #windmill-head {
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
