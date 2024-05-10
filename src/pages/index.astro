@@ -1,12 +1,214 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import App from "../components/App.astro";
+import Day from "../components/Day.astro";
+import Decoration from "../components/Decoration.astro";
+import Tree from "../components/Tree.astro";
+import Gingerbread from "../components/Gingerbread.astro";
+import House from "../components/House.astro";
+import Arrow from "../components/Arrow.astro";
+import Star from "../components/Star.astro";
+import Snowflake from "../components/Snowflake.astro";
+import Forest from "../components/Forest.astro";
+import DecorationWithClip from "../components/DecorationWithClip.astro";
+import Snowman from "../components/Snowman.astro";
+import ThreeWithCurves from "../components/ThreeWithCurves.astro";
+import Gift from "../components/Gift.astro";
+import Bell from "../components/Bell.astro";
+import Candy from "../components/Candy.astro";
+import Ribbon from "../components/Ribbon.astro";
+import Bear from "../components/Bear.astro";
+import Text from "../components/Text.astro";
+import Sled from "../components/Sled.astro";
+import RingingBell from "../components/RingingBell.astro";
+import Snowing from "../components/Snowing.astro";
+import Background from "../components/Background.astro";
+import Clock from "../components/Clock.astro";
+import Lights from "../components/Lights.astro";
+import Diagram from "../components/Diagram.astro";
+import SnowGlobe from "../components/SnowGlobe.astro";
 
 export const prerender = true;
 ---
 
 <Layout>
   <main>
-    <App />
+    <App>
+      <Day
+        day={1}
+        slot={`day-${1}`}
+        Component={Decoration}
+        link="basic-shapes"
+        title="How to Draw Basic Shapes with SVG"
+      />
+      <Day
+        day={2}
+        slot={`day-${2}`}
+        Component={Tree}
+        link="polygon"
+        title="How to Build a Christmas Tree with SVG"
+      />
+      <Day
+        day={3}
+        slot={`day-${3}`}
+        Component={Gingerbread}
+        link="gingerbread-figure"
+        title="How to Make a Gingerbread Figure with SVG"
+      />
+      <Day
+        day={4}
+        slot={`day-${4}`}
+        Component={House}
+        link="house"
+        title="How to Build a House with SVG"
+      />
+      <Day
+        day={5}
+        slot={`day-${5}`}
+        Component={Arrow}
+        link="basic-path"
+        title="How to Draw a Basic Path with SVG"
+      />
+      <Day
+        day={6}
+        slot={`day-${6}`}
+        Component={Star}
+        link="transform"
+        title="How to Draw a Star with SVG"
+      />
+      <Day
+        day={7}
+        slot={`day-${7}`}
+        Component={Snowflake}
+        link="use"
+        title="How to Draw a Snowflake with SVG"
+      />
+      <Day
+        day={8}
+        slot={`day-${8}`}
+        Component={Forest}
+        link="forest"
+        title="How to Draw a Forest with SVG"
+      />
+      <Day
+        day={9}
+        slot={`day-${9}`}
+        Component={DecorationWithClip}
+        link="clip-path"
+        title="How to use clip-path with SVG"
+      />
+      <Day
+        day={10}
+        slot={`day-${10}`}
+        Component={Snowman}
+        link="gradient"
+        title="How to Use Gradients with SVG"
+      />
+      <Day
+        day={11}
+        slot={`day-${11}`}
+        Component={ThreeWithCurves}
+        link="quadratic-bezier"
+        title="How to Draw Quadratic Bézier Curves with SVG"
+      />
+      <Day
+        day={12}
+        slot={`day-${12}`}
+        Component={Gift}
+        link="cubic-bezier"
+        title="How to Draw Cubic Bézier Curves with SVG"
+      />
+      <Day
+        day={13}
+        slot={`day-${13}`}
+        Component={Bell}
+        link="bell"
+        title="How to Draw a Bell with SVG"
+      />
+      <Day
+        day={14}
+        slot={`day-${14}`}
+        Component={Candy}
+        link="arc"
+        title="How to Draw an Arc with SVG"
+      />
+      <Day
+        day={15}
+        slot={`day-${15}`}
+        Component={Ribbon}
+        link="ribbon"
+        title="How to Draw a Ribbon with SVG"
+      />
+      <Day
+        day={16}
+        slot={`day-${16}`}
+        Component={Bear}
+        link="bear"
+        title="How to Draw a Bear with SVG"
+      />
+      <Day
+        day={17}
+        slot={`day-${17}`}
+        Component={Text}
+        link="text-path"
+        title="How to Draw Text Along a Path with SVG"
+      />
+      <Day
+        day={18}
+        slot={`day-${18}`}
+        Component={Sled}
+        link="path-based-animation"
+        title="How to Animate Along a Path with SVG"
+      />
+      <Day
+        day={19}
+        slot={`day-${19}`}
+        Component={RingingBell}
+        link="animation-on-hover"
+        title="How to Add Animation on Hover of an SVG element"
+      />
+      <Day
+        day={20}
+        slot={`day-${20}`}
+        Component={Snowing}
+        link="snowing"
+        title="How to Animate a Snowing effect with SVG and CSS"
+      />
+      <Day
+        day={21}
+        slot={`day-${21}`}
+        Component={Background}
+        link="svg-in-css"
+        title="How to Inline SVG in CSS"
+      />
+      <Day
+        day={22}
+        slot={`day-${22}`}
+        Component={Clock}
+        link="clock"
+        title="How to Draw a Clock with SVG and JavaScript that Shows the Actual Time"
+      />
+      <Day
+        day={23}
+        slot={`day-${23}`}
+        Component={Lights}
+        link="interaction"
+        title="How to Add Interaction to SVG elements with JavaScript"
+      />
+      <Day
+        day={24}
+        slot={`day-${24}`}
+        Component={Diagram}
+        link="data-driven-diagram"
+        title="How to Generate an SVG Diagram from JavaScript"
+      />
+      <Day
+        day={25}
+        slot={`day-${25}`}
+        Component={SnowGlobe}
+        link="multiple-components"
+        title="How to Break Down an SVG Image into Multiple Components"
+      />
+    </App>
   </main>
 </Layout>
