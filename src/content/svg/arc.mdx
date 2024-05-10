@@ -6,6 +6,7 @@ description: In this example we draw a Candy with SVG and learn how to use draw 
 ---
 
 import Example from "../../components/markdown/Example.astro";
+import Command from "../../components/markdown/Command.astro";
 
 If you thought that [cubic Béziers](/svg/cubic-bezier) are the most complicated parts of an SVG then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.
 
@@ -13,11 +14,11 @@ If you thought that [cubic Béziers](/svg/cubic-bezier) are the most complicated
 
 The arc to command has 7 parameters.
 
-<div class="command">
+<Command>
 
 `A rx ry rotation large-arc-flag sweep-flag x y`
 
-</div>
+</Command>
 
 The last two parameters (`40, 40`) are still the endpoint of the arc. The first two defines a horizontal and vertical radius (`70, 70`). If we draw a circle, those two values are the same.
 
