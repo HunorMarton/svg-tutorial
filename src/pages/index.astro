@@ -27,6 +27,7 @@ import Clock from "../components/Clock.astro";
 import Lights from "../components/Lights.astro";
 import Diagram from "../components/Diagram.astro";
 import SnowGlobe from "../components/SnowGlobe.astro";
+import Windmill from "../components/Windmill.astro";
 
 export const prerender = true;
 ---
@@ -79,30 +80,30 @@ export const prerender = true;
       <Day
         day={7}
         slot={`day-${7}`}
+        Component={Clock}
+        link="clock"
+        title="How to Draw a Clock with SVG and JavaScript that Shows the Actual Time"
+      />
+      <Day
+        day={8}
+        slot={`day-${8}`}
         Component={Snowflake}
         link="use"
         title="How to Draw a Snowflake with SVG"
       />
       <Day
-        day={8}
-        slot={`day-${8}`}
+        day={9}
+        slot={`day-${9}`}
         Component={Forest}
         link="forest"
         title="How to Draw a Forest with SVG"
       />
       <Day
-        day={9}
-        slot={`day-${9}`}
-        Component={DecorationWithClip}
-        link="clip-path"
-        title="How to use clip-path with SVG"
-      />
-      <Day
         day={10}
         slot={`day-${10}`}
-        Component={Snowman}
-        link="gradient"
-        title="How to Use Gradients with SVG"
+        Component={Windmill}
+        link="css-animation"
+        title="How to Animate an SVG with CSS"
       />
       <Day
         day={11}
@@ -184,9 +185,9 @@ export const prerender = true;
       <Day
         day={22}
         slot={`day-${22}`}
-        Component={Clock}
-        link="clock"
-        title="How to Draw a Clock with SVG and JavaScript that Shows the Actual Time"
+        Component={DecorationWithClip}
+        link="clip-path"
+        title="How to use clip-path with SVG"
       />
       <Day
         day={23}
@@ -209,6 +210,18 @@ export const prerender = true;
         link="multiple-components"
         title="How to Break Down an SVG Image into Multiple Components"
       />
+
+      {
+        /*
+        <Day
+          day={10}
+          slot={`day-${10}`}
+          Component={Snowman}
+          link="gradient"
+          title="How to Use Gradients with SVG"
+        />
+        */
+      }
     </App>
   </main>
 </Layout>

@@ -7,29 +7,26 @@ export interface Props {
 const { title, size } = Astro.props as Props;
 ---
 
-<svg width="200" height="250" id="windmill">
+<svg
+  width={200 * size}
+  height={400 * size}
+  viewBox="-100 -200 200 400"
+  fill="rgba(0, 0, 0, 0.5)"
+>
   <title>{title}</title>
-  <defs>
-    <path id="arm" d="M -7 -20 C -7 -10 7 -10 7 -20 L 2 -80 L -2 -80"></path>
-  </defs>
-  <g transform="translate(100, 100)">
+  <defs> </defs>
+  <g transform="translate(0, -50)">
     <g id="windmill-head">
       <circle r="8"></circle>
-      <use href="#arm"></use>
+      <path id="arm" d="M -7 -20 C -7 -10 7 -10 7 -20 L 2 -80 L -2 -80"></path>
       <use href="#arm" transform="rotate(+120)"></use>
       <use href="#arm" transform="rotate(-120)"></use>
     </g>
   </g>
-  <path transform="translate(100, 0)" d="M -7 250 L 7 250 L 3 115 L -3 115"
-  ></path>
+  <path d="M -7 100 L 7 100 L 3 -35 L -3 -35"></path>
 </svg>
 
 <style>
-  #windmill {
-    fill: rgba(0, 0, 0, 0.5);
-    transform-origin: bottom;
-  }
-
   #windmill-head {
     animation-name: rotate;
     animation-duration: 4s;
