@@ -5,6 +5,8 @@ component: Candy
 description: In this example we draw a Candy with SVG and learn how to use draw an arc.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 If you thought that [cubic Béziers](/svg/cubic-bezier) are the most complicated parts of an SVG then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.
 
 ### The different parameters of an SVG arc
@@ -19,7 +21,7 @@ The arc to command has 7 parameters.
 
 The last two parameters (`40, 40`) are still the endpoint of the arc. The first two defines a horizontal and vertical radius (`70, 70`). If we draw a circle, those two values are the same.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path 
@@ -32,7 +34,7 @@ The last two parameters (`40, 40`) are still the endpoint of the arc. The first 
     />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -50,11 +52,11 @@ The last two parameters (`40, 40`) are still the endpoint of the arc. The first 
 </svg>
 ```
 
-</div>
+</Example>
 
 You might realize, that even with the same starting point and endpoint, and the same radiuses, there can be four different variations. The 5th argument is a boolean flag, and we can use it to flip the arc the other way (now it changed to `1`).
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path 
@@ -67,7 +69,7 @@ You might realize, that even with the same starting point and endpoint, and the 
     />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -85,11 +87,11 @@ You might realize, that even with the same starting point and endpoint, and the 
 </svg>
 ```
 
-</div>
+</Example>
 
 You might notice that in both cases, the arc ends up the shortest possible way with these parameters. It is also possible to go the long way and still keep the same start and endpoints, and the same radiuses. Then the 4th argument is another boolean flag that sets if we want to want to go the long way (now we also chaned it to `1`). This also has two variations. You can mirror it, by flipping the 5th argument to the other value.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path 
@@ -102,7 +104,7 @@ You might notice that in both cases, the arc ends up the shortest possible way w
     />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -120,11 +122,11 @@ You might notice that in both cases, the arc ends up the shortest possible way w
 </svg>
 ```
 
-</div>
+</Example>
 
 To complicate things even further, if we set the horizontal and vertical radiuses to two different values then we end up with an arc of an ellipse (`70, 40`). Again, the same start and end points, and this also has 4 different variations.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path 
@@ -137,7 +139,7 @@ To complicate things even further, if we set the horizontal and vertical radiuse
     />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -155,11 +157,11 @@ To complicate things even further, if we set the horizontal and vertical radiuse
 </svg>
 ```
 
-</div>
+</Example>
 
 Finally, if we draw an ellipse we can also turn it by an angle. We can set this by the 3rd parameter (`30`). What makes things even more twisted, is that our imaginary ellipse is not rotated around its center, because this arc still has to maintain the same start and end points. In case we draw a circle, the rotation does not affect the arc.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path 
@@ -172,7 +174,7 @@ Finally, if we draw an ellipse we can also turn it by an angle. We can set this 
     />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -190,7 +192,7 @@ Finally, if we draw an ellipse we can also turn it by an angle. We can set this 
 </svg>
 ```
 
-</div>
+</Example>
 
 Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of arcs.
 
@@ -200,7 +202,7 @@ After drawing a [Sun Icon](/svg/use) it's time to draw a Moon icon. You can also
 
 In this example, we draw a single path. We start with a move-to command to get to the starting position (upper corner). Then, we draw two arcs. We draw a longer arc to get down to the bottom corner and then return to the starting position with a shorter arc.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="0 0 30 30">
   <path
@@ -211,7 +213,7 @@ In this example, we draw a single path. We start with a move-to command to get t
   />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -227,7 +229,7 @@ In this example, we draw a single path. We start with a move-to command to get t
 </svg>
 ```
 
-</div>
+</Example>
 
 Note how these two arcs look very different despite using the same radiuses. The large arc flag and the sweep flag mirror each other. The first arc goes the long way between the two endpoints, and the second goes the short way. Note that the first one goes counterclockwise (as it goes down), and the second goes clockwise (as it goes up).
 
@@ -235,7 +237,7 @@ Note how these two arcs look very different despite using the same radiuses. The
 
 Now after all these introductions we finally got to today's example. We are only going to draw a simple arc in this one.
 
-<div class="grid-200-2">
+<Example>
 
   <svg width="200" height="400" viewBox="-100 -200 200 400">
     <path 
@@ -250,7 +252,7 @@ Now after all these introductions we finally got to today's example. We are only
     />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -276,7 +278,7 @@ Now after all these introductions we finally got to today's example. We are only
 }
 ```
 
-</div>
+</Example>
 
 To draw a candy, we draw a thick line that consists of a straight line and a half circle. Then we draw the same line again, with a slightly thinner stroke width. By setting two different colors for them, they will look as if one is the border of the other.
 

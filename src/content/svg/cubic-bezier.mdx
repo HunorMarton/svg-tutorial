@@ -5,11 +5,13 @@ component: Gift
 description: In this example we draw a Gift with SVG and learn how to draw cubic bézier curves.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 While the quadratic Bézier is great when we want to bend a line, often it’s not flexible enough. With cubic Bézier, we not only have one control point but two. The first control point sets the initial direction of the curve and the second one defines from which direction should the curve arrive at its endpoint.
 
 Again, let's see an example, where the circles represent the control points.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path d="M -50,50 C -60,-50 60,-50 50,50" fill="none" stroke="red"  />
@@ -17,7 +19,7 @@ Again, let's see an example, where the circles represent the control points.
     <circle cx="50" cy="-50" r="2" />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -44,7 +46,7 @@ Again, let's see an example, where the circles represent the control points.
 </svg>
 ```
 
-</div>
+</Example>
 
 Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of Cubic Béziers (select Cubic Bézier at the top of the page).
 
@@ -52,7 +54,7 @@ Cubic Béziers are great when we want to continue the flow of a line. If the dir
 
 In this example, the ribbon of the gift box uses a cubic Bezier that smoothly continues the previous straight line and then turns back to the direction of the upcoming line.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path
@@ -67,7 +69,7 @@ In this example, the ribbon of the gift box uses a cubic Bezier that smoothly co
     <circle cx="50" cy="-20" r="2" />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -88,7 +90,7 @@ In this example, the ribbon of the gift box uses a cubic Bezier that smoothly co
 </svg>
 ```
 
-</div>
+</Example>
 
 Apart from the cubic Béziers the rest of this image is mainly just a few rectangles and a circle.
 

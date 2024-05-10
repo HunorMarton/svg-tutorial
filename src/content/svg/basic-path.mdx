@@ -5,6 +5,9 @@ component: Arrow
 description: In this example we draw a hamburger menu icon and simple arrow and learn how to draw basic paths with SVG.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+import Fullscreen from "../../components/ExampleFullscreen.astro";
+
 Once we covered basic shapes, it's time to move on to the `path` element. The path is the most powerful SVG element. We can define pretty much anything with paths and if you open any SVG file, you will mostly see paths.
 
 The shape of a path is defined by the `d` attribute. Here we define several drawing commands. A command always starts with a letter defining the command type and ends with a coordinate. 
@@ -15,7 +18,7 @@ Here we only have the two most basic commands, move-to and line-to. The move-to 
 
 Before we get to the arrow example, let's draw a simple hamburger menu icon. We draw three lines within the same path with the move-to (`M`) and line-to (`L`) commands. First, we move to the start of the top line (`M -40, -40`) and draw a line to its end (`L 40, -40`).
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <path 
@@ -25,7 +28,7 @@ Before we get to the arrow example, let's draw a simple hamburger menu icon. We 
     stroke-linecap="round" />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg
   width="200"
@@ -43,11 +46,11 @@ Before we get to the arrow example, let's draw a simple hamburger menu icon. We 
 </svg>
 ```
 
-</div>
+</Example>
 
 Then we continue and draw to more lines the same way. What is cool about paths, is that they don't have to be continuous. We can have several move-to commands within the same path. The commas between the X and Y coordinates are optional. We skip them this time.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <path 
@@ -57,7 +60,7 @@ Then we continue and draw to more lines the same way. What is cool about paths, 
     stroke-linecap="round" />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg
   width="200"
@@ -79,13 +82,13 @@ Then we continue and draw to more lines the same way. What is cool about paths, 
 </svg>
 ```
 
-</div>
+</Example>
 
 ### Heart shape icon
 
 Here's another example made with a move to command and two line to commands.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <path 
@@ -96,7 +99,7 @@ Here's another example made with a move to command and two line to commands.
     stroke-linecap="round"/>
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg
   width="200"
@@ -116,11 +119,11 @@ Here's another example made with a move to command and two line to commands.
 </svg>
 ```
 
-</div>
+</Example>
 
 In the example above if we reduce the value of the `stroke-width` property, then we realize that the code above is actually a simple V shape.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <path 
@@ -131,7 +134,7 @@ In the example above if we reduce the value of the `stroke-width` property, then
     stroke-linecap="round"/>
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg
   width="200"
@@ -151,7 +154,7 @@ In the example above if we reduce the value of the `stroke-width` property, then
 </svg>
 ```
 
-</div>
+</Example>
 
 ### Exercise: How would you do a full-screen icon?
 
@@ -161,50 +164,13 @@ How would you do the full-screen icon below? Check out this [YouTube tutorial](h
 
 Hint: You can always right-click on an SVG in the browser, select Inspect, and check its source code.
 
-<style>
-button {
-  all: unset;
-  cursor: pointer;
-}
-</style>
-
-<div style="display: flex; gap: 10px; align-items: center">
-<button id="fullscreen">
-  <svg width="30" height="30">
-    <path
-      id="enter-fullscreen"
-      stroke="black"
-      stroke-width="3"
-      fill="none"
-      d="
-        M 10, 2 L 2,2 L 2, 10
-        M 20, 2 L 28,2 L 28, 10
-        M 28, 20 L 28,28 L 20, 28
-        M 10, 28 L 2,28 L 2, 20"
-    />
-    <path
-      id="exit-fullscreen"
-      stroke="transparent"
-      stroke-width="3"
-      fill="none"
-      d="
-        M 10, 2 L 10,10 L 2, 10
-        M 20, 2 L 20,10 L 28, 10
-        M 28, 20 L 20,20 L 20, 28
-        M 10, 28 L 10,20 L 2, 20"
-    />
-  </svg>
-</button>
-<div>
-Click this icon to open this page in full screen
-</div>
-</div>
+<Fullscreen />
 
 ### Arrow icon
 
 Then to get to our example for today, we can draw an arrow in a very similar way. We start with a line in the middle, then we continue the line to draw the upper wing.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <path 
@@ -216,7 +182,7 @@ Then to get to our example for today, we can draw an arrow in a very similar way
     stroke-linejoin="round"/>
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg
   width="200"
@@ -237,11 +203,11 @@ Then to get to our example for today, we can draw an arrow in a very similar way
 </svg>
 ```
 
-</div>
+</Example>
 
 You might note that with the previous example, we also had a `stroke-linejoin` property to make the join rounded. It works in a similar way to `stroke-linecap` but that only affects the end of the lines. Without that property, the same line would look as follows.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <path 
@@ -252,7 +218,7 @@ You might note that with the previous example, we also had a `stroke-linejoin` p
     stroke-linecap="round"/>
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg
   width="200"
@@ -272,7 +238,7 @@ You might note that with the previous example, we also had a `stroke-linejoin` p
 </svg>
 ```
 
-</div>
+</Example>
 
 Then we can finish the line with moving to the end of the horizontal line again, and drawing a straight line downwards to draw the lower wing of the arrow. You might notice that at the bottom of this and other pages in the navigation button we include a similar SVG.
 

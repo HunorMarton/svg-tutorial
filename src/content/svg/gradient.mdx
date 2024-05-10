@@ -5,13 +5,15 @@ component: Snowman
 description: In this example we draw a Snowman with SVG and practice radial gradients.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 The filling of a shape can be defined as a gradient. Today add a subtle 3D effect to our Christmas decoration and build a snowman.
 
 ### Upgrade the Christmas Ornament
 
 Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-shapes).
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <circle cx="0" cy="20" r="70" fill="#D1495B" />
@@ -26,7 +28,7 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
   />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -57,13 +59,13 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
 </svg>
 ```
 
-</div>
+</Example>
 
 We can add a subtle 3D effect by filling the main circle with a gradient. Here we define a `radialGradient` in the `defs` section. It has a different syntax than CSS, but the capabilities are rather similar.
 
 We define its ID, center position with `cx` and `cy`, set its radian, and the stop colors. Then we can use it as an attribute for the `fill` property of a shape.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
@@ -85,7 +87,7 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
   <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
@@ -130,13 +132,13 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
 </svg>
 ```
 
-</div>
+</Example>
 
 ### Building a Snowman
 
 For the snowman we draw two circles with a similar gradient as follows.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200" style="background-color: lightblue">
   <defs>
@@ -149,7 +151,7 @@ For the snowman we draw two circles with a similar gradient as follows.
   <circle cx="0" cy="0" r="80" fill="url(#snowball0)" />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg
   width="200"
@@ -188,7 +190,7 @@ For the snowman we draw two circles with a similar gradient as follows.
 </svg>
 ```
 
-</div>
+</Example>
 
 Then we add a polygon for the nose, two circles for the eyes, and two lines for the arm. Simple.
 

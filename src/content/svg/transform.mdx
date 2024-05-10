@@ -5,20 +5,22 @@ component: Star
 description: In this example we draw a Star with SVG and learn how to use the transform property.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 ### How to Draw a Star with SVG
 
 A star is a simple shape. We could define it as a bunch of polygons and set each point individually. But then we would need to know each coordinate. Instead of that, we can define just one arm, and then repeat it five times with a rotation to get the same shape. We will use the `transform` attribute to set a rotation.
 
 First, let's define an arm. In this example, each arm consists of two polygons.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
     <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -36,7 +38,7 @@ First, let's define an arm. In this example, each arm consists of two polygons.
 </svg>
 ```
 
-</div>
+</Example>
 
 We can group them with a `g` element and rotate them together. You can think of the `g` element as the `div` element in HTML. It can contain other elements and attributes defined on the group element apply to its children.
 

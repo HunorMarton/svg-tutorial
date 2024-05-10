@@ -1,0 +1,38 @@
+<div class="markdown-example"><slot /></div>
+
+<style is:global>
+  .markdown-example {
+    display: grid;
+    grid-template-columns: 202px 1fr;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    padding: 10px 0;
+  }
+
+  .markdown-example:has(> *:nth-child(3)) {
+    & > *:nth-child(1) {
+      grid-row: 1/3;
+    }
+
+    & > *:nth-child(3) {
+      grid-column: 2;
+    }
+  }
+
+  .markdown-example svg {
+    border: 1px dashed gray;
+  }
+
+  @media (max-width: 599px) {
+    .markdown-example {
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+    }
+    .markdown-example pre {
+      min-width: 250px;
+      max-width: 100%;
+    }
+  }
+</style>

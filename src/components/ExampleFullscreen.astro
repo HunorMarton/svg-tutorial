@@ -1,0 +1,58 @@
+<div style="display: flex; gap: 10px; align-items: center">
+  <button id="fullscreen">
+    <svg width="30" height="30">
+      <path
+        id="enter-fullscreen"
+        stroke="black"
+        stroke-width="3"
+        fill="none"
+        d="
+            M 10, 2 L 2,2 L 2, 10
+            M 20, 2 L 28,2 L 28, 10
+            M 28, 20 L 28,28 L 20, 28
+            M 10, 28 L 2,28 L 2, 20"
+      ></path>
+      <path
+        id="exit-fullscreen"
+        stroke="transparent"
+        stroke-width="3"
+        fill="none"
+        d="
+            M 10, 2 L 10,10 L 2, 10
+            M 20, 2 L 20,10 L 28, 10
+            M 28, 20 L 20,20 L 20, 28
+            M 10, 28 L 10,20 L 2, 20"
+      ></path>
+    </svg>
+  </button>
+  <div>Click this icon to open this page in full screen</div>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const fullscreenButton = document.getElementById("fullscreen");
+    const enterFullscreen = document.getElementById("enter-fullscreen");
+    const exitFullscreen = document.getElementById("exit-fullscreen");
+
+    fullscreenButton?.addEventListener("click", function () {
+      if (enterFullscreen && exitFullscreen) {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+          enterFullscreen.setAttribute("stroke", "transparent");
+          exitFullscreen.setAttribute("stroke", "black");
+        } else {
+          document.exitFullscreen();
+          enterFullscreen.setAttribute("stroke", "black");
+          exitFullscreen.setAttribute("stroke", "transparent");
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+</style>

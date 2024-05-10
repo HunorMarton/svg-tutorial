@@ -5,18 +5,20 @@ component: Forest
 description: In this example we draw a Forest with SVG and learn how to reuse and transform image elements.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 Rotation is not the only way we can generate images from simple shapes. In this example, we define a tree shape and then place it at various positions in different sizes to draw a forest.
 
 First, we create a background out of a rectangle and a circle.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3" />
   <circle cx="0" cy="380" r="350" fill="#F8F4E8" />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg
   width="200"
@@ -39,18 +41,18 @@ First, we create a background out of a rectangle and a circle.
 </svg>
 ```
 
-</div>
+</Example>
 
 Then we define a tree shape from a simple polygon and a line.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <polygon points="-10,0 10,0 0 -50" fill="#38755b" />
   <line x1="0" y1="0" x2="0" y2="10" stroke="#778074" stroke-width="2" />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg
   width="200"
@@ -72,7 +74,7 @@ Then we define a tree shape from a simple polygon and a line.
 </svg>
 ```
 
-</div>
+</Example>
 
 This tree shape, however, shouldn't appear on the UI like this.
 We can hide it by moving the entire tree into the `defs` section. The `defs` section is a hidden compartment of our image. Things here don't show up on the screen, but we can refer to them and use them later.

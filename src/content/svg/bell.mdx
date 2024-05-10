@@ -5,11 +5,13 @@ component: Bell
 description: In this example we draw a Bell with SVG and practice drawing complex paths that combine quadratic and cubic bézier curves.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 Let’s have another example with cubic and quadratic beziers.
 
 Here the bottom of this bell is defined with straight lines.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2">
   <path
@@ -22,7 +24,7 @@ Here the bottom of this bell is defined with straight lines.
     />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -42,11 +44,11 @@ Here the bottom of this bell is defined with straight lines.
 </svg>
 ```
 
-</div>
+</Example>
 
 Then a quadratic Beziers starts the bell cloak.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2">
   <path
@@ -67,7 +69,7 @@ Then a quadratic Beziers starts the bell cloak.
   />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -88,11 +90,11 @@ Then a quadratic Beziers starts the bell cloak.
 </svg>
 ```
 
-</div>
+</Example>
 
 Then the line is continued with a cubic Bezier to form the top of the bell.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2">
   <path
@@ -121,7 +123,7 @@ Then the line is continued with a cubic Bezier to form the top of the bell.
   />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -143,11 +145,11 @@ Then the line is continued with a cubic Bezier to form the top of the bell.
 </svg>
 ```
 
-</div>
+</Example>
 
 Then we reach the bottom part with another quadratic bezier that mirrors the previous one.
 
-<div class="grid-200">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2">
   <path
@@ -170,7 +172,7 @@ Then we reach the bottom part with another quadratic bezier that mirrors the pre
   />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -193,7 +195,7 @@ Then we reach the bottom part with another quadratic bezier that mirrors the pre
 </svg>
 ```
 
-</div>
+</Example>
 
 We finish the bell, by adding two circles for the bell-clapper, and the hanger.
 

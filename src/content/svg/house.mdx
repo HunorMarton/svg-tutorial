@@ -5,17 +5,19 @@ component: House
 description: In this example we draw a House with SVG. and learn how to use the polygon element. We practice using polygons, polylines, rectangles and circles to draw more complex shapes.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 In this example, we combine everything we learned so far. We use circles, rectangles, lines, polylines, and polygons here.
 
 We start with the front itself. Note that we not only have a class on the wall element but on the whole SVG as well.
 
-<div class="grid-200-2">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2" fill="white">
 <polygon points="-65,80 -65,-10 0,-70 65,-10 65,80" />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   class="house"
@@ -38,17 +40,17 @@ We start with the front itself. Note that we not only have a class on the wall e
 }
 ```
 
-</div>
+</Example>
 
 Then we add a roof on top of it. This is the only thing that is new here. We use a `polyline`. The difference between a polyline and a polygon is that a polygon will always close itself, and the polyline will stay open. Note that we are using the `stroke-linecap` property again as we did with [the gingerbread figure example](/svg/gingerbread-figure).
 
-<div class="grid-200-2">
+<Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2" fill="white">
 <polyline class="roof" points="-75,-8 0,-78 75,-8" stroke="#d1495b" stroke-width="10" stroke-linecap="round" />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   class="house"
@@ -72,7 +74,7 @@ Then we add a roof on top of it. This is the only thing that is new here. We use
 }
 ```
 
-</div>
+</Example>
 
 Then we keep adding simple elements for the door, the windows, and the stairs. The final code for the image on the left will be as follows:
 

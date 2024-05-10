@@ -1,5 +1,15 @@
 declare module 'astro:content' {
 	interface Render {
+		'.mdx': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+		}>;
+	}
+}
+
+declare module 'astro:content' {
+	interface Render {
 		'.md': Promise<{
 			Content: import('astro').MarkdownInstance<{}>['Content'];
 			headings: import('astro').MarkdownHeading[];
@@ -126,181 +136,181 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"svg": {
-"animation-on-hover.md": {
-	id: "animation-on-hover.md";
+"animation-on-hover.mdx": {
+	id: "animation-on-hover.mdx";
   slug: "animation-on-hover";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"arc.md": {
-	id: "arc.md";
+} & { render(): Render[".mdx"] };
+"arc.mdx": {
+	id: "arc.mdx";
   slug: "arc";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"basic-path.md": {
-	id: "basic-path.md";
+} & { render(): Render[".mdx"] };
+"basic-path.mdx": {
+	id: "basic-path.mdx";
   slug: "basic-path";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"basic-shapes.md": {
-	id: "basic-shapes.md";
+} & { render(): Render[".mdx"] };
+"basic-shapes.mdx": {
+	id: "basic-shapes.mdx";
   slug: "basic-shapes";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"bear.md": {
-	id: "bear.md";
+} & { render(): Render[".mdx"] };
+"bear.mdx": {
+	id: "bear.mdx";
   slug: "bear";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"bell.md": {
-	id: "bell.md";
+} & { render(): Render[".mdx"] };
+"bell.mdx": {
+	id: "bell.mdx";
   slug: "bell";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"clip-path.md": {
-	id: "clip-path.md";
+} & { render(): Render[".mdx"] };
+"clip-path.mdx": {
+	id: "clip-path.mdx";
   slug: "clip-path";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"clock.md": {
-	id: "clock.md";
+} & { render(): Render[".mdx"] };
+"clock.mdx": {
+	id: "clock.mdx";
   slug: "clock";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"cubic-bezier.md": {
-	id: "cubic-bezier.md";
+} & { render(): Render[".mdx"] };
+"cubic-bezier.mdx": {
+	id: "cubic-bezier.mdx";
   slug: "cubic-bezier";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"data-driven-diagram.md": {
-	id: "data-driven-diagram.md";
+} & { render(): Render[".mdx"] };
+"data-driven-diagram.mdx": {
+	id: "data-driven-diagram.mdx";
   slug: "data-driven-diagram";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"forest.md": {
-	id: "forest.md";
+} & { render(): Render[".mdx"] };
+"forest.mdx": {
+	id: "forest.mdx";
   slug: "forest";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"gingerbread-figure.md": {
-	id: "gingerbread-figure.md";
+} & { render(): Render[".mdx"] };
+"gingerbread-figure.mdx": {
+	id: "gingerbread-figure.mdx";
   slug: "gingerbread-figure";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"gradient.md": {
-	id: "gradient.md";
+} & { render(): Render[".mdx"] };
+"gradient.mdx": {
+	id: "gradient.mdx";
   slug: "gradient";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"house.md": {
-	id: "house.md";
+} & { render(): Render[".mdx"] };
+"house.mdx": {
+	id: "house.mdx";
   slug: "house";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"interaction.md": {
-	id: "interaction.md";
+} & { render(): Render[".mdx"] };
+"interaction.mdx": {
+	id: "interaction.mdx";
   slug: "interaction";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"multiple-components.md": {
-	id: "multiple-components.md";
+} & { render(): Render[".mdx"] };
+"multiple-components.mdx": {
+	id: "multiple-components.mdx";
   slug: "multiple-components";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"path-based-animation.md": {
-	id: "path-based-animation.md";
+} & { render(): Render[".mdx"] };
+"path-based-animation.mdx": {
+	id: "path-based-animation.mdx";
   slug: "path-based-animation";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"polygon.md": {
-	id: "polygon.md";
+} & { render(): Render[".mdx"] };
+"polygon.mdx": {
+	id: "polygon.mdx";
   slug: "polygon";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"quadratic-bezier.md": {
-	id: "quadratic-bezier.md";
+} & { render(): Render[".mdx"] };
+"quadratic-bezier.mdx": {
+	id: "quadratic-bezier.mdx";
   slug: "quadratic-bezier";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"ribbon.md": {
-	id: "ribbon.md";
+} & { render(): Render[".mdx"] };
+"ribbon.mdx": {
+	id: "ribbon.mdx";
   slug: "ribbon";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"snowing.md": {
-	id: "snowing.md";
+} & { render(): Render[".mdx"] };
+"snowing.mdx": {
+	id: "snowing.mdx";
   slug: "snowing";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"svg-in-css.md": {
-	id: "svg-in-css.md";
+} & { render(): Render[".mdx"] };
+"svg-in-css.mdx": {
+	id: "svg-in-css.mdx";
   slug: "svg-in-css";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"text-path.md": {
-	id: "text-path.md";
+} & { render(): Render[".mdx"] };
+"text-path.mdx": {
+	id: "text-path.mdx";
   slug: "text-path";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"transform.md": {
-	id: "transform.md";
+} & { render(): Render[".mdx"] };
+"transform.mdx": {
+	id: "transform.mdx";
   slug: "transform";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
-"use.md": {
-	id: "use.md";
+} & { render(): Render[".mdx"] };
+"use.mdx": {
+	id: "use.mdx";
   slug: "use";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 };
 
 	};

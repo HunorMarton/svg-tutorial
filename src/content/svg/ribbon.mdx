@@ -5,11 +5,13 @@ component: Ribbon
 description: In this example we draw a Ribbon with SVG and practice quadratic and cubic bézier curves.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 After we learned about [quadratic Bézier curves](/svg/quadratic-bezier) and [cubic Bézier curves](/svg/cubic-bezier) let's do another practice round where we use both.
 
 We start with the right side of the ribbon with a quadratic Bézier curve. The dot represents the control point again.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path
@@ -25,7 +27,7 @@ We start with the right side of the ribbon with a quadratic Bézier curve. The d
     />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -41,11 +43,11 @@ We start with the right side of the ribbon with a quadratic Bézier curve. The d
 </svg>
 ```
 
-</div>
+</Example>
 
 Then we continue with a cubic Bézier.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path
@@ -67,7 +69,7 @@ Then we continue with a cubic Bézier.
     />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -84,11 +86,11 @@ Then we continue with a cubic Bézier.
 </svg>
 ```
 
-</div>
+</Example>
 
 And finish up with another quadratic cubic Bézier that mirrors the first one.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path
@@ -106,7 +108,7 @@ And finish up with another quadratic cubic Bézier that mirrors the first one.
     />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -124,11 +126,11 @@ And finish up with another quadratic cubic Bézier that mirrors the first one.
 </svg>
 ```
 
-</div>
+</Example>
 
 Then we can move the whole shape into a reusable component and use it for both sizes. Note that to mirror it to the left side we use negative scaling.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <defs>
@@ -149,7 +151,7 @@ Then we can move the whole shape into a reusable component and use it for both s
     />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -176,7 +178,7 @@ Then we can move the whole shape into a reusable component and use it for both s
 </svg>
 ```
 
-</div>
+</Example>
 
 We finish up the image by adding an `ellipse` element in the middle and a stroke for the rest.
 

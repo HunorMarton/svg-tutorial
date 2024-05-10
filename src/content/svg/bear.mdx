@@ -5,18 +5,20 @@ component: Bear
 description: In this example we draw a Bear with SVG and practice all that we have learned so far.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 As the ultimate drawing challenge let's draw a bear.
 
 We start with the ears. These are two circles that both have the `fill` and the `stroke` attributes set. We also defined a class on the SVG element to set the background color. Note, that here we set the regular `background-color` CSS property and not the `fill` attribute. Fill works with shapes, but the SVG element itself is not a shape.
 
-<div class="grid-200-2">
+<Example>
 
   <svg style="background-color: #f5eed7" width="200" height="200" viewBox="-100 -100 200 200">
     <circle cx="-40" cy="-50" r="18" fill="#E5C39C" stroke="white" stroke-width="5"/>
     <circle cx="40" cy="-50" r="18" fill="#E5C39C" stroke="white" stroke-width="5" />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   class="bear"
@@ -51,11 +53,11 @@ We start with the ears. These are two circles that both have the `fill` and the 
 }
 ```
 
-</div>
+</Example>
 
 Then let's add the face and the eyes. Here's another thing we haven't covered before. Earlier we saw that we can round rectangles with the `rx` property. We can be even more specific and set a different radius on the Y-axis with the `ry` property. If the latter is not set, it falls back to the other one.
 
-<div class="grid-200-2">
+<Example>
 
   <svg style="background-color: #f5eed7" width="200" height="200" viewBox="-100 -100 200 200">
     <rect x="-55" y="-60" width="110" height="120" fill="white" rx="50" ry="30" />
@@ -63,7 +65,7 @@ Then let's add the face and the eyes. Here's another thing we haven't covered be
     <circle cx="-20" cy="-30" r="3" />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   class="bear"
@@ -95,11 +97,11 @@ Then let's add the face and the eyes. Here's another thing we haven't covered be
 }
 ```
 
-</div>
+</Example>
 
 Finally, we can add the nose and the mouth as a few paths as follows.
 
-<div class="grid-200-2">
+<Example>
 
 <svg style="background-color: #f5eed7" width="200" height="200" viewBox="-100 -100 200 200">
   <path
@@ -130,7 +132,7 @@ Finally, we can add the nose and the mouth as a few paths as follows.
   />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   class="bear"
@@ -178,7 +180,7 @@ Finally, we can add the nose and the mouth as a few paths as follows.
 }
 ```
 
-</div>
+</Example>
 
 Once we put it all together we end up with the image on the left.
 

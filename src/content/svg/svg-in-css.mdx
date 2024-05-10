@@ -5,6 +5,8 @@ component: Background
 description: In this example we learn how to Inline SVG in CSS, and how to create background patterns.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 In many cases, an inlined SVG feels like a bit of noise in HTML. If we add an icon then the icon itself feels more like styling than content that should be part of the DOM structure. The good news is, we can move SVG images entirely into CSS.
 
 For example, let's take the close button on this page at the top right corner. In HTML the close button is simply an anchor element with a class:
@@ -29,13 +31,13 @@ Then in CSS we can set a `background-image` property. For this CSS property, we 
 
 The inlined SVG above is simply an X as follows (except that the `stroke` property is set to black in this case for visibility). The gray circle around it is made with CSS (by setting the `background-color` and the `border-radius` properties).
 
-<div class="grid-200">
+<Example>
 
 <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 100 100'>
 <path d='M 30 30 L 70 70 M 30 70 L 70 30' stroke='black' stroke-width='10' />
 </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   xmlns='http://www.w3.org/2000/svg' 
@@ -55,7 +57,7 @@ The inlined SVG above is simply an X as follows (except that the `stroke` proper
 </svg>
 ```
 
-</div>
+</Example>
 
 When we inline an SVG in CSS, we need to set the XML namespace property. Earlier we inlined SVGs into HTML and in that case it's optional. In CSS we have to set the `xmlns` property.
 
@@ -65,11 +67,11 @@ We can also use this technique to generate a background pattern. By default if t
 
 In the main example for today we simply repeat the following SVG:
 
-<div class="grid-200">
+<Example>
 
 <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'><polyline fill="none" stroke="#0c5c4c" stroke-width="42.4" points="-30 0 60 90 150 0"/></svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   xmlns='http://www.w3.org/2000/svg' 
@@ -86,7 +88,7 @@ In the main example for today we simply repeat the following SVG:
 </svg>
 ```
 
-</div>
+</Example>
 
 In this example we encode some special characters in the inlined string. In the example below we encode the pointy brackets (`<` and `>`) and the `#` key in the color value to make sure it works in every browser. This makes it hard to read, but what we have here is still a simple SVG.
 

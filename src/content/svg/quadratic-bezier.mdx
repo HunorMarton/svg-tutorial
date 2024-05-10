@@ -5,11 +5,13 @@ component: ThreeWithCurves
 description: In this example we draw a Tree with SVG and learn how to draw quadratic bézier curves.
 ---
 
+import Example from "../../components/MarkdownExample.astro";
+
 The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve. We not only set the endpoint but we also have to set a control point.
 
 The control point is an invisible coordinate to which the line is bending to, but not touching it. Look at this happy face! Here the invisible control point is at the middle of the bottom of the image (at `0,100`).
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <circle cx="-50" cy="-50" r="20" />
@@ -17,7 +19,7 @@ The control point is an invisible coordinate to which the line is bending to, bu
     <path d="M -70,50 Q 0,100 70,50" fill="none" stroke="black" stroke-width="10" stroke-linecap="round" />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -38,18 +40,18 @@ The control point is an invisible coordinate to which the line is bending to, bu
 </svg>
 ```
 
-</div>
+</Example>
 
 In the example above the control point is at the same distance of the two endpoints. This is not necessary. In the example below we mark the control point with a circle. Note, that the control point and the circle have the same coordinates.
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="200" viewBox="-100 -100 200 200">
     <path d="M -50,50 Q 50,-50 50,50" fill="none" stroke="black" stroke-width="5"  />
     <circle cx="50" cy="-50" r="5" />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -72,7 +74,7 @@ In the example above the control point is at the same distance of the two endpoi
 </svg>
 ```
 
-</div>
+</Example>
 
 Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of Quadratic Béziers (select Quadratic Bézier at the top of the page).
 
@@ -119,7 +121,7 @@ In today's example, we have a series of quadratic beziers where the control poin
 
 If we break down each quadratic bézier above into two line segments with the same coordinates, that would look like this:
 
-<div class="grid-200">
+<Example>
 
   <svg width="200" height="400" viewBox="-100 -200 200 400">
     <path d="
@@ -149,7 +151,7 @@ If we break down each quadratic bézier above into two line segments with the sa
       L -20 140" fill="none" stroke="black"  />
   </svg>
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```html
 <svg 
   width="200"
@@ -188,4 +190,4 @@ If we break down each quadratic bézier above into two line segments with the sa
 </svg>
 ```
 
-</div>
+</Example>
