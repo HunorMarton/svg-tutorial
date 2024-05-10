@@ -1,14 +1,5 @@
 <a href=`/` class="close"></a>
 
-<script>
-  document.addEventListener("astro:page-load", () => {
-    document.querySelector(".close")?.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.history.back();
-    });
-  });
-</script>
-
 <style>
   .close {
     position: absolute;

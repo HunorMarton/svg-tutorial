@@ -192,6 +192,13 @@ declare module 'astro:content' {
   collection: "svg";
   data: InferEntrySchema<"svg">
 } & { render(): Render[".mdx"] };
+"css-animation.mdx": {
+	id: "css-animation.mdx";
+  slug: "css-animation";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
 "cubic-bezier.mdx": {
 	id: "cubic-bezier.mdx";
   slug: "cubic-bezier";
