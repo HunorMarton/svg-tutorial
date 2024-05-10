@@ -6,11 +6,13 @@ import { defineConfig } from "astro/config";
 // Or a completely static build
 import vercel from "@astrojs/vercel/static";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   output: "static",
   adapter: vercel({
-    imageService: true,
+    imageService: true
   }),
-  integrations: [],
+  integrations: [mdx()]
 });

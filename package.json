@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.6.0",
+    "@astrojs/mdx": "^3.0.0",
     "@astrojs/vercel": "7.6.0",
     "@fontsource/fredoka-one": "^5.0.5",
     "@fontsource/lato": "^5.0.21",
