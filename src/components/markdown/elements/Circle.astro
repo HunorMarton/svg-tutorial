@@ -1,0 +1,29 @@
+---
+import Coordiante from "./Coordinate.astro";
+
+export interface Props {
+  cx: string;
+  cy: string;
+  fill: string;
+  [key: string]: string;
+}
+
+const { cx, cy, fill, ...props } = Astro.props as Props;
+---
+
+<g>
+  <circle cx={cx} cy={cy} fill={fill} {...props}></circle>
+  <g>
+    <Coordiante x={cx} y={cy} fill={fill} />
+  </g>
+</g>
+
+<style>
+  circle + g {
+    display: none;
+  }
+
+  circle:hover + g {
+    display: block;
+  }
+</style>

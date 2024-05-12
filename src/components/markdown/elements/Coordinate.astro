@@ -1,0 +1,29 @@
+---
+export interface Props {
+  x: string;
+  y: string;
+  fill?: string;
+}
+
+const { x, y } = Astro.props as Props;
+---
+
+<g transform={`translate(${x} ${y})`}>
+  <line x1="-5" x2="5"></line>
+  <line y1="-5" y2="5"></line>
+  <text x="3" y="-3">{x}, {y}</text>
+</g>
+
+<style>
+  line {
+    stroke: white;
+    stroke-width: 1;
+    pointer-events: none;
+  }
+
+  text {
+    fill: white;
+    font-size: 0.7em;
+    pointer-events: none;
+  }
+</style>

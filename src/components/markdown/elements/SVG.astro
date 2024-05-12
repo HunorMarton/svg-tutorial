@@ -1,0 +1,65 @@
+---
+export interface Props {
+  width: string;
+  viewBox: string;
+  [key: string]: string;
+}
+
+const { width, viewBox, ...props } = Astro.props as Props;
+const [minX, minY, viewBoxWidth, viewBoxHeight] = viewBox
+  .split(" ")
+  .map(Number);
+const increment = 20;
+---
+
+<div class="svg-container">
+  <div class="coordinates">
+    <span>{minX}, {minY}</span>
+    <span></span>
+  </div>
+  <svg width={width} viewBox={viewBox} {...props}>
+    {
+      Array.from({ length: viewBoxWidth / increment }, (_, i) => (
+        <line
+          x1={minX + i * increment}
+          y1={minY}
+          x2={minX + i * increment}
+          y2="100%"
+        />
+      ))
+    }
+    {
+      Array.from({ length: viewBoxHeight / increment }, (_, i) => (
+        <line
+          x1={minX}
+          y1={minY + i * increment}
+          x2="100%"
+          y2={minY + i * increment}
+        />
+      ))
+    }
+    <slot />
+  </svg>
+  <div class="coordinates">
+    <span></span>
+    <span>{viewBoxWidth}, {viewBoxHeight}</span>
+  </div>
+</div>
+
+<style define:vars={{ width }}>
+  .svg-container {
+    width: calc(var(--width) * 1px);
+  }
+
+  .coordinates {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7em;
+    color: gray;
+  }
+
+  svg:hover line {
+    stroke: lightgray;
+    stroke-width: 0.5;
+  }
+</style>

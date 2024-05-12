@@ -5,6 +5,9 @@ component: Decoration
 description: Learn how to draw basic shaped with SVG. In the first example we draw a Christmas Ornament with two circles and a rectangle element.
 ---
 
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Rect from "../../components/markdown/elements/Rect.astro";
 import Example from "../../components/markdown/Example.astro";
 import Final from "../../components/markdown/Final.astro";
 
@@ -36,9 +39,9 @@ In these next three examples, we have three SVGs that have the very same content
 
 <Example>
 
-  <svg width="100" height="100" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="50" />
-  </svg>
+<SVG width="100" height="100" viewBox="0 0 200 200">
+  <Circle cx="100" cy="100" r="50" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -55,9 +58,9 @@ In these next three examples, we have three SVGs that have the very same content
 
 <Example>
 
-  <svg width="200" height="200" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="50" />
-  </svg>
+<SVG width="200" height="200" viewBox="0 0 200 200">
+  <Circle cx="100" cy="100" r="50" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -74,9 +77,9 @@ In these next three examples, we have three SVGs that have the very same content
 
 <Example>
 
-  <svg width="200" height="200" viewBox="0 0 100 100">
-    <circle cx="100" cy="100" r="50" />
-  </svg>
+<SVG width="200" height="200" viewBox="0 0 100 100">
+  <Circle cx="100" cy="100" r="50" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -97,9 +100,9 @@ Note that now the center position of the circle is `0,0`.
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <circle cx="0" cy="0" r="50" />
-  </svg>
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Circle cx="0" cy="0" r="50" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -126,9 +129,9 @@ We also have presentational attributes that style our shapes. Similar to the `ba
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <circle cx="0" cy="20" r="70" fill="#D1495B" />
-  </svg>
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Circle cx="0" cy="20" r="70" fill="#D1495B" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -152,10 +155,10 @@ Then we draw a rectangle as a little cap on top of the Christmas ornament with t
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <circle cx="0" cy="20" r="70" fill="#D1495B" />
-    <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
-  </svg>
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Circle cx="0" cy="20" r="70" fill="#D1495B" />
+  <Rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
