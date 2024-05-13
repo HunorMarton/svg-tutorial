@@ -5,7 +5,7 @@
         "headers": [
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src: 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; frame-src 'self' https://www.youtube.com; frame-ancestors https://hunormarton.github.io;"
+            "value": "default-src 'self'; script-src 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; frame-src 'self' https://www.youtube.com; frame-ancestors https://hunormarton.github.io;"
           },
           {
             "key": "Permissions-Policy",
