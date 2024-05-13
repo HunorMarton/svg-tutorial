@@ -1,0 +1,127 @@
+---
+import { getCollection } from "astro:content";
+
+import Popover from "./Popover.astro";
+import Markdown from "../components/Markdown.astro";
+import Share from "../components/ShareThisArticle.astro";
+import Next from "../components/Next.astro";
+import End from "../components/End.astro";
+
+export interface Props {
+  slug: string;
+  day: number;
+  title: string;
+  Component: any;
+  description: string;
+}
+
+const { slug, day, title, Component } = Astro.props as Props;
+
+const longTitle = `Day ${day}: ${title}`;
+
+const numberOfEntries = (await getCollection("svg")).length;
+const thereIsNext = day !== numberOfEntries;
+---
+
+<Popover day={day}>
+  <div class="detail-content">
+    <figure class="image-for-big-screen">
+      <Component size="1" id="big" />
+    </figure>
+
+    <article>
+      <h1>{longTitle}</h1>
+      <figure class="image-for-small-screen">
+        <Component size="1" id="top" />
+      </figure>
+      <Markdown>
+        <slot />
+      </Markdown>
+      <figure class="image-for-small-screen">
+        <Component size="1" id="bottom" />
+      </figure>
+
+      <Share slug={slug} title={title} />
+      {thereIsNext && <Next day={day + 1} />}
+      {!thereIsNext && <End />}
+    </article>
+  </div>
+</Popover>
+
+<style>
+  .detail-content {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow: scroll;
+  }
+
+  @media (min-width: 900px) {
+    .detail-content {
+      grid-template-columns: 1.2fr minmax(500px, 2fr);
+    }
+  }
+
+  figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  article {
+    overflow: scroll;
+    max-height: 100%;
+
+    padding: 40px;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  article p,
+  article h1,
+  article figure,
+  article div:not(.markdown-final) {
+    max-width: 550px;
+  }
+
+  @media (min-width: 900px) {
+    article h1 {
+      font-size: 2em;
+      margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    article {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+
+  .image-for-big-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 899px) {
+    .image-for-big-screen {
+      display: none;
+    }
+  }
+
+  .image-for-small-screen {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 900px) {
+    .image-for-small-screen {
+      display: none;
+    }
+  }
+</style>

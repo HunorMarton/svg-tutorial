@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import DetailsLayout from "../../layouts/Details.astro";
+import DetailContentLayout from "../../layouts/DetailContent.astro";
 
 import Arrow from "../../components/Arrow.astro";
 import Decoration from "../../components/Decoration.astro";
@@ -81,8 +82,15 @@ const Component = componentNamesObject[entry.data.component];
   slug={entry.slug}
   day={entry.data.day}
   title={entry.data.title}
-  Component={Component}
   description={entry.data.description}
 >
-  <Content />
+  <DetailContentLayout
+    slug={entry.slug}
+    day={entry.data.day}
+    title={entry.data.title}
+    Component={Component}
+    description={entry.data.description}
+  >
+    <Content />
+  </DetailContentLayout>
 </DetailsLayout>
