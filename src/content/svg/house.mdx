@@ -5,8 +5,8 @@ component: House
 description: In this example we draw a House with SVG. and learn how to use the polygon element. We practice using polygons, polylines, rectangles and circles to draw more complex shapes.
 ---
 
-import Example from "../../components/markdown/Example.astro";
-import Final from "../../components/markdown/Final.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
 
 In this example, we combine everything we learned so far. We use circles, rectangles, lines, polylines, and polygons here.
 
@@ -14,8 +14,15 @@ We start with the front itself. Note that we not only have a class on the wall e
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2" fill="white">
-<polygon points="-65,80 -65,-10 0,-70 65,-10 65,80" />
+<svg
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+  fill="white"
+>
+  <polygon points="-65,80 -65,-10 0,-70 65,-10 65,80" />
 </svg>
 
 {/* prettier-ignore */}
@@ -47,8 +54,21 @@ Then we add a roof on top of it. This is the only thing that is new here. We use
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2" fill="white">
-<polyline class="roof" points="-75,-8 0,-78 75,-8" stroke="#d1495b" stroke-width="10" stroke-linecap="round" />
+<svg
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+  fill="white"
+>
+  <polyline
+    class="roof"
+    points="-75,-8 0,-78 75,-8"
+    stroke="#d1495b"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
 </svg>
 
 {/* prettier-ignore */}

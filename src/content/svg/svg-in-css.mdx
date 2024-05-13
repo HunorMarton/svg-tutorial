@@ -5,8 +5,8 @@ component: Background
 description: In this example we learn how to Inline SVG in CSS, and how to create background patterns.
 ---
 
-import Example from "../../components/markdown/Example.astro";
-import Final from "../../components/markdown/Final.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
 
 In many cases, an inlined SVG feels like a bit of noise in HTML. If we add an icon then the icon itself feels more like styling than content that should be part of the DOM structure. The good news is, we can move SVG images entirely into CSS.
 
@@ -34,8 +34,13 @@ The inlined SVG above is simply an X as follows (except that the `stroke` proper
 
 <Example>
 
-<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 100 100'>
-<path d='M 30 30 L 70 70 M 30 70 L 70 30' stroke='black' stroke-width='10' />
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="50"
+  height="50"
+  viewBox="0 0 100 100"
+>
+  <path d="M 30 30 L 70 70 M 30 70 L 70 30" stroke="black" stroke-width="10" />
 </svg>
 
 {/* prettier-ignore */}
@@ -70,7 +75,19 @@ In the main example for today we simply repeat the following SVG:
 
 <Example>
 
-<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'><polyline fill="none" stroke="#0c5c4c" stroke-width="42.4" points="-30 0 60 90 150 0"/></svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="50"
+  height="50"
+  viewBox="0 0 120 120"
+>
+  <polyline
+    fill="none"
+    stroke="#0c5c4c"
+    stroke-width="42.4"
+    points="-30 0 60 90 150 0"
+  />
+</svg>
 
 {/* prettier-ignore */}
 ```html

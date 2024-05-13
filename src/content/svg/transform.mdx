@@ -5,8 +5,8 @@ component: Star
 description: In this example we draw a Star with SVG and learn how to use the transform property.
 ---
 
-import Example from "../../components/markdown/Example.astro";
-import Final from "../../components/markdown/Final.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
 
 ### How to Draw a Star with SVG
 
@@ -16,10 +16,12 @@ First, let's define an arm. In this example, each arm consists of two polygons.
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
-    <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
-  </svg>
+{" "}
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+  <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+</svg>
 
 {/* prettier-ignore */}
 ```html

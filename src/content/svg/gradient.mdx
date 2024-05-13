@@ -5,8 +5,8 @@ component: Snowman
 description: In this example we draw a Snowman with SVG and practice radial gradients.
 ---
 
-import Example from "../../components/markdown/Example.astro";
-import Final from "../../components/markdown/Final.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
 
 The filling of a shape can be defined as a gradient. Today add a subtle 3D effect to our Christmas decoration and build a snowman.
 
@@ -16,8 +16,10 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <circle cx="0" cy="20" r="70" fill="#D1495B" />
+{" "}
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <circle cx="0" cy="20" r="70" fill="#D1495B" />
   <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
   <circle
     cx="0"
@@ -27,7 +29,7 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
     stroke="#F79257"
     stroke-width="2"
   />
-  </svg>
+</svg>
 
 {/* prettier-ignore */}
 ```html
@@ -141,7 +143,12 @@ For the snowman we draw two circles with a similar gradient as follows.
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200" style="background-color: lightblue">
+<svg
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  style="background-color: lightblue"
+>
   <defs>
     <radialGradient id="snowball0" cx="0.25" cy="0.25" r="1">
       <stop offset="0%" stop-color="white" />

@@ -5,8 +5,8 @@ component: Bell
 description: In this example we draw a Bell with SVG and practice drawing complex paths that combine quadratic and cubic bézier curves.
 ---
 
-import Example from "../../components/markdown/Example.astro";
-import Final from "../../components/markdown/Final.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
 
 Let’s have another example with cubic and quadratic beziers.
 
@@ -14,15 +14,21 @@ Here the bottom of this bell is defined with straight lines.
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2">
+<svg
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
   <path
-      d="
+    d="
         M -50 40
         L -50 50
         L 50 50
         L 50 40"
-      fill="#FDEA96"
-    />
+    fill="#FDEA96"
+  />
 </svg>
 
 {/* prettier-ignore */}
@@ -51,7 +57,13 @@ Then a quadratic Beziers starts the bell cloak.
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2">
+<svg
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
   <path
     d="
       M -50 40
@@ -61,13 +73,7 @@ Then a quadratic Beziers starts the bell cloak.
       Q 40 40 40 10"
     fill="#FDEA96"
   />
-  <circle 
-    cx="40"
-    cy="40"
-    r="2" 
-    stroke="none"
-    fill="red"
-  />
+  <circle cx="40" cy="40" r="2" stroke="none" fill="red" />
 </svg>
 
 {/* prettier-ignore */}
@@ -97,7 +103,13 @@ Then the line is continued with a cubic Bezier to form the top of the bell.
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2">
+<svg
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
   <path
     d="
       M -50 40
@@ -108,20 +120,8 @@ Then the line is continued with a cubic Bezier to form the top of the bell.
       C 40 -60 -40 -60 -40 10"
     fill="#FDEA96"
   />
-  <circle 
-    cx="-40"
-    cy="-60"
-    r="2" 
-    stroke="none"
-    fill="red"
-  />
-  <circle 
-    cx="40"
-    cy="-60"
-    r="2" 
-    stroke="none"
-    fill="red"
-  />
+  <circle cx="-40" cy="-60" r="2" stroke="none" fill="red" />
+  <circle cx="40" cy="-60" r="2" stroke="none" fill="red" />
 </svg>
 
 {/* prettier-ignore */}
@@ -152,7 +152,13 @@ Then we reach the bottom part with another quadratic bezier that mirrors the pre
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200" stroke="black" stroke-width="2">
+<svg
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
   <path
     d="
       M -50 40
@@ -164,13 +170,7 @@ Then we reach the bottom part with another quadratic bezier that mirrors the pre
       Q -40 40 -50 40"
     fill="#FDEA96"
   />
-  <circle 
-    cx="-40"
-    cy="40"
-    r="2" 
-    stroke="none"
-    fill="red"
-  />
+  <circle cx="-40" cy="40" r="2" stroke="none" fill="red" />
 </svg>
 
 {/* prettier-ignore */}

@@ -5,8 +5,8 @@ component: Ribbon
 description: In this example we draw a Ribbon with SVG and practice quadratic and cubic bézier curves.
 ---
 
-import Example from "../../components/markdown/Example.astro";
-import Final from "../../components/markdown/Final.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
 
 After we learned about [quadratic Bézier curves](/svg/quadratic-bezier) and [cubic Bézier curves](/svg/cubic-bezier) let's do another practice round where we use both.
 
@@ -14,19 +14,17 @@ We start with the right side of the ribbon with a quadratic Bézier curve. The d
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <path
-      d="
+{" "}
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <path
+    d="
         M 0 -20
         Q 28 -40 56 -45"
-      fill="#B73A3B"
-    />
-    <circle 
-      cx="28"
-      cy="-40"
-      r="2" 
-    />
-  </svg>
+    fill="#B73A3B"
+  />
+  <circle cx="28" cy="-40" r="2" />
+</svg>
 
 {/* prettier-ignore */}
 ```html
@@ -50,25 +48,19 @@ Then we continue with a cubic Bézier.
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <path
-      d="
+{" "}
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <path
+    d="
         M 0 -20
         Q 28 -40 56 -45
         C 96 -48 96 48 56 45"
-      fill="#B73A3B"
-    />
-    <circle 
-      cx="96"
-      cy="-48"
-      r="2" 
-    />
-    <circle 
-      cx="96"
-      cy="48"
-      r="2" 
-    />
-  </svg>
+    fill="#B73A3B"
+  />
+  <circle cx="96" cy="-48" r="2" />
+  <circle cx="96" cy="48" r="2" />
+</svg>
 
 {/* prettier-ignore */}
 ```html
@@ -93,21 +85,19 @@ And finish up with another quadratic cubic Bézier that mirrors the first one.
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <path
-      d="
+{" "}
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <path
+    d="
         M 0 -20
         Q 28 -40 56 -45
         C 96 -48 96 48 56 45
         Q 28 40 0 20"
-      fill="#B73A3B"
-    />
-    <circle 
-      cx="28"
-      cy="40"
-      r="2" 
-    />
-  </svg>
+    fill="#B73A3B"
+  />
+  <circle cx="28" cy="40" r="2" />
+</svg>
 
 {/* prettier-ignore */}
 ```html
@@ -133,24 +123,23 @@ Then we can move the whole shape into a reusable component and use it for both s
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <defs>
-      <path
-        id="ribbon"
-        d="
+{" "}
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <defs>
+    <path
+      id="ribbon"
+      d="
           M 0 -20
           Q 28 -40 56 -45
           C 96 -48 96 48 56 45
           Q 28 40 0 20"
-        fill="#B73A3B"
-      />
-    </defs>
-    <use href="#ribbon" />
-    <use 
-      href="#ribbon"
-      transform="scale(-1)" 
+      fill="#B73A3B"
     />
-  </svg>
+  </defs>
+  <use href="#ribbon" />
+  <use href="#ribbon" transform="scale(-1)" />
+</svg>
 
 {/* prettier-ignore */}
 ```html

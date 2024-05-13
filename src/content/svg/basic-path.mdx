@@ -5,13 +5,13 @@ component: Arrow
 description: In this example we draw a hamburger menu icon and simple arrow and learn how to draw basic paths with SVG.
 ---
 
-import Example from "../../components/markdown/Example.astro";
-import Fullscreen from "../../components/ExampleFullscreen.astro";
-import Final from "../../components/markdown/Final.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Fullscreen from "../../components/markdown/examples/Fullscreen.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
 
 Once we covered basic shapes, it's time to move on to the `path` element. The path is the most powerful SVG element. We can define pretty much anything with paths and if you open any SVG file, you will mostly see paths.
 
-The shape of a path is defined by the `d` attribute. Here we define several drawing commands. A command always starts with a letter defining the command type and ends with a coordinate. 
+The shape of a path is defined by the `d` attribute. Here we define several drawing commands. A command always starts with a letter defining the command type and ends with a coordinate.
 
 Here we only have the two most basic commands, move-to and line-to. The move-to command moves the cursor to a point without drawing a line and the line-to command draws a straight line from the previous point. A command always continues the previous command. When we draw a line we only define the endpoint. The starting point will be the previous command’s endpoint.
 
@@ -22,11 +22,12 @@ Before we get to the arrow example, let's draw a simple hamburger menu icon. We 
 <Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path 
+  <path
     d="M -40, -40 L 40, -40"
     stroke="#333333"
     stroke-width="25"
-    stroke-linecap="round" />
+    stroke-linecap="round"
+  />
 </svg>
 
 {/* prettier-ignore */}
@@ -54,11 +55,12 @@ Then we continue and draw to more lines the same way. What is cool about paths, 
 <Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path 
+  <path
     d="M -40 -40 L 40 -40 M -40 0 L 40 0 M -40 40 L 40 40"
     stroke="#333333"
     stroke-width="25"
-    stroke-linecap="round" />
+    stroke-linecap="round"
+  />
 </svg>
 
 {/* prettier-ignore */}
@@ -92,12 +94,13 @@ Here's another example made with a move to command and two line to commands.
 <Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path 
+  <path
     d="M -30 -20 L 0 10 L 30 -20"
     fill="none"
     stroke="black"
     stroke-width="80"
-    stroke-linecap="round"/>
+    stroke-linecap="round"
+  />
 </svg>
 
 {/* prettier-ignore */}
@@ -127,12 +130,13 @@ In the example above if we reduce the value of the `stroke-width` property, then
 <Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path 
+  <path
     d="M -30 -20 L 0 10 L 30 -20"
     fill="none"
     stroke="black"
     stroke-width="10"
-    stroke-linecap="round"/>
+    stroke-linecap="round"
+  />
 </svg>
 
 {/* prettier-ignore */}
@@ -174,13 +178,14 @@ Then to get to our example for today, we can draw an arrow in a very similar way
 <Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path 
+  <path
     d="M -70 0 L 70 0 L 30 -50"
     fill="none"
     stroke="#D1495B"
     stroke-width="25"
     stroke-linecap="round"
-    stroke-linejoin="round"/>
+    stroke-linejoin="round"
+  />
 </svg>
 
 {/* prettier-ignore */}
@@ -211,12 +216,13 @@ You might note that with the previous example, we also had a `stroke-linejoin` p
 <Example>
 
 <svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path 
+  <path
     d="M -70 0 L 70 0 L 30 -50"
     fill="none"
     stroke="#D1495B"
     stroke-width="25"
-    stroke-linecap="round"/>
+    stroke-linecap="round"
+  />
 </svg>
 
 {/* prettier-ignore */}

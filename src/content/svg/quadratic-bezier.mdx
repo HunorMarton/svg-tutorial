@@ -5,8 +5,8 @@ component: ThreeWithCurves
 description: In this example we draw a Tree with SVG and learn how to draw quadratic bézier curves.
 ---
 
-import Example from "../../components/markdown/Example.astro";
-import Final from "../../components/markdown/Final.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
 
 The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve. We not only set the endpoint but we also have to set a control point.
 
@@ -14,11 +14,19 @@ The control point is an invisible coordinate to which the line is bending to, bu
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <circle cx="-50" cy="-50" r="20" />
-    <circle cx="50" cy="-50" r="20" />
-    <path d="M -70,50 Q 0,100 70,50" fill="none" stroke="black" stroke-width="10" stroke-linecap="round" />
-  </svg>
+{" "}
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <circle cx="-50" cy="-50" r="20" />
+  <circle cx="50" cy="-50" r="20" />
+  <path
+    d="M -70,50 Q 0,100 70,50"
+    fill="none"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+</svg>
 
 {/* prettier-ignore */}
 ```html
@@ -47,10 +55,17 @@ In the example above the control point is at the same distance of the two endpoi
 
 <Example>
 
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <path d="M -50,50 Q 50,-50 50,50" fill="none" stroke="black" stroke-width="5"  />
-    <circle cx="50" cy="-50" r="5" />
-  </svg>
+{" "}
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <path
+    d="M -50,50 Q 50,-50 50,50"
+    fill="none"
+    stroke="black"
+    stroke-width="5"
+  />
+  <circle cx="50" cy="-50" r="5" />
+</svg>
 
 {/* prettier-ignore */}
 ```html
@@ -124,8 +139,11 @@ If we break down each quadratic bézier above into two line segments with the sa
 
 <Example>
 
-  <svg width="200" height="400" viewBox="-100 -200 200 400">
-    <path d="
+{" "}
+
+<svg width="200" height="400" viewBox="-100 -200 200 400">
+  <path
+    d="
       M 0 -80
       L 5 -75 L 0 -70
       L -10 -65 L 0 -60
@@ -149,8 +167,11 @@ If we break down each quadratic bézier above into two line segments with the sa
       L -100 115 L 0 120
       L 0 140
       L 20 140
-      L -20 140" fill="none" stroke="black"  />
-  </svg>
+      L -20 140"
+    fill="none"
+    stroke="black"
+  />
+</svg>
 
 {/* prettier-ignore */}
 ```html

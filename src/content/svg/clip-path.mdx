@@ -5,8 +5,8 @@ component: DecorationWithClip
 description: In this example we draw a Christmas Ornament with a decorational motif on the side of it with SVG and learn how to clip-path.
 ---
 
-import Center from "../../components/markdown/Center.astro";
-import Final from "../../components/markdown/Final.astro";
+import Center from "../../components/markdown/layouts/Center.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
 
 This ornament is the same as we drew on [the first day](/svg/basic-shapes), except it has a motif on its side defined as a polyline. By default, the polyline wouldn’t match the edge of the circle shape. Without clipping this motif would look like this:
 
@@ -27,7 +27,7 @@ This ornament is the same as we drew on [the first day](/svg/basic-shapes), exce
       stroke="#F79257"
       stroke-width="2"
     />
-  <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+    <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
   </svg>
 </Center>
 
