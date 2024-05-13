@@ -1,7 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import DetailsLayout from "../../layouts/Details.astro";
-import DetailContentLayout from "../../layouts/DetailContent.astro";
+import Details from "../../layouts/Details.astro";
+import DetailLayout from "../../layouts/DetailLayout.astro";
+import DetailHeader from "../../layouts//DetailHeader.astro";
+import DetailContent from "../../layouts/DetailContent.astro";
 
 import Arrow from "../../components/Arrow.astro";
 import Decoration from "../../components/Decoration.astro";
@@ -29,6 +31,8 @@ import Lights from "../../components/Lights.astro";
 import Diagram from "../../components/Diagram.astro";
 import SnowGlobe from "../../components/SnowGlobe.astro";
 import Windmill from "../../components/Windmill.astro";
+
+import { Content as Introduction } from "./Introduction.mdx";
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -76,21 +80,38 @@ const componentNamesObject: {
 };
 
 const Component = componentNamesObject[entry.data.component];
+
+const headerLookup: {
+  [key: number]: any;
+} = {
+  1: Introduction,
+};
+
+const Header = headerLookup[entry.data.day];
 ---
 
-<DetailsLayout
+<Details
   slug={entry.slug}
   day={entry.data.day}
   title={entry.data.title}
   description={entry.data.description}
 >
-  <DetailContentLayout
-    slug={entry.slug}
-    day={entry.data.day}
-    title={entry.data.title}
-    Component={Component}
-    description={entry.data.description}
-  >
-    <Content />
-  </DetailContentLayout>
-</DetailsLayout>
+  <DetailLayout day={entry.data.day}>
+    {
+      Header && (
+        <DetailHeader slot="header">
+          <Header />
+        </DetailHeader>
+      )
+    }
+    <DetailContent
+      slug={entry.slug}
+      day={entry.data.day}
+      title={entry.data.title}
+      Component={Component}
+      description={entry.data.description}
+    >
+      <Content />
+    </DetailContent>
+  </DetailLayout>
+</Details>

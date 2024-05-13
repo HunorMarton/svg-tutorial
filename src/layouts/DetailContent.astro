@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 
-import Popover from "./Popover.astro";
 import Markdown from "../components/Markdown.astro";
 import Share from "../components/ShareThisArticle.astro";
 import Next from "../components/Next.astro";
@@ -23,39 +22,34 @@ const numberOfEntries = (await getCollection("svg")).length;
 const thereIsNext = day !== numberOfEntries;
 ---
 
-<Popover day={day}>
-  <div class="detail-content">
-    <figure class="image-for-big-screen">
-      <Component size="1" id="big" />
+<div class="detail-content">
+  <figure class="image-for-big-screen">
+    <Component size="1" id="big" />
+  </figure>
+
+  <article>
+    <h1>{longTitle}</h1>
+    <figure class="image-for-small-screen">
+      <Component size="1" id="top" />
+    </figure>
+    <Markdown>
+      <slot />
+    </Markdown>
+    <figure class="image-for-small-screen">
+      <Component size="1" id="bottom" />
     </figure>
 
-    <article>
-      <h1>{longTitle}</h1>
-      <figure class="image-for-small-screen">
-        <Component size="1" id="top" />
-      </figure>
-      <Markdown>
-        <slot />
-      </Markdown>
-      <figure class="image-for-small-screen">
-        <Component size="1" id="bottom" />
-      </figure>
-
-      <Share slug={slug} title={title} />
-      {thereIsNext && <Next day={day + 1} />}
-      {!thereIsNext && <End />}
-    </article>
-  </div>
-</Popover>
+    <Share slug={slug} title={title} />
+    {thereIsNext && <Next day={day + 1} />}
+    {!thereIsNext && <End />}
+  </article>
+</div>
 
 <style>
   .detail-content {
     display: grid;
     justify-content: center;
     width: 100%;
-    height: 100%;
-    max-height: 100%;
-    overflow: scroll;
   }
 
   @media (min-width: 900px) {
@@ -70,7 +64,7 @@ const thereIsNext = day !== numberOfEntries;
   }
 
   article {
-    overflow: scroll;
+    overflow: hidden;
     max-height: 100%;
 
     padding: 40px;
@@ -103,9 +97,19 @@ const thereIsNext = day !== numberOfEntries;
   }
 
   .image-for-big-screen {
+    position: sticky;
+    top: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+  }
+
+  @media (min-width: 1200px) {
+    .image-for-big-screen {
+      height: calc(100vh - 30px);
+    }
   }
 
   @media (max-width: 899px) {

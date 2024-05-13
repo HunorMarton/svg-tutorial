@@ -1,0 +1,42 @@
+---
+import { Sine as SineReact } from "./Sine.jsx";
+---
+
+<div class="sine">
+  <SineReact client:idle />
+</div>
+
+<style is:global>
+  .sine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 30px 0;
+    margin: 20px 0;
+
+    background-color: #7b0828;
+
+    svg {
+      stroke: white;
+      fill: transparent;
+      stroke-width: 8px;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .thin {
+      stroke: white;
+      opacity: 0.3;
+      fill: transparent;
+      stroke-width: 3px;
+    }
+
+    text {
+      font-size: 20px;
+      fill: white;
+      stroke: white;
+      stroke-width: 1px;
+    }
+  }
+</style>
