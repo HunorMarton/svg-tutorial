@@ -1,0 +1,81 @@
+---
+import ThreeWithCurves from "../../ThreeWithCurves.astro";
+import Snowflake from "../../Snowflake.astro";
+import Tree from "../../Tree.astro";
+import Gingerbread from "../../Gingerbread.astro";
+import Bell from "../../Bell.astro";
+import Star from "../../Star.astro";
+import Bear from "../../Bear.astro";
+import Forest from "../../Forest.astro";
+
+const size = 1;
+---
+
+<div class="header-grid">
+  <div class="header-title">
+    <h1>Learn SVG</h1>
+    <h2>Through 25 Examples</h2>
+  </div>
+  <ThreeWithCurves size={size} />
+  <Snowflake size={size} />
+  <Tree size={size} />
+  <Gingerbread size={size} />
+  <Bell size={size} />
+  <Star size={size} />
+  <Bear size={size} />
+  <Forest size={size} />
+</div>
+
+<style is:global>
+  .header-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    margin-bottom: 70px;
+  }
+
+  @media (max-width: 700px) {
+    .header-grid {
+      display: none;
+    }
+  }
+
+  .header-grid > * {
+    border-right: 1px dashed gray;
+    border-bottom: 1px dashed gray;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+  }
+
+  .header-grid > *:nth-child(3),
+  .header-grid > *:nth-child(5),
+  .header-grid > *:nth-child(9) {
+    border-right: none;
+  }
+
+  .header-grid > *:nth-child(6),
+  .header-grid > *:nth-child(7),
+  .header-grid > *:nth-child(8),
+  .header-grid > *:nth-child(9) {
+    border-bottom: none;
+  }
+
+  .header-title {
+    grid-column: 1/3;
+    grid-row: 1/3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    h1 {
+      font-size: 5em;
+      font-weight: 900;
+      margin: 0;
+    }
+  }
+</style>
