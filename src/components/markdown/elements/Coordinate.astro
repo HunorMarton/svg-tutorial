@@ -9,21 +9,35 @@ const { x, y } = Astro.props as Props;
 ---
 
 <g transform={`translate(${x} ${y})`}>
-  <line x1="-5" x2="5"></line>
-  <line y1="-5" y2="5"></line>
-  <text x="3" y="-3">{x}, {y}</text>
+  <circle class="dot" r="3" fill="red"></circle>
+  <foreignObject width="100" height="100">
+    <span class="coordinate">{x}, {y}</span>
+  </foreignObject>
 </g>
 
 <style>
-  line {
-    stroke: white;
-    stroke-width: 1;
+  foreignObject {
+    pointer-events: none;
+    position: relative;
+  }
+
+  .dot {
+    filter: drop-shadow(0px 0px 5px rgb(0 0 0 / 0.5));
     pointer-events: none;
   }
 
-  text {
-    fill: white;
-    font-size: 0.7em;
+  .coordinate {
+    position: relative;
+    top: 5px;
+    left: 5px;
     pointer-events: none;
+
+    box-shadow: 0 0 3px rgb(0 0 0 / 0.5);
+    background: rgb(255 255 255 / 0.9);
+    color: black;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 0.5em;
+    font-weight: bold;
   }
 </style>
