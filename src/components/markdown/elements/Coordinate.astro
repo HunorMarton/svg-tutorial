@@ -18,7 +18,6 @@ const { x, y } = Astro.props as Props;
 <style>
   foreignObject {
     pointer-events: none;
-    position: relative;
   }
 
   .dot {
@@ -28,7 +27,7 @@ const { x, y } = Astro.props as Props;
   }
 
   .coordinate {
-    position: relative;
+    position: fixed; /* Workaround for Safari: https://stackoverflow.com/questions/51313873/svg-foreignobject-not-working-properly-on-safari */
     top: 5px;
     left: 5px;
     pointer-events: none;
