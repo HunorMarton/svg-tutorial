@@ -107,9 +107,18 @@ const increment = 20;
 
   /* Once a base element is hovered, turn it to transparent */
   .svg-base:has(> *:hover) > *:hover {
-    > *:nth-child(1) {
+    /* Select filled elements */
+    > circle,
+    > polygon,
+    > *:nth-child(1)[fill]:not([fill="none"]) {
       fill: transparent;
       stroke-width: 0;
+    }
+
+    /* Select non-filled elements */
+    > *:nth-child(1):not([fill]),
+    > *:nth-child(1)[fill="none"] {
+      stroke: rgba(217, 217, 217, 0.75);
     }
   }
 
@@ -123,10 +132,20 @@ const increment = 20;
     display: block;
 
     > *:nth-child(1) {
-      fill: rgb(255 255 255 / 0.75);
       stroke: black;
       stroke-width: 2;
       stroke-dasharray: 5 5;
+    }
+
+    /* Select filled elements */
+    > *:nth-child(1)[fill]:not([fill="none"]) {
+      fill: rgb(255 255 255 / 0.75);
+    }
+
+    /* Select non-filled elements */
+    > *:nth-child(1):not([fill]),
+    > *:nth-child(1)[fill="none"] {
+      fill: transparent;
     }
 
     .coordinates {
