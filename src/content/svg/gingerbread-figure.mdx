@@ -5,6 +5,10 @@ component: Gingerbread
 description: In the third example we learn how to draw a Gingerbread Figure with SVG. We also learn how to move the styling properties to CSS and how to make rounded lines and rectangles.
 ---
 
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Line from "../../components/markdown/elements/Line.astro";
+import Rect from "../../components/markdown/elements/Rect.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
@@ -14,9 +18,9 @@ Since our SVG is living inside an HTML file now, we can assign CSS classes to ea
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <circle class="head" cx="0" cy="-50" r="30" fill="#cd803d" />
-</svg>
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Circle class="head" cx="0" cy="-50" r="30" fill="#cd803d" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -50,11 +54,11 @@ To give you a comparison if we remove the line cap and set a smaller stroke-widt
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <line x1="-40" y1="-10" x2="40" y2="-10" stroke="#cd803d" />
-  <line x1="-25" y1="50" x2="0" y2="-15" stroke="#cd803d" />
-  <line x1="25" y1="50" x2="0" y2="-15" stroke="#cd803d" />
-</svg>
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Line x1="-40" y1="-10" x2="40" y2="-10" stroke="#cd803d" />
+  <Line x1="-25" y1="50" x2="0" y2="-15" stroke="#cd803d" />
+  <Line x1="25" y1="50" x2="0" y2="-15" stroke="#cd803d" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -99,8 +103,8 @@ But by setting a thick stroke width and a round line cap we can shape legs and a
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <line
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Line
     x1="-40"
     y1="-10"
     x2="40"
@@ -109,7 +113,7 @@ But by setting a thick stroke width and a round line cap we can shape legs and a
     stroke-width="35"
     stroke-linecap="round"
   />
-  <line
+  <Line
     x1="-25"
     y1="50"
     x2="0"
@@ -118,7 +122,7 @@ But by setting a thick stroke width and a round line cap we can shape legs and a
     stroke-width="35"
     stroke-linecap="round"
   />
-  <line
+  <Line
     x1="25"
     y1="50"
     x2="0"
@@ -127,7 +131,7 @@ But by setting a thick stroke width and a round line cap we can shape legs and a
     stroke-width="35"
     stroke-linecap="round"
   />
-</svg>
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -176,9 +180,9 @@ Also, note the `rx` property at the rectangle defining the mouth. This will make
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <circle class="head" cx="0" cy="-50" r="30" fill="#cd803d" />
-  <rect
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Circle class="head" cx="0" cy="-50" r="30" fill="#cd803d" />
+  <Rect
     class="mouth"
     x="-10"
     y="-40"
@@ -189,7 +193,7 @@ Also, note the `rx` property at the rectangle defining the mouth. This will make
     stroke-width="2"
     rx="2"
   />
-</svg>
+</SVG>
 
 {/* prettier-ignore */}
 ```html

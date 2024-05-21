@@ -1,0 +1,47 @@
+---
+import Coordiante from "./Coordinate.astro";
+
+export interface Props {
+  d: string;
+  fill: string;
+  [key: string]: string;
+}
+
+const { d, fill, ...props } = Astro.props as Props;
+
+const commands = d.split(/(?=[MLCQAZ])/i);
+const coordinates: [string, string][] = [];
+
+commands.forEach((command) => {
+  const type = command[0];
+  const args = command
+    .slice(1)
+    .trim()
+    .split(/[\s,]+/);
+
+  switch (type.toUpperCase()) {
+    case "M":
+      coordinates.push([args[0], args[1]]);
+      break;
+    case "L":
+      coordinates.push([args[0], args[1]]);
+      break;
+    case "C":
+      console.log(`cubic bezier curve to ${args}`);
+      break;
+    case "Q":
+      console.log(`quadratic bezier curve to ${args}`);
+      break;
+    case "A":
+      console.log(`elliptical Arc to ${args}`);
+      break;
+  }
+});
+---
+
+<g>
+  <path d={d} fill={fill} {...props}></path>
+  <g class="coordinates">
+    {coordinates.map(([x, y]) => <Coordiante x={x} y={y} fill={fill} />)}
+  </g>
+</g>

@@ -13,7 +13,7 @@ const increment = 20;
 ---
 
 <div class="svg-container">
-  <div class="coordinates">
+  <div class="svg-viewbox-values">
     <span>{minX}, {minY}</span>
     <span></span>
   </div>
@@ -21,6 +21,7 @@ const increment = 20;
     {
       Array.from({ length: viewBoxWidth / increment }, (_, i) => (
         <line
+          class="grid-line"
           x1={minX + i * increment}
           y1={minY}
           x2={minX + i * increment}
@@ -31,6 +32,7 @@ const increment = 20;
     {
       Array.from({ length: viewBoxHeight / increment }, (_, i) => (
         <line
+          class="grid-line"
           x1={minX}
           y1={minY + i * increment}
           x2="100%"
@@ -38,9 +40,22 @@ const increment = 20;
         />
       ))
     }
-    <slot />
+    {
+      /* 
+      We render the SVG twice. 
+      This is to achieve a similar effect as increasing the z-index property of an image element on hover. 
+      Unfortunatelly we can't modify the z-index in SVG, so instead we have a passthrough and by default hidden highlight layer on top of the original image.
+      On hovering an image element in the base layer, we display the corresponding image element from the highlight layer (which will appear on top)
+      */
+    }
+    <g class="svg-base">
+      <slot />
+    </g>
+    <g class="svg-highlight">
+      <slot />
+    </g>
   </svg>
-  <div class="coordinates">
+  <div class="svg-viewbox-values">
     <span></span>
     <span>{viewBoxWidth}, {viewBoxHeight}</span>
   </div>
@@ -51,15 +66,71 @@ const increment = 20;
     width: calc(var(--width) * 1px);
   }
 
-  .coordinates {
+  .svg-viewbox-values {
     display: flex;
     justify-content: space-between;
     font-size: 0.7em;
     color: gray;
   }
 
-  svg:hover line {
+  svg .grid-line {
+    stroke-width: 0;
+  }
+
+  svg:hover .grid-line {
     stroke: lightgray;
     stroke-width: 0.5;
+  }
+</style>
+
+<style is:global>
+  .svg-base .coordinates {
+    display: none;
+  }
+
+  .svg-highlight * {
+    pointer-events: none;
+  }
+
+  .svg-highlight > * {
+    display: none;
+  }
+
+  /* Once a base element is hovered, turn every other base element into a gray transparent skeleton */
+  .svg-base:has(> *:hover) > *:not(:hover) {
+    > *:nth-child(1) {
+      fill: rgb(255 255 255 / 0.75);
+      stroke: rgb(128 128 128 / 0.5);
+      stroke-width: 1;
+    }
+  }
+
+  /* Once a base element is hovered, turn it to transparent */
+  .svg-base:has(> *:hover) > *:hover {
+    > *:nth-child(1) {
+      fill: transparent;
+      stroke-width: 0;
+    }
+  }
+
+  /* 
+  Once a base element is hovered, display the corresponding highlight element as a skeleton 
+  Corresponding highlight elements are necessary to be able to display it on top of the other elements (there's no z-index in SVG)
+  */
+  .svg-base:has(> *:nth-child(1):hover) + .svg-highlight > *:nth-child(1),
+  .svg-base:has(> *:nth-child(2):hover) + .svg-highlight > *:nth-child(2),
+  .svg-base:has(> *:nth-child(3):hover) + .svg-highlight > *:nth-child(3) {
+    display: block;
+
+    > *:nth-child(1) {
+      fill: rgb(255 255 255 / 0.75);
+      stroke: black;
+      stroke-width: 2;
+      stroke-dasharray: 5 5;
+    }
+
+    .coordinates {
+      display: block;
+    }
   }
 </style>

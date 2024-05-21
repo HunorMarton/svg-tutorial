@@ -13,17 +13,7 @@ const { x, y, fill, ...props } = Astro.props as Props;
 
 <g>
   <rect x={x} y={y} fill={fill} {...props}></rect>
-  <g>
+  <g class="coordinates">
     <Coordiante x={x} y={y} fill={fill} />
   </g>
 </g>
-
-<style>
-  rect + g {
-    display: none;
-  }
-
-  rect:hover + g {
-    display: block;
-  }
-</style>

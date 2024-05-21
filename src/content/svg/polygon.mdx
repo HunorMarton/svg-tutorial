@@ -5,6 +5,8 @@ component: Tree
 description: In the second example we draw a Christmas Tree with SVG and learn how to use the polygon element.
 ---
 
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Polygon from "../../components/markdown/elements/Polygon.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
@@ -16,11 +18,9 @@ We can me the crown of the tree from three triangles. We start with the one at t
 
 <Example>
 
-{" "}
-
-<svg width="200" height="400" viewBox="-100 -200 200 400">
-  <polygon points="0,0 80,120 -80,120" fill="#234236" />
-</svg>
+<SVG width="200" height="400" viewBox="-100 -200 200 400">
+  <Polygon points="0,0 80,120 -80,120" fill="#234236" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -40,12 +40,10 @@ We can me the crown of the tree from three triangles. We start with the one at t
 
 <Example>
 
-{" "}
-
-<svg width="200" height="400" viewBox="-100 -200 200 400">
-  <polygon points="0,0 80,120 -80,120" fill="#234236" />
-  <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
-</svg>
+<SVG width="200" height="400" viewBox="-100 -200 200 400">
+  <Polygon points="0,0 80,120 -80,120" fill="#234236" />
+  <Polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -69,13 +67,11 @@ We can me the crown of the tree from three triangles. We start with the one at t
 
 <Example>
 
-{" "}
-
-<svg width="200" height="400" viewBox="-100 -200 200 400">
-  <polygon points="0,0 80,120 -80,120" fill="#234236" />
-  <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
-  <polygon points="0,-80 40,0 -40,0" fill="#38755B" />
-</svg>
+<SVG width="200" height="400" viewBox="-100 -200 200 400">
+  <Polygon points="0,0 80,120 -80,120" fill="#234236" />
+  <Polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
+  <Polygon points="0,-80 40,0 -40,0" fill="#38755B" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
