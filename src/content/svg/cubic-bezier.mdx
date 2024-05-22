@@ -5,6 +5,9 @@ component: Gift
 description: In this example we draw a Gift with SVG and learn how to draw cubic bézier curves.
 ---
 
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
@@ -14,13 +17,11 @@ Again, let's see an example, where the circles represent the control points.
 
 <Example>
 
-{" "}
-
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path d="M -50,50 C -60,-50 60,-50 50,50" fill="none" stroke="red" />
-  <circle cx="-50" cy="-50" r="2" />
-  <circle cx="50" cy="-50" r="2" />
-</svg>
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path d="M -50,50 C -60,-50 60,-50 50,50" fill="none" stroke="red" />
+  <Circle cx="-50" cy="-50" r="2" />
+  <Circle cx="50" cy="-50" r="2" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -59,10 +60,8 @@ In this example, the ribbon of the gift box uses a cubic Bezier that smoothly co
 
 <Example>
 
-{" "}
-
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
     class="ribbon"
     d="
       M 0 0
@@ -72,9 +71,9 @@ In this example, the ribbon of the gift box uses a cubic Bezier that smoothly co
     fill="none"
     stroke="red"
   />
-  <circle cx="50" cy="0" r="2" />
-  <circle cx="50" cy="-20" r="2" />
-</svg>
+  <Circle cx="50" cy="0" r="2" />
+  <Circle cx="50" cy="-20" r="2" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html

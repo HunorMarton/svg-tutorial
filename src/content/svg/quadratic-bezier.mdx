@@ -5,6 +5,9 @@ component: ThreeWithCurves
 description: In this example we draw a Tree with SVG and learn how to draw quadratic bézier curves.
 ---
 
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
@@ -14,19 +17,17 @@ The control point is an invisible coordinate to which the line is bending to, bu
 
 <Example>
 
-{" "}
-
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <circle cx="-50" cy="-50" r="20" />
-  <circle cx="50" cy="-50" r="20" />
-  <path
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Circle cx="-50" cy="-50" r="20" />
+  <Circle cx="50" cy="-50" r="20" />
+  <Path
     d="M -70,50 Q 0,100 70,50"
     fill="none"
     stroke="black"
     stroke-width="10"
     stroke-linecap="round"
   />
-</svg>
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -55,17 +56,15 @@ In the example above the control point is at the same distance of the two endpoi
 
 <Example>
 
-{" "}
-
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
     d="M -50,50 Q 50,-50 50,50"
     fill="none"
     stroke="black"
     stroke-width="5"
   />
-  <circle cx="50" cy="-50" r="5" />
-</svg>
+  <Circle cx="50" cy="-50" r="5" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -139,10 +138,8 @@ If we break down each quadratic bézier above into two line segments with the sa
 
 <Example>
 
-{" "}
-
-<svg width="200" height="400" viewBox="-100 -200 200 400">
-  <path
+<SVG width="200" height="400" viewBox="-100 -200 200 400">
+  <Path
     d="
       M 0 -80
       L 5 -75 L 0 -70
@@ -171,7 +168,7 @@ If we break down each quadratic bézier above into two line segments with the sa
     fill="none"
     stroke="black"
   />
-</svg>
+</SVG>
 
 {/* prettier-ignore */}
 ```html

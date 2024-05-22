@@ -5,6 +5,9 @@ component: Windmill
 description: In this example we learn how to animate an SVG with CSS.
 ---
 
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
@@ -18,8 +21,8 @@ The path of this arm also covers something we will cover later: a [cubic bezier 
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
     id="arm"
     d="
       M -7 -20 
@@ -27,7 +30,7 @@ The path of this arm also covers something we will cover later: a [cubic bezier 
       L 2 -80 
       L -2 -80"
   />
-</svg>
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -53,10 +56,10 @@ To finish the head of the windmill, we reuse the same arm element with a rotatio
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <circle r="8" />
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Circle r="8" />
 
-  <path 
+  <Path 
     id="arm" 
     d="
       M -7 -20 
@@ -66,7 +69,7 @@ To finish the head of the windmill, we reuse the same arm element with a rotatio
   />
   <use href="#arm" transform="rotate(+120)" />
   <use href="#arm" transform="rotate(-120)" />
-</svg>
+</SVG>
 
 {/* prettier-ignore */}
 ```html

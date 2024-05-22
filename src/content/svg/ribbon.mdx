@@ -5,6 +5,9 @@ component: Ribbon
 description: In this example we draw a Ribbon with SVG and practice quadratic and cubic bézier curves.
 ---
 
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
@@ -14,17 +17,15 @@ We start with the right side of the ribbon with a quadratic Bézier curve. The d
 
 <Example>
 
-{" "}
-
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
     d="
         M 0 -20
         Q 28 -40 56 -45"
     fill="#B73A3B"
   />
-  <circle cx="28" cy="-40" r="2" />
-</svg>
+  <Circle cx="28" cy="-40" r="2" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -48,19 +49,17 @@ Then we continue with a cubic Bézier.
 
 <Example>
 
-{" "}
-
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
     d="
         M 0 -20
         Q 28 -40 56 -45
         C 96 -48 96 48 56 45"
     fill="#B73A3B"
   />
-  <circle cx="96" cy="-48" r="2" />
-  <circle cx="96" cy="48" r="2" />
-</svg>
+  <Circle cx="96" cy="-48" r="2" />
+  <Circle cx="96" cy="48" r="2" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -85,10 +84,8 @@ And finish up with another quadratic cubic Bézier that mirrors the first one.
 
 <Example>
 
-{" "}
-
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
     d="
         M 0 -20
         Q 28 -40 56 -45
@@ -96,8 +93,8 @@ And finish up with another quadratic cubic Bézier that mirrors the first one.
         Q 28 40 0 20"
     fill="#B73A3B"
   />
-  <circle cx="28" cy="40" r="2" />
-</svg>
+  <Circle cx="28" cy="40" r="2" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -123,23 +120,18 @@ Then we can move the whole shape into a reusable component and use it for both s
 
 <Example>
 
-{" "}
-
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <defs>
-    <path
-      id="ribbon"
-      d="
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
+    id="ribbon"
+    d="
           M 0 -20
           Q 28 -40 56 -45
           C 96 -48 96 48 56 45
           Q 28 40 0 20"
-      fill="#B73A3B"
-    />
-  </defs>
-  <use href="#ribbon" />
+    fill="#B73A3B"
+  />
   <use href="#ribbon" transform="scale(-1)" />
-</svg>
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -148,19 +140,15 @@ Then we can move the whole shape into a reusable component and use it for both s
   height="200"
   viewBox="-100 -100 200 200"
 >
-  <defs>
-    <path
-      id="ribbon"
-      d="
-        M 0 -20
-        Q 28 -40 56 -45
-        C 96 -48 96 48 56 45
-        Q 28 40 0 20"
-      fill="#B73A3B"
-    />
-  </defs>
-
-  <use href="#ribbon" />
+  <path
+    id="ribbon"
+    d="
+      M 0 -20
+      Q 28 -40 56 -45
+      C 96 -48 96 48 56 45
+      Q 28 40 0 20"
+    fill="#B73A3B"
+  />
   <use 
     href="#ribbon"
     transform="scale(-1)" 

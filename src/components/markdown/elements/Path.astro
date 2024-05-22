@@ -26,13 +26,16 @@ commands.forEach((command) => {
       coordinates.push([args[0], args[1]]);
       break;
     case "C":
-      console.log(`cubic bezier curve to ${args}`);
+      coordinates.push([args[0], args[1]]);
+      coordinates.push([args[2], args[3]]);
+      coordinates.push([args[4], args[5]]);
       break;
     case "Q":
-      console.log(`quadratic bezier curve to ${args}`);
+      coordinates.push([args[0], args[1]]);
+      coordinates.push([args[2], args[3]]);
       break;
     case "A":
-      console.log(`elliptical Arc to ${args}`);
+      coordinates.push([args[5], args[6]]);
       break;
   }
 });
