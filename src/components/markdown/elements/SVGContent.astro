@@ -31,7 +31,7 @@
     > *:nth-child(1) {
       fill: rgb(255 255 255 / 0.75);
       stroke: rgb(128 128 128 / 0.5);
-      stroke-width: 1;
+      stroke-width: calc(1 * var(--zoom));
     }
   }
 
@@ -63,8 +63,8 @@
 
     > *:nth-child(1) {
       stroke: black;
-      stroke-width: 2;
-      stroke-dasharray: 5 5;
+      stroke-width: calc(2 * var(--zoom));
+      stroke-dasharray: calc(5 * var(--zoom)) calc(5 * var(--zoom));
     }
 
     /* Select filled elements */

@@ -12,6 +12,8 @@ const { width, viewBox, ...props } = Astro.props as Props;
 const [minX, minY, viewBoxWidth, viewBoxHeight] = viewBox
   .split(" ")
   .map(Number);
+
+const zoom = viewBoxWidth / Number(width);
 ---
 
 <div class="svg-container">
@@ -36,7 +38,7 @@ const [minX, minY, viewBoxWidth, viewBoxHeight] = viewBox
   </div>
 </div>
 
-<style define:vars={{ width }}>
+<style is:global define:vars={{ width, zoom }}>
   .svg-container {
     width: calc(var(--width) * 1px);
   }
