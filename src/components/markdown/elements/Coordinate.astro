@@ -13,49 +13,46 @@ const textBoxWidth = textLength * 4.6 + textBoxHPad * 2;
 const textBoxHeight = textBoxVPad * 2 + 7;
 ---
 
-<g transform={`translate(${x} ${y})`}>
-  <circle class="dot" r="3" fill="red"></circle>
+<g class="coordinate">
+  <circle r="3" fill="red"></circle>
 
-  <g class="coordinate">
-    <g transform="translate(5 5)">
-      <rect width={textBoxWidth} height={textBoxHeight} filter="url(#shadow)"
-      ></rect>
-      <text
-        x={textBoxWidth / 2}
-        y={textBoxVPad}
-        text-anchor="middle"
-        dominant-baseline="hanging"
-      >
-        {x}, {y}
-      </text>
-    </g>
+  <g transform="translate(5 5)">
+    <rect width={textBoxWidth} height={textBoxHeight} filter="url(#shadow)"
+    ></rect>
+    <text
+      x={textBoxWidth / 2}
+      y={textBoxVPad}
+      text-anchor="middle"
+      dominant-baseline="hanging"
+    >
+      {x}, {y}
+    </text>
   </g>
 </g>
 
-<style>
-  .dot {
-    filter: drop-shadow(0px 0px 5px rgb(0 0 0 / 0.5));
-    stroke-width: 0;
-    transform: scale(var(--zoom));
-    pointer-events: none;
+<style define:vars={{ x, y }}>
+  .coordinate {
+    transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px))
+      scale(var(--zoom));
   }
 
-  .coordinate {
-    transform: scale(var(--zoom));
+  circle {
+    filter: drop-shadow(0px 0px 5px rgb(0 0 0 / 0.5));
+    stroke-width: 0;
+  }
 
-    rect {
-      fill: rgb(255 255 255);
-      stroke: none;
-      opacity: 0.9;
-      rx: 5px;
-      ry: 5px;
-    }
+  rect {
+    fill: rgb(255 255 255);
+    stroke: none;
+    opacity: 0.9;
+    rx: 5px;
+    ry: 5px;
+  }
 
-    text {
-      font-size: 9px;
-      font-weight: bold;
-      fill: black;
-      stroke: none;
-    }
+  text {
+    font-size: 9px;
+    font-weight: bold;
+    fill: black;
+    stroke: none;
   }
 </style>
