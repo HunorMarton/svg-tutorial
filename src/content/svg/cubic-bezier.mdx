@@ -11,16 +11,21 @@ import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
-While the quadratic Bézier is great when we want to bend a line, often it’s not flexible enough. With cubic Bézier, we not only have one control point but two. The first control point sets the initial direction of the curve and the second one defines from which direction should the curve arrive at its endpoint.
+Quadratic Bézier curves are great when we want to bend a line, but they have their limits. We cannot draw a bulky curve or make smooth connections between line segments.
 
-Again, let's see an example, where the circles represent the control points.
+With cubic Bézier, we have not one but two control points. The first control point defines the curve's initial direction, and the second one sets how the curve should reach its endpoint.
+
+Hover over the image to see the control points. Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of Cubic Béziers (select Cubic Bézier at the top of the page).
 
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Path d="M -50,50 C -60,-50 60,-50 50,50" fill="none" stroke="red" />
-  <Circle cx="-50" cy="-50" r="2" />
-  <Circle cx="50" cy="-50" r="2" />
+  <Path
+    d="M -50,50 C -50,-50 50,-50 50,50"
+    fill="none"
+    stroke="red"
+    stroke-width="10"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -33,28 +38,132 @@ Again, let's see an example, where the circles represent the control points.
   <path 
     d="
       M -50,50 
-      C -60,-50 60,-50 50,50"
+      C -50,-50 50,-50 50,50"
     fill="none"
     stroke="red"
-  />
-  <circle
-    cx="-60" 
-    cy="-50" 
-    r="2" 
-  />
-  <circle 
-    cx="60" 
-    cy="-50"
-    r="2" 
+    stroke-width="10"
   />
 </svg>
 ```
 
 </Example>
 
-Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of Cubic Béziers (select Cubic Bézier at the top of the page).
+## Connecting lines
 
-Cubic Béziers are great when we want to continue the flow of a line. If the direction of the control points matches the directions of the line before and the line after the curve, then we have a smooth transition between the path segments.
+Cubic Béziers are great for making smooth connections between line segments. We can set the first control point to continue the previous line segment and then place the second control point in line with the following line segment.
+
+<Example>
+
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
+    d="
+      M -90,0 
+      L -30,-30
+      C 30,-60 60,-30 30,30
+      L 0,90"
+    fill="none"
+    stroke="red"
+    stroke-width="10"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html
+<svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <path 
+    d="
+      M -90,0 
+      L -30,-30
+      C 30,-60 60,-30 30,30
+      L 0,90"
+    fill="none"
+    stroke="red"
+    stroke-width="10"
+  />
+</svg>
+```
+
+</Example>
+
+<Example>
+
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
+    d="
+      M -30,70 
+      L 30,0
+      C 90,-70 -80,-30 -20,10
+      L 40,50"
+    fill="none"
+    stroke="red"
+    stroke-width="10"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html
+<svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <path 
+    d="
+      M -30,70 
+      L 30,0
+      C 90,-70 -80,-30 -20,10
+      L 40,50"
+    fill="none"
+    stroke="red"
+    stroke-width="10"
+  />
+</svg>
+```
+
+</Example>
+
+## How to draw a Profile icon with SVG
+
+A simple icon we can create with cubic Béziers is a profile icon. The head is a circle, and the body is a cubic Bézier and a straight line.
+
+In this example, however, we do not use the `L` command to finish the body. Instead, we use the `Z` command to close the path. The `Z` command closes the path by drawing a straight line from the current point to the starting point.
+
+<Example>
+
+<SVG
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  fill="none"
+  stroke="black"
+  stroke-width="10"
+>
+  <Circle cy="-40" r="20" />
+  <Path d="M -50,70 C -50,-20 50,-20 50,70 Z" />
+</SVG>
+
+{/* prettier-ignore */}
+```html
+<svg
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  fill="none"
+  stroke="black"
+  stroke-width="10"
+>
+  <circle cy="-40" r="20" />
+  <path d="M -50,70 C -50,-20 50,-20 50,70 Z" />
+</svg>
+```
+
+</Example>
+
+## How to draw a gift box with SVG
 
 In this example, the ribbon of the gift box uses a cubic Bezier that smoothly continues the previous straight line and then turns back to the direction of the upcoming line.
 
@@ -70,9 +179,8 @@ In this example, the ribbon of the gift box uses a cubic Bezier that smoothly co
       L 0 0"
     fill="none"
     stroke="red"
+    stroke-width="4"
   />
-  <Circle cx="50" cy="0" r="2" />
-  <Circle cx="50" cy="-20" r="2" />
 </SVG>
 
 {/* prettier-ignore */}
@@ -90,9 +198,8 @@ In this example, the ribbon of the gift box uses a cubic Bezier that smoothly co
       L 0 0"
     fill="none"
     stroke="red"
+    stroke-width="4"
   />
-  <circle cx="50" cy="0" r="2" />
-  <circle cx="50" cy="-20" r="2" />
 </svg>
 ```
 
