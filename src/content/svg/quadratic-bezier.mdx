@@ -13,7 +13,7 @@ import Final from "../../components/markdown/layouts/Final.astro";
 
 The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve. We not only set the endpoint but we also have to set a control point.
 
-The control point is an invisible coordinate to which the line is bending to, but not touching it. Look at this happy face! Here the invisible control point is at the middle of the bottom of the image (at `0,100`).
+The control point is an invisible coordinate to which the line is bending to, but not touching it. Look at this happy face! Here the invisible control point is at the middle of the bottom of the image (at `0,90`).
 
 <Example>
 
@@ -21,7 +21,7 @@ The control point is an invisible coordinate to which the line is bending to, bu
   <Circle cx="-50" cy="-50" r="20" />
   <Circle cx="50" cy="-50" r="20" />
   <Path
-    d="M -70,50 Q 0,100 70,50"
+    d="M -70,40 Q 0,90 70,40"
     fill="none"
     stroke="black"
     stroke-width="10"
@@ -40,8 +40,8 @@ The control point is an invisible coordinate to which the line is bending to, bu
   <circle cx="50" cy="-50" r="20" />
   <path 
     d="
-      M -70,50 
-      Q 0,100 70,50" 
+      M -70,40 
+      Q 0,90 70,40" 
     fill="none" 
     stroke="black" 
     stroke-width="10" 
@@ -52,18 +52,17 @@ The control point is an invisible coordinate to which the line is bending to, bu
 
 </Example>
 
-In the example above the control point is at the same distance of the two endpoints. This is not necessary. In the example below we mark the control point with a circle. Note, that the control point and the circle have the same coordinates.
+In the example above the control point is at the same distance of the two endpoints. This is not necessary. In the example below the control point is above the endpoint. Hover over the image to see the control point.
 
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
   <Path
-    d="M -50,50 Q 50,-50 50,50"
+    d="M -60,50 Q 40,-50 40,50"
     fill="none"
     stroke="black"
     stroke-width="5"
   />
-  <Circle cx="50" cy="-50" r="5" />
 </SVG>
 
 {/* prettier-ignore */}
@@ -75,16 +74,11 @@ In the example above the control point is at the same distance of the two endpoi
 >
   <path 
     d="
-      M -50,50 
-      Q 50,-50 50,50" 
+      M -60,50 
+      Q 40,-50 40,50" 
     fill="none"
     stroke="black"
     stroke-width="5"
-  />
-  <circle 
-    cx="50"
-    cy="-50"
-    r="5" 
   />
 </svg>
 ```
