@@ -3,17 +3,16 @@ import Coordiante from "./Coordinate.astro";
 
 export interface Props {
   points: string;
-  fill: string;
   [key: string]: string;
 }
 
-const { points, fill, ...props } = Astro.props as Props;
+const { points, ...props } = Astro.props as Props;
 const coordinates = points.split(" ").map((point) => point.split(","));
 ---
 
 <g>
-  <polygon points={points} fill={fill} {...props}></polygon>
+  <polygon points={points} {...props}></polygon>
   <g class="coordinates">
-    {coordinates.map(([x, y]) => <Coordiante x={x} y={y} fill={fill} />)}
+    {coordinates.map(([x, y]) => <Coordiante x={x} y={y} />)}
   </g>
 </g>

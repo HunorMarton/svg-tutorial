@@ -3,11 +3,10 @@ import Coordiante from "./Coordinate.astro";
 
 export interface Props {
   d: string;
-  fill: string;
   [key: string]: string;
 }
 
-const { d, fill, ...props } = Astro.props as Props;
+const { d, ...props } = Astro.props as Props;
 
 const commands = d.split(/(?=[MLCQAZ])/i);
 const coordinates: [string, string][] = [];
@@ -40,8 +39,8 @@ commands.forEach((command) => {
 ---
 
 <g>
-  <path d={d} fill={fill} {...props}></path>
+  <path d={d} {...props}></path>
   <g class="coordinates">
-    {coordinates.map(([x, y]) => <Coordiante x={x} y={y} fill={fill} />)}
+    {coordinates.map(([x, y]) => <Coordiante x={x} y={y} />)}
   </g>
 </g>

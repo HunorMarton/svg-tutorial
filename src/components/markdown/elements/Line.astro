@@ -6,17 +6,16 @@ export interface Props {
   y1: string;
   x2: string;
   y2: string;
-  fill: string;
   [key: string]: string;
 }
 
-const { x1, y1, x2, y2, fill, ...props } = Astro.props as Props;
+const { x1, y1, x2, y2, ...props } = Astro.props as Props;
 ---
 
 <g>
-  <line x1={x1} y1={y1} x2={x2} y2={y2} fill={fill} {...props}></line>
+  <line x1={x1} y1={y1} x2={x2} y2={y2} {...props}></line>
   <g class="coordinates">
-    <Coordiante x={x1} y={y1} fill={fill} />
-    <Coordiante x={x2} y={y2} fill={fill} />
+    <Coordiante x={x1} y={y1} />
+    <Coordiante x={x2} y={y2} />
   </g>
 </g>

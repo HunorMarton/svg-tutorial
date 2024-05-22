@@ -4,16 +4,15 @@ import Coordiante from "./Coordinate.astro";
 export interface Props {
   cx: string;
   cy: string;
-  fill: string;
   [key: string]: string;
 }
 
-const { cx, cy, fill, ...props } = Astro.props as Props;
+const { cx, cy, ...props } = Astro.props as Props;
 ---
 
 <g>
-  <circle cx={cx} cy={cy} fill={fill} {...props}></circle>
+  <circle cx={cx} cy={cy} {...props}></circle>
   <g class="coordinates">
-    <Coordiante x={cx} y={cy} fill={fill} />
+    <Coordiante x={cx} y={cy} />
   </g>
 </g>
