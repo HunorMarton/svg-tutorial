@@ -18,7 +18,8 @@ const textBoxHeight = textBoxVPad * 2 + 7;
 
   <g class="coordinate">
     <g transform="translate(5 5)">
-      <rect width={textBoxWidth} height={textBoxHeight}></rect>
+      <rect width={textBoxWidth} height={textBoxHeight} filter="url(#shadow)"
+      ></rect>
       <text
         x={textBoxWidth / 2}
         y={textBoxVPad}
@@ -43,8 +44,9 @@ const textBoxHeight = textBoxVPad * 2 + 7;
     transform: scale(var(--zoom));
 
     rect {
-      fill: rgb(255 255 255 / 0.9);
-      filter: drop-shadow(0px 0px 3px rgb(0 0 0 / 0.5));
+      fill: rgb(255 255 255);
+      stroke: none;
+      opacity: 0.9;
       rx: 5px;
       ry: 5px;
     }
@@ -53,6 +55,7 @@ const textBoxHeight = textBoxVPad * 2 + 7;
       font-size: 9px;
       font-weight: bold;
       fill: black;
+      stroke: none;
     }
   }
 </style>

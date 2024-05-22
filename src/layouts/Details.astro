@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import SVGDefs from "../components/markdown/elements/SVGDefs.astro";
 import "@fontsource/lato";
 
 export interface Props {
@@ -68,6 +69,7 @@ const longTitle = `Day ${day}: ${title}`;
   </head>
 
   <body>
+    <SVGDefs />
     <slot />
     <style is:global>
       html,
