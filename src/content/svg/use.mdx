@@ -5,6 +5,10 @@ component: Snowflake
 description: In this example we draw a Snowflake with SVG, learn how to draw basic paths and how to reuse image elements.
 ---
 
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Line from "../../components/markdown/elements/Line.astro";
+import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
@@ -16,9 +20,9 @@ Let's draw simple sun icon. We start with a circle element to draw the core of t
 
 <Example>
 
-<svg width="200" height="200" viewBox="-15 -15 30 30">
-  <circle r="6" />
-  <line
+<SVG width="200" height="200" viewBox="-15 -15 30 30">
+  <Circle r="6" />
+  <Line
     id="ray"
     stroke="black"
     stroke-width="2"
@@ -28,7 +32,7 @@ Let's draw simple sun icon. We start with a circle element to draw the core of t
     x2="0"
     y2="14"
   />
-</svg>
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -59,9 +63,9 @@ Then, we can move the lines to their correct position with the `transform` comma
 
 <Example>
 
-<svg width="200" height="200" viewBox="-15 -15 30 30">
-  <circle r="6" />
-  <line
+<SVG width="200" height="200" viewBox="-15 -15 30 30">
+  <Circle r="6" />
+  <Line
     id="ray"
     stroke="black"
     stroke-width="2"
@@ -78,7 +82,7 @@ Then, we can move the lines to their correct position with the `transform` comma
   <use href="#ray" transform="rotate(225)" />
   <use href="#ray" transform="rotate(270)" />
   <use href="#ray" transform="rotate(315)" />
-</svg>
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -136,9 +140,9 @@ The branch is defined as a `path`. Earlier we already covered [how to draw basic
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path d="M 0 0 L 0 -90" stroke="#E5C39C" stroke-width="5" />
-</svg>
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path d="M 0 0 L 0 -90" stroke="#E5C39C" stroke-width="5" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -161,9 +165,9 @@ Then we can continue drawing, and add a side branch by adding another move to an
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path d="M 0 0 L 0 -90 M 0 -20 L 20 -34" stroke="#E5C39C" stroke-width="5" />
-</svg>
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path d="M 0 0 L 0 -90 M 0 -20 L 20 -34" stroke="#E5C39C" stroke-width="5" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -188,8 +192,8 @@ The finished branch looks like this:
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <path
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
     id="branch"
     d="
         M 0   0 L 0 -90
@@ -202,7 +206,7 @@ The finished branch looks like this:
     stroke="#E5C39C"
     stroke-width="5"
   />
-</svg>
+</SVG>
 
 {/* prettier-ignore */}
 ```html
