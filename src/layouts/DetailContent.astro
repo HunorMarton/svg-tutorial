@@ -74,13 +74,6 @@ const thereIsNext = day !== numberOfEntries;
     box-sizing: border-box;
   }
 
-  article p,
-  article h1,
-  article figure,
-  article div:not(.markdown-final) {
-    max-width: 550px;
-  }
-
   @media (min-width: 900px) {
     article h1 {
       font-size: 2em;
@@ -127,5 +120,14 @@ const thereIsNext = day !== numberOfEntries;
     .image-for-small-screen {
       display: none;
     }
+  }
+</style>
+
+<style is:global>
+  article p,
+  article h1,
+  article figure,
+  article div:not(.markdown-final) {
+    max-width: 550px;
   }
 </style>
