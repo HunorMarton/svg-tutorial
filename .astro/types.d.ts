@@ -136,6 +136,174 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"svg": {
+"animation-on-hover.mdx": {
+	id: "animation-on-hover.mdx";
+  slug: "animation-on-hover";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"arc.mdx": {
+	id: "arc.mdx";
+  slug: "arc";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"basic-path.mdx": {
+	id: "basic-path.mdx";
+  slug: "basic-path";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"basic-shapes.mdx": {
+	id: "basic-shapes.mdx";
+  slug: "basic-shapes";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"bear.mdx": {
+	id: "bear.mdx";
+  slug: "bear";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"bell.mdx": {
+	id: "bell.mdx";
+  slug: "bell";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"clip-path.mdx": {
+	id: "clip-path.mdx";
+  slug: "clip-path";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"clock.mdx": {
+	id: "clock.mdx";
+  slug: "clock";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"css-animation.mdx": {
+	id: "css-animation.mdx";
+  slug: "css-animation";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"cubic-bezier.mdx": {
+	id: "cubic-bezier.mdx";
+  slug: "cubic-bezier";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"data-driven-diagram.mdx": {
+	id: "data-driven-diagram.mdx";
+  slug: "data-driven-diagram";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"forest.mdx": {
+	id: "forest.mdx";
+  slug: "forest";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"gingerbread-figure.mdx": {
+	id: "gingerbread-figure.mdx";
+  slug: "gingerbread-figure";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"gradient.mdx": {
+	id: "gradient.mdx";
+  slug: "gradient";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"house.mdx": {
+	id: "house.mdx";
+  slug: "house";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"interaction.mdx": {
+	id: "interaction.mdx";
+  slug: "interaction";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"multiple-components.mdx": {
+	id: "multiple-components.mdx";
+  slug: "multiple-components";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"path-based-animation.mdx": {
+	id: "path-based-animation.mdx";
+  slug: "path-based-animation";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"polygon.mdx": {
+	id: "polygon.mdx";
+  slug: "polygon";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"quadratic-bezier.mdx": {
+	id: "quadratic-bezier.mdx";
+  slug: "quadratic-bezier";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"svg-in-css.mdx": {
+	id: "svg-in-css.mdx";
+  slug: "svg-in-css";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"text-path.mdx": {
+	id: "text-path.mdx";
+  slug: "text-path";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"transform.mdx": {
+	id: "transform.mdx";
+  slug: "transform";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"use.mdx": {
+	id: "use.mdx";
+  slug: "use";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
 };
 
 	};

@@ -1,10 +1,13 @@
 ---
-day: 10
+day: 16
 title: How to Use Gradients with SVG
 component: Snowman
 description: In this example we draw a Snowman with SVG and practice radial gradients.
 ---
 
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Rect from "../../components/markdown/elements/Rect.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
@@ -16,12 +19,9 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
 
 <Example>
 
-{" "}
-
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <circle cx="0" cy="20" r="70" fill="#D1495B" />
-  <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
-  <circle
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Circle cx="0" cy="20" r="70" fill="#D1495B" />
+  <Circle
     cx="0"
     cy="-75"
     r="12"
@@ -29,7 +29,8 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
     stroke="#F79257"
     stroke-width="2"
   />
-</svg>
+  <Rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -44,13 +45,6 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
     r="70"
     fill="#D1495B" 
   />
-  <rect
-    x="-17.5"
-    y="-65"
-    width="35"
-    height="20"
-    fill="#F79257" 
-  />
   <circle
     cx="0"
     cy="-75"
@@ -58,6 +52,13 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
     fill="none"
     stroke="#F79257"
     stroke-width="2"
+  />
+  <rect
+    x="-17.5"
+    y="-65"
+    width="35"
+    height="20"
+    fill="#F79257" 
   />
 </svg>
 ```
@@ -70,7 +71,7 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
 
 <Example>
 
-<svg width="200" height="200" viewBox="-100 -100 200 200">
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
     <radialGradient id="shine" cx="0.25" cy="0.25" r="0.35">
       <stop offset="0%" stop-color="#e3a8b0" />
@@ -78,8 +79,8 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
     </radialGradient>
   </defs>
 
-  <circle cx="0" cy="20" r="70" fill="url(#shine)" />
-  <circle
+  <Circle cx="0" cy="20" r="70" fill="url(#shine)" />
+  <Circle
     cx="0"
     cy="-75"
     r="12"
@@ -87,8 +88,8 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
     stroke="#F79257"
     stroke-width="2"
   />
-  <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
-</svg>
+  <Rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
@@ -143,7 +144,7 @@ For the snowman we draw two circles with a similar gradient as follows.
 
 <Example>
 
-<svg
+<SVG
   width="200"
   height="200"
   viewBox="-100 -100 200 200"
@@ -156,8 +157,8 @@ For the snowman we draw two circles with a similar gradient as follows.
       <stop offset="100%" stop-color="#d6d6d6" />
     </radialGradient>
   </defs>
-  <circle cx="0" cy="0" r="80" fill="url(#snowball0)" />
-</svg>
+  <Circle cx="0" cy="0" r="80" fill="url(#snowball0)" />
+</SVG>
 
 {/* prettier-ignore */}
 ```html
