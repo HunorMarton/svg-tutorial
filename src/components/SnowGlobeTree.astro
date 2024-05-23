@@ -1,0 +1,14 @@
+---
+export interface Props {
+  x: number;
+  y: number;
+  scale: number;
+}
+
+const { x, y, scale } = Astro.props as Props;
+---
+
+<g transform={`scale(${scale}), translate(${x} ${y})`}>
+  <polygon points="-10,0 10,0 0 -50" fill="#38755b"></polygon>
+  <line x2="0" y2="10" stroke="#778074" stroke-width="2"></line>
+</g>

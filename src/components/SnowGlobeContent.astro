@@ -1,0 +1,39 @@
+---
+import Background from "./SnowGlobeBackground.astro";
+import Tree from "./SnowGlobeTree.astro";
+import Snowflake from "./SnowGlobeFlake.astro";
+
+const trees = [
+  { x: -20, y: 25, scale: 1.8 },
+  { x: -10, y: 40, scale: 1 },
+  { x: 30, y: 40, scale: 0.8 },
+  { x: 40, y: 30, scale: 1.2 },
+];
+
+const snowflakes = [
+  { x: 0, y: 0, big: true, fast: true },
+  { x: -50, y: -20, big: true, fast: true, opaque: true },
+  { x: 30, y: -40, big: true, fast: true },
+  { x: 50, y: -20, big: true, fast: true, opaque: true },
+  { x: 30, y: 50, big: true },
+  { x: -70, y: -80, big: true, opaque: true },
+  { x: 30, y: 50, big: true },
+  { x: 90, y: -80, big: true, opaque: true },
+  { x: 10, y: -50 },
+  { x: -50, y: -60, opaque: true },
+  { x: 30, y: 70 },
+  { x: 10, y: -80, opaque: true },
+];
+
+---
+
+<Background />
+
+{trees.map((tree, index) => (
+    <Tree x={tree.x} y={tree.y} scale={tree.scale}`} />
+))}
+
+{snowflakes.map((snowflake, index) => (
+    <Snowflake x={snowflake.x} y={snowflake.y} big={snowflake.big} fast={snowflake.big} />
+))}
+

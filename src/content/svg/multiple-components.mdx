@@ -7,12 +7,17 @@ description: In this example we learn how to break down more complex SVG images 
 
 import Final from "../../components/markdown/layouts/Final.astro";
 
-If you got this far then give yourself a well-deserved pat on the back as you just learned the basics of SVG with many cool use cases.
+If you've made it this far, give yourself a well-deserved pat on the back. You just learned the basics of SVG with many cool use cases.
 
-If you continue on your journey and you start to write more and more complex SVGs then at one point you might find that their code starts to get a bit out of hand. Then you can break them down into components. Here we are using React again, but the same concept applies to any other frontend library that you might use. Mind though that there’s only one SVG element at the root of the component as there’s still only one image. The child components have their content in group elements.
+If you continue your journey and start writing more complex SVGs, their code might get a bit out of hand. Then, you can break them down into components.
+
+Let's take our [forest example](/svg/forest) a step further. We'll add a snowing effect and clip the scene with a circle. That is already enough complexity to break down our image into multiple components. We use React again, but the same concept applies to any other front-end library you might use.
+
+In the root component, we have the SVG element itself and take care of clipping. We define a clip-path, apply it, and add a circle to show where the clip path is. That's enough complexity in one component. We move the content that we clip into another component.
 
 <Final>
 
+{/* prettier-ignore */}
 ```jsx
 function SnowGlobe() {
   return (
@@ -22,67 +27,157 @@ function SnowGlobe() {
       </clipPath>
 
       <g clip-path="url(#snow-globe)">
-        <rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3" />
-        <circle cx="0" cy="380" r="350" fill="#F8F4E8" />
-
-        <Threes />
-        <Snow />
+        <Content />
       </g>
 
-      <circle cx="0" cy="0" r="80" fill="none" stroke="gray" stroke-width="2" />
+      <circle
+        r="80"
+        fill="none"
+        stroke="gray"
+        stroke-width="2"
+      />
     </svg>
   );
 }
+```
 
-function Threes() {
+Let's create another component to generate the snow globe's content. Here, we draw the background and generate trees and snowflakes based on some data. Because this component returns multiple things, we wrap the content in a group element.
+
+{/* prettier-ignore */}
+```jsx
+function Content() {
+  const trees = [
+    { x: -20, y: 25, scale: 1.8 },
+    { x: -10, y: 40, scale: 1 },
+    { x: 30, y: 40, scale: 0.8 },
+    { x: 40, y: 30, scale: 1.2 },
+  ];
+
+  const snowflakes = [
+    { x: 0, y: 0, big: true, fast: true },
+    { x: -50, y: -20, big: true, fast: true, opaque: true },
+    { x: 30, y: -40, big: true, fast: true },
+    { x: 50, y: -20, big: true, fast: true, opaque: true },
+    { x: 30, y: 50, big: true },
+    { x: -70, y: -80, big: true, opaque: true },
+    { x: 30, y: 50, big: true },
+    { x: 90, y: -80, big: true, opaque: true },
+    { x: 10, y: -50 },
+    { x: -50, y: -60, opaque: true },
+    { x: 30, y: 70 },
+    { x: 10, y: -80, opaque: true },
+  ];
+
   return (
     <g>
-      <defs>
-        <g id="tree">
-          <polygon points="-10,0 10,0 0 -50" fill="#38755b" />
-          <line x2="0" y2="10" stroke="#778074" stroke-width="2" />
-        </g>
-      </defs>
+      <Background />
 
-      <use href="#tree" x="-20" y="25" transform="scale(1.8)" />
-      <use href="#tree" x="-10" y="40" transform="scale(1)" />
-      <use href="#tree" x="30" y="40" transform="scale(0.8)" />
-      <use href="#tree" x="40" y="30" transform="scale(1.2)" />
-    </g>
-  );
-}
+      {trees.map((tree, index) => (
+        <Tree
+          key={index}
+          x={tree.x}
+          y={tree.y}
+          scale={tree.scale}
+        />
+      ))}
 
-function Snow() {
-  return (
-    <g class="snowing">
-      <defs>
-        <circle id="big" cx="0" cy="0" r="5" fill="white" />
-        <circle id="small" cx="0" cy="0" r="3" fill="white" />
-      </defs>
-
-      <use href="#big" x="0" y="0" class="flake fast" />
-      <use href="#big" x="-50" y="-20" class="flake fast opaque" />
-      <use href="#big" x="30" y="-40" class="flake fast" />
-      <use href="#big" x="50" y="-20" class="flake fast opaque" />
-      <use href="#big" x="30" y="50" class="flake slow" />
-      <use href="#big" x="-70" y="-80" class="flake slow opaque" />
-      <use href="#big" x="30" y="50" class="flake slow" />
-      <use href="#big" x="90" y="-80" class="flake slow opaque" />
-      <use href="#small" x="10" y="-50" class="flake slow" />
-      <use href="#small" x="-50" y="-60" class="flake slow opaque" />
-      <use href="#small" x="30" y="70" class="flake slow" />
-      <use href="#small" x="10" y="-80" class="flake slow opaque" />
+      {snowflakes.map((snowflake, index) => (
+        <Snowflake
+          key={index}
+          x={snowflake.x}
+          y={snowflake.y}
+          big={snowflake.big}
+          fast={snowflake.big}
+        />
+      ))}
     </g>
   );
 }
 ```
 
+The background element returns a rectangle to set the background color and a circle that serves as the ground. Again, we wrap everything into a group element.
+
+{/* prettier-ignore */}
+```jsx
+function Background() {
+  return (
+    <g>
+      <rect
+        x="-100"
+        y="-100"
+        width="200"
+        height="200"
+        fill="#F1DBC3"
+      ></rect>
+
+      <circle
+        cx="0"
+        cy="380"
+        r="350"
+        fill="#F8F4E8"
+      ></circle>
+    </g>
+  );
+}
+```
+
+The Tree component generates and places a tree in the correct position and size. It receives the necessary attributes from the Content component as props.
+
+{/* prettier-ignore */}
+```jsx
+function Three({ x, y, scale }) {
+  return (
+    <g transform={`scale(${scale}), translate(${x} ${y})`}>
+      <polygon
+        points="-10,0 10,0 0 -50"
+        fill="#38755b"
+      ></polygon>
+
+      <line
+        x2="0"
+        y2="10"
+        stroke="#778074"
+        stroke-width="2"
+      ></line>
+    </g>
+  );
+}
+```
+
+Finally, the Snowflake component generates a snowflake based on properties like position, size, and opaqueness. We also add an animation in CSS to make them look like snowing. The animation is glitchy and not very sophisticated, but you get the idea.
+
+```jsx
+function Snowflake({ x, y, big, fast, opaque }) {
+  let className = "snowflake";
+  if (fast) className += " fast";
+  if (opaque) className += " opaque";
+
+  return (
+    <circle
+      cx={x}
+      cy={y}
+      r={big ? 5 : 3}
+      fill="white"
+      className={className}
+    ></circle>
+  );
+}
+```
+
 ```css
-.flake {
-  animation-duration: inherit;
+.snowflake {
+  animation-duration: 5s;
   animation-name: snowing;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+
+  .opaque {
+    opacity: 0.7;
+  }
+
+  .fast {
+    animation-duration: 3s;
+  }
 }
 
 @keyframes snowing {
@@ -92,18 +187,6 @@ function Snow() {
   to {
     transform: translate(0, 100px);
   }
-}
-
-.flake.opaque {
-  opacity: 0.7;
-}
-
-.flake.slow {
-  animation-duration: 5s;
-}
-
-.flake.fast {
-  animation-duration: 3s;
 }
 ```
 
