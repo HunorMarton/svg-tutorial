@@ -213,13 +213,6 @@ declare module 'astro:content' {
   collection: "svg";
   data: InferEntrySchema<"svg">
 } & { render(): Render[".mdx"] };
-"foreign-object.mdx": {
-	id: "foreign-object.mdx";
-  slug: "foreign-object";
-  body: string;
-  collection: "svg";
-  data: InferEntrySchema<"svg">
-} & { render(): Render[".mdx"] };
 "forest.mdx": {
 	id: "forest.mdx";
   slug: "forest";

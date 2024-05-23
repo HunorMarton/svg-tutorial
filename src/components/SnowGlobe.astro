@@ -3,20 +3,21 @@ import Threes from "../components/Threes.astro";
 import Snow from "../components/Snow.astro";
 
 export interface Props {
+  id: string;
   title?: string;
   size: number;
 }
 
-const { title, size } = Astro.props as Props;
+const { id, title, size } = Astro.props as Props;
 ---
 
 <svg width={200 * size} height={200 * size} viewBox="-100 -100 200 200">
   <title>{title}</title>
-  <clipPath id="snow-globe">
+  <clipPath id={`snow-globe-${id}`}>
     <circle cx="0" cy="0" r="80"></circle>
   </clipPath>
 
-  <g clip-path="url(#snow-globe)">
+  <g clip-path={`url(#snow-globe-${id})`}>
     <rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3"></rect>
     <circle cx="0" cy="380" r="350" fill="#F8F4E8"></circle>
 
