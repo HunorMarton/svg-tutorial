@@ -1,11 +1,18 @@
 import * as React from "react";
 
-interface CodeAttributeProps {
-  children: React.ReactNode;
+interface CodeValueProps {
+  [key: string]: string | React.ReactNode;
 }
 
-export const Attribute: React.FC<CodeAttributeProps> = ({ children }) => (
-  <span>
-    <span className="attribute">{children}</span>=
-  </span>
-);
+export const Attribute: React.FC<CodeValueProps> = ({ children, ...props }) => {
+  const [key, value] = Object.entries(props)[0];
+
+  return (
+    <span className="attribute">
+      <span className="key">{key}</span>
+      {'="'}
+      <span className="value">{value}</span>
+      {'"'}
+    </span>
+  );
+};

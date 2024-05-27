@@ -5,6 +5,7 @@ component: Gift
 description: In this example we draw a Gift with SVG and learn how to draw cubic bézier curves.
 ---
 
+import { CubicBezier } from "../../svg-curves/connected/CubicBezier.tsx";
 import SVG from "../../components/markdown/elements/SVG.astro";
 import Circle from "../../components/markdown/elements/Circle.astro";
 import Path from "../../components/markdown/elements/Path.astro";
@@ -16,6 +17,8 @@ Quadratic Bézier curves are great when we want to bend a line, but they have th
 With cubic Bézier, we have not one but two control points. The first control point defines the curve's initial direction, and the second one sets how the curve should reach its endpoint.
 
 Hover over the image to see the control points. Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of Cubic Béziers (select Cubic Bézier at the top of the page).
+
+<CubicBezier client:only="react" />
 
 <Example>
 

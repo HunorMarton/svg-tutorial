@@ -1,3 +1,4 @@
+import React, { useCallback } from "react";
 import { AppProvider, useAppContext } from "../state/context.tsx";
 import { PageQuadraticBezier as UnconnectedPageQuadraticBezier } from "../components/PageQuadraticBezier.tsx";
 import { type Coordinate } from "../utils/types.ts";
@@ -10,14 +11,23 @@ import {
 export const QuadraticBezierWithoutProvider: React.FC = () => {
   const { state, dispatch } = useAppContext();
 
-  const setQuadraticBezierStartPoint = (coord: Coordinate) =>
-    dispatch({ type: QUADRATIC_BEZIER_START_POINT, payload: coord });
+  const setQuadraticBezierStartPoint = useCallback(
+    (coord: Coordinate) =>
+      dispatch({ type: QUADRATIC_BEZIER_START_POINT, payload: coord }),
+    [dispatch]
+  );
 
-  const setQuadraticBezierControlPoint1 = (coord: Coordinate) =>
-    dispatch({ type: QUADRATIC_BEZIER_CONTROL_POINT, payload: coord });
+  const setQuadraticBezierControlPoint1 = useCallback(
+    (coord: Coordinate) =>
+      dispatch({ type: QUADRATIC_BEZIER_CONTROL_POINT, payload: coord }),
+    [dispatch]
+  );
 
-  const setQuadraticBezierEndPoint = (coord: Coordinate) =>
-    dispatch({ type: QUADRATIC_BEZIER_END_POINT, payload: coord });
+  const setQuadraticBezierEndPoint = useCallback(
+    (coord: Coordinate) =>
+      dispatch({ type: QUADRATIC_BEZIER_END_POINT, payload: coord }),
+    [dispatch]
+  );
 
   return (
     <UnconnectedPageQuadraticBezier

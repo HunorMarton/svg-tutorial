@@ -17,21 +17,12 @@ interface AppContextProps {
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
-const originalWindowWidth = window.innerWidth;
-const originalWindowHeight = window.innerHeight;
-
 export const AppProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    // Set initial size
-    dispatch({
-      type: RESIZE,
-      payload: { width: originalWindowWidth, height: originalWindowHeight },
-    });
-
     // Set initial arc
     dispatch({ type: ARC_START_POINT, payload: { x: 145, y: 174 } });
   }, [dispatch]);

@@ -1,3 +1,4 @@
+import React, { useCallback } from "react";
 import { AppProvider, useAppContext } from "../state/context.tsx";
 import { PageCubicBezier as UnconnectedPageCubicBezier } from "../components/PageCubicBezier.tsx";
 import { type Coordinate } from "../utils/types.ts";
@@ -11,17 +12,29 @@ import {
 export const CubicBezierWithoutProvider: React.FC = () => {
   const { state, dispatch } = useAppContext();
 
-  const setCubicBezierStartPoint = (coord: Coordinate) =>
-    dispatch({ type: CUBIC_BEZIER_START_POINT, payload: coord });
+  const setCubicBezierStartPoint = useCallback(
+    (coord: Coordinate) =>
+      dispatch({ type: CUBIC_BEZIER_START_POINT, payload: coord }),
+    [dispatch]
+  );
 
-  const setCubicBezierControlPoint1 = (coord: Coordinate) =>
-    dispatch({ type: CUBIC_BEZIER_CONTROL_POINT_1, payload: coord });
+  const setCubicBezierControlPoint1 = useCallback(
+    (coord: Coordinate) =>
+      dispatch({ type: CUBIC_BEZIER_CONTROL_POINT_1, payload: coord }),
+    [dispatch]
+  );
 
-  const setCubicBezierControlPoint2 = (coord: Coordinate) =>
-    dispatch({ type: CUBIC_BEZIER_CONTROL_POINT_2, payload: coord });
+  const setCubicBezierControlPoint2 = useCallback(
+    (coord: Coordinate) =>
+      dispatch({ type: CUBIC_BEZIER_CONTROL_POINT_2, payload: coord }),
+    [dispatch]
+  );
 
-  const setCubicBezierEndPoint = (coord: Coordinate) =>
-    dispatch({ type: CUBIC_BEZIER_END_POINT, payload: coord });
+  const setCubicBezierEndPoint = useCallback(
+    (coord: Coordinate) =>
+      dispatch({ type: CUBIC_BEZIER_END_POINT, payload: coord }),
+    [dispatch]
+  );
 
   return (
     <UnconnectedPageCubicBezier

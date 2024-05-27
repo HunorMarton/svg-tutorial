@@ -15,7 +15,7 @@ export default function coordReducer(
         case RESIZE: {
             const availableSize = {
                 width: action.payload.width,
-                height: action.payload.height - 200
+                height: action.payload.height
             };
 
             // Shrink everything if needed

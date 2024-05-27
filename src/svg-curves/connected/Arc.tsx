@@ -1,3 +1,4 @@
+import React, { useCallback } from "react";
 import { AppProvider, useAppContext } from "../state/context.tsx";
 import { PageArc as UnconnectedPageArc } from "../components/PageArc.tsx";
 import { type Coordinate } from "../utils/types.ts";
@@ -14,31 +15,46 @@ import {
 export const ArcWithoutProvider: React.FC = () => {
   const { state, dispatch } = useAppContext();
 
-  const setArcStartPoint = (coord: Coordinate) =>
-    dispatch({ type: ARC_START_POINT, payload: coord });
+  const setArcStartPoint = useCallback(
+    (coord: Coordinate) => dispatch({ type: ARC_START_POINT, payload: coord }),
+    [dispatch]
+  );
 
-  const setArcCenterPoint = (coord: Coordinate) =>
-    dispatch({ type: ARC_CENTER_POINT, payload: coord });
+  const setArcCenterPoint = useCallback(
+    (coord: Coordinate) => dispatch({ type: ARC_CENTER_POINT, payload: coord }),
+    [dispatch]
+  );
 
-  const setArcEndPoint = (coord: Coordinate) =>
-    dispatch({ type: ARC_END_POINT, payload: coord });
+  const setArcEndPoint = useCallback(
+    (coord: Coordinate) => dispatch({ type: ARC_END_POINT, payload: coord }),
+    [dispatch]
+  );
 
-  const setArcRadiusX = (coord: Coordinate) =>
-    dispatch({ type: ARC_RADIUS_X, payload: coord });
+  const setArcRadiusX = useCallback(
+    (coord: Coordinate) => dispatch({ type: ARC_RADIUS_X, payload: coord }),
+    [dispatch]
+  );
 
-  const setArcRadiusY = (coord: Coordinate) =>
-    dispatch({ type: ARC_RADIUS_Y, payload: coord });
+  const setArcRadiusY = useCallback(
+    (coord: Coordinate) => dispatch({ type: ARC_RADIUS_Y, payload: coord }),
+    [dispatch]
+  );
 
-  const setArcRotation = (coord: Coordinate) =>
-    dispatch({ type: ARC_ROTATION, payload: coord });
+  const setArcRotation = useCallback(
+    (coord: Coordinate) => dispatch({ type: ARC_ROTATION, payload: coord }),
+    [dispatch]
+  );
 
-  const setArcFlags = ({
-    largeArcFlag,
-    sweepFlag,
-  }: {
-    largeArcFlag: boolean;
-    sweepFlag: boolean;
-  }) => dispatch({ type: ARC_FLAGS, payload: { largeArcFlag, sweepFlag } });
+  const setArcFlags = useCallback(
+    ({
+      largeArcFlag,
+      sweepFlag,
+    }: {
+      largeArcFlag: boolean;
+      sweepFlag: boolean;
+    }) => dispatch({ type: ARC_FLAGS, payload: { largeArcFlag, sweepFlag } }),
+    [dispatch]
+  );
 
   return (
     <UnconnectedPageArc

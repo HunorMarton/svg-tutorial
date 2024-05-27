@@ -1,33 +1,34 @@
-import React, { useEffect } from "react";
-import { fromEvent } from "rxjs";
-import { map } from "rxjs/operators";
+import React, { useRef, useEffect } from "react";
 import * as mainViewBox from "../constants/mainViewBoxSize.ts";
 import "./Canvas.css";
 
 interface CanvasProps {
   children: React.ReactNode;
-  svgWidth: number;
-  svgHeight: number;
   viewBoxWidth: number;
   viewBoxHeight: number;
   resize: ({ width, height }: { width: number; height: number }) => void;
 }
 
 export const Canvas: React.FC<CanvasProps> = (props) => {
+  const canvasRef = useRef<SVGSVGElement>(null);
+
   useEffect(() => {
-    const resizeSubscription = fromEvent(window, "resize")
-      .pipe(
-        map(() => ({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        }))
-      )
-      .subscribe(({ width, height }) => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const width = entry.contentRect.width;
+        const height = entry.contentRect.height;
         props.resize({ width, height });
-      });
+      }
+    });
+
+    if (canvasRef.current) {
+      resizeObserver.observe(canvasRef.current);
+    }
 
     return () => {
-      resizeSubscription.unsubscribe();
+      if (canvasRef.current) {
+        resizeObserver.unobserve(canvasRef.current);
+      }
     };
   }, [props.resize]);
 
@@ -39,11 +40,9 @@ export const Canvas: React.FC<CanvasProps> = (props) => {
 
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      version="1.1"
-      width={props.svgWidth}
-      height={props.svgHeight}
       viewBox={`0 0 ${props.viewBoxWidth} ${props.viewBoxHeight}`}
+      className="canvas"
+      ref={canvasRef}
     >
       <defs>
         <symbol id="cross">

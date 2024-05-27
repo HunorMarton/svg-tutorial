@@ -1,5 +1,9 @@
-svg {
+.canvas {
   background-color: #440015;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
 }
 
 .canvasCorners {

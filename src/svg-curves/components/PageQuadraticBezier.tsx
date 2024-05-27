@@ -2,7 +2,7 @@ import * as React from "react";
 import { type QuadraticBezier, type Coordinate } from "../utils/types";
 import { round } from "../utils/round";
 import { Canvas } from "../connected/Canvas";
-import { Code } from "../connected/Code";
+import { Code } from "./Code";
 import { DragMove } from "./DragMove";
 
 type PageQuadraticBezierProps = QuadraticBezier & {
