@@ -5,6 +5,7 @@ component: Candy
 description: In this example we draw a Candy with SVG and learn how to use draw an arc.
 ---
 
+import SVGCurve from "../../components/markdown/layouts/SVGCurve.astro";
 import { Arc } from "../../svg-curves/connected/Arc.tsx";
 import SVG from "../../components/markdown/elements/SVG.astro";
 import Path from "../../components/markdown/elements/Path.astro";
@@ -14,7 +15,9 @@ import Final from "../../components/markdown/layouts/Final.astro";
 
 If you thought that [cubic Béziers](/svg/cubic-bezier) are the most complicated parts of an SVG then I have bad news for you. Arcs are way more complicated. The good news though, is that they are rarely used, and we won't use them much in the upcoming examples either.
 
-<Arc client:only="react" />
+<SVGCurve>
+  <Arc client:only="react" />
+</SVGCurve>
 
 ### The different parameters of an SVG arc
 

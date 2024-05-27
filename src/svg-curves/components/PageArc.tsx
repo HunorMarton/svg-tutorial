@@ -75,7 +75,7 @@ export const PageArc: React.FC<PageArcProps> = ({
   };
 
   return (
-    <div>
+    <>
       <Canvas>
         <line
           className="presentationHelper"
@@ -134,6 +134,6 @@ export const PageArc: React.FC<PageArcProps> = ({
         &nbsp;
         {round(x2)} {round(y2)}
       </Code>
-    </div>
+    </>
   );
 };

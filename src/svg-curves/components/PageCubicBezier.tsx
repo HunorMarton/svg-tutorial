@@ -26,7 +26,7 @@ export const PageCubicBezier: React.FC<PageCubicBezierProps> = ({
   setCubicBezierControlPoint2,
   setCubicBezierEndPoint,
 }) => (
-  <div>
+  <>
     <Canvas>
       <line className="presentationHelper" x1={x0} y1={y0} x2={x1} y2={y1} />
       <line className="presentationHelper" x1={x2} y1={y2} x2={x} y2={y} />
@@ -47,5 +47,5 @@ export const PageCubicBezier: React.FC<PageCubicBezierProps> = ({
       M {round(x0)} {round(y0)} C {round(x1)} {round(y1)}, {round(x2)}{" "}
       {round(y2)}, {round(x)} {round(y)}
     </Code>
-  </div>
+  </>
 );

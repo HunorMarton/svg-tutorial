@@ -22,7 +22,7 @@ export const PageQuadraticBezier: React.FC<PageQuadraticBezierProps> = ({
   setQuadraticBezierControlPoint1,
   setQuadraticBezierEndPoint,
 }) => (
-  <div>
+  <>
     <Canvas>
       <line className="presentationHelper" x1={x0} y1={y0} x2={x1} y2={y1} />
       <line className="presentationHelper" x1={x1} y1={y1} x2={x} y2={y} />
@@ -40,5 +40,5 @@ export const PageQuadraticBezier: React.FC<PageQuadraticBezierProps> = ({
     <Code>
       M {round(x0)} {round(y0)} Q {round(x1)} {round(y1)}, {round(x)} {round(y)}
     </Code>
-  </div>
+  </>
 );

@@ -1,9 +1,9 @@
 .canvas {
   background-color: #440015;
-  border-radius: 10px;
   width: 100%;
+  height: 100%;
   max-width: 100%;
-  aspect-ratio: 1 / 1;
+  max-height: 100%;
 }
 
 .canvasCorners {

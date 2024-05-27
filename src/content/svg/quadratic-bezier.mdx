@@ -5,6 +5,7 @@ component: ThreeWithCurves
 description: In this example we draw a Tree with SVG and learn how to draw quadratic bézier curves.
 ---
 
+import SVGCurve from "../../components/markdown/layouts/SVGCurve.astro";
 import { QuadraticBezier } from "../../svg-curves/connected/QuadraticBezier.tsx";
 import SVG from "../../components/markdown/elements/SVG.astro";
 import Circle from "../../components/markdown/elements/Circle.astro";
@@ -16,7 +17,9 @@ The path element becomes really powerful when we start using curves. One of them
 
 The control point is an invisible coordinate to which the line is bending to, but not touching it. Look at this happy face! Here the invisible control point is at the middle of the bottom of the image (at `0,90`).
 
-<QuadraticBezier client:only="react" />
+<SVGCurve>
+  <QuadraticBezier client:only="react" />
+</SVGCurve>
 
 <Example>
 
