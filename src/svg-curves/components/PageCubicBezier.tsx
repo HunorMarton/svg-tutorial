@@ -44,8 +44,9 @@ export const PageCubicBezier: React.FC<PageCubicBezierProps> = ({
       <DragMove x={x} y={y} changeCoord={setCubicBezierEndPoint} />
     </Canvas>
     <Code>
-      M {round(x0)} {round(y0)} C {round(x1)} {round(y1)}, {round(x2)}{" "}
-      {round(y2)}, {round(x)} {round(y)}
+      {`M ${round(x0)} ${round(y0)} C ${round(x1)} ${round(y1)}, ${round(
+        x2
+      )} ${round(y2)}, ${round(x)} ${round(y)}`}
     </Code>
   </>
 );

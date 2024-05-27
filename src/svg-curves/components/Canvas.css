@@ -1,5 +1,5 @@
 .canvas {
-  background-color: #440015;
+  background-color: var(--background-color);
   width: 100%;
   height: 100%;
   max-width: 100%;
@@ -7,40 +7,40 @@
 }
 
 .canvasCorners {
-  stroke: white;
+  stroke: var(--corner-color);
   stroke-width: 2px;
   stroke-linecap: square;
 }
 
 .presentation {
-  stroke: white;
+  stroke: var(--curve-color);
   stroke-width: 20px;
   stroke-linecap: round;
   fill: none;
 }
 
 .presentationHelper {
-  stroke: dimgray;
+  stroke: var(--helper-color);
   stroke-width: 1px;
   stroke-dasharray: 20, 20;
   fill: none;
 }
 
 .presentationAlternative {
-  stroke: rgba(255, 255, 255, 0.2);
+  stroke: var(--curve-alternative-color);
   stroke-width: 1px;
   stroke-dasharray: 1, 1;
   fill: none;
 }
 
 .presentationAlternativeBackground {
-  stroke: rgba(96, 0, 30, 0.1);
+  stroke: var(--curve-alternative-background-color);
   stroke-width: 10px;
   fill: none;
 }
 
 .presentationAlternativeBackground:hover {
-  stroke: rgba(255, 255, 255, 0.8);
+  stroke: var(--curve-alternative-background-hover-color);
   stroke-width: 10px;
   fill: none;
 }

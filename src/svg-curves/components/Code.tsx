@@ -4,12 +4,12 @@ import { Attribute } from "./CodeAttribute.tsx";
 import "./Code.css";
 
 interface CodeProps {
-  children: React.ReactNode;
+  children: string;
 }
 
 export const Code: React.FC<CodeProps> = ({ children }) => (
-  <pre>
-    <code className="code">
+  <pre className="code">
+    <code>
       <div>
         <Tag type="opening">svg</Tag>
         <Attribute width="450" />

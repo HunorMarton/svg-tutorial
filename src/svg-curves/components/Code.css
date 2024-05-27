@@ -1,18 +1,11 @@
 .code {
-  color: #121212;
+  color: white;
   box-sizing: border-box;
-  padding: 8px 20px 10px 20px;
+  padding: 26px;
+  background-color: #24292e;
+  margin: 0;
 }
 
-.code > * {
-  /* TODO: Check what is in the bundle if no browser prefixes are presented here */
-  white-space: pre-wrap; /* css-3 */
-  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-  white-space: -pre-wrap; /* Opera 4-6 */
-  white-space: -o-pre-wrap; /* Opera 7 */
-  word-wrap: break-word; /* Internet Explorer 5.5+ */
-  margin: 5px;
-}
 .code .level1 {
   padding-left: 20px;
 }
@@ -22,14 +15,14 @@
 }
 
 .code .tag {
-  color: #905;
+  color: #85e89d;
 }
 .code .attribute:not(:last-child)::after {
   content: " ";
 }
 .code .key {
-  color: #609;
+  color: #b392f0;
 }
 .code .value {
-  color: #07a;
+  color: #9ecbff;
 }

@@ -1,52 +1,62 @@
+:root {
+}
+
 .draggable {
-  fill: rgba(96, 0, 30, 0.2);
+  fill: var(--draggable-color);
   cursor: grab;
 }
 
 .draggable text {
-  fill: rgba(255, 0, 80, 0);
+  fill: var(--draggable-text-color);
 }
+
 .draggable .arrowHead {
-  fill: #8c99a6;
+  fill: var(--draggable-icon-color);
 }
+
 .draggable .arrowLine {
-  stroke: #8c99a6;
+  stroke: var(--draggable-icon-color);
   stroke-width: 2px;
 }
 
 .draggable:hover {
-  fill: rgba(96, 0, 30, 0.8);
+  fill: var(--draggable-hover-color);
   cursor: grab;
 }
 
 .draggable:hover text {
-  fill: rgba(255, 0, 80, 0.8);
+  fill: var(--draggable-text-hover-color);
 }
+
 .draggable:hover .arrowHead {
-  fill: white;
+  fill: var(--draggable-icon-hover-color);
 }
+
 .draggable:hover .arrowLine {
-  stroke: white;
+  stroke: var(--draggable-icon-hover-color);
   stroke-width: 2px;
 }
 
 .dragging {
-  fill: rgba(193, 0, 61, 0.8);
+  fill: var(--dragging-color);
   cursor: grabbing;
 }
 
 .dragging text {
-  fill: rgba(255, 255, 255, 0.8);
+  fill: var(--dragging-text-color);
 }
+
 .dragging .arrowHead {
-  fill: white;
+  fill: var(--dragging-icon-color);
 }
+
 .dragging .arrowLine {
-  stroke: white;
+  stroke: var(--dragging-icon-color);
   stroke-width: 2px;
 }
 
 .draggable text,
 .dragging text {
   user-select: none;
+  pointer-events: none;
 }

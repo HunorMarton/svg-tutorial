@@ -128,11 +128,11 @@ export const PageArc: React.FC<PageArcProps> = ({
         <DragMove x={cx} y={cy} changeCoord={setArcCenterPoint} />
       </Canvas>
       <Code>
-        M {round(x1)} {round(y1)} A {round(rx)} {round(ry)}
-        &nbsp;
-        {round(degree)} {largeArcFlag ? 1 : 0} {sweepFlag ? 1 : 0}
-        &nbsp;
-        {round(x2)} {round(y2)}
+        {`M ${round(x1)} ${round(y1)} A ${round(rx)} ${round(ry)} ${round(
+          degree
+        )} ${largeArcFlag ? 1 : 0} ${sweepFlag ? 1 : 0} ${round(x2)} ${round(
+          y2
+        )}`}
       </Code>
     </>
   );
