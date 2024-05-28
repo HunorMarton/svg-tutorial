@@ -13,46 +13,15 @@ import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
-Quadratic Bézier curves are great when we want to bend a line, but they have their limits. We cannot draw a bulky curve or make smooth connections between line segments.
+[Quadratic Bézier](/svg/quadratic-bezier) curves are great when we want to bend a line, but they are limited. We cannot draw a bulky curve or make smooth connections between line segments.
 
-With cubic Bézier, we have not one but two control points. The first control point defines the curve's initial direction, and the second one sets how the curve should reach its endpoint.
-
-Hover over the image to see the control points. Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of Cubic Béziers (select Cubic Bézier at the top of the page).
+With cubic Bézier curves, we have not one but two control points. The first control point defines the curve's initial direction, and the second one sets how the curve should reach its endpoint. Drag the coordinates below to see how it works.
 
 <SVGCurve>
   <CubicBezier client:only="react" />
 </SVGCurve>
 
-<Example>
-
-<SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Path
-    d="M -50,50 C -50,-50 50,-50 50,50"
-    fill="none"
-    stroke="red"
-    stroke-width="10"
-  />
-</SVG>
-
-{/* prettier-ignore */}
-```html
-<svg 
-  width="200"
-  height="200"
-  viewBox="-100 -100 200 200"
->
-  <path 
-    d="
-      M -50,50 
-      C -50,-50 50,-50 50,50"
-    fill="none"
-    stroke="red"
-    stroke-width="10"
-  />
-</svg>
-```
-
-</Example>
+{/* <SVG width="200" height="200" viewBox="-100 -100 200 200"><Path d="M -50,50 C -50,-50 50,-50 50,50" fill="none" stroke="red" stroke-width="10" /></SVG> */}
 
 ## Connecting lines
 

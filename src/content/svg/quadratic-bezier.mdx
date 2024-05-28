@@ -13,13 +13,15 @@ import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
-The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve. We not only set the endpoint but we also have to set a control point.
+The path element becomes really powerful when we start using curves, such as the quadratic Bezier curve. For a curve, we also have to set a control point apart from the endpoint.
 
-The control point is an invisible coordinate to which the line is bending to, but not touching it. Look at this happy face! Here the invisible control point is at the middle of the bottom of the image (at `0,90`).
+The control point is an invisible coordinate to which the line is bending. Drag the coordinates below to see how it works.
 
 <SVGCurve>
   <QuadraticBezier client:only="react" />
 </SVGCurve>
+
+A smile is a simple image we can create using a quadratic Bezier curve. Look at this happy face! Here, the invisible control point is at the bottom of the image at `0,90`.
 
 <Example>
 
@@ -58,7 +60,7 @@ The control point is an invisible coordinate to which the line is bending to, bu
 
 </Example>
 
-In the example above the control point is at the same distance of the two endpoints. This is not necessary. In the example below the control point is above the endpoint. Hover over the image to see the control point.
+In the example above, the control point is at the same distance from the two endpoints, but this is not necessary. In the example below, the control point is moved to the right. Hover over the image to see the control point.
 
 <Example>
 
@@ -90,8 +92,6 @@ In the example above the control point is at the same distance of the two endpoi
 ```
 
 </Example>
-
-Click here for <a href="https://hunormarton.github.io/svg-curves" target="_blank" rel="noopener">an interactive demo</a> of Quadratic Béziers (select Quadratic Bézier at the top of the page).
 
 In today's example, we have a series of quadratic beziers where the control points get further and further away from the center of the tree as the path goes down.
 
