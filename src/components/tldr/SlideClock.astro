@@ -1,0 +1,19 @@
+---
+import Slide from "./Slide.astro";
+import Clock from "../../components/markdown/examples/Clock.astro";
+---
+
+<Slide start={21}>
+  <div class="slide-clock"><Clock /></div>
+</Slide>
+
+<style>
+  .slide-clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #7b0828;
+  }
+</style>

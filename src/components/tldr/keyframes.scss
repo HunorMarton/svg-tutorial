@@ -2,7 +2,7 @@
 @use 'sass:list';
 @use 'sass:math';
 
-$numberOfSlides: 19;
+$numberOfSlides: 27;
 
 // Generate keyframe animations for a property over a set of values
 @mixin keyframes($name, $property, $values) {
