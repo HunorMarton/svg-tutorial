@@ -9,11 +9,6 @@ import Slide from "./Slide.astro";
 <style is:global lang="scss">
   $slide: 4;
 
-  .slide-svg {
-    display: flex;
-    gap: 30px;
-  }
-
   .slide-svg .markdown-example {
     position: absolute;
     top: 50%;
@@ -28,6 +23,10 @@ import Slide from "./Slide.astro";
     animation-fill-mode: forwards;
   }
 
+  .slide-svg .markdown-example pre {
+    width: 400px;
+  }
+
   .slide-svg .markdown-example:nth-of-type(1) pre {
     position: relative;
     top: 50px;
@@ -35,9 +34,6 @@ import Slide from "./Slide.astro";
 
   .slide-svg .markdown-example:nth-of-type(1) {
     @keyframes anima1 {
-      0% {
-        left: calc(50% - 220px);
-      }
       100% {
         left: calc(50% - 660px);
       }
@@ -48,9 +44,6 @@ import Slide from "./Slide.astro";
 
   .slide-svg .markdown-example:nth-of-type(2) {
     @keyframes anima2 {
-      0% {
-        left: calc(50% + 220px);
-      }
       100% {
         left: calc(50% - 220px);
       }
@@ -61,14 +54,11 @@ import Slide from "./Slide.astro";
 
   .slide-svg .markdown-example:nth-of-type(3) {
     @keyframes anima3 {
-      0% {
-        left: calc(50% + 620px);
-      }
       100% {
-        left: calc(50% + 180px);
+        left: calc(50% + 220px);
       }
     }
-    left: calc(50% + 620px);
+    left: calc(50% + 660px);
     animation-name: anima3;
   }
 </style>
