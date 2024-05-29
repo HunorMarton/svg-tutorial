@@ -2,7 +2,7 @@
 import Slide from "./Slide.astro";
 ---
 
-<Slide start={6} slides={4}>
+<Slide start={6} slides={5}>
   <div class="slide-circle"><slot /></div>
 </Slide>
 
@@ -10,19 +10,55 @@ import Slide from "./Slide.astro";
   $slide: 6;
 
   @import "keyframes";
-  @include keyframes(default-circle, opacity, [1, 0]);
-  @include keyframes(filled-circle, opacity, [0, 1, 0]);
-  @include keyframes(stroke-circle, opacity, [0, 0, 1]);
 
-  @include keyframes(lines-before, top, [2.5, 2, 1, 2]);
-  @include keyframes(lines-after, top, [-2.5, -2, -1, -2]);
-  @include keyframes(fill, opacity, [0, 1, 0]);
-  @include keyframes(stroke, opacity, [0, 0, 1, 0]);
-  @include keyframes(class, opacity, [0, 0, 0, 1]);
+  // Initial animation: center the SVG container on the screen without the code blocks or frame
+  @include keyframes(svg-container, left, [160px, 0]);
+  @include keyframes(show, opacity, [0, 1]);
+  @include keyframes(scale, transform, [scale(2), scale(1)]);
+  @include keyframes(events, pointer-events, [none, auto]);
+  @include keyframes(border, border-color, [transparent, gray]);
 
-  @include keyframes(html-code, top, [5, 5, 5, 0]);
+  // SVG element animation
+  @include keyframes(default-circle, opacity, [1, 1, 0]);
+  @include keyframes(filled-circle, opacity, [0, 0, 1, 0]);
+  @include keyframes(stroke-circle, opacity, [0, 0, 0, 1]);
 
-  // How are keyframes scoped if they are defined within a CSS selector? (maybe names become unnecessary)
+  // Code block animation
+  @include keyframes(lines-before, top, [2.5, 2.5, 2, 1, 2]);
+  @include keyframes(lines-after, top, [-2.5, -2.5, -2, -1, -2]);
+  @include keyframes(fill, opacity, [0, 0, 1, 0]);
+  @include keyframes(stroke, opacity, [0, 0, 0, 1, 0]);
+  @include keyframes(class, opacity, [0, 0, 0, 0, 1]);
+
+  @include keyframes(html-code, top, [5, 5, 5, 5, 0]);
+
+  .slide-circle {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-events;
+  }
+
+  .slide-circle .svg-container {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-svg-container;
+  }
+
+  .slide-circle .svg-viewbox-values {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-show;
+  }
+
+  .slide-circle svg {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name:
+      slide-#{$slide}-scale,
+      slide-#{$slide}-border;
+  }
 
   // SVG
   .slide-circle .svg-base > g {
@@ -42,13 +78,31 @@ import Slide from "./Slide.astro";
     animation-name: slide-#{$slide}-stroke-circle;
   }
 
+  // Code blocks
+  .slide-circle pre {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+  }
+
+  .slide-circle pre:nth-of-type(1) {
+    animation-name:
+      slide-#{$slide}-show,
+      slide-#{$slide}-html-code;
+    padding: 0 52px 0 26px;
+  }
+
+  .slide-circle pre:nth-of-type(2) {
+    animation-name: slide-#{$slide}-class;
+  }
+
+  // Code
   .slide-circle pre:nth-of-type(1) .line {
     position: relative;
     animation-duration: 1ms; /* Firefox requires this to apply the animation */
     animation-timeline: scroll();
   }
 
-  // Code
   .slide-circle pre:nth-of-type(1) .line:nth-child(1),
   .slide-circle pre:nth-of-type(1) .line:nth-child(2),
   .slide-circle pre:nth-of-type(1) .line:nth-child(3),
@@ -82,21 +136,5 @@ import Slide from "./Slide.astro";
   .slide-circle pre:nth-of-type(1) .line:nth-child(15),
   .slide-circle pre:nth-of-type(1) .line:nth-child(16) {
     animation-name: slide-#{$slide}-lines-after;
-  }
-
-  // Pre
-  .slide-circle pre {
-    position: relative;
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-timeline: scroll();
-  }
-
-  .slide-circle pre:nth-of-type(1) {
-    animation-name: slide-#{$slide}-html-code;
-    padding: 0 52px 0 26px;
-  }
-
-  .slide-circle pre:nth-of-type(2) {
-    animation-name: slide-#{$slide}-class;
   }
 </style>
