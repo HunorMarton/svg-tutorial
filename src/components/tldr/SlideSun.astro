@@ -1,0 +1,116 @@
+---
+import Slide from "./Slide.astro";
+---
+
+<Slide start={13} slides={4}>
+  <div class="slide-sun"><slot /></div>
+</Slide>
+
+<style is:global lang="scss">
+  $slide: 13;
+
+  @import "keyframes";
+
+  // Initial animation: center the SVG container on the screen without the code blocks or frame
+  @include keyframes(svg-container, left, [275px, 0]);
+  @include keyframes(show, opacity, [0, 1]);
+  @include keyframes(border, border-color, [transparent, gray]);
+
+  // Content of SVG image
+  @include keyframes(ray1, opacity, [1, 0, 1]);
+  @include keyframes(rays, opacity, [1, 0, 0, 1]);
+
+  // Code blocks
+  @include keyframes(pre1, top, [5, 5, 0]);
+  @include keyframes(pre2, opacity, [0, 0, 1]);
+
+  // Code lines
+  @include keyframes(lines-before, top, [4, 4, 4, 0]);
+  @include keyframes(path-opacity, opacity, [0, 0, 1]);
+  @include keyframes(path-top, top, [4, 4, 4, 0]);
+  @include keyframes(use, opacity, [0, 0, 0, 1]);
+  @include keyframes(lines-after, top, [-4, -4, -3, 0]);
+
+  .slide-sun .svg-container {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-svg-container;
+  }
+
+  .slide-sun .svg-viewbox-values {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-show;
+  }
+
+  .slide-sun svg {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-border;
+  }
+
+  .slide-sun .svg-base > g:not(:nth-of-type(1)) {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-ray1;
+  }
+
+  .slide-sun .svg-base > use {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-rays;
+  }
+
+  // HTML and CSS Code blocks
+  .slide-sun pre {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+  }
+
+  // HTML Code
+  .slide-sun pre:nth-of-type(1) {
+    animation-name:
+      slide-#{$slide}-show,
+      slide-#{$slide}-pre1;
+  }
+
+  // CSS Code
+  .slide-sun pre:nth-of-type(2) {
+    animation-name:
+      slide-#{$slide}-show,
+      slide-#{$slide}-pre2;
+  }
+
+  .slide-sun pre:nth-of-type(1) .line {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+  }
+
+  .slide-sun pre:nth-of-type(1) .line:nth-child(1),
+  .slide-sun pre:nth-of-type(1) .line:nth-child(2) {
+    animation-name: slide-#{$slide}-lines-before;
+  }
+
+  .slide-sun pre:nth-of-type(1) .line:nth-child(3) {
+    animation-name:
+      slide-#{$slide}-path-opacity,
+      slide-#{$slide}-path-top;
+  }
+
+  .slide-sun pre:nth-of-type(1) .line:nth-child(4),
+  .slide-sun pre:nth-of-type(1) .line:nth-child(5),
+  .slide-sun pre:nth-of-type(1) .line:nth-child(6),
+  .slide-sun pre:nth-of-type(1) .line:nth-child(7),
+  .slide-sun pre:nth-of-type(1) .line:nth-child(8),
+  .slide-sun pre:nth-of-type(1) .line:nth-child(9),
+  .slide-sun pre:nth-of-type(1) .line:nth-child(10) {
+    animation-name: slide-#{$slide}-use;
+  }
+
+  .slide-sun pre:nth-of-type(1) .line:nth-child(11) {
+    animation-name: slide-#{$slide}-lines-after;
+  }
+</style>
