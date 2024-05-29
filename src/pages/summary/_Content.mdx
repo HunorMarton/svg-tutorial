@@ -1,7 +1,7 @@
 import Slide from "../../components/tldr/Slide.astro";
 import SlideHeader from "../../components/tldr/SlideHeader.astro";
+import SlideSVG from "../../components/tldr/SlideSVG.astro";
 import SlideHTML from "../../components/tldr/SlideHTML.astro";
-import Slide2 from "../../components/tldr/Slide2.astro";
 import SlideCircle from "../../components/tldr/SlideCircle.astro";
 import SlideHamburger from "../../components/tldr/SlideHamburger.astro";
 import SlideSun from "../../components/tldr/SlideSun.astro";
@@ -14,6 +14,7 @@ import SlideCurve from "../../components/tldr/SlideCurve.astro";
 import { QuadraticBezier } from "../../svg-curves/connected/QuadraticBezier";
 import { CubicBezier } from "../../svg-curves/connected/CubicBezier";
 import { Arc } from "../../svg-curves/connected/Arc";
+import Slide2 from "../../components/tldr/Slide2.astro";
 
 import Example from "../../components/markdown/layouts/Example.astro";
 import SVG from "../../components/markdown/elements/SVG.astro";
@@ -39,7 +40,7 @@ export const Page = () => (
 
 </SlideHTML>
 
-<Slide2 start={4} >
+<SlideSVG>
     <Example>
 
         <SVG width="100" height="100" viewBox="0 0 200 200">
@@ -78,32 +79,10 @@ export const Page = () => (
 
     </Example>
 
-</Slide2>
-
-<Slide2 start={5}>
-    <Example>
-
-        <SVG width="200" height="200" viewBox="0 0 200 200">
-          <Circle cx="100" cy="100" r="50" />
-        </SVG>
-
-        {/* prettier-ignore */}
-        ```html
-        <svg
-          width="200"
-          height="200"
-          viewBox="0 0 200 200"
-        >
-          <circle cx="100" cy="100" r="50" />
-        </svg>
-        ```
-
-    </Example>
-
     <Example>
 
         <SVG width="200" height="200" viewBox="-100 -100 200 200">
-          <Circle cx="0" cy="0" r="50" />
+          <Circle r="50" />
         </SVG>
 
         {/* prettier-ignore */}
@@ -113,13 +92,13 @@ export const Page = () => (
           height="200"
           viewBox="-100 -100 200 200"
         >
-          <circle cx="0" cy="0" r="50" />
+          <circle r="50" />
         </svg>
         ```
 
     </Example>
 
-</Slide2>
+</SlideSVG>
 
 <SlideCircle>
 
