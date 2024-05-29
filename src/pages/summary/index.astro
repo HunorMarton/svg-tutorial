@@ -6,7 +6,19 @@ import { Content } from "./_Content.mdx";
 
 <Summary>
   <Popover transition="tldr">
-    <Content />
+    <div class="unsupported-browser">
+      <div>
+        <h1>Your browser does not support Scroll-driven Animations with CSS</h1>
+        <p>
+          This page heavily relies on scroll-driven animations and your browser
+          does not support it yet. Open this page in Chrome on desktop.
+        </p>
+        <a href="/">Back to Home</a>
+      </div>
+    </div>
+    <div class="snap-container">
+      <Content />
+    </div>
   </Popover>
 </Summary>
 
@@ -15,22 +27,55 @@ import { Content } from "./_Content.mdx";
     --line-height: 1.5em;
   }
 
-  code {
-    padding: 0 5px 2px;
-    background-color: lightgray;
-    font-size: 1.2em;
-    line-height: var(--line-height);
+  * {
+    box-sizing: border-box;
   }
 
-  pre {
-    color: white;
-    padding: 2em;
-    border-radius: 5px;
-    max-width: 100%;
+  .unsupported-browser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    div {
+      max-width: 500px;
+    }
   }
 
-  pre code {
-    background-color: inherit;
-    padding: 0;
+  .snap-container {
+    display: none;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .unsupported-browser {
+      display: none;
+    }
+
+    .snap-container {
+      display: block;
+      overflow: auto;
+      width: 100vw;
+      height: 100vh;
+      scroll-snap-type: y mandatory;
+    }
+
+    code {
+      padding: 0 5px 2px;
+      background-color: lightgray;
+      font-size: 1.2em;
+      line-height: var(--line-height);
+    }
+
+    pre {
+      color: white;
+      padding: 2em;
+      border-radius: 5px;
+      max-width: 100%;
+    }
+
+    pre code {
+      background-color: inherit;
+      padding: 0;
+    }
   }
 </style>

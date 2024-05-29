@@ -2,7 +2,7 @@
 @use 'sass:list';
 @use 'sass:math';
 
-$numberOfSlides: 12;
+$numberOfSlides: 11;
 
 // Generate keyframe animations for a property over a set of values
 @mixin keyframes($name, $property, $values) {
@@ -28,14 +28,17 @@ $numberOfSlides: 12;
 }
 
 @mixin keyframe($property, $value, $offset) {
-    $percentagePerSlide: calc(100% / $numberOfSlides);
+    $percentagePerSlide: math.div(100%, $numberOfSlides);
     $currentSlide: $slide + $offset;
 
     $percentage: $percentagePerSlide * $currentSlide;
 
+    // @debug "slide: #{$slide}, currentSlide: #{$currentSlide}, percentage: #{$percentage}";
+
     // Animation starts 30% after the slide starts and ends 30% before the slide ends
     $stillPercentage: $percentagePerSlide * 0.3;
 
+    /*
     $percentage: $percentage - $stillPercentage;
 
     #{math.max($percentage, 0%)} {
@@ -45,6 +48,11 @@ $numberOfSlides: 12;
     $percentage: $percentage + $stillPercentage;
 
     #{math.min($percentage, 100%)} {
+        @include property($property, $value);
+    }
+    */
+
+    #{$percentage} {
         @include property($property, $value);
     }
 }

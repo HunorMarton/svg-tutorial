@@ -1,8 +1,14 @@
 ---
 import Slide from "./Slide.astro";
+
+export interface Props {
+  start: number;
+}
+
+const { start } = Astro.props as Props;
 ---
 
-<Slide>
+<Slide start={start}>
   <div class="slide2"><slot /></div>
 </Slide>
 
