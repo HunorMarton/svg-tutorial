@@ -2,15 +2,16 @@
 import Close from "../components/CloseButton.astro";
 
 export interface Props {
-  day: number;
+  transition: string;
 }
 
-const { day } = Astro.props as Props;
+const { transition } = Astro.props as Props;
 ---
 
-<div class="popover" transition:name={`day-${day}`}>
-  <slot />
-
+<div class="popover" transition:name={transition}>
+  <div class="layout">
+    <slot />
+  </div>
   <Close />
 </div>
 
@@ -29,5 +30,11 @@ const { day } = Astro.props as Props;
       height: calc(100% - 30px);
       border-radius: 10px;
     }
+  }
+
+  .layout {
+    overflow: scroll;
+    height: 100%;
+    max-height: 100%;
   }
 </style>

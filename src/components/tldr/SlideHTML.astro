@@ -1,0 +1,33 @@
+---
+import Slide from "./Slide.astro";
+---
+
+<Slide code={true} slides={3}>
+  <div class="slide1">
+    <slot />
+  </div>
+</Slide>
+
+<style is:global lang="scss">
+  $slide: 0;
+
+  @import "keyframes";
+  @include keyframes(html, opacity, [0, 1]);
+  @include keyframes(react, opacity, [0, 0, 1]);
+
+  .slide1 pre .line {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+  }
+
+  .slide1 pre .line:nth-child(1),
+  .slide1 pre .line:nth-child(8) {
+    animation-name: slide-#{$slide}-react;
+  }
+
+  .slide1 pre .line:nth-child(2),
+  .slide1 pre .line:nth-child(3),
+  .slide1 pre .line:nth-child(7) {
+    animation-name: slide-#{$slide}-html;
+  }
+</style>

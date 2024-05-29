@@ -1,0 +1,38 @@
+---
+export interface Props {
+  code?: boolean;
+  slides?: number;
+}
+
+const { code, slides = 1 } = Astro.props as Props;
+
+const background = code ? "#24292e" : "transparent";
+---
+
+<div class="slide-container">
+  <div class="slide-content">
+    <slot />
+  </div>
+</div>
+
+<style define:vars={{ background, slides }}>
+  .slide-container {
+    width: 100vw;
+    height: calc(var(--slides) * 100vh);
+    box-sizing: border-box;
+
+    background-color: var(--background);
+  }
+
+  .slide-content {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

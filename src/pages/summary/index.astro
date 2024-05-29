@@ -1,0 +1,36 @@
+---
+import Summary from "../../layouts/Summary.astro";
+import Popover from "../../layouts/Popover.astro";
+import { Content } from "./_Content.mdx";
+---
+
+<Summary>
+  <Popover transition="tldr">
+    <Content />
+  </Popover>
+</Summary>
+
+<style is:global>
+  :root {
+    --line-height: 1.5em;
+  }
+
+  code {
+    padding: 0 5px 2px;
+    background-color: lightgray;
+    font-size: 1.2em;
+    line-height: var(--line-height);
+  }
+
+  pre {
+    color: white;
+    padding: 2em;
+    border-radius: 5px;
+    max-width: 100%;
+  }
+
+  pre code {
+    background-color: inherit;
+    padding: 0;
+  }
+</style>

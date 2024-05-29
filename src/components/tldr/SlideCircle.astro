@@ -1,0 +1,102 @@
+---
+import Slide from "./Slide.astro";
+---
+
+<Slide slides={4}>
+  <div class="slide-circle"><slot /></div>
+</Slide>
+
+<style is:global lang="scss">
+  $slide: 6;
+
+  @import "keyframes";
+  @include keyframes(default-circle, opacity, [1, 0]);
+  @include keyframes(filled-circle, opacity, [0, 1, 0]);
+  @include keyframes(stroke-circle, opacity, [0, 0, 1]);
+
+  @include keyframes(lines-before, top, [2.5, 2, 1, 2]);
+  @include keyframes(lines-after, top, [-2.5, -2, -1, -2]);
+  @include keyframes(fill, opacity, [0, 1, 0]);
+  @include keyframes(stroke, opacity, [0, 0, 1, 0]);
+  @include keyframes(class, opacity, [0, 0, 0, 1]);
+
+  @include keyframes(html-code, top, [5, 5, 5, 0]);
+
+  // How are keyframes scoped if they are defined within a CSS selector? (maybe names become unnecessary)
+
+  // SVG
+  .slide-circle .svg-base > g {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+  }
+
+  .slide-circle .svg-base > g:nth-of-type(1) {
+    animation-name: slide-#{$slide}-default-circle;
+  }
+
+  .slide-circle .svg-base > g:nth-of-type(2) {
+    animation-name: slide-#{$slide}-filled-circle;
+  }
+
+  .slide-circle .svg-base > g:nth-of-type(3) {
+    animation-name: slide-#{$slide}-stroke-circle;
+  }
+
+  .slide-circle pre:nth-of-type(1) .line {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+  }
+
+  // Code
+  .slide-circle pre:nth-of-type(1) .line:nth-child(1),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(2),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(3),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(4),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(5),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(6),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(7),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(8),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(9),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(10) {
+    animation-name: slide-#{$slide}-lines-before;
+  }
+
+  .slide-circle pre:nth-of-type(1) .line:nth-child(10) {
+    animation-name: slide-#{$slide}-fill;
+    top: top(2);
+  }
+
+  .slide-circle pre:nth-of-type(1) .line:nth-child(11),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(12),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(13) {
+    animation-name: slide-#{$slide}-stroke;
+    top: top(0);
+  }
+
+  .slide-circle pre:nth-of-type(1) .line:nth-child(14) {
+    animation-name: slide-#{$slide}-class;
+    top: top(-2);
+  }
+
+  .slide-circle pre:nth-of-type(1) .line:nth-child(15),
+  .slide-circle pre:nth-of-type(1) .line:nth-child(16) {
+    animation-name: slide-#{$slide}-lines-after;
+  }
+
+  // Pre
+  .slide-circle pre {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+  }
+
+  .slide-circle pre:nth-of-type(1) {
+    animation-name: slide-#{$slide}-html-code;
+    padding: 0 52px 0 26px;
+  }
+
+  .slide-circle pre:nth-of-type(2) {
+    animation-name: slide-#{$slide}-class;
+  }
+</style>

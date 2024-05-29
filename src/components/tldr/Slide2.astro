@@ -1,0 +1,19 @@
+---
+import Slide from "./Slide.astro";
+---
+
+<Slide>
+  <div class="slide2"><slot /></div>
+</Slide>
+
+<style is:global>
+  .slide2 {
+    display: flex;
+    gap: 30px;
+
+    .markdown-example {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>

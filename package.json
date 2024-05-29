@@ -23,5 +23,8 @@
     "rxjs": "^7.8.1",
     "typescript": "^5.4.5",
     "web-vitals": "^3.5.2"
+  },
+  "devDependencies": {
+    "sass": "^1.77.2"
   }
 }

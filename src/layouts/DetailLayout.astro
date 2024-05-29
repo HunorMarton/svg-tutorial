@@ -8,17 +8,7 @@ export interface Props {
 const { day } = Astro.props as Props;
 ---
 
-<Popover day={day}>
-  <div class="layout">
-    <slot name="header" />
-    <slot />
-  </div>
+<Popover transition={`day-${day}`}>
+  <slot name="header" />
+  <slot />
 </Popover>
-
-<style>
-  .layout {
-    overflow: scroll;
-    height: 100%;
-    max-height: 100%;
-  }
-</style>
