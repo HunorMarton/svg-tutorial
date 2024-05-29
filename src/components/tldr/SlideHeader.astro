@@ -1,0 +1,23 @@
+---
+import Slide from "./Slide.astro";
+import Header from "../../components/markdown/examples/Header.astro";
+---
+
+<Slide start={0}>
+  <div class="slide-header">
+    <Header title="SVG Tutorial" subtitle="Summary" />
+  </div>
+</Slide>
+
+<style>
+  .slide-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+
+    .header-grid {
+      margin: 0;
+    }
+  }
+</style>

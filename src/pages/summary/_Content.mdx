@@ -1,4 +1,5 @@
 import Slide from "../../components/tldr/Slide.astro";
+import SlideHeader from "../../components/tldr/SlideHeader.astro";
 import SlideHTML from "../../components/tldr/SlideHTML.astro";
 import Slide2 from "../../components/tldr/Slide2.astro";
 import SlideCircle from "../../components/tldr/SlideCircle.astro";
@@ -21,7 +22,9 @@ import Rect from "../../components/markdown/elements/Rect.astro";
 import Path from "../../components/markdown/elements/Path.astro";
 import Polygon from "../../components/markdown/elements/Polygon.astro";
 
-<SlideHTML slide={0}>
+<SlideHeader />
+
+<SlideHTML slide={1}>
 
 ```js
 export const Page = () => (
@@ -36,7 +39,7 @@ export const Page = () => (
 
 </SlideHTML>
 
-<Slide2 start={3} >
+<Slide2 start={4} >
     <Example>
 
         <SVG width="100" height="100" viewBox="0 0 200 200">
@@ -77,7 +80,7 @@ export const Page = () => (
 
 </Slide2>
 
-<Slide2 start={4}>
+<Slide2 start={5}>
     <Example>
 
         <SVG width="200" height="200" viewBox="0 0 200 200">
@@ -160,7 +163,7 @@ export const Page = () => (
 
 </SlideCircle>
 
-<Slide start={9} code={true}>
+<Slide start={10} code={true}>
 
 ```html
 <path d=". . ." />
@@ -214,7 +217,7 @@ export const Page = () => (
 
 </SlideHamburger>
 
-<Slide start={12}>
+<Slide start={13}>
   <svg width="200" height="200" viewBox="0 0 30 30">
     <path
       id="enter-fullscreen"
@@ -368,15 +371,15 @@ export const Page = () => (
 
 <SlideSmile />
 
-<SlideCurve start={26}>
+<SlideCurve start={27}>
   <QuadraticBezier client:only="react" />
 </SlideCurve>
 
-<SlideCurve start={27}>
+<SlideCurve start={28}>
   <CubicBezier client:only="react" />
 </SlideCurve>
 
-<Slide2 start={28}>
+<Slide2 start={29}>
   <Example>
     <SVG width="300" height="300" viewBox="-100 -100 200 200">
       <Path
@@ -408,6 +411,6 @@ export const Page = () => (
   </Example>
 </Slide2>
 
-<SlideCurve start={29}>
+<SlideCurve start={30}>
   <Arc client:only="react" />
 </SlideCurve>

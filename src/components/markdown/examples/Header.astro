@@ -9,6 +9,13 @@ import Bear from "../../Bear.astro";
 import Forest from "../../Forest.astro";
 
 const size = 1;
+
+export interface Props {
+  title: string;
+  subtitle: string;
+}
+
+const { title, subtitle } = Astro.props as Props;
 ---
 
 <div class="header-container">
@@ -30,8 +37,8 @@ const size = 1;
 
   <div class="header-grid">
     <div class="header-title">
-      <h1>Learn SVG</h1>
-      <h2>Through 25 Examples</h2>
+      <h1>{title}</h1>
+      <h2>{subtitle}</h2>
     </div>
     <ThreeWithCurves size={size} />
     <Snowflake size={size} />
