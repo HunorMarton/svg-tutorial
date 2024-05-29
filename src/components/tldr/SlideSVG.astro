@@ -9,27 +9,6 @@ import Slide from "./Slide.astro";
 <style is:global lang="scss">
   $slide: 4;
 
-  @import "keyframes";
-
-  @include keyframes(
-    svg-container-1,
-    left,
-    [calc(50% - 220px),
-    calc(50% - 660px)]
-  );
-  @include keyframes(
-    svg-container-2,
-    left,
-    [calc(50% + 220px),
-    calc(50% - 220px)]
-  );
-  @include keyframes(
-    svg-container-3,
-    left,
-    [calc(50% + 620px),
-    calc(50% + 180px)]
-  );
-
   .slide-svg {
     display: flex;
     gap: 30px;
@@ -44,8 +23,9 @@ import Slide from "./Slide.astro";
     display: flex;
     flex-direction: column;
 
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-timeline: scroll();
+    animation-timeline: --container-3;
+    animation-range: contain 0% contain 100%;
+    animation-fill-mode: forwards;
   }
 
   .slide-svg .markdown-example:nth-of-type(1) pre {
@@ -54,14 +34,41 @@ import Slide from "./Slide.astro";
   }
 
   .slide-svg .markdown-example:nth-of-type(1) {
-    animation-name: slide-#{$slide}-svg-container-1;
+    @keyframes anima1 {
+      0% {
+        left: calc(50% - 220px);
+      }
+      100% {
+        left: calc(50% - 660px);
+      }
+    }
+    left: calc(50% - 220px);
+    animation-name: anima1;
   }
 
   .slide-svg .markdown-example:nth-of-type(2) {
-    animation-name: slide-#{$slide}-svg-container-2;
+    @keyframes anima2 {
+      0% {
+        left: calc(50% + 220px);
+      }
+      100% {
+        left: calc(50% - 220px);
+      }
+    }
+    left: calc(50% + 220px);
+    animation-name: anima2;
   }
 
   .slide-svg .markdown-example:nth-of-type(3) {
-    animation-name: slide-#{$slide}-svg-container-3;
+    @keyframes anima3 {
+      0% {
+        left: calc(50% + 620px);
+      }
+      100% {
+        left: calc(50% + 180px);
+      }
+    }
+    left: calc(50% + 620px);
+    animation-name: anima3;
   }
 </style>
