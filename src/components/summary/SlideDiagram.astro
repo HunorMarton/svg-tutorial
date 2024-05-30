@@ -1,0 +1,39 @@
+---
+import Slide from "./Slide.astro";
+---
+
+<Slide start={13} slides={2}>
+  <div class="slide-diagram">
+    <slot />
+  </div>
+</Slide>
+
+<style is:global lang="scss">
+  $slide: 13;
+
+  @import "keyframes";
+
+  // Initial animation: center the SVG container on the screen without the code blocks or frame
+  @include keyframes(svg-container, left, [240px, 0]);
+  @include keyframes(show, opacity, [0, 1]);
+  @include keyframes(scale, transform, [scale(2), scale(1)]);
+  @include keyframes(border, border-color, [transparent, gray]);
+
+  .slide-diagram svg {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name:
+      slide-#{$slide}-svg-container,
+      slide-#{$slide}-scale,
+      slide-#{$slide}-border;
+  }
+
+  // Code blocks
+  .slide-diagram pre {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-show;
+  }
+</style>
