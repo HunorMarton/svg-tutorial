@@ -17,6 +17,7 @@ import { QuadraticBezier } from "../../svg-curves/connected/QuadraticBezier";
 import { CubicBezier } from "../../svg-curves/connected/CubicBezier";
 import { Arc } from "../../svg-curves/connected/Arc";
 import Slide2 from "../../components/summary/Slide2.astro";
+import SlideEnd from "../../components/summary/SlideEnd.astro";
 
 import Example from "../../components/markdown/layouts/Example.astro";
 import SVG from "../../components/markdown/elements/SVG.astro";
@@ -414,3 +415,5 @@ export const Page = () => (
 <SlideCurve start={32}>
   <Arc client:only="react" />
 </SlideCurve>
+
+<SlideEnd />

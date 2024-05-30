@@ -1,0 +1,23 @@
+---
+import Slide from "./Slide.astro";
+import Header from "../../components/markdown/examples/Header.astro";
+---
+
+<Slide start={33}>
+  <div class="slide-end">
+    <Header qr={true} />
+  </div>
+</Slide>
+
+<style>
+  .slide-end {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+
+    .header-grid {
+      margin: 0;
+    }
+  }
+</style>
