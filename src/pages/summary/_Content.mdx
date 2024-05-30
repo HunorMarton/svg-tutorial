@@ -6,7 +6,6 @@ import SlideCircle from "../../components/tldr/SlideCircle.astro";
 import SlideRect from "../../components/tldr/SlideRect.astro";
 import SlideHamburger from "../../components/tldr/SlideHamburger.astro";
 import SlideSun from "../../components/tldr/SlideSun.astro";
-import SlideStar from "../../components/tldr/SlideStar.astro";
 import SlideWindmill from "../../components/tldr/SlideWindmill.astro";
 import Windmill from "../../components/Windmill.astro";
 import SlideClock from "../../components/tldr/SlideClock.astro";
@@ -299,37 +298,6 @@ export const Page = () => (
   </Example>
 </SlideSun>
 
-<SlideStar>
-
-  <Example>
-    <SVG width="200" height="200" viewBox="-100 -100 200 200">
-      <g id="wing">
-        <Polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
-        <Polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
-      </g>
-      <use href="#wing" transform="rotate(72)" />
-      <use href="#wing" transform="rotate(-72)" />
-      <use href="#wing" transform="rotate(144)" />
-      <use href="#wing" transform="rotate(-144)" />
-    </SVG>
-
-    ```html
-    <svg width="200" height="200" viewBox="-100 -100 200 200">
-      <g id="wing">
-        <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
-        <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
-      </g>
-      <use href="#wing" transform="rotate(72)" />
-      <use href="#wing" transform="rotate(-72)" />
-      <use href="#wing" transform="rotate(144)" />
-      <use href="#wing" transform="rotate(-144)" />
-    </svg>
-    ```
-
-  </Example>
-
-</SlideStar>
-
 <SlideWindmill>
 
   <Example>
@@ -377,15 +345,15 @@ export const Page = () => (
 
 <SlideSmile />
 
-<SlideCurve start={30}>
+<SlideCurve start={27}>
   <QuadraticBezier client:only="react" />
 </SlideCurve>
 
-<SlideCurve start={31}>
+<SlideCurve start={28}>
   <CubicBezier client:only="react" />
 </SlideCurve>
 
-<Slide2 start={32}>
+<Slide2 start={29}>
   <Example>
     <SVG width="300" height="300" viewBox="-100 -100 200 200">
       <Path
@@ -417,6 +385,6 @@ export const Page = () => (
   </Example>
 </Slide2>
 
-<SlideCurve start={33}>
+<SlideCurve start={30}>
   <Arc client:only="react" />
 </SlideCurve>
