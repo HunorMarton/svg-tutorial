@@ -3,6 +3,7 @@ import SlideHeader from "../../components/tldr/SlideHeader.astro";
 import SlideSVG from "../../components/tldr/SlideSVG.astro";
 import SlideHTML from "../../components/tldr/SlideHTML.astro";
 import SlideCircle from "../../components/tldr/SlideCircle.astro";
+import SlideRect from "../../components/tldr/SlideRect.astro";
 import SlideHamburger from "../../components/tldr/SlideHamburger.astro";
 import SlideSun from "../../components/tldr/SlideSun.astro";
 import SlideStar from "../../components/tldr/SlideStar.astro";
@@ -142,7 +143,33 @@ export const Page = () => (
 
 </SlideCircle>
 
-<Slide start={11} code={true}>
+<SlideRect>
+  <Example>
+
+    <SVG width="200" height="200" viewBox="0 0 200 200">
+      <Rect x="25" y="50" width="150" height="100" />
+    </SVG>
+
+    {/* prettier-ignore */}
+    ```html
+    <svg
+      width="200"
+      height="200"
+      viewBox="0 0 200 200"
+    >
+      <rect
+        x="25"
+        y="50"
+        width="150"
+        height="100"
+      />
+    </svg>
+    ```
+
+  </Example>
+</SlideRect>
+
+<Slide start={13} code={true}>
 
 ```html
 <path d=". . ." />
@@ -196,7 +223,7 @@ export const Page = () => (
 
 </SlideHamburger>
 
-<Slide start={14}>
+<Slide start={16}>
   <svg width="200" height="200" viewBox="0 0 30 30">
     <path
       id="enter-fullscreen"
@@ -350,15 +377,15 @@ export const Page = () => (
 
 <SlideSmile />
 
-<SlideCurve start={28}>
+<SlideCurve start={30}>
   <QuadraticBezier client:only="react" />
 </SlideCurve>
 
-<SlideCurve start={29}>
+<SlideCurve start={31}>
   <CubicBezier client:only="react" />
 </SlideCurve>
 
-<Slide2 start={30}>
+<Slide2 start={32}>
   <Example>
     <SVG width="300" height="300" viewBox="-100 -100 200 200">
       <Path
@@ -390,6 +417,6 @@ export const Page = () => (
   </Example>
 </Slide2>
 
-<SlideCurve start={31}>
+<SlideCurve start={33}>
   <Arc client:only="react" />
 </SlideCurve>

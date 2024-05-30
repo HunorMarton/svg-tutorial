@@ -1,0 +1,56 @@
+---
+import Slide from "./Slide.astro";
+---
+
+<Slide start={11} slides={2}>
+  <div class="slide-rect"><slot /></div>
+</Slide>
+
+<style is:global lang="scss">
+  $slide: 11;
+
+  @import "keyframes";
+
+  // Initial animation: center the SVG container on the screen without the code blocks or frame
+  @include keyframes(svg-container, left, [160px, 0]);
+  @include keyframes(show, opacity, [0, 1]);
+  @include keyframes(scale, transform, [scale(2), scale(1)]);
+  @include keyframes(events, pointer-events, [none, auto]);
+  @include keyframes(border, border-color, [transparent, gray]);
+
+  .slide-rect {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-events;
+  }
+
+  .slide-rect .svg-container {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-svg-container;
+  }
+
+  .slide-rect .svg-viewbox-values {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-show;
+  }
+
+  .slide-rect svg {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name:
+      slide-#{$slide}-scale,
+      slide-#{$slide}-border;
+  }
+
+  // Code blocks
+  .slide-rect pre {
+    position: relative;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: slide-#{$slide}-show;
+  }
+</style>

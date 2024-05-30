@@ -2,12 +2,12 @@
 import Slide from "./Slide.astro";
 ---
 
-<Slide start={12} slides={2}>
+<Slide start={14} slides={2}>
   <div class="slide-hamburger"><slot /></div>
 </Slide>
 
 <style is:global lang="scss">
-  $slide: 12;
+  $slide: 14;
 
   @import "keyframes";
   @include keyframes(lines-before, top, [2, 1]);
