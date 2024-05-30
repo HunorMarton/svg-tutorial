@@ -336,19 +336,18 @@ export const Page = () => (
     <Windmill />
 
     ```html
-    <svg width="200" height="400"">
-      <g transform="translate(100, 150)">
-        <g id="windmill-head">
-          <circle r="8" />
-          <path
-            id="arm"
-            d="
-              M -7 -20
-              C -7 -10 7 -10 7 -20
-              L 2 -80 L -2 -80" />
-          <use href="#arm" transform="rotate(+120)" />
-          <use href="#arm" transform="rotate(-120)" />
-        </g>
+    <svg width="200" height="400">
+      <g id="windmill-head">
+        <circle r="8" />
+        <path
+          id="arm"
+          d="
+            M -7 -20
+            C -7 -10 7 -10 7 -20
+            L 2 -80
+            L -2 -80" />
+        <use href="#arm" transform="rotate(+120)" />
+        <use href="#arm" transform="rotate(-120)" />
       </g>
       <path d="M 93 300 L 107 300 L 103 165 L 97 165" />
     </svg>
@@ -356,15 +355,16 @@ export const Page = () => (
 
     ```css
     #windmill-head {
+      translate: 100, 150;
       animation: 4s linear infinite rotate;
     }
 
     @keyframes rotate {
       from {
-        transform: rotate(0deg);
+        rotate: 0deg;
       }
       to {
-        transform: rotate(360deg);
+        rotate: 360deg;
       }
     }
     ```
