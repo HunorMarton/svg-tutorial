@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import FigmaCursors from "./FigmaCursors.astro";
 import "@fontsource/lato";
 
 const title = "Summary";
@@ -53,8 +54,9 @@ const description = "A short summary of the SVG Tutorial";
     <ViewTransitions />
   </head>
 
-  <body>
+  <body data-cursor>
     <slot />
+    <FigmaCursors />
     <style is:global>
       html,
       body {
