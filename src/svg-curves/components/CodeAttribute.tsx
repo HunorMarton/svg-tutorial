@@ -6,7 +6,6 @@ interface CodeValueProps {
 
 export const Attribute: React.FC<CodeValueProps> = ({ children, ...props }) => {
   const [key, value] = Object.entries(props)[0];
-  console.log(key, value);
 
   return (
     <span className="attribute">

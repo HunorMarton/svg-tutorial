@@ -1,0 +1,74 @@
+<button id="fullscreen">
+  <svg width="30" height="30" viewBox="0 0 30 30">
+    <path
+      id="enter-fullscreen"
+      stroke="white"
+      d="
+        M 10, 2 L 2,2 L 2, 10
+        M 20, 2 L 28,2 L 28, 10
+        M 28, 20 L 28,28 L 20, 28
+        M 10, 28 L 2,28 L 2, 20"
+    ></path>
+    <path
+      id="exit-fullscreen"
+      stroke="transparent"
+      d="
+        M 10, 2 L 10,10 L 2, 10
+        M 20, 2 L 20,10 L 28, 10
+        M 28, 20 L 20,20 L 20, 28
+        M 10, 28 L 10,20 L 2, 20"
+    ></path>
+  </svg>
+</button>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const fullscreenButton = document.getElementById("fullscreen");
+    const enterFullscreen = document.getElementById("enter-fullscreen");
+    const exitFullscreen = document.getElementById("exit-fullscreen");
+
+    fullscreenButton?.addEventListener("click", function () {
+      if (enterFullscreen && exitFullscreen) {
+        if (!document.fullscreenElement) {
+          console.log("enter");
+          document.documentElement.requestFullscreen();
+          enterFullscreen.setAttribute("stroke", "transparent");
+          exitFullscreen.setAttribute("stroke", "white");
+        } else {
+          document.exitFullscreen();
+          console.log("exit");
+          enterFullscreen.setAttribute("stroke", "white");
+          exitFullscreen.setAttribute("stroke", "transparent");
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  button {
+    all: unset;
+    cursor: pointer;
+
+    position: absolute;
+    top: 30px;
+    right: 110px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: gray;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      fill: none;
+      stroke-width: 4;
+    }
+
+    &:hover {
+      background-color: rgb(108, 108, 108);
+    }
+  }
+</style>
