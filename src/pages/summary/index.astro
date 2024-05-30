@@ -1,25 +1,24 @@
 ---
 import Summary from "../../layouts/Summary.astro";
-import Popover from "../../layouts/Popover.astro";
+import Close from "../../components/CloseButton.astro";
 import { Content } from "./_Content.mdx";
 ---
 
 <Summary>
-  <Popover transition="tldr">
-    <div class="unsupported-browser">
-      <div>
-        <h1>Your browser does not support Scroll-driven Animations with CSS</h1>
-        <p>
-          This page heavily relies on scroll-driven animations and your browser
-          does not support it yet. Open this page in Chrome on desktop.
-        </p>
-        <a href="/">Back to Home</a>
-      </div>
+  <div class="unsupported-browser">
+    <div>
+      <h1>Your browser does not support Scroll-driven Animations with CSS</h1>
+      <p>
+        This page heavily relies on scroll-driven animations and your browser
+        does not support it yet. Open this page in Chrome on desktop.
+      </p>
+      <a href="/">Back to Home</a>
     </div>
-    <div class="snap-container">
-      <Content />
-    </div>
-  </Popover>
+  </div>
+  <div class="snap-container">
+    <Content />
+    <Close />
+  </div>
 </Summary>
 
 <style is:global>
@@ -76,6 +75,7 @@ import { Content } from "./_Content.mdx";
       width: 100vw;
       height: 100vh;
       scroll-snap-type: y mandatory;
+      background-color: white;
     }
 
     code {
