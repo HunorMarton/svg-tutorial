@@ -7,25 +7,26 @@ const entries = (await getCollection("svg")).sort(
 
 <nav>
   <h2>Table of Contents</h2>
-  <ol>
-    {
-      entries.map((entry) => (
-        <li>
-          <a href={`/svg/${entry.slug}`}>{entry.data.title}</a>
-        </li>
-      ))
-    }
+  <div class="content">
+    <ul>
+      <li>
+        <a href="/summary">TLDR: SVG Tutorial Summary</a>
+      </li>
+    </ul>
+    <ol>
+      {
+        entries.map((entry) => (
+          <li>
+            <a href={`/svg/${entry.slug}`}>{entry.data.title}</a>
+          </li>
+        ))
+      }
 
-    <li>
-      <a
-        href="https://hunormarton.github.io/svg-curves/"
-        target="_blank"
-        rel="noopener"
-      >
-        Bonus: Interactive demo for arcs and curves
-      </a>
-    </li>
-  </ol>
+      <li>
+        <a href="/arc">Bonus: Interactive demo for arcs and curves</a>
+      </li>
+    </ol>
+  </div>
 </nav>
 
 <style>
@@ -39,11 +40,10 @@ const entries = (await getCollection("svg")).sort(
 
   h2 {
     padding-left: 40px;
-    font-size: 1.17em;
   }
 
   @media (min-width: 770px) {
-    ol {
+    .content {
       columns: 2;
     }
   }
@@ -56,5 +56,17 @@ const entries = (await getCollection("svg")).sort(
 
   nav a:hover {
     text-decoration: underline;
+  }
+
+  ul {
+    margin: 0;
+    list-style: square;
+    list-style: url("data:image/svg+xml,<svg width='10' height='10' xmlns='http://www.w3.org/2000/svg'><rect fill='%23fcba29' width='100%' height='100%' /></svg>");
+    color: #fcba29;
+    font-weight: bold;
+  }
+
+  ol {
+    margin-top: 0;
   }
 </style>
