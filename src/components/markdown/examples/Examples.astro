@@ -1,7 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import QR from "./QR.svg";
-
 import ThreeWithCurves from "../../ThreeWithCurves.astro";
 import Snowflake from "../../Snowflake.astro";
 import Tree from "../../Tree.astro";
@@ -12,14 +9,6 @@ import Bear from "../../Bear.astro";
 import Forest from "../../Forest.astro";
 
 const size = 1;
-
-export interface Props {
-  title?: string;
-  subtitle?: string;
-  qr?: boolean;
-}
-
-const { title, subtitle, qr } = Astro.props as Props;
 ---
 
 <div class="header-container">
@@ -41,16 +30,7 @@ const { title, subtitle, qr } = Astro.props as Props;
 
   <div class="header-grid">
     <div class="header-title">
-      {
-        qr ? (
-          <Image src={QR} alt="QR Code." />
-        ) : (
-          <>
-            <h1>{title}</h1>
-            <h2>{subtitle}</h2>
-          </>
-        )
-      }
+      <slot />
     </div>
     <ThreeWithCurves size={size} />
     <Snowflake size={size} />
@@ -141,10 +121,6 @@ const { title, subtitle, qr } = Astro.props as Props;
         font-size: 5em;
         font-weight: 900;
         margin: 0;
-      }
-
-      img {
-        max-width: 100%;
       }
     }
 

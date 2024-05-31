@@ -1,0 +1,15 @@
+---
+import Examples from "./Examples.astro";
+import { Image } from "astro:assets";
+import QR from "./QR.svg";
+---
+
+<Examples>
+  <Image src={QR} alt="QR Code." />
+</Examples>
+
+<style>
+  img {
+    max-width: 100%;
+  }
+</style>
