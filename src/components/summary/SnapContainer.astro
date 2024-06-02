@@ -1,0 +1,13 @@
+<div class="snap-container">
+  <slot />
+</div>
+
+<style>
+  .snap-container {
+    overflow: auto;
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    background-color: white;
+  }
+</style>

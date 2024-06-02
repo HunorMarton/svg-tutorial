@@ -21,7 +21,7 @@ const background = code ? "#24292e" : "transparent";
   }
 </div>
 
-<style define:vars={{ background, slides }}>
+<style define:vars={{ background, slides }} lang="scss">
   .slide-container {
     width: 100vw;
     height: calc(var(--slides) * 100vh);
@@ -46,10 +46,14 @@ const background = code ? "#24292e" : "transparent";
   }
 
   .slide-container:nth-of-type(3) {
-    view-timeline: --container-3 block;
-
     .slide-content {
       overflow-x: hidden;
+    }
+  }
+
+  @for $i from 1 to 33 {
+    .slide-container:nth-of-type(#{$i}) {
+      view-timeline: --container-#{$i} block;
     }
   }
 

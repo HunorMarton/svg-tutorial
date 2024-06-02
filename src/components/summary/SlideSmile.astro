@@ -25,21 +25,18 @@ import Slide from "./Slide.astro";
 </Slide>
 
 <style lang="scss">
-  $slide: 27;
+  $container: 13;
+  $slides: 2;
 
-  @import "keyframes";
-  @include keyframes(
-    smile,
-    d,
-    [path("M -40,30 Q 0,30 40,30"),
-    path("M -40,30 Q 0,60 40,30")]
-  );
+  @import "animation";
 
   .slide-clock {
     path {
-      animation-duration: 1ms; /* Firefox requires this to apply the animation */
-      animation-timeline: scroll();
-      animation-name: slide-#{$slide}-smile;
+      @include animation(
+        d,
+        [path("M -40,30 Q 0,30 40,30"),
+        path("M -40,30 Q 0,60 40,30")]
+      );
     }
   }
 </style>

@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import Head from "./Head.astro";
 import FigmaCursors from "./FigmaCursors.astro";
 import SVGDefs from "../components/markdown/elements/SVGDefs.astro";
 import "@fontsource/lato";
@@ -12,62 +12,16 @@ export interface Props {
 }
 
 const { slug, day, title, description } = Astro.props as Props;
-
-const longTitle = `Day ${day}: ${title}`;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{`${longTitle} - SVG Tutorial`}</title>
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="article" />
-    <meta property="article:author" content="Hunor Márton Borbély" />
-    <meta
-      property="article:published_time"
-      content="2023-12-01T08:00:00+00:00"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:title" content={`${longTitle} - SVG Tutorial`} />
-    <meta name="twitter:title" content={`${longTitle} - SVG Tutorial`} />
-    <meta name="description" content={description} />
-    <meta property="og:description" content={description} />
-    <meta name="twitter:description" content={description} />
-    <meta property="og:site_name" content="SVG Tutorial" />
-    <meta name="twitter:site" content="@HunorBorbely" />
-    <meta name="twitter:creator" content="@HunorBorbely" />
-
-    <meta
-      property="og:image"
-      content={`https://svg-tutorial.com/${slug}.png`}
-    />
-    <meta
-      name="twitter:image"
-      content={`https://svg-tutorial.com/${slug}.png`}
-    />
-    <meta property="og:url" content="svg-tutorial.com" />
-    <script>
-      import { webVitals } from "../lib/vitals";
-      import { inject } from "@vercel/analytics";
-
-      let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ID;
-
-      if (analyticsId) {
-        webVitals({
-          path: location.pathname,
-          params: location.search,
-          analyticsId,
-        });
-      }
-      inject();
-    </script>
-
-    <ViewTransitions />
-  </head>
+  <Head
+    title={`Day ${day}: ${title} - SVG Tutorial`}
+    description={description}
+    image={`https://svg-tutorial.com/${slug}.png`}
+    article={{ published_time: "2023-12-01T08:00:00+00:00" }}
+  />
 
   <body data-day={day}>
     <SVGDefs />

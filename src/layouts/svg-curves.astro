@@ -1,63 +1,60 @@
 ---
+import Head from "./Head.astro";
 import Header from "../svg-curves/components/Header.astro";
-import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>SVG Curves</title>
-    <ViewTransitions />
-  </head>
+  <Head
+    title="SVG Curves - SVG Tutorial"
+    description="Interactive SVG tutorial with draggable curves"
+    image={"https://svg-tutorial.com/image.png"}
+  />
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <Header />
     <slot />
-  </body><style>
-    @import url("https://fonts.googleapis.com/css?family=Roboto");
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Roboto");
 
-    html {
-      background-color: white;
-      font-family: "Roboto", sans-serif;
-      font-size: 0.8em;
-      color: #ff0050;
-      overflow: hidden;
-      height: 100%;
-    }
+      html {
+        background-color: white;
+        font-family: "Roboto", sans-serif;
+        font-size: 0.8em;
+        color: #ff0050;
+        overflow: hidden;
+        height: 100%;
+      }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
 
-    :root {
-      --background-color: #440015;
-      --corner-color: white;
-      --curve-color: white;
-      --curve-alternative-color: rgba(255, 255, 255, 0.2);
-      --curve-alternative-background-color: rgba(96, 0, 30, 0.1);
-      --curve-alternative-background-hover-color: rgba(255, 255, 255, 0.8);
-      --helper-color: dimgray;
+      :root {
+        --background-color: #440015;
+        --corner-color: white;
+        --curve-color: white;
+        --curve-alternative-color: rgba(255, 255, 255, 0.2);
+        --curve-alternative-background-color: rgba(96, 0, 30, 0.1);
+        --curve-alternative-background-hover-color: rgba(255, 255, 255, 0.8);
+        --helper-color: dimgray;
 
-      --draggable-color: rgba(96, 0, 30, 0.2);
-      --draggable-hover-color: rgba(96, 0, 30, 0.8);
-      --draggable-text-color: rgba(255, 0, 80, 0);
-      --draggable-text-hover-color: rgba(255, 0, 80, 0.8);
-      --draggable-icon-color: #8c99a6;
-      --draggable-icon-hover-color: white;
+        --draggable-color: rgba(96, 0, 30, 0.2);
+        --draggable-hover-color: rgba(96, 0, 30, 0.8);
+        --draggable-text-color: rgba(255, 0, 80, 0);
+        --draggable-text-hover-color: rgba(255, 0, 80, 0.8);
+        --draggable-icon-color: #8c99a6;
+        --draggable-icon-hover-color: white;
 
-      --dragging-color: rgba(193, 0, 61, 0.8);
-      --dragging-text-color: rgba(255, 255, 255, 0.8);
-      --dragging-icon-color: white;
-    }
-  </style>
+        --dragging-color: rgba(193, 0, 61, 0.8);
+        --dragging-text-color: rgba(255, 255, 255, 0.8);
+        --dragging-icon-color: white;
+      }
+    </style>
+  </body>
 </html>

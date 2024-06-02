@@ -7,46 +7,32 @@ import Slide from "./Slide.astro";
 </Slide>
 
 <style is:global lang="scss">
-  $slide: 23;
+  $container: 11;
+  $slides: 3;
 
-  @import "keyframes";
-
-  // Initial animation: center the SVG container on the screen without the code blocks or frame
-  @include keyframes(svg-container, left, [275px, 0]);
-
-  // Code blocks
-  @include keyframes(code, opacity, [0, 1, 0]);
-  @include keyframes(css, opacity, [0, 0, 1]);
-  @include keyframes(events, pointer-events, [none, none, auto]);
+  @import "animation";
 
   .slide-windmill .markdown-example svg {
-    position: relative;
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-timeline: scroll();
-    animation-name: slide-#{$slide}-svg-container;
+    @include animation(left, [275px, 0]);
 
     border-color: transparent;
     block-size: fit-content;
   }
 
-  // HTML and CSS Code blocks
-  .slide-windmill pre {
-    position: relative;
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-timeline: scroll();
-  }
-
   // HTML Code
   .slide-windmill pre:nth-of-type(1) {
-    animation-name: slide-#{$slide}-code;
+    @include animation(opacity, [0, 1, 0]);
     top: top(9.5);
   }
 
   // CSS Code
   .slide-windmill pre:nth-of-type(2) {
-    animation-name:
-      slide-#{$slide}-css,
-      slide-#{$slide}-events;
+    @include animations(
+      (
+        opacity: 0 0 1,
+        pointer-events: none none auto,
+      )
+    );
     top: top(-12);
   }
 </style>

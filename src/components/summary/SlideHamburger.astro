@@ -7,46 +7,39 @@ import Slide from "./Slide.astro";
 </Slide>
 
 <style is:global lang="scss">
-  $slide: 16;
+  $container: 8;
+  $slides: 2;
 
-  @import "keyframes";
-  @include keyframes(lines-before, top, [2, 1]);
-  @include keyframes(hide, opacity, [1, 0]);
-  @include keyframes(show, opacity, [0, 1]);
-  @include keyframes(lines-after, top, [-2, 0]);
+  @import "animation";
 
   .slide-hamburger .svg-base > g:nth-of-type(1) {
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-timeline: scroll();
-    animation-name: slide-#{$slide}-show;
+    @include animation(opacity, [0, 1]);
   }
 
-  .slide-hamburger pre:nth-of-type(1) .line {
-    position: relative;
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-timeline: scroll();
-  }
-
+  // Code lines before
   .slide-hamburger pre:nth-of-type(1) .line:nth-child(1),
   .slide-hamburger pre:nth-of-type(1) .line:nth-child(2),
   .slide-hamburger pre:nth-of-type(1) .line:nth-child(3) {
-    animation-name: slide-#{$slide}-lines-before;
+    @include animation(top, [2, 1]);
   }
 
+  // Code for single line path
   .slide-hamburger pre:nth-of-type(1) .line:nth-child(4) {
-    animation-name: slide-#{$slide}-hide;
+    @include animation(opacity, [1, 0]);
     top: top(2);
   }
 
+  // Code for three line paths
   .slide-hamburger pre:nth-of-type(1) .line:nth-child(5),
   .slide-hamburger pre:nth-of-type(1) .line:nth-child(6),
   .slide-hamburger pre:nth-of-type(1) .line:nth-child(7),
   .slide-hamburger pre:nth-of-type(1) .line:nth-child(8) {
-    animation-name: slide-#{$slide}-show;
+    @include animation(opacity, [0, 1]);
   }
 
+  // Code lines after
   .slide-hamburger pre:nth-of-type(1) .line:nth-child(9),
   .slide-hamburger pre:nth-of-type(1) .line:nth-child(10) {
-    animation-name: slide-#{$slide}-lines-after;
+    @include animation(top, [-2, 0]);
   }
 </style>

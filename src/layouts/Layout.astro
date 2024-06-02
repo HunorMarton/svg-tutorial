@@ -1,6 +1,6 @@
 ---
+import Head from "./Head.astro";
 import "@fontsource/fredoka-one";
-import { ViewTransitions } from "astro:transitions";
 
 import TableOfContents from "../components/TableOfContents.astro";
 import Share from "../components/ShareThisSite.astro";
@@ -11,45 +11,12 @@ const description =
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:title" content={title} />
-    <meta name="twitter:title" content={title} />
-    <meta name="description" content={description} />
-    <meta property="og:description" content={description} />
-    <meta name="twitter:description" content={description} />
-    <meta property="og:site_name" content="SVG Tutorial" />
-    <meta name="twitter:site" content="@HunorBorbely" />
-    <meta name="twitter:creator" content="@HunorBorbely" />
+  <Head
+    title={title}
+    description={description}
+    image={"https://svg-tutorial.com/image.png"}
+  />
 
-    <meta property="og:image" content="https://svg-tutorial.com/image.png" />
-    <meta name="twitter:image" content="https://svg-tutorial.com/image.png" />
-    <meta property="og:url" content="svg-tutorial.com" />
-    <script>
-      import { webVitals } from "../lib/vitals";
-      import { inject } from "@vercel/analytics";
-
-      let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ID;
-
-      if (analyticsId) {
-        webVitals({
-          path: location.pathname,
-          params: location.search,
-          analyticsId,
-        });
-      }
-      inject();
-    </script>
-
-    <ViewTransitions />
-  </head>
   <body>
     <slot />
 

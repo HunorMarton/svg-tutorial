@@ -9,25 +9,21 @@ import Slide from "./Slide.astro";
 </Slide>
 
 <style is:global lang="scss">
-  $slide: 1;
+  $container: 2;
+  $slides: 3;
 
-  @import "keyframes";
-  @include keyframes(html, opacity, [0, 1]);
-  @include keyframes(react, opacity, [0, 0, 1]);
+  @import "animation";
 
-  .slide1 pre .line {
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-timeline: scroll();
-  }
-
+  // Code lines for React
   .slide1 pre .line:nth-child(1),
   .slide1 pre .line:nth-child(8) {
-    animation-name: slide-#{$slide}-react;
+    @include animation(opacity, [0, 0, 1]);
   }
 
+  // Code lines for HTML
   .slide1 pre .line:nth-child(2),
   .slide1 pre .line:nth-child(3),
   .slide1 pre .line:nth-child(7) {
-    animation-name: slide-#{$slide}-html;
+    @include animation(opacity, [0, 1]);
   }
 </style>

@@ -1,0 +1,54 @@
+---
+import Smile from "../../layouts/Smile.astro";
+import BrowserScrollSupport from "../../components/BrowserScrollSupport.astro";
+import SnapContainer from "../../components/summary/SnapContainer.astro";
+import Slide from "../../components/summary/Slide.astro";
+import Close from "../../components/CloseButton.astro";
+---
+
+<Smile>
+  <BrowserScrollSupport>
+    <SnapContainer>
+      <Slide start={0} slides={3}>
+        <svg width="200" height="200" viewBox="-100 -100 200 200">
+          <circle
+            cx="0"
+            cy="0"
+            r="90"
+            fill="transparent"
+            stroke="black"
+            stroke-width="10"></circle>
+          <ellipse cx="-25" cy="-25" rx="10" ry="15"></ellipse>
+          <ellipse cx="25" cy="-25" rx="10" ry="15"></ellipse>
+          <path
+            fill="none"
+            stroke="black"
+            stroke-width="10"
+            stroke-linecap="round"
+            d="M -40,30 Q 0,30 40,30"></path>
+        </svg>
+      </Slide>
+      <Close />
+    </SnapContainer>
+  </BrowserScrollSupport>
+</Smile>
+
+<style lang="scss">
+  path {
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll();
+    animation-name: smile;
+  }
+
+  @keyframes smile {
+    0% {
+      d: path("M -40,30 Q 0,10 40,30");
+    }
+    50% {
+      d: path("M -40,30 Q 0,30 40,30");
+    }
+    100% {
+      d: path("M -40,30 Q 0,60 40,30");
+    }
+  }
+</style>

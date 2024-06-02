@@ -1,0 +1,26 @@
+---
+import Head from "./Head.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <Head
+    title="Smile - SVG Tutorial"
+    description="Scroll-driven SVG morphing animation with CSS only."
+    image="https://svg-tutorial.com/image.png"
+  />
+
+  <body>
+    <slot />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+      }
+    </style>
+  </body>
+</html>

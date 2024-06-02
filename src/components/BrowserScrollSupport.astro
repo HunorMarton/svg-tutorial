@@ -1,0 +1,40 @@
+<div class="unsupported">
+  <div>
+    <h1>Your browser does not support Scroll-driven Animations with CSS</h1>
+    <p>
+      This page heavily relies on scroll-driven animations and your browser does
+      not support it yet. Open this page in Chrome on desktop.
+    </p>
+    <a href="/">Back to Home</a>
+  </div>
+</div>
+<div class="supported">
+  <slot />
+</div>
+
+<style>
+  .unsupported {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    div {
+      max-width: 500px;
+    }
+  }
+
+  .supported {
+    display: none;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .unsupported {
+      display: none;
+    }
+
+    .supported {
+      display: block;
+    }
+  }
+</style>

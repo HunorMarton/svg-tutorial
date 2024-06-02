@@ -1,0 +1,84 @@
+@use "sass:meta";
+@use 'sass:list';
+@use 'sass:math';
+
+// Counter to make UUIDs unique
+$counter: 0;
+
+// Function that gives back a unique ID
+@function _unique-id() {
+    $counter: $counter + 1 !global;
+    @return $counter;
+}
+
+@mixin _keyframes($name, $property, $values) {
+    @if meta.variable-exists("container") != true {
+        @error "Variable $container must be defined before including this mixin.";
+    }
+    @if meta.variable-exists("slides") != true {
+        @error "Variable $slides must be defined before including this mixin.";
+    }
+
+    // Default value
+    @include property($property, nth($values, 1));
+
+    // Keyframes for each other value
+    $percentagePerSlide: math.div(100%, $slides - 1);
+
+    @keyframes animation-#{$container}-#{$name}-#{$property} {
+        @for $index from 2 through length($values) {
+            $value: nth($values, $index);
+            $percentage: $percentagePerSlide * ($index - 1);
+
+            #{$percentage} {
+                @include property($property, $value);
+            }
+        }
+
+        100% {
+            // Generate starting value based on last value in list
+            @include property($property, nth($values, -1));
+        }
+    }
+}
+
+@mixin _animationSetup() {
+    position: relative;
+    animation-timeline: --container-#{$container};
+    animation-range: contain 0% contain 100%;
+    animation-fill-mode: forwards;
+}
+
+@mixin animations($animations) {
+    @include _animationSetup();
+    $uuid: _unique-id();
+    
+    // TODO Instead of generating multiple keyframe animations, we could also just do one that alters multiple properties
+    @each $property, $values in $animations {
+        @include _keyframes($uuid, $property, $values);
+    }
+
+    $animationNames: ();
+    @each $key in map-keys($animations) {
+        $animationNames: append($animationNames, unquote(animation-#{$container}-#{$uuid}-#{$key}), comma);
+    }
+
+    animation-name: $animationNames;
+}
+
+@mixin animation($property, $values) {
+    @include _animationSetup();
+    $uuid: _unique-id();
+    
+    @include _keyframes($uuid, $property, $values);
+
+    animation-name: animation-#{$container}-#{$uuid}-#{$property};
+}
+
+@mixin property($property, $value) {
+    #{$property}: if($property==top, top($value), $value);
+}
+
+@function top($value) {
+    @return calc(var(--line-height) * $value);
+}
