@@ -1,11 +1,10 @@
 ---
 export interface Props {
-  start: number;
   slides?: number;
   code?: boolean;
 }
 
-const { start, slides = 1, code } = Astro.props as Props;
+const { slides = 1, code } = Astro.props as Props;
 
 const background = code ? "#24292e" : "transparent";
 ---
@@ -15,8 +14,8 @@ const background = code ? "#24292e" : "transparent";
     <slot />
   </div>
   {
-    Array.from({ length: slides }).map((_, slide) => (
-      <div class="slide-snapper">Slide {start + slide}</div>
+    Array.from({ length: slides }).map(() => (
+      <div class="slide-snapper">Slide</div>
     ))
   }
 </div>
