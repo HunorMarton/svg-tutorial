@@ -28,14 +28,17 @@ $counter: 0;
     $percentagePerSlide: math.div(100%, $slides - 1);
 
     @keyframes animation-#{$container}-#{$name} {
-        @for $index from 2 through $slides - 1 {
-            $percentage: $percentagePerSlide * ($index - 1);
 
-            #{$percentage} {
-                @each $property, $values in $animations {
-                    @if($index <= length($values)) {
-                        $value: nth($values, $index);
-                        @include property($property, $value);
+        @if $slides > 2 {
+            @for $index from 2 through $slides - 1 {
+                $percentage: $percentagePerSlide * ($index - 1);
+
+                #{$percentage} {
+                    @each $property, $values in $animations {
+                        @if($index <= length($values)) {
+                            $value: nth($values, $index);
+                            @include property($property, $value);
+                        }
                     }
                 }
             }
