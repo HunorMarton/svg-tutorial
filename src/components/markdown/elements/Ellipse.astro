@@ -1,0 +1,18 @@
+---
+import Coordiante from "./Coordinate.astro";
+
+export interface Props {
+  cx: string;
+  cy: string;
+  [key: string]: string;
+}
+
+const { cx, cy, ...props } = Astro.props as Props;
+---
+
+<g>
+  <ellipse cx={cx} cy={cy} {...props}></ellipse>
+  <g class="coordinates">
+    <Coordiante x={cx} y={cy} />
+  </g>
+</g>

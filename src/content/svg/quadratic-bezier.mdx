@@ -9,6 +9,7 @@ import SVGCurve from "../../components/markdown/layouts/SVGCurve.astro";
 import { QuadraticBezier } from "../../svg-curves/connected/QuadraticBezier.tsx";
 import SVG from "../../components/markdown/elements/SVG.astro";
 import Circle from "../../components/markdown/elements/Circle.astro";
+import Ellipse from "../../components/markdown/elements/Ellipse.astro";
 import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
@@ -21,15 +22,18 @@ The control point is an invisible coordinate to which the line is bending. Drag 
   <QuadraticBezier client:only="react" />
 </SVGCurve>
 
-A smile is a simple image we can create using a quadratic Bezier curve. Look at this happy face! Here, the invisible control point is at the bottom of the image at `0,90`.
+A [smile](/smile) is a simple image we can create using a quadratic Bezier curve. Look at this happy face! Hover over the curve below to see the invisible control point.
+
+In this image, we also introduce a new element, the `ellipse`. An ellipse behaves like a circle, except it has not one but two radiuses: a horizontal one and a vertical one.
 
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Circle cx="-50" cy="-50" r="20" />
-  <Circle cx="50" cy="-50" r="20" />
+  <Circle cx="0" cy="0" r="90" fill="none" stroke="black" stroke-width="10" />
+  <Ellipse cx="-25" cy="-25" rx="10" ry="15" />
+  <Ellipse cx="25" cy="-25" rx="10" ry="15" />
   <Path
-    d="M -70,40 Q 0,90 70,40"
+    d="M -40,30 Q 0,60 40,30"
     fill="none"
     stroke="black"
     stroke-width="10"
@@ -44,17 +48,29 @@ A smile is a simple image we can create using a quadratic Bezier curve. Look at 
   height="200"
   viewBox="-100 -100 200 200"
 >
-  <circle cx="-50" cy="-50" r="20" />
-  <circle cx="50" cy="-50" r="20" />
-  <path 
-    d="
-      M -70,40 
-      Q 0,90 70,40" 
-    fill="none" 
-    stroke="black" 
-    stroke-width="10" 
-    stroke-linecap="round" 
-  />
+  <circle
+    cx="0"
+    cy="0"
+    r="90"
+    fill="none"
+    stroke="black"
+    stroke-width="10" />
+  <ellipse 
+    cx="-25" 
+    cy="-25" 
+    rx="10" 
+    ry="15" />
+  <ellipse 
+    cx="25" 
+    cy="-25" 
+    rx="10" 
+    ry="15" />
+  <path
+    d="M -40,30 Q 0,30 40,30"
+    fill="none"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round" />
 </svg>
 ```
 
@@ -69,7 +85,7 @@ In the example above, the control point is at the same distance from the two end
     d="M -60,50 Q 40,-50 40,50"
     fill="none"
     stroke="black"
-    stroke-width="5"
+    stroke-width="10"
   />
 </SVG>
 
@@ -86,7 +102,7 @@ In the example above, the control point is at the same distance from the two end
       Q 40,-50 40,50" 
     fill="none"
     stroke="black"
-    stroke-width="5"
+    stroke-width="10"
   />
 </svg>
 ```

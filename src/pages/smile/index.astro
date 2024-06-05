@@ -29,6 +29,7 @@ import Close from "../../components/CloseButton.astro";
         </svg>
       </Slide>
       <Close />
+      <span class="scroll">Scroll</span>
     </SnapContainer>
   </BrowserScrollSupport>
 </Smile>
@@ -50,5 +51,15 @@ import Close from "../../components/CloseButton.astro";
     100% {
       d: path("M -40,30 Q 0,60 40,30");
     }
+  }
+
+  .scroll {
+    position: fixed;
+    top: 50%;
+    transform: translateX(50%);
+    right: 0;
+    padding: 1.5em;
+    color: black;
+    rotate: -90deg;
   }
 </style>
