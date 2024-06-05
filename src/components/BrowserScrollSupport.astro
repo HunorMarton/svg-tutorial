@@ -1,10 +1,21 @@
 <div class="unsupported">
-  <div>
-    <h1>Your browser does not support Scroll-driven Animations with CSS</h1>
+  <div class="content">
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <ellipse cx="-25" cy="-25" rx="10" ry="15"></ellipse>
+      <ellipse cx="25" cy="-25" rx="10" ry="15"></ellipse>
+      <path
+        d="M -40,30 Q 0,20 40,30"
+        fill="none"
+        stroke="black"
+        stroke-width="10"
+        stroke-linecap="round"></path>
+    </svg>
     <p>
-      This page heavily relies on scroll-driven animations and your browser does
-      not support it yet. Open this page in Chrome on desktop.
+      This page cannot be displayed because your browser does not support
+      scroll-driven animations with CSS.
     </p>
+    <p>Open this page in Chrome on desktop.</p>
+    <slot name="fallback" />
     <a href="/">Back to Home</a>
   </div>
 </div>
@@ -16,11 +27,40 @@
   .unsupported {
     display: flex;
     align-items: center;
+    min-height: 100%;
     justify-content: center;
-    height: 100%;
+    font-family: "Lato", sans-serif;
+    max-width: 100%;
+    overflow: hidden;
 
-    div {
-      max-width: 500px;
+    .content {
+      max-width: min(500px, 100%);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      overflow-x: none;
+      line-height: 1.5em;
+      text-align: left;
+
+      p {
+        align-self: start;
+
+        @media screen and (min-width: 500px) {
+          align-self: center;
+          text-align: center;
+          text-wrap: balance;
+        }
+      }
+
+      svg {
+        margin: 16px 0 0 0;
+      }
+
+      a {
+        margin: 20px 0 25px 0;
+      }
     }
   }
 
