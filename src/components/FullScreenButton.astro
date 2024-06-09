@@ -30,13 +30,19 @@
     fullscreenButton?.addEventListener("click", function () {
       if (enterFullscreen && exitFullscreen) {
         if (!document.fullscreenElement) {
-          console.log("enter");
           document.documentElement.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      }
+    });
+
+    window.addEventListener("fullscreenchange", function () {
+      if (enterFullscreen && exitFullscreen) {
+        if (document.fullscreenElement) {
           enterFullscreen.setAttribute("stroke", "transparent");
           exitFullscreen.setAttribute("stroke", "white");
         } else {
-          document.exitFullscreen();
-          console.log("exit");
           enterFullscreen.setAttribute("stroke", "white");
           exitFullscreen.setAttribute("stroke", "transparent");
         }
