@@ -49,6 +49,12 @@
       }
     });
   });
+
+  document.addEventListener("astro:after-swap", () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    }
+  });
 </script>
 
 <style>
