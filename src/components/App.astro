@@ -1,9 +1,10 @@
+---
+import AppHeader from "./AppHeader.astro";
+---
+
 <div class="App">
   <div class="grid">
-    <header>
-      <h1>SVG Tutorial</h1>
-      <h2>Learn how to code images in HTML with SVG</h2>
-    </header>
+    <AppHeader />
     <div class="block">
       <slot name="day-1" />
       <slot name="day-2" />
@@ -69,22 +70,6 @@
       align-items: center;
       height: 100vh;
     }
-  }
-
-  header {
-    min-height: 120px;
-    margin: 0;
-    grid-row: 1;
-    grid-column: 1/4;
-  }
-
-  header h1 {
-    font-family: "Fredoka One", cursive;
-  }
-
-  header h2 {
-    font-size: 1em;
-    font-weight: normal;
   }
 
   svg {

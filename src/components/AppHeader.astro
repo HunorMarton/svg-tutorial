@@ -1,0 +1,78 @@
+<header>
+  <div class="header-text">
+    <h1>SVG Tutorial</h1>
+    <h2>Learn how to code images in HTML with SVG</h2>
+  </div>
+  <a href="/summary" class="summary-link">
+    <span>TLDR</span>SVG Tutorial Summary
+  </a>
+</header>
+
+<style>
+  header {
+    min-height: 120px;
+    grid-row: 1;
+    grid-column: 1/4;
+  }
+
+  .header-text {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 770px) {
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+
+  h1 {
+    font-family: "Fredoka One", cursive;
+    margin: 0.5em 0;
+  }
+
+  h2 {
+    font-size: 0.8em;
+    font-weight: normal;
+
+    @media (min-width: 770px) {
+      width: 160px;
+    }
+  }
+
+  .summary-link {
+    display: inline-block;
+    font-size: 0.8em;
+    color: black; /* #f5eed7; */
+    background-color: rgb(255 255 255 / 0.9); /*  #16212b; */
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+
+    transition: all 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-left: 10px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18l6-6-6-6'/%3E%3C/svg%3E");
+    }
+
+    span {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    @media (max-width: 770px) {
+      display: none;
+    }
+  }
+</style>
