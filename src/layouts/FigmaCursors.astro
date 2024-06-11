@@ -43,7 +43,9 @@
       a,
       a *,
       button:not([aria-disabled="true"], .tooltip-btn),
-      button:not([aria-disabled="true"], .tooltip-btn) * {
+      button:not([aria-disabled="true"], .tooltip-btn) *,
+      input[type="radio"],
+      label {
         cursor: pointer;
       }
     }

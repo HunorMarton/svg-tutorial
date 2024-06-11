@@ -8,11 +8,21 @@ const { curve } = Astro.props as Props;
 
 <div class:list={["note", { curve }]}>
   <slot />
+  <input type="radio" id="hide" name="hide" hidden />
+  <label for="hide">
+    <svg width="20" height="20">
+      <path
+        d="M 5 7.5 L 10 12.5 L 15 7.5"
+        stroke="gray"
+        stroke-width="2"
+        fill="none"></path>
+    </svg>
+  </label>
 </div>
 
 <style>
   .note {
-    padding: 1.5em;
+    padding: 1.5em 2.5em 1.5em 1.5em;
     border: 4px solid black;
     border-radius: 5px;
     margin: 1em;
@@ -23,7 +33,17 @@ const { curve } = Astro.props as Props;
     position: fixed;
     bottom: 10px;
     left: 10px;
+    width: fit-content;
     max-width: 650px;
+
+    label {
+      width: 30px;
+      height: 30px;
+      padding: 5px;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
 
     p {
       margin: 0;

@@ -1,0 +1,49 @@
+<div class="show-notes">
+  <input type="radio" id="show" name="hide" hidden />
+  {/* Name has to match the radio name in the note */}
+  <label for="show">
+    <svg width="20" height="20">
+      <path
+        d="M 5 12.5 L 10 7.5 L 15 12.5"
+        stroke="black"
+        stroke-width="2"
+        fill="none"></path>
+    </svg>
+  </label>
+</div>
+
+<style is:global>
+  body:has(.note input[name="hide"]:checked) {
+    .note {
+      display: none;
+    }
+
+    .show-notes {
+      display: flex;
+    }
+  }
+
+  .show-notes {
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin: 1em;
+    background-color: white;
+    border-radius: 50%;
+
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    label {
+      width: 30px;
+      height: 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+</style>
