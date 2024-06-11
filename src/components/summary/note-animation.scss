@@ -1,0 +1,54 @@
+@use "sass:meta";
+@use 'sass:list';
+@use 'sass:math';
+@import "utils";
+
+@mixin _keyframes($container, $slides, $name, $slide) {
+    // Keyframes for each other value
+    $percentagePerSlide: math.div(100%, $slides + 1);
+
+    @keyframes note-animation-#{$container}-#{$name} {
+
+        0% {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @for $index from 1 through $slides {
+            $percentage: $percentagePerSlide * ($index);
+
+            #{$percentage} {
+                opacity: if($index==$slide, 1, 0);
+                pointer-events: if($index==$slide, auto, none);;
+            }
+        }
+
+
+        100% {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}
+
+@mixin _display-note($container, $slides, $slide) {
+    animation-timeline: --container-#{$container};
+    animation-range: entry-crossing 0% exit-crossing 100%;
+    animation-fill-mode: none;
+    opacity: 0;
+    pointer-events: none;
+
+    $uuid: _unique-id();
+    
+    @include _keyframes($container, $slides, $uuid, $slide);
+
+    animation-name: note-animation-#{$container}-#{$uuid};
+}
+
+@mixin set-up-notes($container, $slides) {
+    @for $i from 1 through $slides {
+        .slide-container:nth-of-type(#{$container}) .note:nth-child(#{$i} of .note) {
+            @include _display-note($container, $slides, $i);
+        }
+    }
+}

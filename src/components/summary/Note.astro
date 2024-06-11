@@ -1,0 +1,59 @@
+---
+export interface Props {
+  curve?: boolean;
+}
+
+const { curve } = Astro.props as Props;
+---
+
+<div class:list={["note", { curve }]}>
+  <slot />
+</div>
+
+<style>
+  .note {
+    padding: 1.5em;
+    border: 4px solid black;
+    border-radius: 5px;
+    margin: 1em;
+    background-color: white;
+
+    line-height: 1.5em;
+
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    max-width: 650px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .curve {
+    background-color: rgb(255 255 255 / 0.7);
+    bottom: 240px;
+    width: 300px;
+  }
+</style>
+
+<style is:global lang="scss">
+  @import "./note-animation";
+
+  @include set-up-notes(2, 3); // HTML
+  @include set-up-notes(3, 2); // SVG
+  @include set-up-notes(4, 5); // Circle
+  @include set-up-notes(5, 2); // Rectangle
+  @include set-up-notes(6, 2); // Diagram
+  @include set-up-notes(7, 1); // Path
+  @include set-up-notes(8, 2); // Hamburger
+  @include set-up-notes(9, 1); // Fullscreen
+  @include set-up-notes(10, 4); // Sun
+  @include set-up-notes(11, 3); // Windmill
+  @include set-up-notes(12, 1); // Clock
+  // Smile
+  @include set-up-notes(14, 1); // Quadratic Bezier Curve
+  @include set-up-notes(15, 1); // Cubic Bezier Curve
+  @include set-up-notes(16, 1); // Connection
+  @include set-up-notes(17, 1); // Arc
+</style>

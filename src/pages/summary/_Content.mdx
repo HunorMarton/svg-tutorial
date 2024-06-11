@@ -1,4 +1,5 @@
 import Slide from "../../components/summary/Slide.astro";
+import Note from "../../components/summary/Note.astro";
 import SlideHeader from "../../components/summary/SlideHeader.astro";
 import SlideSVG from "../../components/summary/SlideSVG.astro";
 import SlideHTML from "../../components/summary/SlideHTML.astro";
@@ -16,7 +17,7 @@ import SlideCurve from "../../components/summary/SlideCurve.astro";
 import { QuadraticBezier } from "../../svg-curves/connected/QuadraticBezier";
 import { CubicBezier } from "../../svg-curves/connected/CubicBezier";
 import { Arc } from "../../svg-curves/connected/Arc";
-import Slide2 from "../../components/summary/Slide2.astro";
+import SlideConnection from "../../components/summary/SlideConnection.astro";
 import SlideEnd from "../../components/summary/SlideEnd.astro";
 
 import Example from "../../components/markdown/layouts/Example.astro";
@@ -40,6 +41,12 @@ export const Page = () => (
   </html>
 );
 ```
+
+<Note>SVG is an XML-based markup language for vector graphics.</Note>
+<Note>Since HTML5, you can inline an SVG in HTML.</Note>
+<Note>
+  This means you can generate an SVG from React or any other frontend library.
+</Note>
 
 </SlideHTML>
 
@@ -101,6 +108,9 @@ export const Page = () => (
 
     </Example>
 
+    <Note>You can define an SVG by setting its size with the `width` and `height` attributes and its coordinate system with the `viewBox` attribute.</Note>
+    <Note>The coordinate system can also start at a negative coordinate. This way, the center of the second image is at `0,0`.</Note>
+
 </SlideSVG>
 
 <SlideCircle>
@@ -143,6 +153,21 @@ export const Page = () => (
 
   </Example>
 
+<Note>Now, let's talk about this circle.</Note>
+<Note>
+  We can define a circle by setting its center coordinates, `cx` and `cy`, and
+  its radius, `r`.
+</Note>
+<Note>
+  To change its color, we can set the `fill` attribute. We can use any value
+  that's valid in CSS.
+</Note>
+<Note>
+  To set the border color and width, we can use the `stroke` and `stroke-width`
+  attributes.
+</Note>
+<Note>We can also move the styling properties to CSS.</Note>
+
 </SlideCircle>
 
 <SlideRect>
@@ -169,6 +194,8 @@ export const Page = () => (
     ```
 
   </Example>
+  <Note>Of course, we can also draw a rectangle.</Note>
+  <Note>Here, we have to set the top-left coordinates, `x` and `y`, and the size with `width` and `height`.</Note>
 </SlideRect>
 
 <SlideDiagram>
@@ -197,14 +224,15 @@ export const Page = () => (
     ```
 
   </Example>
+  <Note>With this knowledge, we can draw a diagram.</Note>
+  <Note>Here, we map some data points in React to rectangles.</Note>
 </SlideDiagram>
 
 <Slide code={true}>
-
-```html
-<path d=". . ." />
-```
-
+  ```html
+  <path d=". . ." />
+  ```
+  <Note>To draw more complex shapes, we can use the `path` element.</Note>
 </Slide>
 
 <SlideHamburger>
@@ -248,6 +276,8 @@ export const Page = () => (
         ```
 
     </Example>
+    <Note>The `d` attribute of a path consists of segments. Here, we have a **M**ove-to and a **L**ine-to segment. We set a coordinate for both.</Note>
+    <Note>A path doesn't have to be continuous. We can use multiple move-to and line-to segments in the same path.</Note>
 
 </SlideHamburger>
 
@@ -264,6 +294,7 @@ export const Page = () => (
         M 10, 28 L 2,28 L 2, 20"
     />
   </svg>
+  <Note>We can already create basic icons this way.</Note>
 </Slide>
 
 <SlideSun>
@@ -313,6 +344,10 @@ export const Page = () => (
     ```
 
   </Example>
+  <Note>Now, let's look into this sun icon.</Note>
+  <Note>Here, we center the coordinate system with the `viewBox` property.</Note>
+  <Note>Then, we draw a straight line with a `path`.</Note>
+  <Note>We can set an `id` to this path, reuse it with the `use` element, and `rotate` it into position.</Note>
 </SlideSun>
 
 <SlideWindmill>
@@ -354,21 +389,35 @@ export const Page = () => (
     ```
 
   </Example>
+
+  <Note>We can also animate an SVG with CSS.</Note>
+  <Note>Here, we wrap the moving part of this windmill into a group with the `g` element.</Note>
+  <Note>Then, set a keyframe animation for this group in CSS.</Note>
 </SlideWindmill>
 
-<SlideClock />
+<SlideClock>
+  <Note>We can also set transformations dynamically with JavaScript.</Note>
+</SlideClock>
 
 <SlideSmile />
 
 <SlideCurve>
   <QuadraticBezier client:only="react" />
+  <Note curve={true}>
+    The quadratic bezier curve has one control point that defines how to bend
+    the line. Drag the coordinates to see how the code changes.
+  </Note>
 </SlideCurve>
 
 <SlideCurve>
   <CubicBezier client:only="react" />
+  <Note curve={true}>
+    A cubic bezier curve has two control points, giving you much greater
+    flexibility.
+  </Note>
 </SlideCurve>
 
-<Slide2>
+<SlideConnection>
   <Example>
     <SVG width="300" height="300" viewBox="-100 -100 200 200">
       <Path
@@ -398,10 +447,15 @@ export const Page = () => (
       />
     </SVG>
   </Example>
-</Slide2>
+  <Note>Cubic bezier curves are great for creating smooth transitions between line segments. Hover over the paths to see how they connect two straight line segment.</Note>
+</SlideConnection>
 
 <SlideCurve>
   <Arc client:only="react" />
+  <Note curve={true}>
+    Arcs are one of the most complicated path segments. Click [here](/svg/arc)
+    to read more about them.
+  </Note>
 </SlideCurve>
 
 <SlideEnd />

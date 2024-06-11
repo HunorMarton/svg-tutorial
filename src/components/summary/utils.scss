@@ -1,0 +1,8 @@
+// Counter to make UUIDs unique
+$counter: 0;
+
+// Function that gives back a unique ID
+@function _unique-id() {
+    $counter: $counter + 1 !global;
+    @return $counter;
+}
