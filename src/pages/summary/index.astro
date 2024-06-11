@@ -1,6 +1,7 @@
 ---
 import Summary from "../../layouts/Summary.astro";
 import BrowserScrollSupport from "../../components/BrowserScrollSupport.astro";
+import ScreenSizeCheck from "../../components/ScreenSizeCheck.astro";
 import SnapContainer from "../../components/summary/SnapContainer.astro";
 import Close from "../../components/CloseButton.astro";
 import FullScreenButton from "../../components/FullScreenButton.astro";
@@ -10,23 +11,25 @@ import ShowNote from "../../components/summary/ShowNote.astro";
 
 <Summary>
   <BrowserScrollSupport>
-    <Fragment slot="fallback">
-      <h1>Or</h1>
-      <p>Watch this summary as a video on YouTube:</p>
-      <iframe
-        width="400"
-        height="225"
-        src="https://www.youtube.com/embed/hZYaSGUbMds?si=sOE6cWBC8IDaOoba"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </Fragment>
-    <SnapContainer>
-      <Content />
-      <Close />
-      <FullScreenButton />
-    </SnapContainer>
-    <ShowNote />
+    <ScreenSizeCheck>
+      <Fragment slot="fallback">
+        <h1>Or</h1>
+        <p>Watch this summary as a video on YouTube:</p>
+        <iframe
+          width="400"
+          height="225"
+          src="https://www.youtube.com/embed/hZYaSGUbMds?si=sOE6cWBC8IDaOoba"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </Fragment>
+      <SnapContainer>
+        <Content />
+        <Close />
+        <FullScreenButton />
+      </SnapContainer>
+      <ShowNote />
+    </ScreenSizeCheck>
   </BrowserScrollSupport>
 </Summary>
 

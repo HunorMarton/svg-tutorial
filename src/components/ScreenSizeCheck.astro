@@ -1,0 +1,58 @@
+<div class="unsupported">
+  <svg width="100%" height="100%" viewBox="0 0 100 100">
+    <path
+      d="M 5 5 L 95 95 M 10 5 L 5 5 L 5 10 M 90 95 L 95 95 L 95 90"
+      stroke="gray"
+      stroke-width="1"
+      stroke-linecap="round"
+      fill="none"></path>
+  </svg>
+  <div class="content">
+    <h1>Browser window too small</h1>
+    <p>
+      This page shows an interactive slide deck that is currently not
+      responsive. Resize your browser window to at least 770px wide and 650px
+      tall.
+    </p>
+  </div>
+</div>
+
+<div class="supported">
+  <slot />
+</div>
+
+<style>
+  svg {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+
+  .unsupported {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .content {
+    background-color: white;
+    padding: 20px;
+    border: 4px solid black;
+    max-width: 500px;
+  }
+
+  .supported {
+    display: none;
+  }
+
+  @media (min-width: 770px) and (min-height: 650px) {
+    .unsupported {
+      display: none;
+    }
+    .supported {
+      display: block;
+    }
+  }
+</style>
