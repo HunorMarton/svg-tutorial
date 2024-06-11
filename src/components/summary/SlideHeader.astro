@@ -6,15 +6,18 @@ import ExamplesHeader from "../markdown/examples/ExamplesHeader.astro";
 <Slide>
   <div class="slide-header">
     <ExamplesHeader title="SVG Tutorial" subtitle="Summary" />
-    <svg width="80" height="20" viewBox="0 0 80 20">
-      <path d="M 5 5 L 40 15 L 75 5"></path>
-    </svg>
+    <div class="scroll-indicator">
+      <svg width="80" height="20" viewBox="0 0 80 20">
+        <path d="M 5 5 L 40 15 L 75 5"></path>
+      </svg>
+    </div>
   </div>
 </Slide>
 
 <style>
   .slide-header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 100px;
@@ -29,8 +32,18 @@ import ExamplesHeader from "../markdown/examples/ExamplesHeader.astro";
     }
   }
 
+  .scroll-indicator {
+    animation-timeline: --container-1;
+    animation-range: entry-crossing 0% exit-crossing 100%;
+    animation-fill-mode: forwards;
+    animation-name: hide-scroll-indicator;
+
+    pointer-events: none;
+    width: 80px;
+  }
+
   svg {
-    position: absolute;
+    position: fixed;
     opacity: 0;
 
     stroke: #8c8c8c;
@@ -38,17 +51,26 @@ import ExamplesHeader from "../markdown/examples/ExamplesHeader.astro";
     stroke-linecap: round;
     fill: none;
 
-    animation: scroll-indicator-reveal 1s 2s ease-out forwards;
+    animation: show-scroll-indicator 1s 2s ease-out forwards;
   }
 
-  @keyframes scroll-indicator-reveal {
+  @keyframes show-scroll-indicator {
     0% {
       opacity: 0;
-      bottom: 20px;
+      bottom: 50px;
     }
     100% {
       opacity: 1;
-      bottom: 10px;
+      bottom: 30px;
+    }
+  }
+
+  @keyframes hide-scroll-indicator {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
     }
   }
 </style>
