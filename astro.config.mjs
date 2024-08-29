@@ -12,8 +12,9 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   output: "static",
+  site: "https://svg-tutorial.com",
   adapter: vercel({
-    imageService: true
+    imageService: true,
   }),
-  integrations: [mdx(), react()]
+  integrations: [mdx(), react()],
 });
