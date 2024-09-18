@@ -1,11 +1,12 @@
 import * as React from "react";
 import { merge, fromEvent } from "rxjs";
-import { map, concatMap, takeUntil } from "rxjs/operators";
+import { map, filter, concatMap, takeUntil } from "rxjs/operators";
 import { type Coordinate } from "../utils/types";
 import { round } from "../utils/round";
 import "./Drag.css";
 
 interface DragProps {
+  id?: string;
   children: React.ReactNode;
   x: number;
   y: number;
@@ -15,6 +16,7 @@ interface DragProps {
 }
 
 export const Drag: React.FC<DragProps> = ({
+  id,
   children,
   x,
   y,
@@ -42,7 +44,10 @@ export const Drag: React.FC<DragProps> = ({
     const mouseDowns = fromEvent<MouseEvent>(
       draggableRef.current!,
       "mousedown"
-    ).pipe(map(mouseEventToCoordinate));
+    ).pipe(
+      filter((event) => event.button === 0), // Filter for left mouse button
+      map(mouseEventToCoordinate)
+    );
     const mouseMoves = fromEvent<MouseEvent>(window, "mousemove").pipe(
       map(mouseEventToCoordinate)
     );
@@ -92,6 +97,7 @@ export const Drag: React.FC<DragProps> = ({
 
   return (
     <g
+      id={id}
       className={dragging ? "dragging" : "draggable"}
       ref={draggableRef}
       transform={`translate(${x},${y})`}

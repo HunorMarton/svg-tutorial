@@ -4,7 +4,7 @@ import { Attribute } from "./CodeAttribute.tsx";
 import "./Code.css";
 
 interface CodeProps {
-  children: string;
+  children: string | React.ReactNode;
 }
 
 export const Code: React.FC<CodeProps> = ({ children }) => (

@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { AppProvider, useAppContext } from "../state/context.tsx";
-import { PageCubicBezier as UnconnectedPageCubicBezier } from "../components/PageCubicBezier.tsx";
+import { EmbedCubicBezier as UnconnectedEmbedCubicBezier } from "../components/EmbedCubicBezier.tsx";
 import { type Coordinate } from "../utils/types.ts";
 import {
   CUBIC_BEZIER_START_POINT,
@@ -9,7 +9,13 @@ import {
   CUBIC_BEZIER_END_POINT,
 } from "../constants/actions.ts";
 
-export const CubicBezierWithoutProvider: React.FC = () => {
+interface CubicBezierProps {
+  fullScreen?: boolean;
+}
+
+export const CubicBezierWithoutProvider: React.FC<CubicBezierProps> = ({
+  fullScreen,
+}) => {
   const { state, dispatch } = useAppContext();
 
   const setCubicBezierStartPoint = useCallback(
@@ -37,18 +43,19 @@ export const CubicBezierWithoutProvider: React.FC = () => {
   );
 
   return (
-    <UnconnectedPageCubicBezier
+    <UnconnectedEmbedCubicBezier
       {...state.cubicBezier}
       setCubicBezierStartPoint={setCubicBezierStartPoint}
       setCubicBezierControlPoint1={setCubicBezierControlPoint1}
       setCubicBezierControlPoint2={setCubicBezierControlPoint2}
       setCubicBezierEndPoint={setCubicBezierEndPoint}
+      fullScreen={fullScreen}
     />
   );
 };
 
-export const CubicBezier: React.FC = () => (
+export const CubicBezier: React.FC<CubicBezierProps> = ({ fullScreen }) => (
   <AppProvider>
-    <CubicBezierWithoutProvider />
+    <CubicBezierWithoutProvider fullScreen={fullScreen} />
   </AppProvider>
 );

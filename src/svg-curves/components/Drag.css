@@ -1,6 +1,3 @@
-:root {
-}
-
 .draggable {
   fill: var(--draggable-color);
   cursor: grab;

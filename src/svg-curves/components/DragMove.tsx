@@ -5,16 +5,22 @@ import { Drag } from "../connected/Drag";
 import { ArrowHead } from "./ArrowHead";
 
 interface DragMoveProps {
+  id?: string;
   x: number;
   y: number;
   changeCoord: (coord: Coordinate) => void;
 }
 
-export const DragMove: React.FC<DragMoveProps> = ({ x, y, changeCoord }) => {
+export const DragMove: React.FC<DragMoveProps> = ({
+  id,
+  x,
+  y,
+  changeCoord,
+}) => {
   const innerCrossSize = CROSS_SIZE - ARROW_HEAD;
 
   return (
-    <Drag x={x} y={y} changeCoord={changeCoord}>
+    <Drag id={id} x={x} y={y} changeCoord={changeCoord}>
       <line
         className="arrowLine"
         x1={-innerCrossSize / 2}

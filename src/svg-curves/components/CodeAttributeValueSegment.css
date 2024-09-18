@@ -1,0 +1,3 @@
+.value-segment:not(:last-of-type) {
+  margin-right: 10px;
+}

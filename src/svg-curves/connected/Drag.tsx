@@ -3,6 +3,7 @@ import { type Coordinate } from "../utils/types";
 import { Drag as UnconnectedDrag } from "../components/Drag.tsx";
 
 interface DragProps {
+  id?: string;
   children: React.ReactNode;
   x: number;
   y: number;

@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { AppProvider, useAppContext } from "../state/context.tsx";
-import { PageQuadraticBezier as UnconnectedPageQuadraticBezier } from "../components/PageQuadraticBezier.tsx";
+import { EmbedQuadraticBezier as UnconnectedEmbedQuadraticBezier } from "../components/EmbedQuadraticBezier.tsx";
 import { type Coordinate } from "../utils/types.ts";
 import {
   QUADRATIC_BEZIER_START_POINT,
@@ -8,7 +8,13 @@ import {
   QUADRATIC_BEZIER_END_POINT,
 } from "../constants/actions.ts";
 
-export const QuadraticBezierWithoutProvider: React.FC = () => {
+interface QuadraticBezierProps {
+  fullScreen?: boolean;
+}
+
+export const QuadraticBezierWithoutProvider: React.FC<QuadraticBezierProps> = ({
+  fullScreen,
+}) => {
   const { state, dispatch } = useAppContext();
 
   const setQuadraticBezierStartPoint = useCallback(
@@ -30,17 +36,20 @@ export const QuadraticBezierWithoutProvider: React.FC = () => {
   );
 
   return (
-    <UnconnectedPageQuadraticBezier
+    <UnconnectedEmbedQuadraticBezier
       {...state.quadraticBezier}
       setQuadraticBezierStartPoint={setQuadraticBezierStartPoint}
       setQuadraticBezierControlPoint1={setQuadraticBezierControlPoint1}
       setQuadraticBezierEndPoint={setQuadraticBezierEndPoint}
+      fullScreen={fullScreen}
     />
   );
 };
 
-export const QuadraticBezier: React.FC = () => (
+export const QuadraticBezier: React.FC<QuadraticBezierProps> = ({
+  fullScreen,
+}) => (
   <AppProvider>
-    <QuadraticBezierWithoutProvider />
+    <QuadraticBezierWithoutProvider fullScreen={fullScreen} />
   </AppProvider>
 );

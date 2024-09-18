@@ -1,0 +1,10 @@
+@import "highlightUtility";
+
+@include highlight-code("Arc", "start", ("start"));
+@include highlight-code("Arc", "radius-x", ("radius-x"));
+@include highlight-code("Arc", "radius-y", ("radius-y"));
+@include highlight-code("Arc", "rotation", ("rotation"));
+@include highlight-code("Arc", "large-arc-flag", ("large-arc-flag"));
+@include highlight-code("Arc", "sweep-flag", ("sweep-flag"));
+@include highlight-code("Arc", "flags", ("large-arc-flag", "sweep-flag"));
+@include highlight-code("Arc", "end", ("end"));

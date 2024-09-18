@@ -1,0 +1,5 @@
+@import "highlightUtility";
+
+@include highlight-code("QuadraticBezier", "start", ("start"));
+@include highlight-code("QuadraticBezier", "control-1", ("control-1"));
+@include highlight-code("QuadraticBezier", "end", ("end"));

@@ -28,19 +28,16 @@
 
 .presentationAlternative {
   stroke: var(--curve-alternative-color);
-  stroke-width: 1px;
-  stroke-dasharray: 1, 1;
-  fill: none;
-}
-
-.presentationAlternativeBackground {
-  stroke: var(--curve-alternative-background-color);
   stroke-width: 10px;
   fill: none;
+  cursor: pointer;
 }
 
-.presentationAlternativeBackground:hover {
-  stroke: var(--curve-alternative-background-hover-color);
-  stroke-width: 10px;
-  fill: none;
+.presentationAlternative:hover {
+  stroke: var(--curve-alternative-hover-color);
+}
+
+.presentationAlternativeHitArea {
+  stroke: transparent;
+  stroke-width: 20px;
 }

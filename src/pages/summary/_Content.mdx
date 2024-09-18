@@ -13,7 +13,6 @@ import SlideWindmill from "../../components/summary/SlideWindmill.astro";
 import Windmill from "../../components/Windmill.astro";
 import SlideClock from "../../components/summary/SlideClock.astro";
 import SlideSmile from "../../components/summary/SlideSmile.astro";
-import SlideCurve from "../../components/summary/SlideCurve.astro";
 import { QuadraticBezier } from "../../svg-curves/connected/QuadraticBezier";
 import { CubicBezier } from "../../svg-curves/connected/CubicBezier";
 import { Arc } from "../../svg-curves/connected/Arc";
@@ -401,21 +400,21 @@ export const Page = () => (
 
 <SlideSmile />
 
-<SlideCurve>
-  <QuadraticBezier client:only="react" />
+<Slide>
+  <QuadraticBezier client:only="react" fullScreen={true} />
   <Note curve={true}>
     The quadratic bezier curve has one control point that defines how to bend
     the line. Drag the coordinates to see how the code changes.
   </Note>
-</SlideCurve>
+</Slide>
 
-<SlideCurve>
-  <CubicBezier client:only="react" />
+<Slide>
+  <CubicBezier client:only="react" fullScreen={true} />
   <Note curve={true}>
     A cubic bezier curve has two control points, giving you much greater
     flexibility.
   </Note>
-</SlideCurve>
+</Slide>
 
 <SlideConnection>
   <Example>
@@ -450,12 +449,12 @@ export const Page = () => (
   <Note>Cubic bezier curves are great for creating smooth transitions between line segments. Hover over the paths to see how they connect two straight line segment.</Note>
 </SlideConnection>
 
-<SlideCurve>
-  <Arc client:only="react" />
+<Slide>
+  <Arc client:only="react" fullScreen={true} />
   <Note curve={true}>
     Arcs are one of the most complicated path segments. Click [here](/svg/arc)
     to read more about them.
   </Note>
-</SlideCurve>
+</Slide>
 
 <SlideEnd />

@@ -6,6 +6,7 @@ import { Drag } from "../connected/Drag";
 import { ArrowHead } from "./ArrowHead";
 
 interface DragRotationProps {
+  id: string;
   x: number;
   y: number;
   degree: number;
@@ -13,6 +14,7 @@ interface DragRotationProps {
 }
 
 export const DragRotation: React.FC<DragRotationProps> = ({
+  id,
   x,
   y,
   degree,
@@ -21,7 +23,13 @@ export const DragRotation: React.FC<DragRotationProps> = ({
   const innerCrossSize = CROSS_SIZE - ARROW_HEAD;
 
   return (
-    <Drag x={x} y={y} changeCoord={changeCoord} desc={`${round(degree)}°`}>
+    <Drag
+      id={id}
+      x={x}
+      y={y}
+      changeCoord={changeCoord}
+      desc={`${round(degree)}°`}
+    >
       <g transform={`rotate(${degree})`}>
         <path
           className="arrowLine"

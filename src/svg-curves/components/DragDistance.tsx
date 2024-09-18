@@ -6,6 +6,7 @@ import { Drag } from "../connected/Drag";
 import { ArrowHead } from "./ArrowHead";
 
 interface DragDistanceProps {
+  id: string;
   x: number;
   y: number;
   degree: number;
@@ -14,6 +15,7 @@ interface DragDistanceProps {
 }
 
 export const DragDistance: React.FC<DragDistanceProps> = ({
+  id,
   x,
   y,
   degree,
@@ -23,7 +25,13 @@ export const DragDistance: React.FC<DragDistanceProps> = ({
   const innerCrossSize = CROSS_SIZE - ARROW_HEAD;
 
   return (
-    <Drag x={x} y={y} changeCoord={changeCoord} desc={`${round(distance)}`}>
+    <Drag
+      id={id}
+      x={x}
+      y={y}
+      changeCoord={changeCoord}
+      desc={`${round(distance)}`}
+    >
       <g transform={`rotate(${degree})`}>
         <line
           className="arrowLine"

@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { AppProvider, useAppContext } from "../state/context.tsx";
-import { PageArc as UnconnectedPageArc } from "../components/PageArc.tsx";
+import { EmbedArc as UnconnectedEmbedArc } from "../components/EmbedArc.tsx";
 import { type Coordinate } from "../utils/types.ts";
 import {
   ARC_START_POINT,
@@ -12,7 +12,11 @@ import {
   ARC_FLAGS,
 } from "../constants/actions.ts";
 
-export const ArcWithoutProvider: React.FC = () => {
+interface ArcProps {
+  fullScreen?: boolean;
+}
+
+export const ArcWithoutProvider: React.FC<ArcProps> = ({ fullScreen }) => {
   const { state, dispatch } = useAppContext();
 
   const setArcStartPoint = useCallback(
@@ -57,7 +61,7 @@ export const ArcWithoutProvider: React.FC = () => {
   );
 
   return (
-    <UnconnectedPageArc
+    <UnconnectedEmbedArc
       {...state.arc}
       setArcStartPoint={setArcStartPoint}
       setArcCenterPoint={setArcCenterPoint}
@@ -66,12 +70,13 @@ export const ArcWithoutProvider: React.FC = () => {
       setArcRadiusY={setArcRadiusY}
       setArcRotation={setArcRotation}
       setArcFlags={setArcFlags}
+      fullScreen={fullScreen}
     />
   );
 };
 
-export const Arc: React.FC = () => (
+export const Arc: React.FC<ArcProps> = ({ fullScreen }) => (
   <AppProvider>
-    <ArcWithoutProvider />
+    <ArcWithoutProvider fullScreen={fullScreen} />
   </AppProvider>
 );
