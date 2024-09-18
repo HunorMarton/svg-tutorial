@@ -1,24 +1,38 @@
+---
+import Close from "../../components/CloseButton.astro";
+---
+
 <div class="header">
-  <a href="/">SVG Tutorial</a>
-  {"  |  "}
-  <a href="/arc">Arc</a>
-  {"  |  "}
-  <a href="/cubic-bezier">Cubic Bezier</a>
-  {"  |  "}
-  <a href="/quadratic-bezier">Quadratic Bezier</a>
+  <div class="menu">
+    <a href="/">SVG Tutorial</a>
+    {"  |  "}
+    <a href="/arc">Arc</a>
+    {"  |  "}
+    <a href="/cubic-bezier">Cubic Bezier</a>
+    {"  |  "}
+    <a href="/quadratic-bezier">Quadratic Bezier</a>
+  </div>
+  <Close />
 </div>
 
-<style>
+<style scoped>
   .header {
-    height: 60px;
-    padding: 20px;
+    padding: 30px 0 0 30px;
     box-sizing: border-box;
+    background-color: #f6f7f9; /* This is the same as the backgroudn color of the embed */
+  }
+
+  .menu {
+    display: inline-block;
+    background-color: hsla(0, 0%, 82%, 0.585);
+    padding: 15px;
+    border-radius: 15px;
   }
 
   .header a {
     text-decoration: none;
-    color: #ff0050;
-    font-size: 1.1em;
+    color: dimgray; /* #ff0050 */
+    font-weight: bold;
     padding: 10px 9px 10px 9px;
   }
 </style>
