@@ -23,7 +23,6 @@ type PageArcProps = Arc & {
   setArcRadiusY: (coord: Coordinate) => void;
   setArcStartPoint: (coord: Coordinate) => void;
   setArcEndPoint: (coord: Coordinate) => void;
-  setArcCenterPoint: (coord: Coordinate) => void;
 } & {
   fullScreen?: boolean;
 };
@@ -52,7 +51,6 @@ export const EmbedArc: React.FC<PageArcProps> = ({
   setArcRadiusY,
   setArcStartPoint,
   setArcEndPoint,
-  setArcCenterPoint,
   fullScreen,
 }) => {
   const ArcAlternative: React.FC<{
@@ -146,7 +144,6 @@ export const EmbedArc: React.FC<PageArcProps> = ({
           changeCoord={setArcStartPoint}
         />
         <DragMove id="control-end" x={x2} y={y2} changeCoord={setArcEndPoint} />
-        <DragMove x={cx} y={cy} changeCoord={setArcCenterPoint} />
       </Canvas>
       <Code>
         <ValueSegment value="M" />

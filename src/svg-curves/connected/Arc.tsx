@@ -4,7 +4,6 @@ import { EmbedArc as UnconnectedEmbedArc } from "../components/EmbedArc.tsx";
 import { type Coordinate } from "../utils/types.ts";
 import {
   ARC_START_POINT,
-  ARC_CENTER_POINT,
   ARC_END_POINT,
   ARC_RADIUS_X,
   ARC_RADIUS_Y,
@@ -21,11 +20,6 @@ export const ArcWithoutProvider: React.FC<ArcProps> = ({ fullScreen }) => {
 
   const setArcStartPoint = useCallback(
     (coord: Coordinate) => dispatch({ type: ARC_START_POINT, payload: coord }),
-    [dispatch]
-  );
-
-  const setArcCenterPoint = useCallback(
-    (coord: Coordinate) => dispatch({ type: ARC_CENTER_POINT, payload: coord }),
     [dispatch]
   );
 
@@ -64,7 +58,6 @@ export const ArcWithoutProvider: React.FC<ArcProps> = ({ fullScreen }) => {
     <UnconnectedEmbedArc
       {...state.arc}
       setArcStartPoint={setArcStartPoint}
-      setArcCenterPoint={setArcCenterPoint}
       setArcEndPoint={setArcEndPoint}
       setArcRadiusX={setArcRadiusX}
       setArcRadiusY={setArcRadiusY}
