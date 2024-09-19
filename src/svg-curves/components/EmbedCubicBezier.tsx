@@ -71,11 +71,27 @@ export const EmbedCubicBezier: React.FC<PageCubicBezierProps> = ({
     </Canvas>
     <Code>
       <ValueSegment value="M" />
-      <ValueSegment id="value-start" value={`${round(x0)} ${round(y0)}`} />
+      <ValueSegment
+        id="value-start"
+        description="Start Position"
+        value={`${round(x0)} ${round(y0)}`}
+      />
       <ValueSegment value="C" />
-      <ValueSegment id="value-control-1" value={`${round(x1)} ${round(y1)}`} />
-      <ValueSegment id="value-control-2" value={`${round(x2)} ${round(y2)}`} />
-      <ValueSegment id="value-end" value={`${round(x)} ${round(y)}`} />
+      <ValueSegment
+        id="value-control-1"
+        description="Control Point 1"
+        value={`${round(x1)} ${round(y1)}`}
+      />
+      <ValueSegment
+        id="value-control-2"
+        description="Control Point 2"
+        value={`${round(x2)} ${round(y2)}`}
+      />
+      <ValueSegment
+        id="value-end"
+        description="End Position"
+        value={`${round(x)} ${round(y)}`}
+      />
     </Code>
   </Embed>
 );

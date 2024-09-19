@@ -1,3 +1,11 @@
 .value-segment:not(:last-of-type) {
   margin-right: 10px;
+  position: relative;
+}
+
+.value-description {
+  display: none;
+  position: absolute;
+  color: white;
+  top: 3.2em; /* TODO: Make sure this looks good on all pages (/svg/arc, /summary, /arc) */
 }

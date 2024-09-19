@@ -1,28 +1,43 @@
 @mixin highlight-code($embed, $id, $highlights) {  
-    #embed#{$embed}:has(#control-#{$id}:hover) pre.code * {
-      color: gray;
-  
-      @each $highlight in $highlights {
-        #value-#{$highlight} {
-          box-sizing: border-box;
-          position: relative;
-          display: inline-block;
-          z-index: 1;
-          color: black;
+    #embed#{$embed}:has(#control-#{$id}:hover) {
+      pre.code *:not(.value-description) {
+        color: gray;
     
-          &::before {
-            position: absolute;
-            content: "";
-            top: -5px;
-            left: -5px;
-            width: calc(100% + 10px);
-            height: calc(100% + 10px);
-            background-color: yellow;
+        @each $highlight, $align in $highlights {
+          #value-#{$highlight} {
+            box-sizing: border-box;
+            position: relative;
             display: inline-block;
-            z-index: -1;
+            z-index: 1;
+            color: black;
+      
+            &::before {
+              position: absolute;
+              content: "";
+              top: -5px;
+              left: -5px;
+              width: calc(100% + 10px);
+              height: calc(100% + 10px);
+              background-color: yellow;
+              display: inline-block;
+              z-index: -1;
+            }
+
+            .value-description {
+              display: block;
+
+              @if $align == "left" {
+                right: 5px;
+              } @else if $align == "right" {
+                left: 5px;
+              } @else {
+                // Center
+                left: 50%;
+                transform: translate(-50%, 0);
+              }
+            }
           }
         }
       }
-      
     }
   }

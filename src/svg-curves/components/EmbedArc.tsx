@@ -147,14 +147,42 @@ export const EmbedArc: React.FC<PageArcProps> = ({
       </Canvas>
       <Code>
         <ValueSegment value="M" />
-        <ValueSegment id="value-start" value={`${round(x1)} ${round(y1)}`} />
+        <ValueSegment
+          id="value-start"
+          description="Start Position"
+          value={`${round(x1)} ${round(y1)}`}
+        />
         <ValueSegment value="A" />
-        <ValueSegment id="value-radius-x" value={`${round(rx)}`} />
-        <ValueSegment id="value-radius-y" value={`${round(ry)}`} />
-        <ValueSegment id="value-rotation" value={`${round(degree)}`} />
-        <ValueSegment id="value-large-arc-flag" value={`${+largeArcFlag}`} />
-        <ValueSegment id="value-sweep-flag" value={`${+sweepFlag}`} />
-        <ValueSegment id="value-end" value={`${round(x2)} ${round(y2)}`} />
+        <ValueSegment
+          id="value-radius-x"
+          description="Radius X"
+          value={`${round(rx)}`}
+        />
+        <ValueSegment
+          id="value-radius-y"
+          description="Radius Y"
+          value={`${round(ry)}`}
+        />
+        <ValueSegment
+          id="value-rotation"
+          description="Rotation"
+          value={`${round(degree)}`}
+        />
+        <ValueSegment
+          id="value-large-arc-flag"
+          description="Large Arc Flag"
+          value={`${+largeArcFlag}`}
+        />
+        <ValueSegment
+          id="value-sweep-flag"
+          description="Sweep Flag"
+          value={`${+sweepFlag}`}
+        />
+        <ValueSegment
+          id="value-end"
+          description="End Position"
+          value={`${round(x2)} ${round(y2)}`}
+        />
       </Code>
     </Embed>
   );
