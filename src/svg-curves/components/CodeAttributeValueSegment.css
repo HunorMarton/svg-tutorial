@@ -1,6 +1,27 @@
-.value-segment:not(:last-of-type) {
-  margin-right: 10px;
+.value-segment {
+  box-sizing: border-box;
   position: relative;
+  display: inline-block;
+  z-index: 1;
+  cursor: default;
+
+  &:not(:last-of-type) {
+    margin-right: 10px;
+  }
+
+  &::before {
+    opacity: 0; /* Displayed by highlight utility */
+    position: absolute;
+    content: "";
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    background-color: yellow;
+    z-index: -1;
+
+    transition: opacity 0.5s ease-in-out;
+  }
 }
 
 .value-description {

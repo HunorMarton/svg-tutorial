@@ -5,22 +5,10 @@
     
         @each $highlight, $align in $highlights {
           #value-#{$highlight} {
-            box-sizing: border-box;
-            position: relative;
-            display: inline-block;
-            z-index: 1;
             color: black;
       
             &::before {
-              position: absolute;
-              content: "";
-              top: -5px;
-              left: -5px;
-              width: calc(100% + 10px);
-              height: calc(100% + 10px);
-              background-color: yellow;
-              display: inline-block;
-              z-index: -1;
+              opacity: 1;
             }
 
             .value-description {
@@ -36,6 +24,53 @@
                 transform: translate(-50%, 0);
               }
             }
+          }
+        }
+      }
+    }
+  }
+
+  @mixin highlight-control($embed, $id, $drag) {
+    #embed#{$embed}:has(#value-#{$id}:hover) {
+      #control-#{$id} {
+        @if $drag {
+          fill: var(--draggable-hover-color);
+
+          text {
+            fill: var(--draggable-text-hover-color);
+          }
+
+          .arrowHead {
+            fill: var(--draggable-icon-hover-color);
+          }
+
+          .arrowLine {
+            stroke: var(--draggable-icon-hover-color);
+            stroke-width: 2px;
+          }
+        } @else {
+          stroke: var(--curve-alternative-hover-color);
+        }
+      }
+
+      pre.code {
+        *:not(.value-description) {
+          color: gray;
+        }
+      
+        #value-#{$id} {
+          color: black;
+    
+          &::before {
+            opacity: 1;
+          }
+
+          .value-description {
+            display: block;
+
+            // Center
+            left: 50%;
+            transform: translate(-50%, 0);
           }
         }
       }

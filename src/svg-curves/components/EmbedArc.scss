@@ -8,3 +8,11 @@
 @include highlight-code("Arc", "sweep-flag", ("sweep-flag"));
 @include highlight-code("Arc", "flags", (("large-arc-flag", "left"), ("sweep-flag", "right")));
 @include highlight-code("Arc", "end", ("end"));
+
+@include highlight-control("Arc", "start", true);
+@include highlight-control("Arc", "radius-x", true);
+@include highlight-control("Arc", "radius-y", true);
+@include highlight-control("Arc", "rotation", true);
+@include highlight-control("Arc", "large-arc-flag", false);
+@include highlight-control("Arc", "sweep-flag", false);
+@include highlight-control("Arc", "end", true);

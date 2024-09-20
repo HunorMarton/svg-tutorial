@@ -4,6 +4,10 @@
   padding: 26px;
   background-color: #24292e;
   margin: 0;
+
+  * {
+    transition: color 0.4s linear;
+  }
 }
 
 .code .level1 {
