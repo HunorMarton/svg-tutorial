@@ -1,0 +1,94 @@
+---
+import Card from "./Card.astro"
+---
+
+<div class="segment">
+    <h2>Path Segments</h2>
+    <p>The path element consists of multiple path segments to form complex shapes.</p>
+
+    <div class="cards">
+    <Card title="Quadratic Bézier Curve" link="/quadratic-bezier">
+        <svg viewBox="0 0 450 450">
+            <path d="M 100 350 L 225 50 L 350 350" class="helperLine" />
+            <path d="M 100 350 Q 225 50 350 350" stroke="hsl(0, 95%, 60%)" stroke-width="20" stroke-linecap="round" />
+            <circle cx="100" cy="350" r="20" class="helperDrag" />
+            <circle cx="225" cy="50" r="20" class="helperDrag" />
+            <circle cx="350" cy="350" r="20" class="helperDrag" />
+        </svg>
+    </Card>
+
+    <Card title="Cubic Bézier Curve" link="/cubic-bezier">
+        <svg viewBox="0 0 450 450">
+            <path d="M 100 350 L 70 100 M 380 100 L 350 350" class="helperLine" />
+            <path d="M 100 350 C 70 100 380 100 350 350" stroke="hsl(0, 95%, 60%)" stroke-width="20" stroke-linecap="round" />
+            <circle cx="100" cy="350" r="20" class="helperDrag" />
+            <circle cx="70" cy="100" r="20" class="helperDrag" />
+            <circle cx="380" cy="100" r="20" class="helperDrag" />
+            <circle cx="350" cy="350" r="20" class="helperDrag" />
+        </svg>
+    </Card>
+
+    <Card title="Arc" link="/arc">
+        <svg viewBox="0 0 450 450">
+            <path d="M 145 174 A 150 120 20 0 1 288 314" class="helperCurve" />
+            <path d="M 145 174 A 150 120 20 1 0 288 314" class="helperCurve" />
+            <path d="M 145 174 A 150 120 20 1 1 288 314" class="helperCurve" />
+            <path d="M 291 191 L 332 79 M 291 191 L 432 243" class="helperLine" />
+            <path d="M 145 174 A 150 120 20 0 0 288 314" stroke="hsl(0, 95%, 60%)" stroke-width="20" stroke-linecap="round" />
+            <circle cx="145" cy="174" r="20" class="helperDrag" />
+            <circle cx="288" cy="314" r="20" class="helperDrag"/>
+            <circle cx="332" cy="79" r="20" class="helperDrag"/>
+            <circle cx="366" cy="219" r="20" class="helperDrag"/>
+            <circle cx="432" cy="243.19" r="20" class="helperDrag"/>
+        </svg>
+    </Card>
+</div>
+</div>
+
+<style>
+    .segment {
+        width: content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 100px 0;
+
+        h2 {
+           margin-bottom: 0.3em; 
+        }
+
+        p {
+            color: #8B8B8B;
+            margin: 0 0 1.4em 0;
+        }
+    }
+
+    .cards {
+        display: grid;
+        width: 100%;
+        gap: 20px;
+
+        @media (min-width: 420px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (min-width: 640px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    .helperLine {
+        stroke: var(--helper-color);
+        stroke-width: 1;
+        stroke-dasharray: 20, 20;
+    }
+
+    .helperDrag {
+        fill: var(--draggable-color);
+    }
+
+    .helperCurve {
+        stroke: var(--curve-alternative-color);
+        stroke-width: 10;
+    }
+</style>

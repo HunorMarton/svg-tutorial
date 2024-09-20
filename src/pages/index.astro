@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import HomeLayout from "../layouts/HomeLayout.astro";
 import App from "../components/App.astro";
 import Day from "../components/Day.astro";
 import Decoration from "../components/Decoration.astro";
@@ -30,7 +30,7 @@ import Windmill from "../components/Windmill.astro";
 export const prerender = true;
 ---
 
-<Layout>
+<HomeLayout>
   <main>
     <App>
       <Day
@@ -225,4 +225,4 @@ export const prerender = true;
       />
     </App>
   </main>
-</Layout>
+</HomeLayout>

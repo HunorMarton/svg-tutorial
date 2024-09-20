@@ -1,0 +1,63 @@
+---
+import Head from "./Head.astro";
+import TableOfContents from "../components/home/TableOfContents.astro";
+import PathSegments from "../components/home/PathSegments.astro";
+import Videos from "../components/home/Videos.astro";
+import Footer from "../components/home/Footer.astro";
+import "@fontsource/fredoka-one";
+import "./SVGCurves.css";
+
+const title = "SVG Tutorial - Learn how to code images in HTML with SVG";
+const description =
+  "Learn the fundamentals of Scalable Vector Graphics (SVG) from the basics up to advanced concepts like animation and interactivity.";
+---
+
+<!doctype html>
+<html lang="en">
+  <Head
+    title={title}
+    description={description}
+    image={"https://svg-tutorial.com/image.png"}
+  />
+
+  <body>
+    <slot />
+
+    <div class="things">
+      <TableOfContents />
+      <PathSegments />
+      <Videos />
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  body {
+    background-color: #151515;
+    margin: 0;
+  }
+
+  a,
+  a:visited {
+    color: inherit;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+</style>
+
+<style>
+  .things {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 20px 50px 20px;
+
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.8em;
+  }
+</style>
