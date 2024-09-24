@@ -28,7 +28,7 @@ export const Code: React.FC<CodeProps> = ({ width, height, children }) => (
       <div className="level2">
         <Attribute d={children} />
         {"\n"}
-        <Attribute stroke="white" />
+        <Attribute stroke="#fa3838" />
         <Attribute stroke-width="20" />
         <Attribute fill="none" />
         {" />"}
