@@ -5,10 +5,10 @@ import * as viewBoxMin from "../../../constants/viewBoxSize";
 
 const initialState: Canvas = {
   zoom: 1, // Changes if screen size goes below mainViewBox size
-  svgWidth: 500, // Moves with resize
-  svgHeight: 500,
-  viewBoxWidth: 500, // Grows if the screen size goes above mainViewBox size
-  viewBoxHeight: 500,
+  svgWidth: viewBoxMin.WIDTH, // Shrinks if the screen size goes below mainViewBox size
+  svgHeight: viewBoxMin.HEIGHT,
+  viewBoxWidth: viewBoxMin.WIDTH, // Grows if the screen size goes above mainViewBox size
+  viewBoxHeight: viewBoxMin.HEIGHT,
 };
 
 export const canvasSlice = createSlice({
@@ -21,21 +21,23 @@ export const canvasSlice = createSlice({
         height: action.payload.height,
       };
 
-      // Shrink everything if needed
-      let zoom: number = 1;
       if (
         availableSize.width < viewBoxMin.WIDTH ||
         availableSize.height < viewBoxMin.HEIGHT
       ) {
-        zoom =
+        // Shrink everything if needed
+        state.zoom =
           availableSize.width < availableSize.height
             ? availableSize.width / viewBoxMin.WIDTH
             : availableSize.height / viewBoxMin.HEIGHT;
+        state.svgWidth = Math.min(availableSize.width, availableSize.height);
+        state.svgHeight = Math.min(availableSize.width, availableSize.height);
+      } else {
+        state.zoom = 1;
+        state.svgWidth = viewBoxMin.WIDTH;
+        state.svgHeight = viewBoxMin.HEIGHT;
       }
 
-      state.zoom = zoom;
-      state.svgWidth = availableSize.width;
-      state.svgHeight = availableSize.height;
       state.viewBoxWidth = Math.max(availableSize.width, viewBoxMin.WIDTH);
       state.viewBoxHeight = Math.max(availableSize.height, viewBoxMin.HEIGHT);
     },

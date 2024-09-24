@@ -3,7 +3,7 @@ import { type CubicBezier, type Delta } from "../utils/types";
 import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
-import { Code } from "./Code";
+import { Code } from "../connected/Code";
 import { CodeAttributeValueSegment as ValueSegment } from "./CodeAttributeValueSegment";
 import { DragMove } from "./DragMove";
 import "./EmbedCubicBezier.scss";
