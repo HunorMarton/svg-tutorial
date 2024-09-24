@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type QuadraticBezier, type Coordinate } from "../utils/types";
+import { type QuadraticBezier, type Delta } from "../utils/types";
 import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
@@ -9,9 +9,9 @@ import { DragMove } from "./DragMove";
 import "./EmbedQuadraticBezier.scss";
 
 type PageQuadraticBezierProps = QuadraticBezier & {
-  setQuadraticBezierStartPoint: (coord: Coordinate) => void;
-  setQuadraticBezierControlPoint1: (coord: Coordinate) => void;
-  setQuadraticBezierEndPoint: (coord: Coordinate) => void;
+  setQuadraticBezierStartPoint: (coord: Delta) => void;
+  setQuadraticBezierControlPoint1: (coord: Delta) => void;
+  setQuadraticBezierEndPoint: (coord: Delta) => void;
 } & {
   fullScreen?: boolean;
 };
@@ -43,19 +43,19 @@ export const EmbedQuadraticBezier: React.FC<PageQuadraticBezierProps> = ({
         id="control-start"
         x={x0}
         y={y0}
-        changeCoord={setQuadraticBezierStartPoint}
+        moveCoord={setQuadraticBezierStartPoint}
       />
       <DragMove
         id="control-control-1"
         x={x1}
         y={y1}
-        changeCoord={setQuadraticBezierControlPoint1}
+        moveCoord={setQuadraticBezierControlPoint1}
       />
       <DragMove
         id="control-end"
         x={x}
         y={y}
-        changeCoord={setQuadraticBezierEndPoint}
+        moveCoord={setQuadraticBezierEndPoint}
       />
     </Canvas>
     <Code>

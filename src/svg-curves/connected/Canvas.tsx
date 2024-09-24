@@ -1,22 +1,21 @@
 import React, { type ReactNode, useCallback } from "react";
+import { type Size } from "../utils/types";
 import { Canvas as UnconnectedCanvas } from "../components/Canvas.tsx";
-import { useAppContext } from "../state/context.tsx";
-import { RESIZE } from "../constants/actions.ts";
+
+import type { RootState } from "../state/store";
+import { useSelector, useDispatch } from "react-redux";
+import { resize as resizeCanvas } from "../state/features/canvas";
 
 export const Canvas: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const { state, dispatch } = useAppContext();
+  const canvas = useSelector((state: RootState) => state.canvas);
+  const dispatch = useDispatch();
 
-  const resize = useCallback(
-    ({ width, height }: { width: number; height: number }) => {
-      dispatch({ type: RESIZE, payload: { width, height } });
-    },
-    [dispatch]
-  );
+  const resize = useCallback((size: Size) => dispatch(resizeCanvas(size)), []);
 
   return (
     <UnconnectedCanvas
-      viewBoxWidth={state.canvas.viewBoxWidth}
-      viewBoxHeight={state.canvas.viewBoxHeight}
+      viewBoxWidth={canvas.viewBoxWidth}
+      viewBoxHeight={canvas.viewBoxHeight}
       resize={resize}
     >
       {children}

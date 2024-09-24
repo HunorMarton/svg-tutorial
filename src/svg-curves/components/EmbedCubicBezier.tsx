@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type CubicBezier, type Coordinate } from "../utils/types";
+import { type CubicBezier, type Delta } from "../utils/types";
 import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
@@ -9,10 +9,10 @@ import { DragMove } from "./DragMove";
 import "./EmbedCubicBezier.scss";
 
 type PageCubicBezierProps = CubicBezier & {
-  setCubicBezierStartPoint: (coord: Coordinate) => void;
-  setCubicBezierControlPoint1: (coord: Coordinate) => void;
-  setCubicBezierControlPoint2: (coord: Coordinate) => void;
-  setCubicBezierEndPoint: (coord: Coordinate) => void;
+  setCubicBezierStartPoint: (coord: Delta) => void;
+  setCubicBezierControlPoint1: (coord: Delta) => void;
+  setCubicBezierControlPoint2: (coord: Delta) => void;
+  setCubicBezierEndPoint: (coord: Delta) => void;
 } & {
   fullScreen?: boolean;
 };
@@ -48,25 +48,25 @@ export const EmbedCubicBezier: React.FC<PageCubicBezierProps> = ({
         id="control-start"
         x={x0}
         y={y0}
-        changeCoord={setCubicBezierStartPoint}
+        moveCoord={setCubicBezierStartPoint}
       />
       <DragMove
         id="control-control-1"
         x={x1}
         y={y1}
-        changeCoord={setCubicBezierControlPoint1}
+        moveCoord={setCubicBezierControlPoint1}
       />
       <DragMove
         id="control-control-2"
         x={x2}
         y={y2}
-        changeCoord={setCubicBezierControlPoint2}
+        moveCoord={setCubicBezierControlPoint2}
       />
       <DragMove
         id="control-end"
         x={x}
         y={y}
-        changeCoord={setCubicBezierEndPoint}
+        moveCoord={setCubicBezierEndPoint}
       />
     </Canvas>
     <Code>

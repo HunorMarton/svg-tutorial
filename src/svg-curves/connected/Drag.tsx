@@ -1,5 +1,7 @@
-import { useAppContext } from "../state/context.tsx";
-import { type Coordinate } from "../utils/types";
+import React, { useCallback } from "react";
+import { useSelector } from "react-redux";
+import type { RootState } from "../state/store";
+import { type Delta } from "../utils/types";
 import { Drag as UnconnectedDrag } from "../components/Drag.tsx";
 
 interface DragProps {
@@ -7,12 +9,16 @@ interface DragProps {
   children: React.ReactNode;
   x: number;
   y: number;
-  changeCoord: (coord: Coordinate) => void;
+  moveCoord: (coord: Delta) => void;
   desc?: string;
 }
-
 export const Drag: React.FC<DragProps> = (props) => {
-  const { state } = useAppContext();
+  const zoom = useSelector((state: RootState) => state.canvas.zoom);
 
-  return <UnconnectedDrag {...props} zoom={state.canvas.zoom} />;
+  const moveCoord = useCallback(
+    ({ dx, dy }: Delta) => props.moveCoord({ dx: dx / zoom, dy: dy / zoom }),
+    [zoom]
+  );
+
+  return <UnconnectedDrag {...props} moveCoord={moveCoord} />;
 };

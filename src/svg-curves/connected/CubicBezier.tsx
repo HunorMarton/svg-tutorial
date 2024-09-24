@@ -1,13 +1,17 @@
-import React, { useCallback } from "react";
-import { AppProvider, useAppContext } from "../state/context.tsx";
+import React from "react";
 import { EmbedCubicBezier as UnconnectedEmbedCubicBezier } from "../components/EmbedCubicBezier.tsx";
-import { type Coordinate } from "../utils/types.ts";
+import { type Delta } from "../utils/types.ts";
+
+import { store } from "../state/store";
+import { Provider } from "react-redux";
+import type { RootState } from "../state/store";
+import { useSelector, useDispatch } from "react-redux";
 import {
-  CUBIC_BEZIER_START_POINT,
-  CUBIC_BEZIER_CONTROL_POINT_1,
-  CUBIC_BEZIER_CONTROL_POINT_2,
-  CUBIC_BEZIER_END_POINT,
-} from "../constants/actions.ts";
+  setStartPoint,
+  setControlPoint1,
+  setControlPoint2,
+  setEndPoint,
+} from "../state/features/cubicBezier";
 
 interface CubicBezierProps {
   fullScreen?: boolean;
@@ -16,35 +20,23 @@ interface CubicBezierProps {
 export const CubicBezierWithoutProvider: React.FC<CubicBezierProps> = ({
   fullScreen,
 }) => {
-  const { state, dispatch } = useAppContext();
+  const state = useSelector((state: RootState) => state.cubicBezier);
+  const dispatch = useDispatch();
 
-  const setCubicBezierStartPoint = useCallback(
-    (coord: Coordinate) =>
-      dispatch({ type: CUBIC_BEZIER_START_POINT, payload: coord }),
-    [dispatch]
-  );
+  const setCubicBezierStartPoint = (delta: Delta) =>
+    dispatch(setStartPoint(delta));
 
-  const setCubicBezierControlPoint1 = useCallback(
-    (coord: Coordinate) =>
-      dispatch({ type: CUBIC_BEZIER_CONTROL_POINT_1, payload: coord }),
-    [dispatch]
-  );
+  const setCubicBezierControlPoint1 = (delta: Delta) =>
+    dispatch(setControlPoint1(delta));
 
-  const setCubicBezierControlPoint2 = useCallback(
-    (coord: Coordinate) =>
-      dispatch({ type: CUBIC_BEZIER_CONTROL_POINT_2, payload: coord }),
-    [dispatch]
-  );
+  const setCubicBezierControlPoint2 = (delta: Delta) =>
+    dispatch(setControlPoint2(delta));
 
-  const setCubicBezierEndPoint = useCallback(
-    (coord: Coordinate) =>
-      dispatch({ type: CUBIC_BEZIER_END_POINT, payload: coord }),
-    [dispatch]
-  );
+  const setCubicBezierEndPoint = (delta: Delta) => dispatch(setEndPoint(delta));
 
   return (
     <UnconnectedEmbedCubicBezier
-      {...state.cubicBezier}
+      {...state}
       setCubicBezierStartPoint={setCubicBezierStartPoint}
       setCubicBezierControlPoint1={setCubicBezierControlPoint1}
       setCubicBezierControlPoint2={setCubicBezierControlPoint2}
@@ -55,7 +47,7 @@ export const CubicBezierWithoutProvider: React.FC<CubicBezierProps> = ({
 };
 
 export const CubicBezier: React.FC<CubicBezierProps> = ({ fullScreen }) => (
-  <AppProvider>
+  <Provider store={store}>
     <CubicBezierWithoutProvider fullScreen={fullScreen} />
-  </AppProvider>
+  </Provider>
 );

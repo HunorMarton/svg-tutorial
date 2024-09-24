@@ -1,7 +1,7 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { merge, fromEvent } from "rxjs";
-import { map, filter, concatMap, takeUntil } from "rxjs/operators";
-import { type Coordinate } from "../utils/types";
+import { map, filter, switchMap, takeUntil, pairwise } from "rxjs/operators";
+import { type Delta } from "../utils/types";
 import { round } from "../utils/round";
 import "./Drag.css";
 
@@ -10,8 +10,7 @@ interface DragProps {
   children: React.ReactNode;
   x: number;
   y: number;
-  zoom: number;
-  changeCoord: (coord: Coordinate) => void;
+  moveCoord: (coord: Delta) => void;
   desc?: string;
 }
 
@@ -20,15 +19,16 @@ export const Drag: React.FC<DragProps> = ({
   children,
   x,
   y,
-  zoom,
-  changeCoord,
+  moveCoord,
   desc,
 }) => {
   const [dragging, setDragging] = React.useState(false);
   const size = 40;
   const draggableRef = React.useRef<SVGGElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    if (!draggableRef.current) return;
+
     const mouseEventToCoordinate = (mouseEvent: MouseEvent) => ({
       x: mouseEvent.clientX,
       y: mouseEvent.clientY,
@@ -41,59 +41,67 @@ export const Drag: React.FC<DragProps> = ({
       };
     };
 
+    // Mouse events
     const mouseDowns = fromEvent<MouseEvent>(
-      draggableRef.current!,
+      draggableRef.current,
       "mousedown"
     ).pipe(
-      filter((event) => event.button === 0), // Filter for left mouse button
-      map(mouseEventToCoordinate)
+      filter((event) => event.button === 0) // Filter for left mouse button
     );
     const mouseMoves = fromEvent<MouseEvent>(window, "mousemove").pipe(
       map(mouseEventToCoordinate)
     );
     const mouseUps = fromEvent<MouseEvent>(window, "mouseup");
 
+    // Touch events
     const touchStarts = fromEvent<TouchEvent>(
-      draggableRef.current!,
+      draggableRef.current,
       "touchstart"
-    ).pipe(map(touchEventToCoordinate));
+    );
     const touchMoves = fromEvent<TouchEvent>(
-      draggableRef.current!,
+      draggableRef.current,
       "touchmove"
     ).pipe(map(touchEventToCoordinate));
     const touchEnds = fromEvent<TouchEvent>(window, "touchend");
 
+    // Universal events
     const dragStarts = merge(mouseDowns, touchStarts);
     const moves = merge(mouseMoves, touchMoves);
     const dragEnds = merge(mouseUps, touchEnds);
 
     const drags = dragStarts.pipe(
-      concatMap((dragStartEvent) => {
-        const xDelta = x - dragStartEvent.x * zoom;
-        const yDelta = y - dragStartEvent.y * zoom;
-        return moves.pipe(
+      switchMap((dragStartEvent) =>
+        moves.pipe(
           takeUntil(dragEnds),
-          map((dragEvent) => {
-            const x = dragEvent.x * zoom + xDelta;
-            const y = dragEvent.y * zoom + yDelta;
-            return { x, y };
-          })
-        );
-      })
+          pairwise(),
+          map(([prev, curr]) => {
+            const dx = curr.x - prev.x;
+            const dy = curr.y - prev.y;
+            return { dx, dy };
+          }),
+          filter(({ dx, dy }) => dx !== 0 || dy !== 0)
+        )
+      )
     );
 
-    dragStarts.forEach(() => {
+    const subscription1 = dragStarts.subscribe(() => {
       setDragging(true);
     });
 
-    drags.forEach((coordinate) => {
-      changeCoord({ x: coordinate.x, y: coordinate.y });
+    const subscription2 = drags.subscribe((delta) => {
+      moveCoord(delta);
     });
 
-    dragEnds.forEach(() => {
+    const subscription3 = dragEnds.subscribe(() => {
       setDragging(false);
     });
-  }, [changeCoord, x, y, zoom]);
+
+    return () => {
+      subscription1.unsubscribe();
+      subscription2.unsubscribe();
+      subscription3.unsubscribe();
+    };
+  }, [moveCoord]);
 
   return (
     <g

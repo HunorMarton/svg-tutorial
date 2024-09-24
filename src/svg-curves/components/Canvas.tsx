@@ -1,12 +1,13 @@
 import React, { useRef, useEffect } from "react";
-import * as mainViewBox from "../constants/mainViewBoxSize.ts";
+import { type Size } from "../utils/types";
+import * as viewBox from "../constants/viewBoxSize";
 import "./Canvas.css";
 
 interface CanvasProps {
   children: React.ReactNode;
   viewBoxWidth: number;
   viewBoxHeight: number;
-  resize: ({ width, height }: { width: number; height: number }) => void;
+  resize: (size: Size) => void;
 }
 
 export const Canvas: React.FC<CanvasProps> = (props) => {
@@ -32,11 +33,9 @@ export const Canvas: React.FC<CanvasProps> = (props) => {
     };
   }, [props.resize]);
 
-  const crossSize = 20;
-  const mainViewBoxMarginHorizontal =
-    (props.viewBoxWidth - mainViewBox.WIDTH) / 2;
-  const mainViewBoxMarginVertical =
-    (props.viewBoxHeight - mainViewBox.HEIGHT) / 2;
+  const cornerSize = 20;
+  const viewBoxMarginX = (props.viewBoxWidth - viewBox.WIDTH) / 2;
+  const viewBoxMarginY = (props.viewBoxHeight - viewBox.HEIGHT) / 2;
 
   return (
     <svg
@@ -45,28 +44,24 @@ export const Canvas: React.FC<CanvasProps> = (props) => {
       ref={canvasRef}
     >
       <defs>
-        <symbol id="cross">
-          <line x1="1" y1="1" x2={crossSize} y2="1" />
-          <line x1="1" y1="1" x2="1" y2={crossSize} />
+        <symbol id="corner">
+          <line x1="1" y1="1" x2={cornerSize} y2="1" />
+          <line x1="1" y1="1" x2="1" y2={cornerSize} />
         </symbol>
       </defs>
-      <g
-        transform={`translate(${mainViewBoxMarginHorizontal},${mainViewBoxMarginVertical})`}
-      >
+      <g transform={`translate(${viewBoxMarginX},${viewBoxMarginY})`}>
         <g className="canvasCorners">
-          <use xlinkHref="#cross" x="-2" y="-2" />
-          <g transform={`translate(${mainViewBox.WIDTH + 2}, -2)`}>
-            <use xlinkHref="#cross" transform="rotate(90)" />
+          <use xlinkHref="#corner" x="-2" y="-2" />
+          <g transform={`translate(${viewBox.WIDTH + 2}, -2)`}>
+            <use xlinkHref="#corner" transform="rotate(90)" />
           </g>
           <g
-            transform={`translate(${mainViewBox.WIDTH + 2}, ${
-              mainViewBox.HEIGHT + 2
-            })`}
+            transform={`translate(${viewBox.WIDTH + 2}, ${viewBox.HEIGHT + 2})`}
           >
-            <use xlinkHref="#cross" transform="rotate(180)" />
+            <use xlinkHref="#corner" transform="rotate(180)" />
           </g>
-          <g transform={`translate(-2, ${mainViewBox.HEIGHT + 2})`}>
-            <use xlinkHref="#cross" transform="rotate(270)" />
+          <g transform={`translate(-2, ${viewBox.HEIGHT + 2})`}>
+            <use xlinkHref="#corner" transform="rotate(270)" />
           </g>
         </g>
         {props.children}

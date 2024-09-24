@@ -1,6 +1,6 @@
 import * as React from "react";
 import { CROSS_SIZE, ARROW_HEAD } from "../constants/dragSize";
-import { type Coordinate } from "../utils/types";
+import { type Delta } from "../utils/types";
 import { round } from "../utils/round";
 import { Drag } from "../connected/Drag";
 import { ArrowHead } from "./ArrowHead";
@@ -11,7 +11,7 @@ interface DragDistanceProps {
   y: number;
   degree: number;
   distance: number;
-  changeCoord: (coord: Coordinate) => void;
+  moveCoord: (coord: Delta) => void;
 }
 
 export const DragDistance: React.FC<DragDistanceProps> = ({
@@ -20,18 +20,12 @@ export const DragDistance: React.FC<DragDistanceProps> = ({
   y,
   degree,
   distance,
-  changeCoord,
+  moveCoord,
 }) => {
   const innerCrossSize = CROSS_SIZE - ARROW_HEAD;
 
   return (
-    <Drag
-      id={id}
-      x={x}
-      y={y}
-      changeCoord={changeCoord}
-      desc={`${round(distance)}`}
-    >
+    <Drag id={id} x={x} y={y} moveCoord={moveCoord} desc={`${round(distance)}`}>
       <g transform={`rotate(${degree})`}>
         <line
           className="arrowLine"

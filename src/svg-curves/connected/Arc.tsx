@@ -1,62 +1,54 @@
-import React, { useCallback } from "react";
-import { AppProvider, useAppContext } from "../state/context.tsx";
+import React, { useEffect } from "react";
 import { EmbedArc as UnconnectedEmbedArc } from "../components/EmbedArc.tsx";
-import { type Coordinate } from "../utils/types.ts";
+import { type Delta } from "../utils/types.ts";
+
+import { store } from "../state/store";
+import { Provider } from "react-redux";
+import type { RootState } from "../state/store";
+import { useSelector, useDispatch } from "react-redux";
 import {
-  ARC_START_POINT,
-  ARC_END_POINT,
-  ARC_RADIUS_X,
-  ARC_RADIUS_Y,
-  ARC_ROTATION,
-  ARC_FLAGS,
-} from "../constants/actions.ts";
+  setStartPoint,
+  setRotation,
+  setRadiusX,
+  setRadiusY,
+  setFlags,
+  setEndPoint,
+} from "../state/features/arc";
 
 interface ArcProps {
   fullScreen?: boolean;
 }
 
 export const ArcWithoutProvider: React.FC<ArcProps> = ({ fullScreen }) => {
-  const { state, dispatch } = useAppContext();
+  const state = useSelector((state: RootState) => state.arc);
+  const dispatch = useDispatch();
 
-  const setArcStartPoint = useCallback(
-    (coord: Coordinate) => dispatch({ type: ARC_START_POINT, payload: coord }),
-    [dispatch]
-  );
+  const setArcStartPoint = (delta: Delta) => dispatch(setStartPoint(delta));
 
-  const setArcEndPoint = useCallback(
-    (coord: Coordinate) => dispatch({ type: ARC_END_POINT, payload: coord }),
-    [dispatch]
-  );
+  const setArcEndPoint = (delta: Delta) => dispatch(setEndPoint(delta));
 
-  const setArcRadiusX = useCallback(
-    (coord: Coordinate) => dispatch({ type: ARC_RADIUS_X, payload: coord }),
-    [dispatch]
-  );
+  const setArcRadiusX = (delta: Delta) => dispatch(setRadiusX(delta));
 
-  const setArcRadiusY = useCallback(
-    (coord: Coordinate) => dispatch({ type: ARC_RADIUS_Y, payload: coord }),
-    [dispatch]
-  );
+  const setArcRadiusY = (delta: Delta) => dispatch(setRadiusY(delta));
 
-  const setArcRotation = useCallback(
-    (coord: Coordinate) => dispatch({ type: ARC_ROTATION, payload: coord }),
-    [dispatch]
-  );
+  const setArcRotation = (delta: Delta) => dispatch(setRotation(delta));
 
-  const setArcFlags = useCallback(
-    ({
-      largeArcFlag,
-      sweepFlag,
-    }: {
-      largeArcFlag: boolean;
-      sweepFlag: boolean;
-    }) => dispatch({ type: ARC_FLAGS, payload: { largeArcFlag, sweepFlag } }),
-    [dispatch]
-  );
+  const setArcFlags = ({
+    largeArcFlag,
+    sweepFlag,
+  }: {
+    largeArcFlag: boolean;
+    sweepFlag: boolean;
+  }) => dispatch(setFlags({ largeArcFlag, sweepFlag }));
+
+  useEffect(() => {
+    // Set initial arc
+    setArcStartPoint({ dx: 0, dy: 0 });
+  }, []);
 
   return (
     <UnconnectedEmbedArc
-      {...state.arc}
+      {...state}
       setArcStartPoint={setArcStartPoint}
       setArcEndPoint={setArcEndPoint}
       setArcRadiusX={setArcRadiusX}
@@ -69,7 +61,7 @@ export const ArcWithoutProvider: React.FC<ArcProps> = ({ fullScreen }) => {
 };
 
 export const Arc: React.FC<ArcProps> = ({ fullScreen }) => (
-  <AppProvider>
+  <Provider store={store}>
     <ArcWithoutProvider fullScreen={fullScreen} />
-  </AppProvider>
+  </Provider>
 );

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type Arc, type Coordinate } from "../utils/types";
+import { type Arc, type Delta } from "../utils/types";
 import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
@@ -18,11 +18,11 @@ type PageArcProps = Arc & {
     largeArcFlag: boolean;
     sweepFlag: boolean;
   }) => void;
-  setArcRotation: (coord: Coordinate) => void;
-  setArcRadiusX: (coord: Coordinate) => void;
-  setArcRadiusY: (coord: Coordinate) => void;
-  setArcStartPoint: (coord: Coordinate) => void;
-  setArcEndPoint: (coord: Coordinate) => void;
+  setArcRotation: (coord: Delta) => void;
+  setArcRadiusX: (coord: Delta) => void;
+  setArcRadiusY: (coord: Delta) => void;
+  setArcStartPoint: (coord: Delta) => void;
+  setArcEndPoint: (coord: Delta) => void;
 } & {
   fullScreen?: boolean;
 };
@@ -119,7 +119,7 @@ export const EmbedArc: React.FC<PageArcProps> = ({
           x={angleDragX}
           y={angleDragY}
           degree={degree}
-          changeCoord={setArcRotation}
+          moveCoord={setArcRotation}
         />
         <DragDistance
           id="control-radius-x"
@@ -127,7 +127,7 @@ export const EmbedArc: React.FC<PageArcProps> = ({
           y={rxDragY}
           degree={degree + 90}
           distance={rx}
-          changeCoord={setArcRadiusX}
+          moveCoord={setArcRadiusX}
         />
         <DragDistance
           id="control-radius-y"
@@ -135,15 +135,15 @@ export const EmbedArc: React.FC<PageArcProps> = ({
           y={ryDragY}
           degree={degree}
           distance={ry}
-          changeCoord={setArcRadiusY}
+          moveCoord={setArcRadiusY}
         />
         <DragMove
           id="control-start"
           x={x1}
           y={y1}
-          changeCoord={setArcStartPoint}
+          moveCoord={setArcStartPoint}
         />
-        <DragMove id="control-end" x={x2} y={y2} changeCoord={setArcEndPoint} />
+        <DragMove id="control-end" x={x2} y={y2} moveCoord={setArcEndPoint} />
       </Canvas>
       <Code>
         <ValueSegment value="M" />

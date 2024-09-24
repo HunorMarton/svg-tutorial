@@ -1,12 +1,16 @@
-import React, { useCallback } from "react";
-import { AppProvider, useAppContext } from "../state/context.tsx";
+import React from "react";
 import { EmbedQuadraticBezier as UnconnectedEmbedQuadraticBezier } from "../components/EmbedQuadraticBezier.tsx";
-import { type Coordinate } from "../utils/types.ts";
+import { type Delta } from "../utils/types.ts";
+
+import { store } from "../state/store";
+import { Provider } from "react-redux";
+import type { RootState } from "../state/store";
+import { useSelector, useDispatch } from "react-redux";
 import {
-  QUADRATIC_BEZIER_START_POINT,
-  QUADRATIC_BEZIER_CONTROL_POINT,
-  QUADRATIC_BEZIER_END_POINT,
-} from "../constants/actions.ts";
+  setStartPoint,
+  setControlPoint,
+  setEndPoint,
+} from "../state/features/quadraticBezier";
 
 interface QuadraticBezierProps {
   fullScreen?: boolean;
@@ -15,29 +19,21 @@ interface QuadraticBezierProps {
 export const QuadraticBezierWithoutProvider: React.FC<QuadraticBezierProps> = ({
   fullScreen,
 }) => {
-  const { state, dispatch } = useAppContext();
+  const state = useSelector((state: RootState) => state.quadraticBezier);
+  const dispatch = useDispatch();
 
-  const setQuadraticBezierStartPoint = useCallback(
-    (coord: Coordinate) =>
-      dispatch({ type: QUADRATIC_BEZIER_START_POINT, payload: coord }),
-    [dispatch]
-  );
+  const setQuadraticBezierStartPoint = (delta: Delta) =>
+    dispatch(setStartPoint(delta));
 
-  const setQuadraticBezierControlPoint1 = useCallback(
-    (coord: Coordinate) =>
-      dispatch({ type: QUADRATIC_BEZIER_CONTROL_POINT, payload: coord }),
-    [dispatch]
-  );
+  const setQuadraticBezierControlPoint1 = (delta: Delta) =>
+    dispatch(setControlPoint(delta));
 
-  const setQuadraticBezierEndPoint = useCallback(
-    (coord: Coordinate) =>
-      dispatch({ type: QUADRATIC_BEZIER_END_POINT, payload: coord }),
-    [dispatch]
-  );
+  const setQuadraticBezierEndPoint = (delta: Delta) =>
+    dispatch(setEndPoint(delta));
 
   return (
     <UnconnectedEmbedQuadraticBezier
-      {...state.quadraticBezier}
+      {...state}
       setQuadraticBezierStartPoint={setQuadraticBezierStartPoint}
       setQuadraticBezierControlPoint1={setQuadraticBezierControlPoint1}
       setQuadraticBezierEndPoint={setQuadraticBezierEndPoint}
@@ -49,7 +45,7 @@ export const QuadraticBezierWithoutProvider: React.FC<QuadraticBezierProps> = ({
 export const QuadraticBezier: React.FC<QuadraticBezierProps> = ({
   fullScreen,
 }) => (
-  <AppProvider>
+  <Provider store={store}>
     <QuadraticBezierWithoutProvider fullScreen={fullScreen} />
-  </AppProvider>
+  </Provider>
 );
