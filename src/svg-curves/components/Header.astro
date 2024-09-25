@@ -1,16 +1,20 @@
 ---
 import Close from "../../components/CloseButton.astro";
+
+export interface Props {
+  items: { title: string; link: string }[]; 
+}
+
+const { items } = Astro.props as Props;
 ---
 
 <div class="header">
   <div class="menu">
-    <a href="/">SVG Tutorial</a>
-    {"  |  "}
-    <a href="/arc">Arc</a>
-    {"  |  "}
-    <a href="/cubic-bezier">Cubic Bezier</a>
-    {"  |  "}
-    <a href="/quadratic-bezier">Quadratic Bezier</a>
+    <a href="/">Home</a>
+    {items.map((item) => (<>
+      {"  |  "}
+      <a href={item.link}>{item.title}</a>  
+    </>))}
   </div>
   <Close />
 </div>

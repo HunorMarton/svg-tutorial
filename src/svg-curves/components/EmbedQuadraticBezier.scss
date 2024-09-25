@@ -4,6 +4,6 @@
 @include highlight-code("QuadraticBezier", "control-1", ("control-1"));
 @include highlight-code("QuadraticBezier", "end", ("end"));
 
-@include highlight-control("QuadraticBezier", "start", true);
-@include highlight-control("QuadraticBezier", "control-1", true);
-@include highlight-control("QuadraticBezier", "end", true);
+@include highlight-control("QuadraticBezier", "start", "start", true);
+@include highlight-control("QuadraticBezier", "control-1", "control-1", true);
+@include highlight-control("QuadraticBezier", "end", "end", true);

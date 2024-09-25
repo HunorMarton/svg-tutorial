@@ -5,7 +5,7 @@
 @include highlight-code("CubicBezier", "control-2", ("control-2"));
 @include highlight-code("CubicBezier", "end", ("end"));
 
-@include highlight-control("CubicBezier", "start", true);
-@include highlight-control("CubicBezier", "control-1", true);
-@include highlight-control("CubicBezier", "control-2", true);
-@include highlight-control("CubicBezier", "end", true);
+@include highlight-control("CubicBezier", "start", "start", true);
+@include highlight-control("CubicBezier", "control-1", "control-1", true);
+@include highlight-control("CubicBezier", "control-2", "control-2", true);
+@include highlight-control("CubicBezier", "end", "end", true);

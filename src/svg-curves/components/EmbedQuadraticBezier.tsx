@@ -4,11 +4,12 @@ import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
 import { Code } from "../connected/Code";
+import { CodePath as Path } from "./CodePath";
 import { CodeAttributeValueSegment as ValueSegment } from "./CodeAttributeValueSegment";
 import { DragMove } from "./DragMove";
 import "./EmbedQuadraticBezier.scss";
 
-type PageQuadraticBezierProps = QuadraticBezier & {
+type EmbedQuadraticBezierProps = QuadraticBezier & {
   setQuadraticBezierStartPoint: (coord: Delta) => void;
   setQuadraticBezierControlPoint1: (coord: Delta) => void;
   setQuadraticBezierEndPoint: (coord: Delta) => void;
@@ -16,7 +17,7 @@ type PageQuadraticBezierProps = QuadraticBezier & {
   fullScreen?: boolean;
 };
 
-export const EmbedQuadraticBezier: React.FC<PageQuadraticBezierProps> = ({
+export const EmbedQuadraticBezier: React.FC<EmbedQuadraticBezierProps> = ({
   x0,
   y0,
   x1,
@@ -59,23 +60,25 @@ export const EmbedQuadraticBezier: React.FC<PageQuadraticBezierProps> = ({
       />
     </Canvas>
     <Code>
-      <ValueSegment value="M" />
-      <ValueSegment
-        id="value-start"
-        description="Start Position"
-        value={`${round(x0)} ${round(y0)}`}
-      />
-      <ValueSegment value="Q" />
-      <ValueSegment
-        id="value-control-1"
-        description="Control Point"
-        value={`${round(x1)} ${round(y1)}`}
-      />
-      <ValueSegment
-        id="value-end"
-        description="End Position"
-        value={`${round(x)} ${round(y)}`}
-      />
+      <Path>
+        <ValueSegment value="M" />
+        <ValueSegment
+          id="value-start"
+          description="Start Position"
+          value={`${round(x0)} ${round(y0)}`}
+        />
+        <ValueSegment value="Q" />
+        <ValueSegment
+          id="value-control-1"
+          description="Control Point"
+          value={`${round(x1)} ${round(y1)}`}
+        />
+        <ValueSegment
+          id="value-end"
+          description="End Position"
+          value={`${round(x)} ${round(y)}`}
+        />
+      </Path>
     </Code>
   </Embed>
 );

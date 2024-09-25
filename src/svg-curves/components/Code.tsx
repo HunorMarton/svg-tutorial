@@ -22,17 +22,7 @@ export const Code: React.FC<CodeProps> = ({ width, height, children }) => (
         )}
         {">"}
       </div>
-      <div className="level1">
-        <Tag type="opening">path</Tag>
-      </div>
-      <div className="level2">
-        <Attribute d={children} />
-        {"\n"}
-        <Attribute stroke="#fa3838" />
-        <Attribute stroke-width="20" />
-        <Attribute fill="none" />
-        {" />"}
-      </div>
+      {children}
       <div>
         <Tag type="closing">svg</Tag>
       </div>

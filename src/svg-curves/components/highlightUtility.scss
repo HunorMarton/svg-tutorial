@@ -1,17 +1,19 @@
-@mixin highlight-code($embed, $id, $highlights) {  
-    #embed#{$embed}:has(#control-#{$id}:hover) {
-      pre.code *:not(.value-description) {
+@mixin highlight-code($embed, $control, $highlights) {  
+    #embed#{$embed}:has(#control-#{$control}:hover) {
+      pre.code *:not(.highlight-description) {
         color: gray;
     
         @each $highlight, $align in $highlights {
           #value-#{$highlight} {
-            color: black;
+            &, *:not(.highlight-description) {
+              color: black;
+            }
       
             &::before {
               opacity: 1;
             }
 
-            .value-description {
+            .highlight-description {
               display: block;
 
               @if $align == "left" {
@@ -30,9 +32,9 @@
     }
   }
 
-  @mixin highlight-control($embed, $id, $drag) {
-    #embed#{$embed}:has(#value-#{$id}:hover) {
-      #control-#{$id} {
+  @mixin highlight-control($embed, $value, $control, $drag) {
+    #embed#{$embed}:has(#value-#{$value}:hover) {
+      #control-#{$control} {
         @if $drag {
           fill: var(--draggable-hover-color);
 
@@ -54,18 +56,20 @@
       }
 
       pre.code {
-        *:not(.value-description) {
+        *:not(.highlight-description) {
           color: gray;
         }
       
-        #value-#{$id} {
-          color: black;
+        #value-#{$value} {
+          &, *:not(.highlight-description) {
+            color: black;
+          }
     
           &::before {
             opacity: 1;
           }
 
-          .value-description {
+          .highlight-description {
             display: block;
 
             // Center

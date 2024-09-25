@@ -1,0 +1,67 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props as Props;
+---
+
+<div class="cardSection">
+    <h2>{title}</h2>
+    <p>{description}</p>
+
+    <div class="cards">
+        <slot />
+    </div>
+</div>
+
+<style is:global>
+    .cardSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        margin: 50px 0;
+
+        &:first-of-type {
+            margin-top: 100px;
+        }
+        &:last-of-type {
+            margin-bottom: 100px;
+        }
+
+        h2 {
+           margin-bottom: 0.3em; 
+        }
+
+        p {
+            color: #8B8B8B;
+            margin: 0 0 1.4em 0;
+        }
+
+        width: 200px;
+
+        @media (min-width: 420px) {
+            width: 420px;
+        }
+
+        @media (min-width: 640px) {
+            width: 640px;
+        }
+    }
+
+    .cards {
+        display: grid;
+        width: 100%;
+        gap: 20px;
+
+        @media (min-width: 420px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (min-width: 640px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+</style>

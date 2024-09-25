@@ -1,6 +1,26 @@
 export type Delta = { dx: number; dy: number };
 export type Size = { width: number; height: number };
 
+export type Line = {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+};
+
+export type Circle = {
+  cx: number;
+  cy: number;
+  r: number;
+};
+
+export type Rect = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
 export type Arc = {
   x1: number;
   y1: number;

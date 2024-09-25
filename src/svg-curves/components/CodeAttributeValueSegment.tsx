@@ -1,4 +1,5 @@
 import * as React from "react";
+import { CodeHighlight as Highlight } from "./CodeHighlight";
 import "./CodeAttributeValueSegment.css";
 
 interface CodeAttributeValueSegmentProps {
@@ -10,8 +11,9 @@ interface CodeAttributeValueSegmentProps {
 export const CodeAttributeValueSegment: React.FC<
   CodeAttributeValueSegmentProps
 > = ({ id, description, value }) => (
-  <span id={id} className="value-segment">
-    {value}
-    {description && <div className="value-description">{description}</div>}
+  <span className="value-segment">
+    <Highlight id={id} description={description}>
+      {value}
+    </Highlight>
   </span>
 );

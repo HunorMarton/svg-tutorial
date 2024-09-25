@@ -1,0 +1,10 @@
+@import "highlightUtility";
+
+
+@include highlight-code("Line", "coordinate-1", (("x1", "left"), ("y1", "right")));
+@include highlight-code("Line", "coordinate-2", (("x2", "left"), ("y2", "right")));
+
+@include highlight-control("Line", "x1", "coordinate-1", true);
+@include highlight-control("Line", "y1", "coordinate-1", true);
+@include highlight-control("Line", "x2", "coordinate-2", true);
+@include highlight-control("Line", "y2", "coordinate-2", true);

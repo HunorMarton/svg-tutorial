@@ -30,6 +30,7 @@ const { title, link } = Astro.props as Props;
         border: 1px solid #ccc;
         border-radius: 10px;
         background-color: var(--background-color);
+        width: fit-content;
 
         svg {
             width: 200px;
@@ -42,5 +43,28 @@ const { title, link } = Astro.props as Props;
         text-align: left;
         margin-top: 10px;
         font-weight: 500;
+    }
+</style>
+
+<style is:global>
+    .cardElement {
+        stroke: var(--curve-color);
+        stroke-width: 20;
+        stroke-linecap: round;
+    }
+
+    .cardHelperLine {
+        stroke: var(--helper-color);
+        stroke-width: 1;
+        stroke-dasharray: 20, 20;
+    }
+
+    .cardHelperDrag {
+        fill: var(--draggable-color);
+    }
+
+    .cardHelperCurve {
+        stroke: var(--curve-alternative-color);
+        stroke-width: 10;
     }
 </style>

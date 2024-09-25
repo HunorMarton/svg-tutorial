@@ -2,17 +2,20 @@
 import Head from "./Head.astro";
 import Header from "../svg-curves/components/Header.astro";
 import "./SVGCurves.css";
+
+const headerItems = [{title: 'Arc', link: '/arc'}, { title: 'Cubic Bézier', link: '/cubic-bezier'}, { title: 'Quadratic Bézier', link: '/quadratic-bezier'}];
 ---
 
 <!doctype html>
 <html lang="en">
   <Head
     title="SVG Curves - SVG Tutorial"
-    description="Interactive SVG tutorial with draggable curves"
+    description="Interactive SVG tutorial for path segments"
     image={"https://svg-tutorial.com/image.png"}
   />
   <body>
-    <Header />
+    <Header items={headerItems}/>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <slot />
   </body>

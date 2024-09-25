@@ -4,13 +4,14 @@ import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
 import { Code } from "../connected/Code";
+import { CodePath as Path } from "./CodePath";
 import { CodeAttributeValueSegment as ValueSegment } from "./CodeAttributeValueSegment";
 import { DragMove } from "./DragMove";
 import { DragDistance } from "./DragDistance";
 import { DragRotation } from "./DragRotation";
 import "./EmbedArc.scss";
 
-type PageArcProps = Arc & {
+type EmbedArcProps = Arc & {
   setArcFlags: ({
     largeArcFlag,
     sweepFlag,
@@ -27,7 +28,7 @@ type PageArcProps = Arc & {
   fullScreen?: boolean;
 };
 
-export const EmbedArc: React.FC<PageArcProps> = ({
+export const EmbedArc: React.FC<EmbedArcProps> = ({
   x1,
   y1,
   x2,
@@ -146,43 +147,45 @@ export const EmbedArc: React.FC<PageArcProps> = ({
         <DragMove id="control-end" x={x2} y={y2} moveCoord={setArcEndPoint} />
       </Canvas>
       <Code>
-        <ValueSegment value="M" />
-        <ValueSegment
-          id="value-start"
-          description="Start Position"
-          value={`${round(x1)} ${round(y1)}`}
-        />
-        <ValueSegment value="A" />
-        <ValueSegment
-          id="value-radius-x"
-          description="Radius X"
-          value={`${round(rx)}`}
-        />
-        <ValueSegment
-          id="value-radius-y"
-          description="Radius Y"
-          value={`${round(ry)}`}
-        />
-        <ValueSegment
-          id="value-rotation"
-          description="Rotation"
-          value={`${round(degree)}`}
-        />
-        <ValueSegment
-          id="value-large-arc-flag"
-          description="Large Arc Flag"
-          value={`${+largeArcFlag}`}
-        />
-        <ValueSegment
-          id="value-sweep-flag"
-          description="Sweep Flag"
-          value={`${+sweepFlag}`}
-        />
-        <ValueSegment
-          id="value-end"
-          description="End Position"
-          value={`${round(x2)} ${round(y2)}`}
-        />
+        <Path>
+          <ValueSegment value="M" />
+          <ValueSegment
+            id="value-start"
+            description="Start Position"
+            value={`${round(x1)} ${round(y1)}`}
+          />
+          <ValueSegment value="A" />
+          <ValueSegment
+            id="value-radius-x"
+            description="Radius X"
+            value={`${round(rx)}`}
+          />
+          <ValueSegment
+            id="value-radius-y"
+            description="Radius Y"
+            value={`${round(ry)}`}
+          />
+          <ValueSegment
+            id="value-rotation"
+            description="Rotation"
+            value={`${round(degree)}`}
+          />
+          <ValueSegment
+            id="value-large-arc-flag"
+            description="Large Arc Flag"
+            value={`${+largeArcFlag}`}
+          />
+          <ValueSegment
+            id="value-sweep-flag"
+            description="Sweep Flag"
+            value={`${+sweepFlag}`}
+          />
+          <ValueSegment
+            id="value-end"
+            description="End Position"
+            value={`${round(x2)} ${round(y2)}`}
+          />
+        </Path>
       </Code>
     </Embed>
   );

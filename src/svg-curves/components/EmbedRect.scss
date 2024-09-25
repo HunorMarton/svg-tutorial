@@ -1,0 +1,11 @@
+@import "highlightUtility";
+
+
+@include highlight-code("Rect", "coordinate", (("x", "left"), ("y", "right")));
+@include highlight-code("Rect", "width", ("width"));
+@include highlight-code("Rect", "height", ("height"));
+
+@include highlight-control("Rect", "x", "coordinate", true);
+@include highlight-control("Rect", "y", "coordinate", true);
+@include highlight-control("Rect", "width", "width", true);
+@include highlight-control("Rect", "height", "height", true);

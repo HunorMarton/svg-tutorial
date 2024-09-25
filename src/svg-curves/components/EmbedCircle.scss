@@ -1,0 +1,9 @@
+@import "highlightUtility";
+
+
+@include highlight-code("Circle", "coordinate", (("cx", "left"), ("cy", "right")));
+@include highlight-code("Circle", "radius", ("radius"));
+
+@include highlight-control("Circle", "cx", "coordinate", true);
+@include highlight-control("Circle", "cy", "coordinate", true);
+@include highlight-control("Circle", "radius", "radius", true);

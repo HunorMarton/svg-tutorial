@@ -1,0 +1,31 @@
+---
+import CardSection from "./CardSection.astro"
+import Card from "./Card.astro"
+---
+
+<CardSection title="SVG Elements" description="You can use SVG elements to draw basic shapes.">
+    <Card title="Line Element" link="/line">
+        <svg viewBox="0 0 450 450">
+            <line x1="100"y1="100"x2="350"y2="350" class="cardElement" />
+            <circle cx="100" cy="100" r="20" class="cardHelperDrag" />
+            <circle cx="350" cy="350" r="20" class="cardHelperDrag" />
+        </svg>
+    </Card>
+
+    <Card title="Circle Element" link="/circle">
+        <svg viewBox="0 0 450 450">
+            <circle cx="225" cy="225" r="150" class="cardElement" />
+            <circle cx="225" cy="225" r="20" class="cardHelperDrag" />
+            <circle cx="375" cy="225" r="20" class="cardHelperDrag" />
+        </svg>
+    </Card>
+
+    <Card title="Rectangle Element" link="/rect">
+        <svg viewBox="0 0 450 450">
+            <rect x="75" y="125" width="300" height="200" class="cardElement" />
+            <circle cx="75" cy="125" r="20" class="cardHelperDrag" />
+            <circle cx="375" cy="225" r="20" class="cardHelperDrag"/>
+            <circle cx="225" cy="325" r="20" class="cardHelperDrag"/>
+        </svg>
+    </Card>
+</Segments>

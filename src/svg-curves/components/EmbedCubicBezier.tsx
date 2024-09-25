@@ -4,11 +4,12 @@ import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
 import { Code } from "../connected/Code";
+import { CodePath as Path } from "./CodePath";
 import { CodeAttributeValueSegment as ValueSegment } from "./CodeAttributeValueSegment";
 import { DragMove } from "./DragMove";
 import "./EmbedCubicBezier.scss";
 
-type PageCubicBezierProps = CubicBezier & {
+type EmbedCubicBezierProps = CubicBezier & {
   setCubicBezierStartPoint: (coord: Delta) => void;
   setCubicBezierControlPoint1: (coord: Delta) => void;
   setCubicBezierControlPoint2: (coord: Delta) => void;
@@ -17,7 +18,7 @@ type PageCubicBezierProps = CubicBezier & {
   fullScreen?: boolean;
 };
 
-export const EmbedCubicBezier: React.FC<PageCubicBezierProps> = ({
+export const EmbedCubicBezier: React.FC<EmbedCubicBezierProps> = ({
   x0,
   y0,
   x1,
@@ -70,28 +71,30 @@ export const EmbedCubicBezier: React.FC<PageCubicBezierProps> = ({
       />
     </Canvas>
     <Code>
-      <ValueSegment value="M" />
-      <ValueSegment
-        id="value-start"
-        description="Start Position"
-        value={`${round(x0)} ${round(y0)}`}
-      />
-      <ValueSegment value="C" />
-      <ValueSegment
-        id="value-control-1"
-        description="Control Point 1"
-        value={`${round(x1)} ${round(y1)}`}
-      />
-      <ValueSegment
-        id="value-control-2"
-        description="Control Point 2"
-        value={`${round(x2)} ${round(y2)}`}
-      />
-      <ValueSegment
-        id="value-end"
-        description="End Position"
-        value={`${round(x)} ${round(y)}`}
-      />
+      <Path>
+        <ValueSegment value="M" />
+        <ValueSegment
+          id="value-start"
+          description="Start Position"
+          value={`${round(x0)} ${round(y0)}`}
+        />
+        <ValueSegment value="C" />
+        <ValueSegment
+          id="value-control-1"
+          description="Control Point 1"
+          value={`${round(x1)} ${round(y1)}`}
+        />
+        <ValueSegment
+          id="value-control-2"
+          description="Control Point 2"
+          value={`${round(x2)} ${round(y2)}`}
+        />
+        <ValueSegment
+          id="value-end"
+          description="End Position"
+          value={`${round(x)} ${round(y)}`}
+        />
+      </Path>
     </Code>
   </Embed>
 );
