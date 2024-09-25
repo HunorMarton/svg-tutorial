@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Highlight } from "./CodeHighlight";
-import "./CodeAttributeValueSegment.css";
+import "./Code.css";
 
 interface ValueSegmentProps {
   id?: string;
@@ -13,9 +13,10 @@ export const ValueSegment: React.FC<ValueSegmentProps> = ({
   description,
   value,
 }) => (
-  <span className="value-segment">
+  <span className="value-segment space-separated">
     <Highlight id={id} description={description}>
       {value}
     </Highlight>
+    <span className="space"> </span>
   </span>
 );

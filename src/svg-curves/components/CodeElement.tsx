@@ -10,16 +10,24 @@ interface ElementProps {
 
 export const Element: React.FC<ElementProps> = ({ element, children }) => (
   <>
-    <div className="level1">
+    <div>
+      {"  "}
       <Tag type="opening">{element}</Tag>
     </div>
-    <div className="level2">
+    <div>
+      {"  "}
+      {"  "}
       {children}
       {"\n"}
+      {"  "}
+      {"  "}
       <Attribute stroke="#fa3838" />
       <Attribute stroke-width="20" />
       <Attribute fill="none" />
     </div>
-    <div className="level1">{"/>"}</div>
+    <div>
+      {"  "}
+      {"/>"}
+    </div>
   </>
 );

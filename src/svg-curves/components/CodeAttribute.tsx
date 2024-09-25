@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Highlight } from "./CodeHighlight";
+import "./Code.css";
 
 interface AttributeProps {
   id?: string;
@@ -15,12 +16,13 @@ export const Attribute: React.FC<AttributeProps> = ({
   const [key, value] = Object.entries(props)[0];
 
   return (
-    <span className="attribute">
+    <span className="space-separated">
       <Highlight id={id} description={description}>
         <span className="key">{key}</span>
         {"="}
         <span className="value">"{value}"</span>
       </Highlight>
+      <span className="space"> </span>
     </span>
   );
 };

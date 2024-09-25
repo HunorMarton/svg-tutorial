@@ -10,23 +10,16 @@
   }
 }
 
-.code .level1 {
-  padding-left: 20px;
-}
-
-.code .level2 {
-  padding-left: 40px;
-}
-
 .code .tag {
   color: #85e89d;
-}
-.code .attribute:not(:last-child)::after {
-  content: " ";
 }
 .code .key {
   color: #b392f0;
 }
 .code .value {
   color: #9ecbff;
+}
+
+.space-separated:last-of-type .space {
+  display: none;
 }
