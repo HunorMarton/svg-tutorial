@@ -1,6 +1,7 @@
 .embed {
   display: flex;
   flex-direction: column;
+  position: relative; /* The expand button is placed relative to this */
 
   &.fullScreen {
     width: 100%;
@@ -16,7 +17,7 @@
 
   &:not(.fullScreen) {
     svg {
-      border-radius: 10px 10px 0 0;
+      border-radius: 20px 20px 0 0;
       aspect-ratio: 1 / 1;
     }
 

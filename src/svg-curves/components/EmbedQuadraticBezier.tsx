@@ -29,7 +29,11 @@ export const EmbedQuadraticBezier: React.FC<EmbedQuadraticBezierProps> = ({
   setQuadraticBezierEndPoint,
   fullScreen,
 }) => (
-  <Embed id="embedQuadraticBezier" fullScreen={fullScreen}>
+  <Embed
+    id="embedQuadraticBezier"
+    link="/quadratic-bezier"
+    fullScreen={fullScreen}
+  >
     <Canvas>
       <line className="presentationHelper" x1={x0} y1={y0} x2={x1} y2={y1} />
       <line className="presentationHelper" x1={x1} y1={y1} x2={x} y2={y} />

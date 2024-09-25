@@ -25,7 +25,7 @@ export const EmbedLine: React.FC<EmbedLineProps> = ({
   setLineCoordinate2,
   fullScreen,
 }) => (
-  <Embed id="embedLine" fullScreen={fullScreen}>
+  <Embed id="embedLine" link="/line" fullScreen={fullScreen}>
     <Canvas>
       <line className="presentation" x1={x1} y1={y1} x2={x2} y2={y2} />
       <DragMove

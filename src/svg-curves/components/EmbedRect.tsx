@@ -28,7 +28,7 @@ export const EmbedRect: React.FC<EmbedRectProps> = ({
   setRectHeight,
   fullScreen,
 }) => (
-  <Embed id="embedRect" fullScreen={fullScreen}>
+  <Embed id="embedRect" link="/rect" fullScreen={fullScreen}>
     <Canvas>
       <rect
         className="presentation"

@@ -1,0 +1,41 @@
+.expandButton {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  fill: var(--draggable-color);
+
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+
+  svg {
+    border-radius: 10px !important;
+  }
+
+  &:hover {
+    fill: var(--draggable-hover-color);
+  }
+}
+
+.expandButton .arrowHead {
+  fill: var(--draggable-icon-color);
+}
+
+.expandButton label {
+  color: var(--draggable-text-color);
+}
+
+.expandButton:hover .arrowHead {
+  fill: var(--draggable-icon-hover-color);
+}
+
+.expandButton:hover label {
+  color: var(--draggable-text-hover-color);
+}
+
+.expandButton label {
+  user-select: none;
+  pointer-events: none;
+}

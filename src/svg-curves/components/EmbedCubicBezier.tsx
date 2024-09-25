@@ -33,7 +33,7 @@ export const EmbedCubicBezier: React.FC<EmbedCubicBezierProps> = ({
   setCubicBezierEndPoint,
   fullScreen,
 }) => (
-  <Embed id="embedCubicBezier" fullScreen={fullScreen}>
+  <Embed id="embedCubicBezier" link="/cubic-bezier" fullScreen={fullScreen}>
     <Canvas>
       <line className="presentationHelper" x1={x0} y1={y0} x2={x1} y2={y1} />
       <line className="presentationHelper" x1={x2} y1={y2} x2={x} y2={y} />
