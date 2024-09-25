@@ -3,6 +3,12 @@ import Head from "./Head.astro";
 import Header from "../svg-curves/components/Header.astro";
 import "./SVGCurves.css";
 
+export interface Props {
+  lesson: string;
+}
+
+const { lesson } = Astro.props as Props;
+
 const headerItems = [{title: 'Line', link: '/line'}, { title: 'Circle', link: '/circle'}, { title: 'Rectangle', link: '/rect'}];
 ---
 
@@ -14,7 +20,7 @@ const headerItems = [{title: 'Line', link: '/line'}, { title: 'Circle', link: '/
     image={"https://svg-tutorial.com/image.png"}
   />
   <body>
-    <Header items={headerItems}/>
+    <Header items={headerItems} lesson={lesson} />
 
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <slot />

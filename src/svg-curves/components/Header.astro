@@ -2,10 +2,11 @@
 import Close from "../../components/CloseButton.astro";
 
 export interface Props {
-  items: { title: string; link: string }[]; 
+  items: { title: string; link: string }[];
+  lesson: string;
 }
 
-const { items } = Astro.props as Props;
+const { items, lesson } = Astro.props as Props;
 ---
 
 <div class="header">
@@ -16,14 +17,19 @@ const { items } = Astro.props as Props;
       <a href={item.link}>{item.title}</a>  
     </>))}
   </div>
+  <div class="menu">
+    <a href={lesson}>Go to Lesson</a>
+  </div>
   <Close />
 </div>
 
 <style scoped>
   .header {
-    padding: 30px 0 0 30px;
+    padding: 30px 100px 0 30px;
     box-sizing: border-box;
     background-color: var(--background-color);
+    display: flex;
+    justify-content: space-between;
   }
 
   .menu {
@@ -31,7 +37,15 @@ const { items } = Astro.props as Props;
     background-color: var(--draggable-color);
     padding: 15px;
     border-radius: 15px;
+
+    @media screen and (max-width: 700px) {
+      &:first-of-type {
+        display: none;
+      }
+    }
   }
+
+  
 
   .header a {
     text-decoration: none;
