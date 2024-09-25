@@ -42,232 +42,60 @@ export const arcSlice = createSlice({
       state.x1 = overrideX(state.x1 + action.payload.dx, viewBox.width);
       state.y1 = overrideY(state.y1 + action.payload.dy, viewBox.height);
 
-      const { cx, cy } = arcUtil.calculateArcCenter(
-        Object.assign({}, state, {
-          x1: state.x1,
-          y1: state.y1,
-        })
-      );
-      state.cx = cx;
-      state.cy = cy;
-
-      const { rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY } =
-        arcUtil.calculateDrags({
-          cx,
-          cy,
-          rx: state.rx,
-          ry: state.ry,
-          radian: state.radian,
-        });
-      state.rxDragX = rxDragX;
-      state.rxDragY = rxDragY;
-      state.ryDragX = ryDragX;
-      state.ryDragY = ryDragY;
-      state.angleDragX = angleDragX;
-      state.angleDragY = angleDragY;
+      Object.assign(state, arcUtil.calculateArcCenter(state)); // Assigns cx, cy
+      Object.assign(state, arcUtil.calculateDrags(state)); // Assigns rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY
     },
     setRotation: (state, action: PayloadAction<Delta>) => {
-      const radian = arcUtil.calculateAngle({
+      state.radian = arcUtil.calculateAngle({
         x1: state.cx,
         y1: state.cy,
         x2: state.angleDragX + action.payload.dx,
         y2: state.angleDragY + action.payload.dy,
       });
-      const degree = round((radian * 180) / Math.PI);
+      state.degree = round((state.radian * 180) / Math.PI);
 
-      const { θ1, θ2 } = arcUtil.calculateArcPointAngles({
-        x1: state.x1,
-        y1: state.y1,
-        x2: state.x2,
-        y2: state.y2,
-        cx: state.cx,
-        cy: state.cy,
-        rx: state.rx,
-        ry: state.ry,
-        radian,
-      });
-      const { x1, y1, x2, y2 } = arcUtil.calculateArcPoints({
-        cx: state.cx,
-        cy: state.cy,
-        rx: state.rx,
-        ry: state.ry,
-        radian,
-        θ1,
-        θ2,
-      });
-
-      const { rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY } =
-        arcUtil.calculateDrags({
-          cx: state.cx,
-          cy: state.cy,
-          rx: state.rx,
-          ry: state.ry,
-          radian,
-        });
-
-      state.radian = radian;
-      state.degree = degree;
-      state.x1 = x1;
-      state.y1 = y1;
-      state.x2 = x2;
-      state.y2 = y2;
-      state.rxDragX = rxDragX;
-      state.rxDragY = rxDragY;
-      state.ryDragX = ryDragX;
-      state.ryDragY = ryDragY;
-      state.angleDragX = angleDragX;
-      state.angleDragY = angleDragY;
+      const { θ1, θ2 } = arcUtil.calculateArcPointAngles(state);
+      Object.assign(state, arcUtil.calculateArcPoints({ ...state, θ1, θ2 })); // Assigns x1, y1, x2, y2
+      Object.assign(state, arcUtil.calculateDrags(state)); // Assigns rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY
     },
     setRadiusX: (state, action: PayloadAction<Delta>) => {
-      const { θ1, θ2 } = arcUtil.calculateArcPointAngles({
-        x1: state.x1,
-        y1: state.y1,
-        x2: state.x2,
-        y2: state.y2,
-        cx: state.cx,
-        cy: state.cy,
-        rx: state.rx,
-        ry: state.ry,
-        radian: state.radian,
-      });
-      const rx = arcUtil.calculateDistance({
+      state.rx = arcUtil.calculateDistance({
         x1: state.cx,
         y1: state.cy,
         x2: state.rxDragX + action.payload.dx,
         y2: state.rxDragY + action.payload.dy,
       });
-      const { x1, y1, x2, y2 } = arcUtil.calculateArcPoints({
-        cx: state.cx,
-        cy: state.cy,
-        rx,
-        ry: state.ry,
-        radian: state.radian,
-        θ1,
-        θ2,
-      });
-      const { rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY } =
-        arcUtil.calculateDrags({
-          cx: state.cx,
-          cy: state.cy,
-          rx,
-          ry: state.ry,
-          radian: state.radian,
-        });
-      state.rx = rx;
-      state.x1 = x1;
-      state.y1 = y1;
-      state.x2 = x2;
-      state.y2 = y2;
-      state.rxDragX = rxDragX;
-      state.rxDragY = rxDragY;
-      state.ryDragX = ryDragX;
-      state.ryDragY = ryDragY;
-      state.angleDragX = angleDragX;
-      state.angleDragY = angleDragY;
+      const { θ1, θ2 } = arcUtil.calculateArcPointAngles(state);
+      Object.assign(state, arcUtil.calculateArcPoints({ ...state, θ1, θ2 })); // Assigns x1, y1, x2, y2
+      Object.assign(state, arcUtil.calculateDrags(state)); // Assigns rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY
     },
     setRadiusY: (state, action: PayloadAction<Delta>) => {
-      const { θ1, θ2 } = arcUtil.calculateArcPointAngles({
-        x1: state.x1,
-        y1: state.y1,
-        x2: state.x2,
-        y2: state.y2,
-        cx: state.cx,
-        cy: state.cy,
-        rx: state.rx,
-        ry: state.ry,
-        radian: state.radian,
-      });
-      const ry = arcUtil.calculateDistance({
+      state.ry = arcUtil.calculateDistance({
         x1: state.cx,
         y1: state.cy,
         x2: state.ryDragX + action.payload.dx,
         y2: state.ryDragY + action.payload.dy,
       });
-      const { x1, y1, x2, y2 } = arcUtil.calculateArcPoints({
-        cx: state.cx,
-        cy: state.cy,
-        rx: state.rx,
-        ry,
-        radian: state.radian,
-        θ1,
-        θ2,
-      });
-      const { rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY } =
-        arcUtil.calculateDrags({
-          cx: state.cx,
-          cy: state.cy,
-          rx: state.rx,
-          ry,
-          radian: state.radian,
-        });
-      state.ry = ry;
-      state.x1 = x1;
-      state.y1 = y1;
-      state.x2 = x2;
-      state.y2 = y2;
-      state.rxDragX = rxDragX;
-      state.rxDragY = rxDragY;
-      state.ryDragX = ryDragX;
-      state.ryDragY = ryDragY;
-      state.angleDragX = angleDragX;
-      state.angleDragY = angleDragY;
+      const { θ1, θ2 } = arcUtil.calculateArcPointAngles(state);
+      Object.assign(state, arcUtil.calculateArcPoints({ ...state, θ1, θ2 })); // Assigns x1, y1, x2, y2
+      Object.assign(state, arcUtil.calculateDrags(state)); // Assigns rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY
     },
     setFlags: (
       state,
       action: PayloadAction<{ largeArcFlag: boolean; sweepFlag: boolean }>
     ) => {
-      const { cx, cy } = arcUtil.calculateArcCenter(
-        Object.assign({}, state, {
-          largeArcFlag: action.payload.largeArcFlag,
-          sweepFlag: action.payload.sweepFlag,
-        })
-      );
-      const { rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY } =
-        arcUtil.calculateDrags({
-          cx,
-          cy,
-          rx: state.rx,
-          ry: state.ry,
-          radian: state.radian,
-        });
       state.largeArcFlag = action.payload.largeArcFlag;
       state.sweepFlag = action.payload.sweepFlag;
-      state.cx = cx;
-      state.cy = cy;
-      state.rxDragX = rxDragX;
-      state.rxDragY = rxDragY;
-      state.ryDragX = ryDragX;
-      state.ryDragY = ryDragY;
-      state.angleDragX = angleDragX;
-      state.angleDragY = angleDragY;
+
+      Object.assign(state, arcUtil.calculateArcCenter(state)); // Assigns cx, cy
+      Object.assign(state, arcUtil.calculateDrags(state)); // Assigns rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY
     },
     setEndPoint: (state, action: PayloadAction<Delta>) => {
       state.x2 = overrideX(state.x2 + action.payload.dx, viewBox.width);
       state.y2 = overrideY(state.y2 + action.payload.dy, viewBox.height);
 
-      const { cx, cy } = arcUtil.calculateArcCenter(
-        Object.assign({}, state, {
-          x2: state.x2,
-          y2: state.y2,
-        })
-      );
-      state.cx = cx;
-      state.cy = cy;
-
-      const { rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY } =
-        arcUtil.calculateDrags({
-          cx,
-          cy,
-          rx: state.rx,
-          ry: state.ry,
-          radian: state.radian,
-        });
-      state.rxDragX = rxDragX;
-      state.rxDragY = rxDragY;
-      state.ryDragX = ryDragX;
-      state.ryDragY = ryDragY;
-      state.angleDragX = angleDragX;
-      state.angleDragY = angleDragY;
+      Object.assign(state, arcUtil.calculateArcCenter(state)); // Assigns cx, cy
+      Object.assign(state, arcUtil.calculateDrags(state)); // Assigns rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY
     },
   },
   extraReducers: (builder) => {

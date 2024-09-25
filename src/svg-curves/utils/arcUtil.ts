@@ -88,21 +88,20 @@ export function calculateArcPoints({
         [Math.sin(radian), Math.cos(radian)],
     ];
 
-    // debugger;
     const x1 = matrix[0][0] * rx * Math.cos(θ1) + matrix[0][1] * ry * Math.sin(θ1) + cx;
     const y1 = matrix[1][0] * rx * Math.cos(θ1) + matrix[1][1] * ry * Math.sin(θ1) + cy;
     const x2 = matrix[0][0] * rx * Math.cos(θ2) + matrix[0][1] * ry * Math.sin(θ2) + cx;
     const y2 = matrix[1][0] * rx * Math.cos(θ2) + matrix[1][1] * ry * Math.sin(θ2) + cy;
-    const Δθ = θ2 - θ1;
-    const largeArcFlag = Math.abs(Δθ) > Math.PI ? true : false;
-    const sweepFlag = Δθ > 0 ? true : false;
+    // const Δθ = θ2 - θ1;
+    // const largeArcFlag = Math.abs(Δθ) > Math.PI ? true : false;
+    // const sweepFlag = Δθ > 0 ? true : false;
     return {
         x1: round(x1),
         y1: round(y1),
         x2: round(x2),
         y2: round(y2),
-        largeArcFlag,
-        sweepFlag,
+        // largeArcFlag,
+        // sweepFlag,
     };
 }
 
