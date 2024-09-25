@@ -3,15 +3,12 @@ import { Tag } from "./CodeTag.tsx";
 import { Attribute } from "./CodeAttribute.tsx";
 import "./Code.css";
 
-interface CodeElementProps {
+interface ElementProps {
   element: string;
   children: React.ReactNode;
 }
 
-export const CodeElement: React.FC<CodeElementProps> = ({
-  element,
-  children,
-}) => (
+export const Element: React.FC<ElementProps> = ({ element, children }) => (
   <>
     <div className="level1">
       <Tag type="opening">{element}</Tag>

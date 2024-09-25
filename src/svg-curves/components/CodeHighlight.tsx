@@ -1,13 +1,13 @@
 import * as React from "react";
 import "./CodeHighlight.css";
 
-interface CodeHighlightProps {
+interface HighlightProps {
   id?: string;
   description?: string;
   children: React.ReactNode;
 }
 
-export const CodeHighlight: React.FC<CodeHighlightProps> = ({
+export const Highlight: React.FC<HighlightProps> = ({
   id,
   description,
   children,

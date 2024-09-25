@@ -4,7 +4,7 @@ import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
 import { Code } from "../connected/Code";
-import { CodeElement as Element } from "./CodeElement.tsx";
+import { Element } from "./CodeElement.tsx";
 import { Attribute } from "./CodeAttribute.tsx";
 import { DragMove } from "./DragMove";
 import { DragDistance } from "./DragDistance";

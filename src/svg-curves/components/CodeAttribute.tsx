@@ -1,13 +1,13 @@
 import * as React from "react";
-import { CodeHighlight as Highlight } from "./CodeHighlight";
+import { Highlight } from "./CodeHighlight";
 
-interface CodeValueProps {
+interface AttributeProps {
   id?: string;
   description?: string;
   [key: string]: string | React.ReactNode;
 }
 
-export const Attribute: React.FC<CodeValueProps> = ({
+export const Attribute: React.FC<AttributeProps> = ({
   id,
   description,
   ...props
