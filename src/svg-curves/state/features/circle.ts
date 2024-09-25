@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { type Circle, type Delta } from "../../../utils/types";
-import { resize } from "../canvas";
-import * as viewBoxMin from "../../../constants/viewBoxSize";
-import { overrideX, overrideY } from "../../../utils/overrideCoord";
+import { type Circle, type Delta } from "../../utils/types";
+import { resize } from "./canvas";
+import * as viewBoxMin from "../../constants/viewBoxSize";
+import { overrideX, overrideY } from "../../utils/overrideCoord";
 
 const initialState: Circle = {
   cx: 225,

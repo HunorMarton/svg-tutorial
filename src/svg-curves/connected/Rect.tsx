@@ -6,7 +6,7 @@ import { store } from "../state/store";
 import { Provider } from "react-redux";
 import type { RootState } from "../state/store";
 import { useSelector, useDispatch } from "react-redux";
-import { setCoordinate, setWidth, setHeight } from "../state/features/rect";
+import { setCoordinate, setWidth, setHeight } from "../state/features/rect.ts";
 
 interface RectProps {
   fullScreen?: boolean;

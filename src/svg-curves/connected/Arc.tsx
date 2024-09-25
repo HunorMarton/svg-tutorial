@@ -13,7 +13,7 @@ import {
   setRadiusY,
   setFlags,
   setEndPoint,
-} from "../state/features/arc";
+} from "../state/features/arc.ts";
 
 interface ArcProps {
   fullScreen?: boolean;

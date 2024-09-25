@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { type Canvas, type Size } from "../../../utils/types";
-import * as viewBoxMin from "../../../constants/viewBoxSize";
+import { type Canvas, type Size } from "../../utils/types";
+import * as viewBoxMin from "../../constants/viewBoxSize";
 
 const initialState: Canvas = {
   zoom: 1, // Changes if screen size goes below mainViewBox size

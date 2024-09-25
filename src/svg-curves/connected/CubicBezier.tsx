@@ -11,7 +11,7 @@ import {
   setControlPoint1,
   setControlPoint2,
   setEndPoint,
-} from "../state/features/cubicBezier";
+} from "../state/features/cubicBezier.ts";
 
 interface CubicBezierProps {
   fullScreen?: boolean;

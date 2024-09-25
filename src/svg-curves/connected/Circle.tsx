@@ -6,7 +6,7 @@ import { store } from "../state/store";
 import { Provider } from "react-redux";
 import type { RootState } from "../state/store";
 import { useSelector, useDispatch } from "react-redux";
-import { setCoordinate, setRadius } from "../state/features/circle";
+import { setCoordinate, setRadius } from "../state/features/circle.ts";
 
 interface CircleProps {
   fullScreen?: boolean;

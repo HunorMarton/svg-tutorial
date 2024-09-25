@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { type Line, type Delta } from "../../../utils/types";
-import { resize } from "../canvas";
-import * as viewBoxMin from "../../../constants/viewBoxSize";
-import { overrideX, overrideY } from "../../../utils/overrideCoord";
+import { type Line, type Delta } from "../../utils/types";
+import { resize } from "./canvas";
+import * as viewBoxMin from "../../constants/viewBoxSize";
+import { overrideX, overrideY } from "../../utils/overrideCoord";
 
 const initialState: Line = {
   x1: 100,

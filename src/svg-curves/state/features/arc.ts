@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { type Arc, type Delta } from "../../../utils/types";
-import { resize } from "../canvas";
-import * as viewBoxMin from "../../../constants/viewBoxSize";
-import { round100 as round } from "../../../utils/round";
-import { overrideX, overrideY } from "../../../utils/overrideCoord";
-import * as arcUtil from "../../../utils/arcUtil";
+import { type Arc, type Delta } from "../../utils/types";
+import { resize } from "./canvas";
+import * as viewBoxMin from "../../constants/viewBoxSize";
+import { round100 as round } from "../../utils/round";
+import { overrideX, overrideY } from "../../utils/overrideCoord";
+import * as arcUtil from "../../utils/arcUtil";
 
 const initialState: Arc = {
   x1: 145,

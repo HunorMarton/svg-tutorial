@@ -6,10 +6,7 @@ import { store } from "../state/store";
 import { Provider } from "react-redux";
 import type { RootState } from "../state/store";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setCoordinate1,
-  setCoordinate2,
-} from "../state/features/line-element/index.ts";
+import { setCoordinate1, setCoordinate2 } from "../state/features/line.ts";
 
 interface LineProps {
   fullScreen?: boolean;

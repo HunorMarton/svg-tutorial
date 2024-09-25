@@ -4,7 +4,7 @@ import { Canvas as UnconnectedCanvas } from "../components/Canvas.tsx";
 
 import type { RootState } from "../state/store";
 import { useSelector, useDispatch } from "react-redux";
-import { resize as resizeCanvas } from "../state/features/canvas";
+import { resize as resizeCanvas } from "../state/features/canvas.ts";
 
 export const Canvas: React.FC<{ children: ReactNode }> = ({ children }) => {
   const canvas = useSelector((state: RootState) => state.canvas);

@@ -10,7 +10,7 @@ import {
   setStartPoint,
   setControlPoint,
   setEndPoint,
-} from "../state/features/quadraticBezier";
+} from "../state/features/quadraticBezier.ts";
 
 interface QuadraticBezierProps {
   fullScreen?: boolean;
