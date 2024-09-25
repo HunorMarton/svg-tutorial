@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { type QuadraticBezier, type Delta } from "../../../utils/types";
 import { resize } from "../canvas";
 import * as viewBoxMin from "../../../constants/viewBoxSize";
-import overrideCoord from "../../../utils/overrideCoord";
+import { overrideX, overrideY } from "../../../utils/overrideCoord";
 
 const initialState: QuadraticBezier = {
   x0: 100,
@@ -24,34 +24,16 @@ export const quadraticBezierSlice = createSlice({
   initialState,
   reducers: {
     setStartPoint: (state, action: PayloadAction<Delta>) => {
-      const { x, y } = overrideCoord({
-        x: state.x0 + action.payload.dx,
-        y: state.y0 + action.payload.dy,
-        width: viewBox.width,
-        height: viewBox.height,
-      });
-      state.x0 = x;
-      state.y0 = y;
+      state.x0 = overrideX(state.x0 + action.payload.dx, viewBox.width);
+      state.y0 = overrideY(state.y0 + action.payload.dy, viewBox.height);
     },
     setControlPoint: (state, action: PayloadAction<Delta>) => {
-      const { x, y } = overrideCoord({
-        x: state.x1 + action.payload.dx,
-        y: state.y1 + action.payload.dy,
-        width: viewBox.width,
-        height: viewBox.height,
-      });
-      state.x1 = x;
-      state.y1 = y;
+      state.x1 = overrideX(state.x1 + action.payload.dx, viewBox.width);
+      state.y1 = overrideY(state.y1 + action.payload.dy, viewBox.height);
     },
     setEndPoint: (state, action: PayloadAction<Delta>) => {
-      const { x, y } = overrideCoord({
-        x: state.x + action.payload.dx,
-        y: state.y + action.payload.dy,
-        width: viewBox.width,
-        height: viewBox.height,
-      });
-      state.x = x;
-      state.y = y;
+      state.x = overrideX(state.x + action.payload.dx, viewBox.width);
+      state.y = overrideY(state.y + action.payload.dy, viewBox.height);
     },
   },
   extraReducers: (builder) => {

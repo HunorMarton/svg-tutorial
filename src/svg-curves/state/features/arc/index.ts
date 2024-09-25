@@ -4,7 +4,7 @@ import { type Arc, type Delta } from "../../../utils/types";
 import { resize } from "../canvas";
 import * as viewBoxMin from "../../../constants/viewBoxSize";
 import { round100 as round } from "../../../utils/round";
-import overrideCoord from "../../../utils/overrideCoord";
+import { overrideX, overrideY } from "../../../utils/overrideCoord";
 import * as arcUtil from "../../../utils/arcUtil";
 
 const initialState: Arc = {
@@ -39,19 +39,13 @@ export const arcSlice = createSlice({
   initialState,
   reducers: {
     setStartPoint: (state, action: PayloadAction<Delta>) => {
-      const { x: x1, y: y1 } = overrideCoord({
-        x: state.x1 + action.payload.dx,
-        y: state.y1 + action.payload.dy,
-        width: viewBox.width,
-        height: viewBox.height,
-      });
-      state.x1 = x1;
-      state.y1 = y1;
+      state.x1 = overrideX(state.x1 + action.payload.dx, viewBox.width);
+      state.y1 = overrideY(state.y1 + action.payload.dy, viewBox.height);
 
       const { cx, cy } = arcUtil.calculateArcCenter(
         Object.assign({}, state, {
-          x1,
-          y1,
+          x1: state.x1,
+          y1: state.y1,
         })
       );
       state.cx = cx;
@@ -248,19 +242,13 @@ export const arcSlice = createSlice({
       state.angleDragY = angleDragY;
     },
     setEndPoint: (state, action: PayloadAction<Delta>) => {
-      const { x: x2, y: y2 } = overrideCoord({
-        x: state.x2 + action.payload.dx,
-        y: state.y2 + action.payload.dy,
-        width: viewBox.width,
-        height: viewBox.height,
-      });
-      state.x2 = x2;
-      state.y2 = y2;
+      state.x2 = overrideX(state.x2 + action.payload.dx, viewBox.width);
+      state.y2 = overrideY(state.y2 + action.payload.dy, viewBox.height);
 
       const { cx, cy } = arcUtil.calculateArcCenter(
         Object.assign({}, state, {
-          x2,
-          y2,
+          x2: state.x2,
+          y2: state.y2,
         })
       );
       state.cx = cx;
