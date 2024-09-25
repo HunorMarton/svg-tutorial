@@ -12,8 +12,8 @@ const initialState: Circle = {
 };
 
 const viewBox = {
-  width: 500,
-  height: 500,
+  width: viewBoxMin.WIDTH,
+  height: viewBoxMin.HEIGHT,
 };
 
 export const circleSlice = createSlice({

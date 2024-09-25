@@ -13,8 +13,8 @@ const initialState: Rect = {
 };
 
 const viewBox = {
-  width: 500,
-  height: 500,
+  width: viewBoxMin.WIDTH,
+  height: viewBoxMin.HEIGHT,
 };
 
 export const rectSlice = createSlice({

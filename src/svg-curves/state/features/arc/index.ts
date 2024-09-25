@@ -30,8 +30,8 @@ const initialState: Arc = {
 };
 
 const viewBox = {
-  width: 500,
-  height: 500,
+  width: viewBoxMin.WIDTH,
+  height: viewBoxMin.HEIGHT,
 };
 
 export const arcSlice = createSlice({

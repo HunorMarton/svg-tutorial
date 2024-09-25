@@ -13,8 +13,8 @@ const initialState: Line = {
 };
 
 const viewBox = {
-  width: 500,
-  height: 500,
+  width: viewBoxMin.WIDTH,
+  height: viewBoxMin.HEIGHT,
 };
 
 export const lineSlice = createSlice({
