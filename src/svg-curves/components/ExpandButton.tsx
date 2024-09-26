@@ -9,7 +9,7 @@ interface ExpandButtonProps {
 }
 
 export const ExpandButton: React.FC<ExpandButtonProps> = ({ link }) => (
-  <a href={link} aria-label="Expand" className="expandButton">
+  <a href={link} aria-label="Go to Editor" className="expandButton">
     <svg width={size} height={size}>
       <g transform={`translate(${size / 2}, ${size / 2})`}>
         <circle r={size / 2} />
@@ -19,6 +19,6 @@ export const ExpandButton: React.FC<ExpandButtonProps> = ({ link }) => (
         </g>
       </g>
     </svg>
-    <label>Expand</label>
+    <label>Go to Editor</label>
   </a>
 );
