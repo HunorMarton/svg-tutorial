@@ -22,5 +22,5 @@
   display: none;
   position: absolute;
   color: white;
-  top: 3.2em; /* TODO: Make sure this looks good on all pages (/svg/arc, /summary, /arc) */
+  top: 3.2em; /* TODO: Make sure this looks good on all pages (/svg/arc, /summary, /editor/arc) */
 }

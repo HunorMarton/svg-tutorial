@@ -77,7 +77,7 @@ export const EmbedArc: React.FC<EmbedArcProps> = ({
   };
 
   return (
-    <Embed id="embedArc" link="/arc" fullScreen={fullScreen}>
+    <Embed id="embedArc" link="/editor/arc" fullScreen={fullScreen}>
       <Canvas>
         <line
           className="presentationHelper" // Dashed line from the center

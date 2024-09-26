@@ -17,4 +17,12 @@ export default defineConfig({
     imageService: true,
   }),
   integrations: [mdx(), react()],
+  redirects: {
+    "/arc": "/editor/arc",
+    "/cubicBezier": "/editor/cubicBezier",
+    "/quadraticBezier": "/editor/quadraticBezier",
+    "/line": "/editor/line",
+    "/circle": "/editor/circle",
+    "/rect": "/editor/rect",
+  },
 });

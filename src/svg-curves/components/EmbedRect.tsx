@@ -30,7 +30,7 @@ export const EmbedRect: React.FC<EmbedRectProps> = ({
   style,
   fullScreen,
 }) => (
-  <Embed id="embedRect" link="/rect" fullScreen={fullScreen}>
+  <Embed id="embedRect" link="/editor/rect" fullScreen={fullScreen}>
     <Canvas>
       <rect x={x} y={y} width={width} height={height} {...style} />
       <DragDistance

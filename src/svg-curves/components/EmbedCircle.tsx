@@ -27,7 +27,7 @@ export const EmbedCircle: React.FC<EmbedCircleProps> = ({
   style,
   fullScreen,
 }) => (
-  <Embed id="embedCircle" link="/circle" fullScreen={fullScreen}>
+  <Embed id="embedCircle" link="/editor/circle" fullScreen={fullScreen}>
     <Canvas>
       <circle cx={cx} cy={cy} r={r} {...style} />
       <DragDistance

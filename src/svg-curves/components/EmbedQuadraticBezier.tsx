@@ -33,7 +33,7 @@ export const EmbedQuadraticBezier: React.FC<EmbedQuadraticBezierProps> = ({
 }) => (
   <Embed
     id="embedQuadraticBezier"
-    link="/quadratic-bezier"
+    link="/editor/quadratic-bezier"
     fullScreen={fullScreen}
   >
     <Canvas>

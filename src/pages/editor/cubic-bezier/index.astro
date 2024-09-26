@@ -1,0 +1,8 @@
+---
+import Layout from "../../../layouts/PathSegments.astro";
+import { CubicBezier } from "../../../svg-curves/connected/CubicBezier";
+---
+
+<Layout lesson="/svg/cubic-bezier">
+  <CubicBezier client:only="react" fullScreen={true} />
+</Layout>

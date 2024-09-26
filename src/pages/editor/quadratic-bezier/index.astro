@@ -1,0 +1,8 @@
+---
+import Layout from "../../../layouts/PathSegments.astro";
+import { QuadraticBezier } from "../../../svg-curves/connected/QuadraticBezier";
+---
+
+<Layout lesson="/svg/quadratic-bezier">
+  <QuadraticBezier client:only="react" fullScreen={true} />
+</Layout>
