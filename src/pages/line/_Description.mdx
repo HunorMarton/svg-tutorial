@@ -1,0 +1,36 @@
+import InputWrapper from "../../components/editor/Input.astro";
+import Pair from "../../components/editor/Pair.astro";
+import { Input } from "../../svg-curves/connected/Input";
+import { Content as Styling } from "../../components/editor/Styling.mdx";
+
+## Line
+
+The `<line>` element is a basic SVG shape that connects two points with a straight line.
+
+### Starting point of the line
+
+<Pair>
+    <InputWrapper title="x1">
+        <Input client:only="react" feature="line" property="x1" type="number" />
+    </InputWrapper>
+
+    <InputWrapper title="y1">
+        <Input client:only="react" feature="line" property="y1" type="number" />
+    </InputWrapper>
+
+</Pair>
+
+### End point of the line
+
+<Pair>
+    <InputWrapper title="x2">
+        <Input client:only="react" feature="line" property="x2" type="number" />
+    </InputWrapper>
+
+    <InputWrapper title="y2">
+        <Input client:only="react" feature="line" property="y2" type="number" />
+    </InputWrapper>
+
+</Pair>
+
+<Styling />

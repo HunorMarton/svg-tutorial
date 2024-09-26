@@ -9,9 +9,10 @@
     overflow: hidden;
 
     pre {
-      padding-bottom: 5em;
       display: flex;
       justify-content: center;
+      height: var(--code-height);
+      min-height: var(--code-height);
     }
   }
 

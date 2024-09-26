@@ -14,6 +14,7 @@ interface RectProps {
 
 export const RectWithoutProvider: React.FC<RectProps> = ({ fullScreen }) => {
   const state = useSelector((state: RootState) => state.rect);
+  const style = useSelector((state: RootState) => state.style);
   const dispatch = useDispatch();
 
   const setRectCoordinate = (delta: Delta) => dispatch(setCoordinate(delta));
@@ -26,6 +27,7 @@ export const RectWithoutProvider: React.FC<RectProps> = ({ fullScreen }) => {
       setRectCoordinate={setRectCoordinate}
       setRectWidth={setRectWidth}
       setRectHeight={setRectHeight}
+      style={style}
       fullScreen={fullScreen}
     />
   );

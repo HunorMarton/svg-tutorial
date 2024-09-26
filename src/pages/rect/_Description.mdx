@@ -1,0 +1,47 @@
+import InputWrapper from "../../components/editor/Input.astro";
+import Pair from "../../components/editor/Pair.astro";
+import { Input } from "../../svg-curves/connected/Input";
+import { Content as Styling } from "../../components/editor/Styling.mdx";
+
+## Rectangle
+
+The `<rect>` element is a basic SVG shape that creates rectangles based on a position, width, and height.
+
+### Top left corner of the rectangle
+
+<Pair>
+    <InputWrapper title="x1">
+        <Input client:only="react" feature="rect" property="x" type="number" />
+    </InputWrapper>
+
+    <InputWrapper title="y1">
+        <Input client:only="react" feature="rect" property="y" type="number" />
+    </InputWrapper>
+
+</Pair>
+
+### Width
+
+<InputWrapper>
+  <Input
+    client:only="react"
+    feature="rect"
+    property="width"
+    type="range"
+    max={500}
+  />
+</InputWrapper>
+
+### Height
+
+<InputWrapper>
+  <Input
+    client:only="react"
+    feature="rect"
+    property="height"
+    type="range"
+    max={500}
+  />
+</InputWrapper>
+
+<Styling />

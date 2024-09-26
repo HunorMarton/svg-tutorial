@@ -21,6 +21,7 @@ interface ArcProps {
 
 export const ArcWithoutProvider: React.FC<ArcProps> = ({ fullScreen }) => {
   const state = useSelector((state: RootState) => state.arc);
+  const style = useSelector((state: RootState) => state.style);
   const dispatch = useDispatch();
 
   const setArcStartPoint = (delta: Delta) => dispatch(setStartPoint(delta));
@@ -55,6 +56,7 @@ export const ArcWithoutProvider: React.FC<ArcProps> = ({ fullScreen }) => {
       setArcRadiusY={setArcRadiusY}
       setArcRotation={setArcRotation}
       setArcFlags={setArcFlags}
+      style={style}
       fullScreen={fullScreen}
     />
   );

@@ -5,6 +5,7 @@ import circleReducer from "./features/circle";
 import cubicBezierReducer from "./features/cubicBezier";
 import lineReducer from "./features/line";
 import rectReducer from "./features/rect";
+import styleReducer from "./features/style";
 import quadraticBezierReducer from "./features/quadraticBezier";
 
 export const store = configureStore({
@@ -15,6 +16,7 @@ export const store = configureStore({
     cubicBezier: cubicBezierReducer,
     line: lineReducer,
     rect: rectReducer,
+    style: styleReducer,
     quadraticBezier: quadraticBezierReducer,
   },
 });

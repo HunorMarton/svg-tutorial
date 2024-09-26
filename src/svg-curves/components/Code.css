@@ -2,7 +2,7 @@
   color: white;
   box-sizing: border-box;
   padding: 26px;
-  background-color: #24292e;
+  background-color: var(--code-background-color);
   margin: 0;
 
   * {

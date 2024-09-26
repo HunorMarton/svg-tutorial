@@ -21,9 +21,15 @@ const headerItems = [{title: 'Line', link: '/line'}, { title: 'Circle', link: '/
   />
   <body>
     <Header items={headerItems} lesson={lesson} />
-
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <slot />
+    <div class="editor-container">
+      <slot />
+      <div class="description-container">
+        <div class="description">
+          <slot name="description" />
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 
@@ -37,8 +43,84 @@ const headerItems = [{title: 'Line', link: '/line'}, { title: 'Circle', link: '/
   body {
     margin: 0;
     padding: 0;
+
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-color: var(--background-color);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .editor-container {
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    height: 100%;
+  }
+
+  .description-container {
+    display: flex;
+    position: relative;
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  .description-container::after {
+    content: "";
+    width: 100%;
+    height: var(--code-height);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--code-background-color);
+    z-index: -1;
+  }
+  
+  .description {
+    width: 360px;
+    padding: 30px 30px 50px 30px;
+    overflow-y: auto;
+    border-radius: 15px;
+    margin: 20px 30px 50px 0;
+    background-color: white;
+    border: 1px solid #ccc;
+  }
+</style>
+
+<style is:global>
+  .description h2:not(:first-of-type) {
+    margin-top: 4em;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .description h3 {
+    border-top: 1px solid #ccc;
+    padding: 20px 0 0 0;
+    color: #333;
+    font-size: 1em;
+  }
+
+  .description p {
+    color: #8B8B8B;
+    font-size: 0.8em;
+  }
+
+  .description h2 + p {
+    color: inherit;
+    font-size: 1em;
+    margin-bottom: 2em;
+  }
+
+  .description code {
+    background-color: lightgray;
+    padding: 2px 5px 2px;
+    color: black;
   }
 </style>

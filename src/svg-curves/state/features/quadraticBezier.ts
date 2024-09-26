@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { type QuadraticBezier, type Delta } from "../../utils/types";
 import { resize } from "./canvas";
+import { set } from "./style";
 import * as viewBoxMin from "../../constants/viewBoxSize";
 import { overrideX, overrideY } from "../../utils/overrideCoord";
 
@@ -37,10 +38,15 @@ export const quadraticBezierSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(resize, (state, action) => {
-      viewBox.width = Math.max(action.payload.width, viewBoxMin.WIDTH);
-      viewBox.height = Math.max(action.payload.height, viewBoxMin.HEIGHT);
-    });
+    builder
+      .addCase(resize, (state, action) => {
+        viewBox.width = Math.max(action.payload.width, viewBoxMin.WIDTH);
+        viewBox.height = Math.max(action.payload.height, viewBoxMin.HEIGHT);
+      })
+      .addCase(set, (state, action) => {
+        const { feature, values } = action.payload;
+        if (feature === "quadraticBezier") Object.assign(state, values);
+      });
   },
 });
 

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type Circle, type Delta } from "../utils/types";
+import { type Circle, type Delta, type Style } from "../utils/types";
 import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
@@ -14,6 +14,7 @@ type EmbedCircleProps = Circle & {
   setCircleCoordinate: (coord: Delta) => void;
   setCircleRadius: (coord: Delta) => void;
 } & {
+  style: Style;
   fullScreen?: boolean;
 };
 
@@ -23,11 +24,12 @@ export const EmbedCircle: React.FC<EmbedCircleProps> = ({
   r,
   setCircleCoordinate,
   setCircleRadius,
+  style,
   fullScreen,
 }) => (
   <Embed id="embedCircle" link="/circle" fullScreen={fullScreen}>
     <Canvas>
-      <circle className="presentation" cx={cx} cy={cy} r={r} />
+      <circle cx={cx} cy={cy} r={r} {...style} />
       <DragDistance
         id="control-radius"
         x={cx + r}

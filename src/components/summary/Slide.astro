@@ -71,3 +71,11 @@ const background = code ? "#24292e" : "transparent";
     scroll-snap-align: center;
   }
 </style>
+
+<style is:global>
+  .slide-container .slide-content .embed pre {
+    border-radius: 0;
+    height: 230px;
+    min-height: 230px; /* TODO: Do this in a nicer way without global CSS */
+  }
+</style>

@@ -1,0 +1,35 @@
+import InputWrapper from "../../components/editor/Input.astro";
+import Pair from "../../components/editor/Pair.astro";
+import { Input } from "../../svg-curves/connected/Input";
+import { Content as Styling } from "../../components/editor/Styling.mdx";
+
+## Circle
+
+The `<circle>` element is a basic SVG shape, used to create circles based on a center point and a radius.
+
+### Center point
+
+<Pair>
+    <InputWrapper title="cx">
+        <Input client:only="react" feature="circle" property="cx" type="number" />
+    </InputWrapper>
+
+    <InputWrapper title="cy">
+        <Input client:only="react" feature="circle" property="cy" type="number" />
+    </InputWrapper>
+
+</Pair>
+
+### Radius
+
+<InputWrapper title="r">
+  <Input
+    client:only="react"
+    feature="circle"
+    property="r"
+    type="range"
+    max={250}
+  />
+</InputWrapper>
+
+<Styling />

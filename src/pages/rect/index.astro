@@ -1,8 +1,10 @@
 ---
 import Layout from "../../layouts/SVGElements.astro";
 import { Rect } from "../../svg-curves/connected/Rect";
+import { Content } from "./_Description.mdx";
 ---
 
 <Layout lesson="/svg/basic-shapes">
   <Rect client:only="react" fullScreen={true} />
+  <Content slot="description" />
 </Layout>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type Rect, type Delta } from "../utils/types";
+import { type Rect, type Delta, type Style } from "../utils/types";
 import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
@@ -15,6 +15,7 @@ type EmbedRectProps = Rect & {
   setRectWidth: (coord: Delta) => void;
   setRectHeight: (coord: Delta) => void;
 } & {
+  style: Style;
   fullScreen?: boolean;
 };
 
@@ -26,17 +27,12 @@ export const EmbedRect: React.FC<EmbedRectProps> = ({
   setRectCoordinate,
   setRectWidth,
   setRectHeight,
+  style,
   fullScreen,
 }) => (
   <Embed id="embedRect" link="/rect" fullScreen={fullScreen}>
     <Canvas>
-      <rect
-        className="presentation"
-        x={x}
-        y={y}
-        width={width}
-        height={height}
-      />
+      <rect x={x} y={y} width={width} height={height} {...style} />
       <DragDistance
         id="control-width"
         x={x + width}

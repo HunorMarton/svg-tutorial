@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type QuadraticBezier, type Delta } from "../utils/types";
+import { type QuadraticBezier, type Delta, type Style } from "../utils/types";
 import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
@@ -14,6 +14,7 @@ type EmbedQuadraticBezierProps = QuadraticBezier & {
   setQuadraticBezierControlPoint1: (coord: Delta) => void;
   setQuadraticBezierEndPoint: (coord: Delta) => void;
 } & {
+  style: Style;
   fullScreen?: boolean;
 };
 
@@ -27,6 +28,7 @@ export const EmbedQuadraticBezier: React.FC<EmbedQuadraticBezierProps> = ({
   setQuadraticBezierStartPoint,
   setQuadraticBezierControlPoint1,
   setQuadraticBezierEndPoint,
+  style,
   fullScreen,
 }) => (
   <Embed
@@ -38,11 +40,11 @@ export const EmbedQuadraticBezier: React.FC<EmbedQuadraticBezierProps> = ({
       <line className="presentationHelper" x1={x0} y1={y0} x2={x1} y2={y1} />
       <line className="presentationHelper" x1={x1} y1={y1} x2={x} y2={y} />
       <path
-        className="presentation"
         d={`
               M ${x0} ${y0}
               Q ${x1} ${y1},
               ${x} ${y}`}
+        {...style}
       />
       <DragMove
         id="control-start"

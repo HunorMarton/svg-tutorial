@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Tag } from "./CodeTag.tsx";
 import { Attribute } from "./CodeAttribute.tsx";
+import { CodeStyle } from "../connected/Style.tsx";
 import "./Code.css";
 
 interface ElementProps {
@@ -21,9 +22,7 @@ export const Element: React.FC<ElementProps> = ({ element, children }) => (
       {"\n"}
       {"  "}
       {"  "}
-      <Attribute stroke="#fa3838" />
-      <Attribute stroke-width="20" />
-      <Attribute fill="none" />
+      <CodeStyle />
     </div>
     <div>
       {"  "}

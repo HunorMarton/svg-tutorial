@@ -12,13 +12,6 @@
   stroke-linecap: square;
 }
 
-.presentation {
-  stroke: var(--curve-color);
-  stroke-width: 20px;
-  stroke-linecap: round;
-  fill: none;
-}
-
 .presentationHelper {
   stroke: var(--helper-color);
   stroke-width: 1px;

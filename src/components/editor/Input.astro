@@ -1,0 +1,27 @@
+---
+export interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<div>
+  {title && <label>{title}</label>}
+  <slot />
+</div>
+
+<style>
+  div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    align-items: center;
+  }
+  div:hover {
+    border-color: #ccc;
+  }
+</style>
+

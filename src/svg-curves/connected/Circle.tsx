@@ -16,6 +16,7 @@ export const CircleWithoutProvider: React.FC<CircleProps> = ({
   fullScreen,
 }) => {
   const state = useSelector((state: RootState) => state.circle);
+  const style = useSelector((state: RootState) => state.style);
   const dispatch = useDispatch();
 
   const setCircleCoordinate = (delta: Delta) => dispatch(setCoordinate(delta));
@@ -26,6 +27,7 @@ export const CircleWithoutProvider: React.FC<CircleProps> = ({
       {...state}
       setCircleCoordinate={setCircleCoordinate}
       setCircleRadius={setCircleRadius}
+      style={style}
       fullScreen={fullScreen}
     />
   );

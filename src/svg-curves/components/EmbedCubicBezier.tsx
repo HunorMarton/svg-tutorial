@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type CubicBezier, type Delta } from "../utils/types";
+import { type CubicBezier, type Delta, type Style } from "../utils/types";
 import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
@@ -15,6 +15,7 @@ type EmbedCubicBezierProps = CubicBezier & {
   setCubicBezierControlPoint2: (coord: Delta) => void;
   setCubicBezierEndPoint: (coord: Delta) => void;
 } & {
+  style: Style;
   fullScreen?: boolean;
 };
 
@@ -31,6 +32,7 @@ export const EmbedCubicBezier: React.FC<EmbedCubicBezierProps> = ({
   setCubicBezierControlPoint1,
   setCubicBezierControlPoint2,
   setCubicBezierEndPoint,
+  style,
   fullScreen,
 }) => (
   <Embed id="embedCubicBezier" link="/cubic-bezier" fullScreen={fullScreen}>
@@ -38,12 +40,12 @@ export const EmbedCubicBezier: React.FC<EmbedCubicBezierProps> = ({
       <line className="presentationHelper" x1={x0} y1={y0} x2={x1} y2={y1} />
       <line className="presentationHelper" x1={x2} y1={y2} x2={x} y2={y} />
       <path
-        className="presentation"
         d={`
               M ${x0} ${y0}
               C ${x1} ${y1},
               ${x2} ${y2},
               ${x} ${y}`}
+        {...style}
       />
       <DragMove
         id="control-start"

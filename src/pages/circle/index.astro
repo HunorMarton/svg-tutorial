@@ -1,8 +1,10 @@
 ---
 import Layout from "../../layouts/SVGElements.astro";
 import { Circle } from "../../svg-curves/connected/Circle";
+import { Content } from "./_Description.mdx";
 ---
 
 <Layout lesson="/svg/basic-shapes">
   <Circle client:only="react" fullScreen={true} />
+  <Content slot="description" />
 </Layout>

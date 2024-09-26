@@ -1,0 +1,62 @@
+import InputWrapper from "../../components/editor/Input.astro";
+import Pair from "../../components/editor/Pair.astro";
+import { Input } from "../../svg-curves/connected/Input";
+
+## Styling
+
+### Stroke Color
+
+You can set any color value that is valid in CSS. This includes named colors, hex codes, the rgb function and more. Set it to `none` to hide.
+
+<InputWrapper>
+  <Input client:only="react" feature="style" property="stroke" type="color" />
+</InputWrapper>
+
+### Stroke Width
+
+Set the thickness of the stroke. It can be set to any positive number.
+
+<InputWrapper>
+  <Input
+    client:only="react"
+    feature="style"
+    property="strokeWidth"
+    type="range"
+  />
+</InputWrapper>
+
+### Stroke Linecap
+
+Set the shape to be used at the end of a line or open subpath.
+
+<InputWrapper>
+  <Input
+    client:only="react"
+    feature="style"
+    property="strokeLinecap"
+    type="radio"
+    options={["butt", "round", "square"]}
+  />
+</InputWrapper>
+
+### Stroke Linejoin
+
+Set the shape to be used at the corners of paths and basic shapes when they are stroked.
+
+<InputWrapper>
+  <Input
+    client:only="react"
+    feature="style"
+    property="strokeLinejoin"
+    type="radio"
+    options={["miter", "round", "bevel"]}
+  />
+</InputWrapper>
+
+### Fill Color
+
+You can set any color value that is valid in CSS. This includes named colors, hex codes, the rgb function and more. Set it to `none` to hide.
+
+<InputWrapper>
+  <Input client:only="react" feature="style" property="fill" type="color" />
+</InputWrapper>

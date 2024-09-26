@@ -70,3 +70,79 @@ export type QuadraticBezier = {
   x: number;
   y: number;
 };
+
+export type Style = {
+  stroke: string;
+  strokeWidth: number;
+  strokeLinecap: "butt" | "round" | "square";
+  strokeLinejoin: "miter" | "round" | "bevel";
+  fill: string;
+};
+
+export type Selector =
+  | {
+      feature: "style";
+      property: keyof Style;
+    }
+  | {
+      feature: "line";
+      property: keyof Line;
+    }
+  | {
+      feature: "circle";
+      property: keyof Circle;
+    }
+  | {
+      feature: "rect";
+      property: keyof Rect;
+    }
+  | {
+      feature: "arc";
+      property: keyof Arc;
+    }
+  | {
+      feature: "cubicBezier";
+      property: keyof CubicBezier;
+    }
+  | {
+      feature: "quadraticBezier";
+      property: keyof QuadraticBezier;
+    }
+  | {
+      feature: "canvas";
+      property: keyof Canvas;
+    };
+
+export type Generic =
+  | {
+      feature: "style";
+      values: Partial<Style>;
+    }
+  | {
+      feature: "line";
+      values: Partial<Line>;
+    }
+  | {
+      feature: "circle";
+      values: Partial<Circle>;
+    }
+  | {
+      feature: "rect";
+      values: Partial<Rect>;
+    }
+  | {
+      feature: "arc";
+      values: Partial<Arc>;
+    }
+  | {
+      feature: "cubicBezier";
+      values: Partial<CubicBezier>;
+    }
+  | {
+      feature: "quadraticBezier";
+      values: Partial<QuadraticBezier>;
+    }
+  | {
+      feature: "canvas";
+      values: Partial<Canvas>;
+    };

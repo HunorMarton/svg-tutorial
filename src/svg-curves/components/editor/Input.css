@@ -1,0 +1,42 @@
+.editor-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.editor-input:not([type="range"]) {
+  border: 1px solid #ccc;
+  width: 50px;
+}
+
+.editor-input:not([type="range"]),
+.editor-radio {
+  padding: 10px;
+}
+
+.editor-input[type="color"] {
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.editor-input[type="radio"] {
+  display: none;
+}
+
+.editor-radio {
+  border: 1px solid #ccc;
+  min-width: 50px;
+  text-align: center;
+
+  &.selected {
+    background-color: #f0f0f0;
+  }
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}

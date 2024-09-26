@@ -21,6 +21,7 @@ export const CubicBezierWithoutProvider: React.FC<CubicBezierProps> = ({
   fullScreen,
 }) => {
   const state = useSelector((state: RootState) => state.cubicBezier);
+  const style = useSelector((state: RootState) => state.style);
   const dispatch = useDispatch();
 
   const setCubicBezierStartPoint = (delta: Delta) =>
@@ -41,6 +42,7 @@ export const CubicBezierWithoutProvider: React.FC<CubicBezierProps> = ({
       setCubicBezierControlPoint1={setCubicBezierControlPoint1}
       setCubicBezierControlPoint2={setCubicBezierControlPoint2}
       setCubicBezierEndPoint={setCubicBezierEndPoint}
+      style={style}
       fullScreen={fullScreen}
     />
   );

@@ -20,6 +20,7 @@ export const QuadraticBezierWithoutProvider: React.FC<QuadraticBezierProps> = ({
   fullScreen,
 }) => {
   const state = useSelector((state: RootState) => state.quadraticBezier);
+  const style = useSelector((state: RootState) => state.style);
   const dispatch = useDispatch();
 
   const setQuadraticBezierStartPoint = (delta: Delta) =>
@@ -37,6 +38,7 @@ export const QuadraticBezierWithoutProvider: React.FC<QuadraticBezierProps> = ({
       setQuadraticBezierStartPoint={setQuadraticBezierStartPoint}
       setQuadraticBezierControlPoint1={setQuadraticBezierControlPoint1}
       setQuadraticBezierEndPoint={setQuadraticBezierEndPoint}
+      style={style}
       fullScreen={fullScreen}
     />
   );

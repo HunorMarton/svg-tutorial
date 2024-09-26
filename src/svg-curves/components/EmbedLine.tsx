@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type Line, type Delta } from "../utils/types";
+import { type Line, type Delta, type Style } from "../utils/types";
 import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
@@ -13,6 +13,7 @@ type EmbedLineProps = Line & {
   setLineCoordinate1: (coord: Delta) => void;
   setLineCoordinate2: (coord: Delta) => void;
 } & {
+  style: Style;
   fullScreen?: boolean;
 };
 
@@ -23,11 +24,12 @@ export const EmbedLine: React.FC<EmbedLineProps> = ({
   y2,
   setLineCoordinate1,
   setLineCoordinate2,
+  style,
   fullScreen,
 }) => (
   <Embed id="embedLine" link="/line" fullScreen={fullScreen}>
     <Canvas>
-      <line className="presentation" x1={x1} y1={y1} x2={x2} y2={y2} />
+      <line x1={x1} y1={y1} x2={x2} y2={y2} {...style} />
       <DragMove
         id="control-coordinate-1"
         x={x1}

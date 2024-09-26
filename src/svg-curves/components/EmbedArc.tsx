@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type Arc, type Delta } from "../utils/types";
+import { type Arc, type Delta, type Style } from "../utils/types";
 import { round } from "../utils/round";
 import { Embed } from "./Embed";
 import { Canvas } from "../connected/Canvas";
@@ -25,6 +25,7 @@ type EmbedArcProps = Arc & {
   setArcStartPoint: (coord: Delta) => void;
   setArcEndPoint: (coord: Delta) => void;
 } & {
+  style: Style;
   fullScreen?: boolean;
 };
 
@@ -52,6 +53,7 @@ export const EmbedArc: React.FC<EmbedArcProps> = ({
   setArcRadiusY,
   setArcStartPoint,
   setArcEndPoint,
+  style,
   fullScreen,
 }) => {
   const ArcAlternative: React.FC<{
@@ -108,12 +110,12 @@ export const EmbedArc: React.FC<EmbedArcProps> = ({
           sweepFlag={!sweepFlag}
         />
         <path
-          className="presentation"
           d={`
               M ${x1} ${y1}
               A ${rx} ${ry} ${degree}
               ${+largeArcFlag} ${+sweepFlag},
               ${x2} ${y2}`}
+          {...style}
         />
         <DragRotation
           id="control-rotation"

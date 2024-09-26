@@ -14,6 +14,7 @@ interface LineProps {
 
 export const LineWithoutProvider: React.FC<LineProps> = ({ fullScreen }) => {
   const state = useSelector((state: RootState) => state.line);
+  const style = useSelector((state: RootState) => state.style);
   const dispatch = useDispatch();
 
   const setLineCoordinate1 = (delta: Delta) => dispatch(setCoordinate1(delta));
@@ -24,6 +25,7 @@ export const LineWithoutProvider: React.FC<LineProps> = ({ fullScreen }) => {
       {...state}
       setLineCoordinate1={setLineCoordinate1}
       setLineCoordinate2={setLineCoordinate2}
+      style={style}
       fullScreen={fullScreen}
     />
   );
