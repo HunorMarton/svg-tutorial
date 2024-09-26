@@ -1,71 +1,17 @@
 ---
-import Head from "./Head.astro";
-import Header from "../svg-curves/components/Header.astro";
 import HideIcon from "../components/common/HideIcon.astro";
 import ShowIcon from "../components/common/ShowIcon.astro";
-import "./SVGCurves.css";
-
-export interface Props {
-  lesson: string;
-}
-
-const { lesson } = Astro.props as Props;
-
-const headerItems = [{title: 'Line', link: '/editor/line'}, { title: 'Circle', link: '/editor/circle'}, { title: 'Rectangle', link: '/editor/rect'}];
 ---
 
-<!doctype html>
-<html lang="en">
-  <Head
-    title="SVG Elements - SVG Tutorial"
-    description="Interactive SVG tutorial for basic shapes"
-    image={"https://svg-tutorial.com/image.png"}
-  />
-  <body>
-    <Header items={headerItems} lesson={lesson} />
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class="editor-container">
-      <slot />
-      <div class="description-container">
-        <div class="description">
-          <HideIcon />
-          <slot name="description" />
-        </div>
-      </div>
-      <ShowIcon bottom={210} right={40}/>
-      </div>  
+<div class="description-container">
+    <div class="description">
+        <HideIcon />
+        <slot />
     </div>
-  </body>
-</html>
+</div>
+<ShowIcon bottom={210} right={40}/>
 
 <style>
-  @import url("https://fonts.googleapis.com/css?family=Roboto");
-
-  html {
-    font-family: "Roboto", sans-serif;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: var(--background-color);
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  .editor-container {
-    display: flex;
-    flex-direction: row;
-    overflow-y: hidden;
-    height: 100%;
-  }
-
   .description-container {
     display: flex;
     position: relative;
@@ -87,6 +33,7 @@ const headerItems = [{title: 'Line', link: '/editor/line'}, { title: 'Circle', l
   }
   
   .description {
+    box-sizing: border-box;
     width: 360px;
     padding: 30px 30px 50px 30px;
     overflow-y: auto;

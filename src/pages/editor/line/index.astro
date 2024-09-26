@@ -1,10 +1,10 @@
 ---
-import Layout from "../../../layouts/SVGElements.astro";
+import Layout from "../../../layouts/Editor.astro";
 import { Line } from "../../../svg-curves/connected/Line";
 import { Content } from "./_Description.mdx";
 ---
 
-<Layout lesson="/svg/gingerbread-figure">
+<Layout title="Line Element" lesson="/svg/gingerbread-figure">
   <Line client:only="react" fullScreen={true} />
   <Content slot="description" />
 </Layout>
