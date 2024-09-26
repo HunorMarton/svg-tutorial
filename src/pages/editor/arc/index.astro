@@ -1,8 +1,10 @@
 ---
-import Layout from "../../../layouts/PathSegments.astro";
+import Layout from "../../../layouts/Editor.astro";
 import { Arc } from "../../../svg-curves/connected/Arc";
+import { Content } from "./_Description.mdx";
 ---
 
-<Layout lesson="/svg/arc">
+<Layout title="Arc" lesson="/svg/arc" links={[{title: 'Arc', link: '/editor/arc'}, { title: 'Cubic Bézier', link: '/editor/cubic-bezier'}, { title: 'Quadratic Bézier', link: '/editor/quadratic-bezier'}]}>
   <Arc client:only="react" fullScreen={true} />
+  <Content slot="description" />
 </Layout>

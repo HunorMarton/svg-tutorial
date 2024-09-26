@@ -1,3 +1,4 @@
+export type Point = { x: number; y: number };
 export type Delta = { dx: number; dy: number };
 export type Size = { width: number; height: number };
 

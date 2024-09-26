@@ -7,11 +7,10 @@ import "./SVGCurves.css";
 export interface Props {
   title: string;
   lesson: string;
+  links: { title: string; link: string }[];
 }
 
-const { title, lesson } = Astro.props as Props;
-
-const headerItems = [{title: 'Line', link: '/editor/line'}, { title: 'Circle', link: '/editor/circle'}, { title: 'Rectangle', link: '/editor/rect'}];
+const { title, lesson, links } = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -22,7 +21,7 @@ const headerItems = [{title: 'Line', link: '/editor/line'}, { title: 'Circle', l
     image={"https://svg-tutorial.com/image.png"}
   />
   <body>
-    <Header items={headerItems} lesson={lesson} />
+    <Header items={links} lesson={lesson} />
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="editor-container">
       <slot />

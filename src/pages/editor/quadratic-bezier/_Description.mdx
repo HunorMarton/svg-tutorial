@@ -1,0 +1,79 @@
+import Path from "../../../components/editor/Path.astro";
+import { Input } from "../../../svg-curves/connected/Input";
+import { Content as Styling } from "../../../components/editor/Styling.mdx";
+
+## Quadratic Bézier Curve
+
+A quadratic Bézier curve is a simple curve that bends towards a point. In SVG we can use the `<path>` element with the `Q` command to draw a curve.
+
+### Moving to the starting point
+
+Like most path segments, the quadratic Bézier curve command continues the previous segment. In this example we use the `M` command to move to the starting point and from there we start the curve.
+
+<Path title="M">
+  <li>
+    <div>
+      <Input
+        client:only="react"
+        feature="quadraticBezier"
+        property="x0"
+        type="number"
+      />
+      <Input
+        client:only="react"
+        feature="quadraticBezier"
+        property="y0"
+        type="number"
+      />
+    </div>
+  </li>
+</Path>
+
+### Drawing a Quadratic Bézier Curve
+
+The `Q` command requires a control point and an end point.
+
+<Path title="Q">
+<li>
+<div>
+  <Input
+    client:only="react"
+    feature="quadraticBezier"
+    property="x1"
+    type="number"
+  />
+  <Input
+    client:only="react"
+    feature="quadraticBezier"
+    property="y1"
+    type="number"
+  />
+  </div>
+
+First we set the control point. The curve bends towards this point.
+
+</li>
+
+<li>
+<div>
+  <Input
+    client:only="react"
+    feature="quadraticBezier"
+    property="x"
+    type="number"
+  />
+  <Input
+    client:only="react"
+    feature="quadraticBezier"
+    property="y"
+    type="number"
+  />
+</div>
+
+Then we set the end point. This is where the curve ends.
+
+</li>
+
+</Path>
+
+<Styling />

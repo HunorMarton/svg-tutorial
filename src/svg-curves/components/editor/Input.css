@@ -40,3 +40,8 @@
     background-color: #f0f0f0;
   }
 }
+
+.editor-input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}

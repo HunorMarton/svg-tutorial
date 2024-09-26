@@ -1,0 +1,89 @@
+import Path from "../../../components/editor/Path.astro";
+import { Input } from "../../../svg-curves/connected/Input";
+import { Content as Styling } from "../../../components/editor/Styling.mdx";
+
+## Cubic Bézier Curve
+
+A cubic Bézier curve is a complex curve that bends towards two points. In SVG we can use the `<path>` element with the `C` command to draw a curve.
+
+### Moving to the starting point
+
+Like most path segments, the cubic Bézier curve command continues the previous segment. In this example we use the `M` command to move to the starting point and from there we start the curve.
+
+<Path title="M">
+  <li>
+    <div>
+      <Input
+        client:only="react"
+        feature="cubicBezier"
+        property="x0"
+        type="number"
+      />
+      <Input
+        client:only="react"
+        feature="cubicBezier"
+        property="y0"
+        type="number"
+      />
+    </div>
+  </li>
+</Path>
+
+### Drawing a Cubic Bézier Curve
+
+The `C` command requiers two control points and an end point.
+
+<Path title="C">
+<li>
+<div>
+  <Input
+    client:only="react"
+    feature="cubicBezier"
+    property="x1"
+    type="number"
+  />
+  <Input
+    client:only="react"
+    feature="cubicBezier"
+    property="y1"
+    type="number"
+  />
+  </div>
+
+The first control point defines the curve’s initial direction.
+
+</li>
+
+<li>
+<div>
+  <Input
+    client:only="react"
+    feature="cubicBezier"
+    property="x2"
+    type="number"
+  />
+  <Input
+    client:only="react"
+    feature="cubicBezier"
+    property="y2"
+    type="number"
+  />
+</div>
+
+Then the second control point sets from which direction should the curve reach its endpoint.
+
+</li>
+
+<li>
+  <div>
+    <Input client:only="react" feature="cubicBezier" property="x" type="number" />
+    <Input client:only="react" feature="cubicBezier" property="y" type="number" />
+  </div>
+
+Finally, we set the endpoint of the curve.
+
+</li>
+
+</Path>
+
+<Styling />

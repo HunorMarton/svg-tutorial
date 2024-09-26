@@ -1,0 +1,59 @@
+---
+export interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<div class="segment-container">
+  <label>{title}</label>
+  <ol>
+    <slot />
+  </ol>
+</div>
+
+<style is:global>
+  .segment-container {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    align-items: start;
+
+    label {
+      font-weight: bold;
+      line-height: 57.5px;
+    }
+
+    ol {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      border: 1px solid transparent;
+      
+      &:hover {
+        border-color: #ccc;
+      }
+
+      padding: 10px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      & > div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+</style>
+

@@ -1,0 +1,91 @@
+import Path from "../../../components/editor/Path.astro";
+import { Input } from "../../../svg-curves/connected/Input";
+import { Content as Styling } from "../../../components/editor/Styling.mdx";
+
+## Arc
+
+An arc is a segment of a circle or ellipse. In SVG we can use the `<path>` element with the `A` command to draw an arc.
+
+### Moving to the starting point
+
+Like most path segments, the arc command continues the previous segment. In this example we use the `M` command to move to the starting point and from there we start the curve.
+
+<Path title="M">
+  <li>
+    <div>
+      <Input client:only="react" feature="arc" property="x1" type="number" />
+      <Input client:only="react" feature="arc" property="y1" type="number" />
+    </div>
+  </li>
+</Path>
+
+### Drawing an Arc
+
+The `A` command is a complex one.
+
+<Path title="A">
+<li>
+  <Input
+    client:only="react"
+    feature="arc"
+    property="rx"
+    type="range"
+    max={200}
+  />
+
+<Input client:only="react" feature="arc" property="ry" type="range" max={200} />
+
+First we set the horizontal and vertical `radii` of the arc. If these are equal, the arc is on a circle. If they are different, we get an elliptical arc.
+
+</li>
+
+<li>
+  <Input
+    client:only="react"
+    feature="arc"
+    property="degree"
+    type="range"
+    max={360}
+  />
+
+Then we set a `rotation`. This value only has an effect if the previous two values are different. This is the angle of the x-axis of the ellipse relative to the x-axis of the SVG canvas.
+
+</li>
+
+<li>
+  <Input
+    client:only="react"
+    feature="arc"
+    property="largeArcFlag"
+    type="checkbox"
+  />
+
+Then the `large arc flag` determines if the arc is reaching the end point the short way or the long way.
+
+</li>
+
+<li>
+  <Input
+    client:only="react"
+    feature="arc"
+    property="sweepFlag"
+    type="checkbox"
+  />
+
+The `sweep flag` flag determines if the arc is drawn in a clockwise or counterclockwise direction.
+
+</li>
+
+<li>
+  <div>
+    <Input client:only="react" feature="arc" property="x2" type="number" />
+    <Input client:only="react" feature="arc" property="y2" type="number" />
+  </div>
+
+Finally, we set the `end point` coordinate. This is where the arc ends.
+
+</li>
+
+</Path>
+
+<Styling />
