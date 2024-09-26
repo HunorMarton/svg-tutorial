@@ -1,0 +1,52 @@
+---
+export interface Props {
+  bottom?: number;
+  left?: number;
+  right?: number;
+  color?: string;
+  background?: string;
+  border?: number;
+}
+
+const { bottom, left, right, color, background, border } = Astro.props as Props;
+---
+
+<div class="show">
+    <input type="radio" id="show" name="visibility-toggle" hidden />
+    {/* Name has to match the radio name in HideIcon */}
+    <label for="show">
+        <svg width="20" height="20">
+            <path
+            d="M 5 12.5 L 10 7.5 L 15 12.5"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"></path>
+        </svg>
+    </label>
+</div>
+
+
+<style define:vars={{ bottom, left, right, color, background, border }}>
+.show {
+    display: none; /* Displayed by parent */
+    position: fixed;
+    bottom: calc(var(--bottom, auto) * 1px);
+    right: calc(var(--right, auto) * 1px);
+    left: calc(var(--left, auto) * 1px);
+}
+
+label {
+    border: calc(var(--border, 0) * 1px) solid black;
+    box-sizing: border-box;
+    background-color: var(--background, var(--draggable-color));
+    color: var(--color, var(--helper-color));
+    border-radius: 50%;
+
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+</style>

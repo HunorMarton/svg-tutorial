@@ -1,6 +1,8 @@
 ---
 import Head from "./Head.astro";
 import Header from "../svg-curves/components/Header.astro";
+import HideIcon from "../components/common/HideIcon.astro";
+import ShowIcon from "../components/common/ShowIcon.astro";
 import "./SVGCurves.css";
 
 export interface Props {
@@ -26,9 +28,12 @@ const headerItems = [{title: 'Line', link: '/line'}, { title: 'Circle', link: '/
       <slot />
       <div class="description-container">
         <div class="description">
+          <HideIcon />
           <slot name="description" />
         </div>
       </div>
+      <ShowIcon bottom={210} right={40}/>
+      </div>  
     </div>
   </body>
 </html>
@@ -89,6 +94,19 @@ const headerItems = [{title: 'Line', link: '/line'}, { title: 'Circle', link: '/
     margin: 20px 30px 50px 0;
     background-color: white;
     border: 1px solid #ccc;
+    position: relative;
+  }
+</style>
+
+<style is:global>
+  body:has(.description-container input[name="visibility-toggle"]:checked) {
+    .description-container {
+      display: none;
+    }
+
+    .show {
+      display: flex;
+    }
   }
 </style>
 
