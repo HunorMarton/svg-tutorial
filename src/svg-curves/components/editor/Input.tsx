@@ -101,13 +101,24 @@ export const Input: React.FC<Props> = ({
       </div>
     );
   }
-  if (typeof value === "boolean") throw Error("Text input must be a string");
-  return (
-    <input
-      className={`editor-input ${long ? "long" : ""}`}
-      type={type}
-      value={value}
-      onChange={onChange}
-    />
-  );
+  if (type === "number" || type === "text") {
+    if (typeof value === "boolean") throw Error("Text input must be a string");
+
+    const [localValue, setLocalValue] = React.useState(value);
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setLocalValue(event.target.value);
+      onChange(event);
+    };
+
+    return (
+      <input
+        className={`editor-input ${long ? "long" : ""}`}
+        type={type}
+        value={localValue}
+        onChange={handleChange}
+      />
+    );
+  }
+  throw Error("Invalid input type");
 };

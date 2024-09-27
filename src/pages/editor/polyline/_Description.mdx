@@ -1,0 +1,24 @@
+import InputWrapper from "../../../components/editor/Input.astro";
+import Pair from "../../../components/editor/Pair.astro";
+import { Input } from "../../../svg-curves/connected/Input";
+import { Content as Styling } from "../../../components/editor/Styling.mdx";
+
+## Polyline
+
+The `polyline` element is a basic SVG shape that connects multuple points with straight lines.
+
+### Points
+
+A list of coordinate points. You can separate the coordinates or the x and y values with commas and spaces. The follwing are the same: `10,10 20,20`, `10 10, 20 20`, `10 10 20 20`, `10, 10, 20, 20`.
+
+<InputWrapper>
+  <Input
+    client:only="react"
+    feature="polyline"
+    property="points"
+    type="text"
+    long={true}
+  />
+</InputWrapper>
+
+<Styling />

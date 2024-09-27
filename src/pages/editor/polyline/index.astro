@@ -1,0 +1,11 @@
+---
+import Layout from "../../../layouts/Editor.astro";
+import { svgElements } from "../../../layouts/EditorHeaderItems";
+import { Polyline } from "../../../svg-curves/connected/Polyline";
+import { Content } from "./_Description.mdx";
+---
+
+<Layout title="Polyline Element" lesson="/svg/house" links={svgElements}>
+  <Polyline client:only="react" fullScreen={true} />
+  <Content slot="description" />
+</Layout>

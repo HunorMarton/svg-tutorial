@@ -22,6 +22,14 @@ export type Rect = {
   height: number;
 };
 
+export type Polyline = {
+  points: Point[];
+};
+
+export type Polygon = {
+  points: Point[];
+};
+
 export type Text = {
   x: number;
   y: number;
@@ -107,6 +115,14 @@ export type Selector =
       property: keyof Rect;
     }
   | {
+      feature: "polyline";
+      property: keyof Polyline;
+    }
+  | {
+      feature: "polygon";
+      property: keyof Polygon;
+    }
+  | {
       feature: "text";
       property: keyof Text;
     }
@@ -143,6 +159,14 @@ export type Generic =
   | {
       feature: "rect";
       values: Partial<Rect>;
+    }
+  | {
+      feature: "polyline";
+      values: Partial<Polyline>;
+    }
+  | {
+      feature: "polygon";
+      values: Partial<Polygon>;
     }
   | {
       feature: "text";

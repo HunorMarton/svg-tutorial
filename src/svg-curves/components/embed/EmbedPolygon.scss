@@ -1,0 +1,23 @@
+@import "highlightUtility";
+
+@include highlight-code("Polygon", "0", ("0"));
+@include highlight-code("Polygon", "1", ("1"));
+@include highlight-code("Polygon", "2", ("2"));
+@include highlight-code("Polygon", "3", ("3"));
+@include highlight-code("Polygon", "4", ("4"));
+@include highlight-code("Polygon", "5", ("5"));
+@include highlight-code("Polygon", "6", ("6"));
+@include highlight-code("Polygon", "7", ("7"));
+@include highlight-code("Polygon", "8", ("8"));
+@include highlight-code("Polygon", "9", ("9"));
+
+@include highlight-control("Polygon", "0", "0", true);
+@include highlight-control("Polygon", "1", "1", true);
+@include highlight-control("Polygon", "2", "2", true);
+@include highlight-control("Polygon", "3", "3", true);
+@include highlight-control("Polygon", "4", "4", true);
+@include highlight-control("Polygon", "5", "5", true);
+@include highlight-control("Polygon", "6", "6", true);
+@include highlight-control("Polygon", "7", "7", true);
+@include highlight-control("Polygon", "8", "8", true);
+@include highlight-control("Polygon", "9", "9", true);

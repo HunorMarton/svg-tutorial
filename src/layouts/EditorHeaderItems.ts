@@ -2,6 +2,8 @@ export const svgElements = [
   { title: "Line", link: "/editor/line" },
   { title: "Circle", link: "/editor/circle" },
   { title: "Rectangle", link: "/editor/rect" },
+  { title: "Polyline", link: "/editor/polyline" },
+  { title: "Polygon", link: "/editor/polygon" },
   { title: "Text", link: "/editor/text" },
 ];
 

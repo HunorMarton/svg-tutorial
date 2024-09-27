@@ -12,6 +12,7 @@ import {
   setEndPointByCoord,
 } from "../state/features/arc.ts";
 import { type Selector } from "../utils/types.ts";
+import { parsePoints } from "../utils/pointsUtil.ts";
 import { Input as UnconnectedInput } from "../components/editor/Input.tsx";
 
 type Props = Selector & {
@@ -41,6 +42,12 @@ function getValue2({ feature, property }: Selector) {
   if (feature === "cubicBezier") return getValue(feature, property);
   if (feature === "quadraticBezier") return getValue(feature, property);
   if (feature === "text") return getValue(feature, property);
+  if (feature === "polygon" || feature === "polyline") {
+    const value = getValue(feature, property);
+
+    // Special formatting for polygon and polyline points
+    return value.map(({ x, y }) => `${x},${y}`).join(" ");
+  }
   throw Error(`Unknown feature: ${feature}`);
 }
 
@@ -53,16 +60,21 @@ export const InputWithoutProvider: React.FC<Props> = (props) => {
 
   const dispatch = useDispatch();
 
+  const extractValueFromEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (props.type === "number" || props.type === "range") {
+      return Number(e.currentTarget.value);
+    }
+
+    if (props.type === "checkbox") {
+      if (e.currentTarget.type === "checkbox") return e.currentTarget.checked;
+      return e.currentTarget.value === "1";
+    }
+
+    return e.currentTarget.value;
+  };
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = {
-      number: Number(e.target.value),
-      range: Number(e.target.value),
-      text: e.target.value,
-      color: e.target.value,
-      radio: e.target.value,
-      checkbox:
-        e.target.type == "checkbox" ? e.target.checked : e.target.value === "1",
-    }[props.type];
+    const value = extractValueFromEvent(e);
 
     const { feature, property } = props;
 
@@ -106,6 +118,16 @@ export const InputWithoutProvider: React.FC<Props> = (props) => {
           throw Error("sweepFlag must be a boolean");
         return dispatch(setFlags({ sweepFlag: value }));
       }
+    }
+
+    // Special handling of polygon and polyline points
+    if (
+      (feature === "polygon" || feature === "polyline") &&
+      property === "points"
+    ) {
+      if (typeof value !== "string") throw Error("points must be a string");
+      const points = parsePoints(value);
+      return dispatch(set({ feature, values: { [property]: points } }));
     }
 
     dispatch(set({ feature, values: { [property]: value } }));

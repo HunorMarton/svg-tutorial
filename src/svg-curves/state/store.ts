@@ -4,10 +4,13 @@ import canvasReducer from "./features/canvas";
 import circleReducer from "./features/circle";
 import cubicBezierReducer from "./features/cubicBezier";
 import lineReducer from "./features/line";
+import polygonReducer from "./features/polygon";
+import polylineReducer from "./features/polyline";
 import rectReducer from "./features/rect";
 import styleReducer from "./features/style";
 import quadraticBezierReducer from "./features/quadraticBezier";
 import textReducer from "./features/text";
+import polyline from "./features/polyline";
 
 export const store = configureStore({
   reducer: {
@@ -17,6 +20,8 @@ export const store = configureStore({
     cubicBezier: cubicBezierReducer,
     line: lineReducer,
     quadraticBezier: quadraticBezierReducer,
+    polygon: polygonReducer,
+    polyline: polylineReducer,
     rect: rectReducer,
     style: styleReducer,
     text: textReducer,
