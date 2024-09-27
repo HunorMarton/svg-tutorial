@@ -10,7 +10,6 @@ import rectReducer from "./features/rect";
 import styleReducer from "./features/style";
 import quadraticBezierReducer from "./features/quadraticBezier";
 import textReducer from "./features/text";
-import polyline from "./features/polyline";
 
 export const store = configureStore({
   reducer: {
