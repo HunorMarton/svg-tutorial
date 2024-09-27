@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Attribute } from "./CodeAttribute.tsx";
-import { type Style } from "../utils/types";
+import { type Style } from "../../utils/types.ts";
 
 export const CodeStyle: React.FC<Style> = ({
   stroke,

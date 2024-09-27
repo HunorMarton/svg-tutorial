@@ -1,13 +1,13 @@
 import * as React from "react";
-import { type Rect, type Delta, type Style } from "../utils/types";
-import { round } from "../utils/round";
+import { type Rect, type Delta, type Style } from "../../utils/types.ts";
+import { round } from "../../utils/round.ts";
 import { Embed } from "./Embed";
-import { Canvas } from "../connected/Canvas";
-import { Code } from "../connected/Code";
-import { Element } from "./CodeElement.tsx";
-import { Attribute } from "./CodeAttribute.tsx";
-import { DragMove } from "./DragMove";
-import { DragDistance } from "./DragDistance";
+import { Canvas } from "../../connected/Canvas.tsx";
+import { Code } from "../../connected/Code.tsx";
+import { Element } from "../code/CodeElement.tsx";
+import { Attribute } from "../code/CodeAttribute.tsx";
+import { DragMove } from "../canvas/DragMove.tsx";
+import { DragDistance } from "../canvas/DragDistance.tsx";
 import "./EmbedRect.scss";
 
 type EmbedRectProps = Rect & {

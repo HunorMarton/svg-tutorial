@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { EmbedArc as UnconnectedEmbedArc } from "../components/EmbedArc.tsx";
+import { EmbedArc as UnconnectedEmbedArc } from "../components/embed/EmbedArc.tsx";
 import { type Delta } from "../utils/types.ts";
 
 import { store } from "../state/store";

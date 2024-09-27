@@ -1,5 +1,5 @@
 import React from "react";
-import { EmbedCircle as UnconnectedEmbedCircle } from "../components/EmbedCircle.tsx";
+import { EmbedCircle as UnconnectedEmbedCircle } from "../components/embed/EmbedCircle.tsx";
 import { type Delta } from "../utils/types.ts";
 
 import { store } from "../state/store";

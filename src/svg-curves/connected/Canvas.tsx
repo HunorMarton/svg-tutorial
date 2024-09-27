@@ -1,6 +1,6 @@
 import React, { type ReactNode, useCallback } from "react";
 import { type Size } from "../utils/types";
-import { Canvas as UnconnectedCanvas } from "../components/Canvas.tsx";
+import { Canvas as UnconnectedCanvas } from "../components/canvas/Canvas.tsx";
 
 import type { RootState } from "../state/store";
 import { useSelector, useDispatch } from "react-redux";

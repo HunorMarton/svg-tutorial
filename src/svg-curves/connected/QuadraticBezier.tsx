@@ -1,5 +1,5 @@
 import React from "react";
-import { EmbedQuadraticBezier as UnconnectedEmbedQuadraticBezier } from "../components/EmbedQuadraticBezier.tsx";
+import { EmbedQuadraticBezier as UnconnectedEmbedQuadraticBezier } from "../components/embed/EmbedQuadraticBezier.tsx";
 import { type Delta } from "../utils/types.ts";
 
 import { store } from "../state/store";

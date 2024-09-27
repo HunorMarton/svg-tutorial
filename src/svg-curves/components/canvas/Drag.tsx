@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { merge, fromEvent } from "rxjs";
 import { map, filter, switchMap, takeUntil, pairwise } from "rxjs/operators";
-import { type Delta } from "../utils/types";
-import { round } from "../utils/round";
+import { type Delta } from "../../utils/types";
+import { round } from "../../utils/round";
 import "./Drag.css";
 
 interface DragProps {

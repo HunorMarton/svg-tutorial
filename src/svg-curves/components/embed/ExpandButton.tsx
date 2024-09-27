@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowHead } from "./ArrowHead";
+import { ArrowHead } from "../canvas/ArrowHead";
 import "./ExpandButton.css";
 
 const size = 30;

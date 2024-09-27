@@ -1,11 +1,11 @@
 import * as React from "react";
 import { Tag } from "./CodeTag.tsx";
-import { CodeStyle } from "../connected/Style.tsx";
+import { CodeStyle } from "../../connected/Style.tsx";
 import "./Code.css";
 
 interface ElementProps {
   element: string;
-  content?: string;
+  content?: string; // The <text> element is not self closing but has the text itself as a child
   children: React.ReactNode;
 }
 

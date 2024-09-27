@@ -1,7 +1,7 @@
 import * as React from "react";
-import { CROSS_SIZE, ARROW_HEAD } from "../constants/dragSize";
-import { type Delta } from "../utils/types";
-import { Drag } from "../connected/Drag";
+import { CROSS_SIZE, ARROW_HEAD } from "../../constants/dragSize";
+import { type Delta } from "../../utils/types";
+import { Drag } from "../../connected/Drag";
 import { ArrowHead } from "./ArrowHead";
 
 interface DragMoveProps {

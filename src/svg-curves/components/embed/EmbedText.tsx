@@ -1,12 +1,12 @@
 import * as React from "react";
-import { type Text, type Delta, type Style } from "../utils/types";
-import { round } from "../utils/round";
+import { type Text, type Delta, type Style } from "../../utils/types.ts";
+import { round } from "../../utils/round.ts";
 import { Embed } from "./Embed";
-import { Canvas } from "../connected/Canvas";
-import { Code } from "../connected/Code";
-import { Element } from "./CodeElement.tsx";
-import { Attribute } from "./CodeAttribute.tsx";
-import { DragMove } from "./DragMove";
+import { Canvas } from "../../connected/Canvas.tsx";
+import { Code } from "../../connected/Code.tsx";
+import { Element } from "../code/CodeElement.tsx";
+import { Attribute } from "../code/CodeAttribute.tsx";
+import { DragMove } from "../canvas/DragMove.tsx";
 import "./EmbedText.scss";
 
 type EmbedTextProps = Text & {

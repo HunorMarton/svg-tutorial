@@ -1,5 +1,5 @@
 import React from "react";
-import { EmbedRect as UnconnectedEmbedRect } from "../components/EmbedRect.tsx";
+import { EmbedRect as UnconnectedEmbedRect } from "../components/embed/EmbedRect.tsx";
 import { type Delta } from "../utils/types.ts";
 
 import { store } from "../state/store";

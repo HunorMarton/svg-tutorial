@@ -1,5 +1,5 @@
 import React, { type ReactNode } from "react";
-import { Code as UnconnectedCode } from "../components/Code.tsx";
+import { Code as UnconnectedCode } from "../components/code/Code.tsx";
 
 import type { RootState } from "../state/store";
 import { useSelector } from "react-redux";

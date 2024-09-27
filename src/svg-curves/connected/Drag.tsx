@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "../state/store";
 import { type Delta } from "../utils/types";
-import { Drag as UnconnectedDrag } from "../components/Drag.tsx";
+import { Drag as UnconnectedDrag } from "../components/canvas/Drag.tsx";
 
 interface DragProps {
   id?: string;

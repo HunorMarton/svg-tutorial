@@ -1,12 +1,12 @@
 import * as React from "react";
-import { type CubicBezier, type Delta, type Style } from "../utils/types";
-import { round } from "../utils/round";
+import { type CubicBezier, type Delta, type Style } from "../../utils/types";
+import { round } from "../../utils/round";
 import { Embed } from "./Embed";
-import { Canvas } from "../connected/Canvas";
-import { Code } from "../connected/Code";
-import { Path } from "./CodePath";
-import { ValueSegment } from "./CodeAttributeValueSegment";
-import { DragMove } from "./DragMove";
+import { Canvas } from "../../connected/Canvas";
+import { Code } from "../../connected/Code";
+import { Path } from "../code/CodePath";
+import { ValueSegment } from "../code/CodeAttributeValueSegment";
+import { DragMove } from "../canvas/DragMove";
 import "./EmbedCubicBezier.scss";
 
 type EmbedCubicBezierProps = CubicBezier & {

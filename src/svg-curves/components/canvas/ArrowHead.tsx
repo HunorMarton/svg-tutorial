@@ -1,5 +1,5 @@
 import React from "react";
-import { ARROW_HEAD } from "../constants/dragSize";
+import { ARROW_HEAD } from "../../constants/dragSize";
 
 interface ArrowHeadProps {
   x: number;

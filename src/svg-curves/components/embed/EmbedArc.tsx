@@ -1,14 +1,14 @@
 import * as React from "react";
-import { type Arc, type Delta, type Style } from "../utils/types";
-import { round } from "../utils/round";
+import { type Arc, type Delta, type Style } from "../../utils/types";
+import { round } from "../../utils/round";
 import { Embed } from "./Embed";
-import { Canvas } from "../connected/Canvas";
-import { Code } from "../connected/Code";
-import { Path } from "./CodePath";
-import { ValueSegment } from "./CodeAttributeValueSegment";
-import { DragMove } from "./DragMove";
-import { DragDistance } from "./DragDistance";
-import { DragRotation } from "./DragRotation";
+import { Canvas } from "../../connected/Canvas";
+import { Code } from "../../connected/Code";
+import { Path } from "../code/CodePath";
+import { ValueSegment } from "../code/CodeAttributeValueSegment";
+import { DragMove } from "../canvas/DragMove";
+import { DragDistance } from "../canvas/DragDistance";
+import { DragRotation } from "../canvas/DragRotation";
 import "./EmbedArc.scss";
 
 type EmbedArcProps = Arc & {

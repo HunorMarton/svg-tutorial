@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as viewBox from "../constants/viewBoxSize";
+import * as viewBox from "../../constants/viewBoxSize.ts";
 import { Tag } from "./CodeTag.tsx";
 import { Attribute } from "./CodeAttribute.tsx";
 import "./Code.css";

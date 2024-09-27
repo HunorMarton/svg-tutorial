@@ -1,5 +1,5 @@
 import React from "react";
-import { EmbedText as UnconnectedEmbedText } from "../components/EmbedText.tsx";
+import { EmbedText as UnconnectedEmbedText } from "../components/embed/EmbedText.tsx";
 import { type Delta } from "../utils/types.ts";
 
 import { store } from "../state/store";

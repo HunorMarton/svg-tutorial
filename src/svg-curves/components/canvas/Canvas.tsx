@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import { type Size } from "../utils/types";
-import * as viewBox from "../constants/viewBoxSize";
+import { type Size } from "../../utils/types";
+import * as viewBox from "../../constants/viewBoxSize";
 import "./Canvas.css";
 
 interface CanvasProps {
