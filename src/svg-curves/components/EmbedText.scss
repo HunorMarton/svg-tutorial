@@ -1,0 +1,7 @@
+@import "highlightUtility";
+
+
+@include highlight-code("Text", "coordinate", (("x", "left"), ("y", "right")));
+
+@include highlight-control("Text", "x", "coordinate", true);
+@include highlight-control("Text", "y", "coordinate", true);

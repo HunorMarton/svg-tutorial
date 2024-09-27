@@ -18,6 +18,7 @@ type Props = Selector & {
   type: "text" | "number" | "color" | "range" | "radio" | "checkbox";
   options?: string[]; // Used for radio inputs
   max?: number; // Used for range inputs
+  long?: boolean; // Used for text inputs
 };
 
 function getValue<K extends keyof RootState>(
@@ -39,11 +40,15 @@ function getValue2({ feature, property }: Selector) {
   if (feature === "arc") return getValue(feature, property);
   if (feature === "cubicBezier") return getValue(feature, property);
   if (feature === "quadraticBezier") return getValue(feature, property);
+  if (feature === "text") return getValue(feature, property);
+  throw Error(`Unknown feature: ${feature}`);
 }
 
 export const InputWithoutProvider: React.FC<Props> = (props) => {
   let value = getValue2(props);
-  if (typeof value == "undefined") throw Error("Value is undefined");
+  if (typeof value == "undefined") {
+    throw Error(`Value ${props.feature}/${props.property} is undefined`);
+  }
   if (typeof value == "number") value = Math.round(value);
 
   const dispatch = useDispatch();
@@ -60,8 +65,6 @@ export const InputWithoutProvider: React.FC<Props> = (props) => {
     }[props.type];
 
     const { feature, property } = props;
-
-    console.log("change", feature, property, value);
 
     // Special handling for arc because of the many side effects of setting a property
     if (feature === "arc") {

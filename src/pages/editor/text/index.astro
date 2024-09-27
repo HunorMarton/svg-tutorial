@@ -1,11 +1,11 @@
 ---
 import Layout from "../../../layouts/Editor.astro";
 import { svgElements } from "../../../layouts/EditorHeaderItems";
-import { Rect } from "../../../svg-curves/connected/Rect";
+import { Text } from "../../../svg-curves/connected/Text";
 import { Content } from "./_Description.mdx";
 ---
 
-<Layout title="Rectangle Element" lesson="/svg/basic-shapes" links={svgElements}>
-  <Rect client:only="react" fullScreen={true} />
+<Layout title="Text Element" lesson="/svg/text-path" links={svgElements}>
+  <Text client:only="react" fullScreen={true} />
   <Content slot="description" />
 </Layout>

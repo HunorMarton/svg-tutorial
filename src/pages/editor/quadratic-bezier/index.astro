@@ -1,10 +1,11 @@
 ---
 import Layout from "../../../layouts/Editor.astro";
+import { pathSegments } from "../../../layouts/EditorHeaderItems";
 import { QuadraticBezier } from "../../../svg-curves/connected/QuadraticBezier";
 import { Content } from "./_Description.mdx";
 ---
 
-<Layout title="Quadratic Bézier Curve" lesson="/svg/quadratic-bezier" links={[{title: 'Arc', link: '/editor/arc'}, { title: 'Cubic Bézier', link: '/editor/cubic-bezier'}, { title: 'Quadratic Bézier', link: '/editor/quadratic-bezier'}]}>
+<Layout title="Quadratic Bézier Curve" lesson="/svg/quadratic-bezier" links={pathSegments}>
   <QuadraticBezier client:only="react" fullScreen={true} />
   <Content slot="description" />
 </Layout>

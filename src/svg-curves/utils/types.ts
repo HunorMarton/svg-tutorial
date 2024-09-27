@@ -22,6 +22,15 @@ export type Rect = {
   height: number;
 };
 
+export type Text = {
+  x: number;
+  y: number;
+  text: string;
+  fontFamily: string;
+  fontSize: number;
+  textAnchor: "start" | "middle" | "end";
+};
+
 export type Arc = {
   x1: number;
   y1: number;
@@ -98,6 +107,10 @@ export type Selector =
       property: keyof Rect;
     }
   | {
+      feature: "text";
+      property: keyof Text;
+    }
+  | {
       feature: "arc";
       property: keyof Arc;
     }
@@ -130,6 +143,10 @@ export type Generic =
   | {
       feature: "rect";
       values: Partial<Rect>;
+    }
+  | {
+      feature: "text";
+      values: Partial<Text>;
     }
   | {
       feature: "arc";

@@ -9,6 +9,10 @@
   width: 50px;
 }
 
+.editor-input.long {
+  width: 250px;
+}
+
 .editor-input:not([type="range"]),
 .editor-radio {
   padding: 10px;

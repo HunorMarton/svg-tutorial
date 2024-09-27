@@ -5,6 +5,7 @@ type Props = {
   type: "text" | "number" | "color" | "range" | "radio" | "checkbox";
   options?: string[];
   max?: number;
+  long?: boolean;
   value: string | number | boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -13,6 +14,7 @@ export const Input: React.FC<Props> = ({
   type,
   options,
   max,
+  long,
   value,
   onChange,
 }) => {
@@ -102,7 +104,7 @@ export const Input: React.FC<Props> = ({
   if (typeof value === "boolean") throw Error("Text input must be a string");
   return (
     <input
-      className="editor-input"
+      className={`editor-input ${long ? "long" : ""}`}
       type={type}
       value={value}
       onChange={onChange}

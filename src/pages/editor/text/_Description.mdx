@@ -1,0 +1,79 @@
+import InputWrapper from "../../../components/editor/Input.astro";
+import Pair from "../../../components/editor/Pair.astro";
+import { Input } from "../../../svg-curves/connected/Input";
+import { Content as Styling } from "../../../components/editor/Styling.mdx";
+
+## Text
+
+The `text` element is used to display text on an SVG canvas.
+
+### Text
+
+<InputWrapper>
+  <Input
+    client:only="react"
+    feature="text"
+    property="text"
+    type="text"
+    long={true}
+  />
+</InputWrapper>
+
+### Position
+
+<Pair>
+    <InputWrapper title="x">
+        <Input client:only="react" feature="text" property="x" type="number" />
+    </InputWrapper>
+
+    <InputWrapper title="y">
+        <Input client:only="react" feature="text" property="y" type="number" />
+    </InputWrapper>
+
+</Pair>
+
+### Text Anchor
+
+Set how the text should align with its position.
+
+<InputWrapper>
+  <Input
+    client:only="react"
+    feature="text"
+    property="textAnchor"
+    type="radio"
+    options={["start", "middle", "end"]}
+  />
+</InputWrapper>
+
+## Font Style
+
+### Font Family
+
+The font family to use for the text.
+
+<InputWrapper>
+  <Input
+    client:only="react"
+    feature="text"
+    property="fontFamily"
+    type="text"
+    long={true}
+  />
+</InputWrapper>
+
+### Font Size
+
+The size of the text.
+
+<InputWrapper>
+  <Input
+    client:only="react"
+    feature="text"
+    property="fontSize"
+    type="range"
+    max={500}
+  />
+</InputWrapper>
+
+<Styling />
