@@ -1,4 +1,5 @@
 import React from "react";
+import { getColorHex } from "../../utils/colorUtil";
 import "./Input.css";
 
 type Props = {
@@ -83,13 +84,13 @@ export const Input: React.FC<Props> = ({
     );
   }
   if (type === "color") {
-    if (typeof value === "boolean") throw Error("Color input must be a string");
+    if (typeof value !== "string") throw Error("Color input must be a string");
     return (
       <div className="editor-input-container">
         <input
           className="editor-input"
           type={type}
-          value={value}
+          value={getColorHex(value)}
           onChange={onChange}
         />
         <input
