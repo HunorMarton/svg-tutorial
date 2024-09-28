@@ -1,0 +1,23 @@
+.canvas-corners {
+  stroke: var(--corner-color);
+  stroke-width: 2px;
+  stroke-linecap: square;
+
+  use:nth-of-type(1) {
+    transform: translate(-2px, -2px);
+  }
+
+  use:nth-of-type(2) {
+    transform: translate(calc(var(--mainViewBox) + 2px), -2px) rotate(90deg);
+  }
+  use:nth-of-type(3) {
+    transform: translate(
+        calc(var(--mainViewBox) + 2px),
+        calc(var(--mainViewBox) + 2px)
+      )
+      rotate(180deg);
+  }
+  use:nth-of-type(4) {
+    transform: translate(-2px, calc(var(--mainViewBox) + 2px)) rotate(270deg);
+  }
+}

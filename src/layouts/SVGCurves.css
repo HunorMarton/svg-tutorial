@@ -1,6 +1,7 @@
 :root {
   --background-color: #f6f7f9;
   --code-background-color: #24292e;
+  --mainViewBox: 450px;
   --code-height: 180px;
 
   --corner-color: #939495;

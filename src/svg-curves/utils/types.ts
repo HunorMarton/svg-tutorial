@@ -65,8 +65,8 @@ export type Canvas = {
   zoom: number;
   svgWidth: number;
   svgHeight: number;
-  viewBoxWidth: number;
-  viewBoxHeight: number;
+  viewBoxWidth: number | undefined;
+  viewBoxHeight: number | undefined;
 };
 
 export type CubicBezier = {

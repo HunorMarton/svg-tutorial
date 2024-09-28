@@ -6,10 +6,11 @@
   max-height: 100%;
 }
 
-.canvasCorners {
-  stroke: var(--corner-color);
-  stroke-width: 2px;
-  stroke-linecap: square;
+.canvas-main {
+  transform: translate(
+    calc((100% - var(--mainViewBox)) / 2),
+    calc((100% - var(--mainViewBox)) / 2)
+  );
 }
 
 .presentationHelper {

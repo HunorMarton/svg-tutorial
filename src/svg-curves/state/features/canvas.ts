@@ -7,8 +7,8 @@ const initialState: Canvas = {
   zoom: 1, // Changes if screen size goes below mainViewBox size
   svgWidth: viewBoxMin.WIDTH, // Shrinks if the screen size goes below mainViewBox size
   svgHeight: viewBoxMin.HEIGHT,
-  viewBoxWidth: viewBoxMin.WIDTH, // Grows if the screen size goes above mainViewBox size
-  viewBoxHeight: viewBoxMin.HEIGHT,
+  viewBoxWidth: undefined, // When the available space if more than 450px it is undefined and takes up the available space; otherwise stays 450px as a minimum (shrinking the content)
+  viewBoxHeight: undefined,
 };
 
 export const canvasSlice = createSlice({
@@ -32,14 +32,15 @@ export const canvasSlice = createSlice({
             : availableSize.height / viewBoxMin.HEIGHT;
         state.svgWidth = Math.min(availableSize.width, availableSize.height);
         state.svgHeight = Math.min(availableSize.width, availableSize.height);
+        state.viewBoxWidth = viewBoxMin.WIDTH;
+        state.viewBoxHeight = viewBoxMin.HEIGHT;
       } else {
         state.zoom = 1;
         state.svgWidth = viewBoxMin.WIDTH;
         state.svgHeight = viewBoxMin.HEIGHT;
+        state.viewBoxWidth = undefined;
+        state.viewBoxHeight = undefined;
       }
-
-      state.viewBoxWidth = Math.max(availableSize.width, viewBoxMin.WIDTH);
-      state.viewBoxHeight = Math.max(availableSize.height, viewBoxMin.HEIGHT);
     },
   },
 });
