@@ -23,10 +23,7 @@ const { title, lesson, links } = Astro.props as Props;
   <body>
     <Header items={links} lesson={lesson} />
     <div class="editor-container">
-      <div class="editor">
-        <noscript>You need to enable JavaScript to show the editor.</noscript>
-        <slot />
-      </div>
+      <slot />
       <EditorDescription>
         <slot name="description" />
       </EditorDescription>
@@ -67,12 +64,5 @@ const { title, lesson, links } = Astro.props as Props;
     right: 0;
     background-color: var(--code-background-color);
     z-index: -1;
-  }
-
-  .editor {
-    width: 100%; /* Take up the space before the editor is rendered to avoid glitch on editor load */
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 </style>

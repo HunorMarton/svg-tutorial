@@ -401,7 +401,7 @@ export const Page = () => (
 <SlideSmile />
 
 <Slide>
-  <QuadraticBezier client:only="react" fullScreen={true} />
+  <QuadraticBezier client:idle fullScreen={true} />
   <Note curve={true}>
     The quadratic bezier curve has one control point that defines how to bend
     the line. Drag the coordinates to see how the code changes.
@@ -409,7 +409,7 @@ export const Page = () => (
 </Slide>
 
 <Slide>
-  <CubicBezier client:only="react" fullScreen={true} />
+  <CubicBezier client:idle fullScreen={true} />
   <Note curve={true}>
     A cubic bezier curve has two control points, giving you much greater
     flexibility.
@@ -450,7 +450,7 @@ export const Page = () => (
 </SlideConnection>
 
 <Slide>
-  <Arc client:only="react" fullScreen={true} />
+  <Arc client:idle fullScreen={true} />
   <Note curve={true}>
     Arcs are one of the most complicated path segments. Click [here](/svg/arc)
     to read more about them.

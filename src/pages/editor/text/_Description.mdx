@@ -10,24 +10,18 @@ The `text` element is used to display text on an SVG canvas.
 ### Text
 
 <InputWrapper>
-  <Input
-    client:only="react"
-    feature="text"
-    property="text"
-    type="text"
-    long={true}
-  />
+  <Input client:idle feature="text" property="text" type="text" long={true} />
 </InputWrapper>
 
 ### Position
 
 <Pair>
     <InputWrapper title="x">
-        <Input client:only="react" feature="text" property="x" type="number" />
+        <Input client:idle feature="text" property="x" type="number" />
     </InputWrapper>
 
     <InputWrapper title="y">
-        <Input client:only="react" feature="text" property="y" type="number" />
+        <Input client:idle feature="text" property="y" type="number" />
     </InputWrapper>
 
 </Pair>
@@ -38,7 +32,7 @@ Set how the text should align with its position.
 
 <InputWrapper>
   <Input
-    client:only="react"
+    client:idle
     feature="text"
     property="textAnchor"
     type="radio"
@@ -54,7 +48,7 @@ The font family to use for the text.
 
 <InputWrapper>
   <Input
-    client:only="react"
+    client:idle
     feature="text"
     property="fontFamily"
     type="text"
@@ -68,7 +62,7 @@ The size of the text.
 
 <InputWrapper>
   <Input
-    client:only="react"
+    client:idle
     feature="text"
     property="fontSize"
     type="range"

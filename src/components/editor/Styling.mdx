@@ -9,7 +9,7 @@ import { Input } from "../../svg-curves/connected/Input";
 You can set any color value that is valid in CSS. This includes named colors, hex codes, the rgb function and more. Set it to `none` to hide.
 
 <InputWrapper>
-  <Input client:only="react" feature="style" property="stroke" type="color" />
+  <Input client:idle feature="style" property="stroke" type="color" />
 </InputWrapper>
 
 ### Stroke Width
@@ -17,12 +17,7 @@ You can set any color value that is valid in CSS. This includes named colors, he
 Set the thickness of the stroke. It can be set to any positive number.
 
 <InputWrapper>
-  <Input
-    client:only="react"
-    feature="style"
-    property="strokeWidth"
-    type="range"
-  />
+  <Input client:idle feature="style" property="strokeWidth" type="range" />
 </InputWrapper>
 
 ### Stroke Linecap
@@ -31,7 +26,7 @@ Set the shape to be used at the end of a line or open subpath.
 
 <InputWrapper>
   <Input
-    client:only="react"
+    client:idle
     feature="style"
     property="strokeLinecap"
     type="radio"
@@ -45,7 +40,7 @@ Set the shape to be used at the corners of paths and basic shapes when they are 
 
 <InputWrapper>
   <Input
-    client:only="react"
+    client:idle
     feature="style"
     property="strokeLinejoin"
     type="radio"
@@ -58,5 +53,5 @@ Set the shape to be used at the corners of paths and basic shapes when they are 
 You can set any color value that is valid in CSS. This includes named colors, hex codes, the rgb function and more. Set it to `none` to hide.
 
 <InputWrapper>
-  <Input client:only="react" feature="style" property="fill" type="color" />
+  <Input client:idle feature="style" property="fill" type="color" />
 </InputWrapper>

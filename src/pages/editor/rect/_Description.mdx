@@ -11,11 +11,11 @@ The `<rect>` element is a basic SVG shape that creates rectangles based on a pos
 
 <Pair>
     <InputWrapper title="x1">
-        <Input client:only="react" feature="rect" property="x" type="number" />
+        <Input client:idle feature="rect" property="x" type="number" />
     </InputWrapper>
 
     <InputWrapper title="y1">
-        <Input client:only="react" feature="rect" property="y" type="number" />
+        <Input client:idle feature="rect" property="y" type="number" />
     </InputWrapper>
 
 </Pair>
@@ -23,25 +23,13 @@ The `<rect>` element is a basic SVG shape that creates rectangles based on a pos
 ### Width
 
 <InputWrapper>
-  <Input
-    client:only="react"
-    feature="rect"
-    property="width"
-    type="range"
-    max={500}
-  />
+  <Input client:idle feature="rect" property="width" type="range" max={500} />
 </InputWrapper>
 
 ### Height
 
 <InputWrapper>
-  <Input
-    client:only="react"
-    feature="rect"
-    property="height"
-    type="range"
-    max={500}
-  />
+  <Input client:idle feature="rect" property="height" type="range" max={500} />
 </InputWrapper>
 
 <Styling />

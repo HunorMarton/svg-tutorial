@@ -13,18 +13,8 @@ Like most path segments, the cubic Bézier curve command continues the previous 
 <Path title="M">
   <li>
     <div>
-      <Input
-        client:only="react"
-        feature="cubicBezier"
-        property="x0"
-        type="number"
-      />
-      <Input
-        client:only="react"
-        feature="cubicBezier"
-        property="y0"
-        type="number"
-      />
+      <Input client:idle feature="cubicBezier" property="x0" type="number" />
+      <Input client:idle feature="cubicBezier" property="y0" type="number" />
     </div>
   </li>
 </Path>
@@ -37,13 +27,13 @@ The `C` command requiers two control points and an end point.
 <li>
 <div>
   <Input
-    client:only="react"
+    client:idle
     feature="cubicBezier"
     property="x1"
     type="number"
   />
   <Input
-    client:only="react"
+    client:idle
     feature="cubicBezier"
     property="y1"
     type="number"
@@ -57,13 +47,13 @@ The first control point defines the curve’s initial direction.
 <li>
 <div>
   <Input
-    client:only="react"
+    client:idle
     feature="cubicBezier"
     property="x2"
     type="number"
   />
   <Input
-    client:only="react"
+    client:idle
     feature="cubicBezier"
     property="y2"
     type="number"
@@ -76,8 +66,8 @@ Then the second control point sets from which direction should the curve reach i
 
 <li>
   <div>
-    <Input client:only="react" feature="cubicBezier" property="x" type="number" />
-    <Input client:only="react" feature="cubicBezier" property="y" type="number" />
+    <Input client:idle feature="cubicBezier" property="x" type="number" />
+    <Input client:idle feature="cubicBezier" property="y" type="number" />
   </div>
 
 Finally, we set the endpoint of the curve.

@@ -13,8 +13,8 @@ Like most path segments, the arc command continues the previous segment. In this
 <Path title="M">
   <li>
     <div>
-      <Input client:only="react" feature="arc" property="x1" type="number" />
-      <Input client:only="react" feature="arc" property="y1" type="number" />
+      <Input client:idle feature="arc" property="x1" type="number" />
+      <Input client:idle feature="arc" property="y1" type="number" />
     </div>
   </li>
 </Path>
@@ -26,14 +26,14 @@ The `A` command is a complex one.
 <Path title="A">
 <li>
   <Input
-    client:only="react"
+    client:idle
     feature="arc"
     property="rx"
     type="range"
     max={200}
   />
 
-<Input client:only="react" feature="arc" property="ry" type="range" max={200} />
+<Input client:idle feature="arc" property="ry" type="range" max={200} />
 
 First we set the horizontal and vertical `radii` of the arc. If these are equal, the arc is on a circle. If they are different, we get an elliptical arc.
 
@@ -41,7 +41,7 @@ First we set the horizontal and vertical `radii` of the arc. If these are equal,
 
 <li>
   <Input
-    client:only="react"
+    client:idle
     feature="arc"
     property="degree"
     type="range"
@@ -54,7 +54,7 @@ Then we set a `rotation`. This value only has an effect if the previous two valu
 
 <li>
   <Input
-    client:only="react"
+    client:idle
     feature="arc"
     property="largeArcFlag"
     type="checkbox"
@@ -66,7 +66,7 @@ Then the `large arc flag` determines if the arc is reaching the end point the sh
 
 <li>
   <Input
-    client:only="react"
+    client:idle
     feature="arc"
     property="sweepFlag"
     type="checkbox"
@@ -78,8 +78,8 @@ The `sweep flag` flag determines if the arc is drawn in a clockwise or countercl
 
 <li>
   <div>
-    <Input client:only="react" feature="arc" property="x2" type="number" />
-    <Input client:only="react" feature="arc" property="y2" type="number" />
+    <Input client:idle feature="arc" property="x2" type="number" />
+    <Input client:idle feature="arc" property="y2" type="number" />
   </div>
 
 Finally, we set the `end point` coordinate. This is where the arc ends.

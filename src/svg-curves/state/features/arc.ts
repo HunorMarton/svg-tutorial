@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { type Arc, type Point, type Delta } from "../../utils/types";
 import { resize } from "./canvas";
-import { set } from "./style";
 import * as viewBoxMin from "../../constants/viewBoxSize";
 import { round100 as round } from "../../utils/round";
 import { overrideX, overrideY } from "../../utils/overrideCoord";
@@ -20,14 +19,14 @@ const initialState: Arc = {
   degree: 20,
   // Helpers
   radian: 0.34906585,
-  rxDragX: 0,
-  rxDragY: 0,
-  ryDragX: 0,
-  ryDragY: 0,
-  angleDragX: 0,
-  angleDragY: 0,
-  cx: 292,
-  cy: 192,
+  rxDragX: 432.76,
+  rxDragY: 243.19,
+  ryDragX: 332.85,
+  ryDragY: 79.13,
+  angleDragX: 366.99,
+  angleDragY: 219.25,
+  cx: 291.81,
+  cy: 191.89,
 };
 
 const viewBox = {

@@ -11,11 +11,11 @@ The `<circle>` element is a basic SVG shape, used to create circles based on a c
 
 <Pair>
     <InputWrapper title="cx">
-        <Input client:only="react" feature="circle" property="cx" type="number" />
+        <Input client:idle feature="circle" property="cx" type="number" />
     </InputWrapper>
 
     <InputWrapper title="cy">
-        <Input client:only="react" feature="circle" property="cy" type="number" />
+        <Input client:idle feature="circle" property="cy" type="number" />
     </InputWrapper>
 
 </Pair>
@@ -23,13 +23,7 @@ The `<circle>` element is a basic SVG shape, used to create circles based on a c
 ### Radius
 
 <InputWrapper title="r">
-  <Input
-    client:only="react"
-    feature="circle"
-    property="r"
-    type="range"
-    max={250}
-  />
+  <Input client:idle feature="circle" property="r" type="range" max={250} />
 </InputWrapper>
 
 <Styling />
