@@ -22,9 +22,11 @@ const { title, lesson, links } = Astro.props as Props;
   />
   <body>
     <Header items={links} lesson={lesson} />
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="editor-container">
-      <slot />
+      <div class="editor">
+        <noscript>You need to enable JavaScript to show the editor.</noscript>
+        <slot />
+      </div>
       <EditorDescription>
         <slot name="description" />
       </EditorDescription>
@@ -54,5 +56,23 @@ const { title, lesson, links } = Astro.props as Props;
     flex-direction: row;
     overflow-y: hidden;
     height: 100%;
+  }
+
+  .editor-container::after {
+    content: "";
+    width: 100%;
+    height: var(--code-height);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--code-background-color);
+    z-index: -1;
+  }
+
+  .editor {
+    width: 100%; /* Take up the space before the editor is rendered to avoid glitch on editor load */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
