@@ -21,6 +21,9 @@ export const canvasSlice = createSlice({
         height: action.payload.height,
       };
 
+      // Edge case when navigating to page. For some reason the ResizeObserver fires with 0 width and height. Might be connected to viewTransition. Ignoring because it also triggers a hydration error.
+      if (availableSize.width === 0 && availableSize.height === 0) return;
+
       if (
         availableSize.width < viewBoxMin.WIDTH ||
         availableSize.height < viewBoxMin.HEIGHT
