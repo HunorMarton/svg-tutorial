@@ -6,10 +6,32 @@
 
     justify-content: center;
     box-sizing: border-box;
+    border: 1px solid lightgray;
   }
 
-  .markdown-command code {
-    background-color: lightgray;
-    padding: 20px;
+  .markdown-command p {
+    font-family: monospace;
+    padding: 10px 20px;
+    color: gray;
+    line-height: 1.8;
+    
+
+    code {
+      position: relative;
+      background-color: transparent;
+      color: black;
+      z-index: 1;
+    
+      &::after {
+        position: absolute;
+        content: "";
+        top: -5px;
+        left: -5px;
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        background-color: lightgray;
+        z-index: -1;
+      }
+    }
   }
 </style>

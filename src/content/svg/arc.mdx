@@ -11,8 +11,9 @@ import Path from "../../components/markdown/elements/Path.astro";
 import Command from "../../components/markdown/layouts/Command.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "../../components/MarkdownArc.scss";
 
-An arc is a segment of a circle or an ellipse. In SVG, we can draw an arc using the `<path>` element with the `A` command. Like other path segments, the arc to command continues the previous segment. In this example, we use the `M` command to move to the starting point, and from there, we start the curve.
+An arc is a segment of a circle or an ellipse. In SVG, we can draw an arc using the `<path>` element with the `A` command. Like other path segments, the arc to command continues the previous segment. In this example, we use the `M` command to move to the starting point, and from there, we draw an arc.
 
 Drag the handlers below to see how it works, or go to the [editor](/editor/arc).
 
@@ -20,26 +21,44 @@ Drag the handlers below to see how it works, or go to the [editor](/editor/arc).
 
 ### The different parameters of an SVG arc
 
-The arc to command has 7 parameters.
+The arc command continues the previous path segment. It does not define where the arc starts; that information comes from the previous command. That's why the following examples start with the `M` command to move to the start of the arc.
 
 <Command>
 
-`A rx ry rotation large-arc-flag sweep-flag x y`
+A rx ry rotation large-arc-flag sweep-flag `x y`
 
 </Command>
 
-The last two parameters (`40, 40`) are the endpoint of the arc. The first two defines a horizontal and vertical radius (`70, 70`). If we draw a circle, those two values are the same.
+The arc's endpoints are the last two parameters of the `A` command, x and y. That's the only coordinate the arc defines. For instance, we don't set the center point of the arc. All the rest of the parameters define how to reach this endpoint.
+
+#### Horizontal and Vertical Radiuses {/* id: radiuses */}
+
+<Command>
+
+A `rx ry` rotation large-arc-flag sweep-flag x y
+
+</Command>
+
+The first two parameters are the imaginary circle's horizontal and vertical radius. If we draw a circle, those two values are the same.
 
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <circle
+    cx="30"
+    cy="-30"
+    r="70"
+    fill="none"
+    stroke="#e2e2e277"
+    stroke-width="3"
+  />
   <Path
     d="
         M -40 -40
         A 70 70 0 0 0 40 40"
     fill="none"
     stroke="red"
-    stroke-width="2"
+    stroke-width="5"
   />
 </SVG>
 
@@ -56,25 +75,41 @@ The last two parameters (`40, 40`) are the endpoint of the arc. The first two de
       A 70 70 0 0 0 40 40"
     fill="none"
     stroke="red"
-    stroke-width="2"
+    stroke-width="5"
   />
 </svg>
 ```
 
 </Example>
 
-You might realize, that even with the same starting point and endpoint, and the same radiuses, there can be four different variations. The 5th argument is a boolean flag, and we can use it to flip the arc the other way (now it changed to `1`).
+#### Sweep Flag {/* id: sweep-flag */}
+
+<Command>
+
+A rx ry rotation large-arc-flag `sweep-flag` x y
+
+</Command>
+
+With the given radiuses, four different ways to reach the arc's endpoint exist. Remember, we don't set the center of the arc. The arc could go both clockwise and counterclockwise. The fifth argument is a boolean flag, which flips the arc the other way.
 
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <circle
+    cx="-30"
+    cy="30"
+    r="70"
+    fill="none"
+    stroke="#e2e2e277"
+    stroke-width="3"
+  />
   <Path
     d="
         M -40 -40
         A 70 70 0 0 1 40 40"
     fill="none"
     stroke="red"
-    stroke-width="2"
+    stroke-width="5"
   />
 </SVG>
 
@@ -91,25 +126,41 @@ You might realize, that even with the same starting point and endpoint, and the 
       A 70 70 0 0 1 40 40"
     fill="none"
     stroke="red"
-    stroke-width="2"
+    stroke-width="5"
   />
 </svg>
 ```
 
 </Example>
 
-You might notice that in both cases, the arc ends up the shortest possible way with these parameters. It is also possible to go the long way and still keep the same start and endpoints, and the same radiuses. Then the 4th argument is another boolean flag that sets if we want to want to go the long way (now we also chaned it to `1`). This also has two variations. You can mirror it, by flipping the 5th argument to the other value.
+#### Large Arc Flag {/* id: large-arc-flag */}
+
+<Command>
+
+A rx ry rotation `large-arc-flag` sweep-flag x y
+
+</Command>
+
+In both cases, the arc has reached its endpoint in the shortest possible way. However, it is also possible to go the long way and keep the same start, endpoint, and radiuses. The fourth argument is another boolean flag that sets whether the arc should go the short way or the the long way.
 
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <circle
+    cx="30"
+    cy="-30"
+    r="70"
+    fill="none"
+    stroke="#e2e2e277"
+    stroke-width="3"
+  />
   <Path
     d="
         M -40 -40
         A 70 70 0 1 1 40 40"
     fill="none"
     stroke="red"
-    stroke-width="2"
+    stroke-width="5"
   />
 </SVG>
 
@@ -126,25 +177,41 @@ You might notice that in both cases, the arc ends up the shortest possible way w
       A 70 70 0 1 1 40 40"
     fill="none"
     stroke="red"
-    stroke-width="2"
+    stroke-width="5"
   />
 </svg>
 ```
 
 </Example>
 
-To complicate things even further, if we set the horizontal and vertical radiuses to two different values, we end up with an elliptic arc (`70, 40`). Again, the start and end points are the same, and this also has four different variations.
+#### Drawing an Elliptic Arc {/* id: elliptic */}
+
+<Command>
+
+A `rx ry` rotation large-arc-flag sweep-flag x y
+
+</Command>
+
+We draw an elliptic arc if we set the horizontal and vertical radiuses to two different values. The start and end points are still the same, and elliptic arcs have four different variations.
 
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <path
+    d="
+        M -40 -40
+        A 70 40 0 0 0 40 40"
+    fill="none"
+    stroke="#e2e2e277"
+    stroke-width="3"
+  />
   <Path
     d="
         M -40 -40
         A 70 40 0 1 1 40 40"
     fill="none"
     stroke="red"
-    stroke-width="2"
+    stroke-width="5"
   />
 </SVG>
 
@@ -161,25 +228,41 @@ To complicate things even further, if we set the horizontal and vertical radiuse
       A 70 40 0 1 1 40 40"
     fill="none"
     stroke="red"
-    stroke-width="2"
+    stroke-width="5"
   />
 </svg>
 ```
 
 </Example>
 
-Finally, if we draw an ellipse we can also turn it by an angle. We can set this by the 3rd parameter (`30`). What makes things even more twisted, is that our imaginary ellipse is not rotated around its center, because this arc still has to maintain the same start and end points. In case we draw a circle, the rotation does not affect the arc.
+#### Rotating an Elliptic Arc {/* id: rotation */}
+
+<Command>
+
+A rx ry `rotation` large-arc-flag sweep-flag x y
+
+</Command>
+
+We can turn our imaginary ellipse by an angle when we draw an elliptic arc. The third parameter allows us to set an angle in degrees. Note that the arc maintains the same start and endpoint while its center position moves.
 
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <path
+    d="
+        M -40 -40
+        A 70 40 30 0 0 40 40"
+    fill="none"
+    stroke="#e2e2e277"
+    stroke-width="5"
+  />
   <Path
     d="
         M -40 -40
         A 70 40 30 1 1 40 40"
     fill="none"
     stroke="red"
-    stroke-width="2"
+    stroke-width="5"
   />
 </SVG>
 
@@ -196,7 +279,7 @@ Finally, if we draw an ellipse we can also turn it by an angle. We can set this 
       A 70 40 30 1 1 40 40"
     fill="none"
     stroke="red"
-    stroke-width="2"
+    stroke-width="5"
   />
 </svg>
 ```

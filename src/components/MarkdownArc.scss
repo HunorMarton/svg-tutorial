@@ -1,0 +1,32 @@
+
+@mixin highlight-code($header-id, $row, $column, $content) {
+  h4[id$="#{$header-id}"]
+    + *
+    + *
+    + .markdown-example
+    pre
+    code
+    span.line:nth-of-type(#{$row}) {
+    position: relative;
+
+    &::after {
+      --verticalPadding: 1px;
+      --horizontalPadding: 3px;
+      content: $content;
+      position: absolute;
+      left: calc(#{$column}ch - var(--horizontalPadding));
+      top: calc(var(--verticalPadding) * -1);
+      margin: 0;
+      padding: var(--verticalPadding) var(--horizontalPadding);
+      background-color: yellow;
+      color: black;
+      pointer-events: none;
+    }
+  }
+}
+
+@include highlight-code("id-radiuses", 9, 8, "70 70");
+@include highlight-code("id-sweep-flag", 9, 18, "1");
+@include highlight-code("id-large-arc-flag", 9, 16, "1");
+@include highlight-code("id-elliptic", 9, 8, "70 40");
+@include highlight-code("id-rotation", 9, 14, "30");
