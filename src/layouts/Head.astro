@@ -63,6 +63,10 @@ const { title, description, image, article } = Astro.props as Props;
     }
     inject();
   </script>
+  <script>
+    import './HeadSectionViewTracker';
+    import './HeadAnchorTracker';
+  </script>
 
   <ViewTransitions />
 </head>

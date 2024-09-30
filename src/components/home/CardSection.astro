@@ -7,7 +7,7 @@ export interface Props {
 const { title, description } = Astro.props as Props;
 ---
 
-<div class="cardSection">
+<div class="cardSection" data-track-id={title}>
     <h2>{title}</h2>
     <p>{description}</p>
 

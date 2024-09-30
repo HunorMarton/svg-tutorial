@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { EmbedArc as UnconnectedEmbedArc } from "../components/embed/EmbedArc.tsx";
 import { type Delta } from "../utils/types.ts";
 
@@ -41,11 +41,6 @@ export const ArcWithoutProvider: React.FC<ArcProps> = ({ fullScreen }) => {
     largeArcFlag: boolean;
     sweepFlag: boolean;
   }) => dispatch(setFlags({ largeArcFlag, sweepFlag }));
-
-  useEffect(() => {
-    // Set initial arc
-    setArcStartPoint({ dx: 0, dy: 0 });
-  }, []);
 
   return (
     <UnconnectedEmbedArc
