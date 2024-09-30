@@ -30,9 +30,9 @@ const { title, lesson, links } = Astro.props as Props;
       <EditorDescription>
         <slot name="description" />
       </EditorDescription>
-    </div>
-    <div class="scroll-container">
-      <ScrollIndicator />
+      <div class="scroll-container">
+        <ScrollIndicator />
+      </div>
     </div>
   </body>
 </html>
@@ -63,15 +63,15 @@ const { title, lesson, links } = Astro.props as Props;
       overflow-y: hidden;
     }
 
-    .editor {
-      view-timeline: --container-1 block;
-    }
-
     @media (min-width: 450px) {
       .editor {
         width: 100%;
         height: 100%;
       }
+    }
+
+    .scroll-container {        
+        display: none;
     }
 
     @media (min-width: 450px) and (max-width: 899px) {
@@ -81,6 +81,10 @@ const { title, lesson, links } = Astro.props as Props;
         svg {
           aspect-ratio: 1/1;
         }
+      }
+
+      .scroll-container {        
+        display: block;
       }
     }
   }
@@ -97,17 +101,5 @@ const { title, lesson, links } = Astro.props as Props;
       background-color: var(--code-background-color);
       z-index: -1;
     }
-  }
-
-  .scroll-container {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      
-      @media (max-width: 449px) or (min-width: 900px) {
-        display: none;
-      }
   }
 </style>
