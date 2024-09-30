@@ -9,10 +9,14 @@
     overflow: hidden;
 
     pre {
-      display: flex;
-      justify-content: center;
       height: var(--code-height);
       min-height: var(--code-height);
+      overflow-x: auto;
+
+      @media (min-width: 450px) {
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 

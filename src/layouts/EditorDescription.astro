@@ -14,22 +14,20 @@ import ShowIcon from "../components/common/ShowIcon.astro";
 <style>
   .description-container {
     display: flex;
-    position: relative;
-
-    @media (max-width: 900px) {
-      display: none;
-    }
   }
   
   .description {
-    box-sizing: border-box;
-    width: 360px;
     padding: 30px 30px 50px 30px;
     overflow-y: auto;
-    margin: 20px 30px 50px 0;
     background-color: white;
-    border: 1px solid #ccc;
-    position: relative;
+    position: relative; /* Used to position the hide icon */
+
+    @media (min-width: 900px) {
+      box-sizing: border-box;
+      width: 360px;
+      margin: 20px 30px 50px 0;  
+      border: 1px solid #ccc;
+    }
   }
 </style>
 
