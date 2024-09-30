@@ -2,6 +2,7 @@
 import Head from "./Head.astro";
 import Header from "./EditorHeader.astro";
 import EditorDescription from "./EditorDescription.astro";
+import ScrollIndicator from "../components/common/ScrollIndicator.astro";
 import "./SVGCurves.css";
 
 export interface Props {
@@ -29,6 +30,9 @@ const { title, lesson, links } = Astro.props as Props;
       <EditorDescription>
         <slot name="description" />
       </EditorDescription>
+    </div>
+    <div class="scroll-container">
+      <ScrollIndicator />
     </div>
   </body>
 </html>
@@ -59,6 +63,10 @@ const { title, lesson, links } = Astro.props as Props;
       overflow-y: hidden;
     }
 
+    .editor {
+      view-timeline: --container-1 block;
+    }
+
     @media (min-width: 450px) {
       .editor {
         width: 100%;
@@ -69,10 +77,10 @@ const { title, lesson, links } = Astro.props as Props;
     @media (min-width: 450px) and (max-width: 899px) {
       .editor {
         max-height: calc(100vh - 79px); /* 79px is the height of the header. TODO: Make this nicer */
-      }
 
-      svg {
-        aspect-ratio: 1/1;
+        svg {
+          aspect-ratio: 1/1;
+        }
       }
     }
   }
@@ -89,5 +97,17 @@ const { title, lesson, links } = Astro.props as Props;
       background-color: var(--code-background-color);
       z-index: -1;
     }
+  }
+
+  .scroll-container {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      
+      @media (max-width: 449px) or (min-width: 900px) {
+        display: none;
+      }
   }
 </style>
