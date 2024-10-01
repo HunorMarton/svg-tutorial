@@ -34,16 +34,26 @@ const viewBox = {
   height: viewBoxMin.HEIGHT,
 };
 
+function onChange(state: Arc) {
+  Object.assign(state, arcUtil.calculateArcCenter(state)); // Assigns cx, cy
+  Object.assign(state, arcUtil.calculateDrags(state)); // Assigns rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY
+}
+
+/*
+// Deprecated code but left here for reference
+
 function onPointOrFlagChanged(state: Arc) {
   Object.assign(state, arcUtil.calculateArcCenter(state)); // Assigns cx, cy
   Object.assign(state, arcUtil.calculateDrags(state)); // Assigns rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY
 }
 
+// This function keeps the center of the circle in place when the radius or rotation is changed
 function onRadiusOrRotationChanged(state: Arc) {
   const { θ1, θ2 } = arcUtil.calculateArcPointAngles(state);
   Object.assign(state, arcUtil.calculateArcPoints({ ...state, θ1, θ2 })); // Assigns x1, y1, x2, y2
   Object.assign(state, arcUtil.calculateDrags(state)); // Assigns rxDragX, rxDragY, ryDragX, ryDragY, angleDragX, angleDragY
 }
+*/
 
 export const arcSlice = createSlice({
   name: "arc",
@@ -52,15 +62,13 @@ export const arcSlice = createSlice({
     setStartPoint: (state, action: PayloadAction<Delta>) => {
       state.x1 = overrideX(state.x1 + action.payload.dx, viewBox.width);
       state.y1 = overrideY(state.y1 + action.payload.dy, viewBox.height);
-
-      onPointOrFlagChanged(state);
+      onChange(state);
     },
     setStartPointByCoord: (state, action: PayloadAction<Partial<Point>>) => {
       const { x, y } = action.payload;
       if (x !== undefined) state.x1 = overrideX(x, viewBox.width);
       if (y !== undefined) state.y1 = overrideY(y, viewBox.height);
-
-      onPointOrFlagChanged(state);
+      onChange(state);
     },
     setRotation: (state, action: PayloadAction<Delta>) => {
       state.radian = arcUtil.calculateAngle({
@@ -70,14 +78,12 @@ export const arcSlice = createSlice({
         y2: state.angleDragY + action.payload.dy,
       });
       state.degree = round((state.radian * 180) / Math.PI);
-
-      onRadiusOrRotationChanged(state);
+      onChange(state);
     },
     setRotationByValue: (state, action: PayloadAction<number>) => {
       state.degree = round(action.payload);
       state.radian = (state.degree * Math.PI) / 180;
-
-      onRadiusOrRotationChanged(state);
+      onChange(state);
     },
     setRadiusX: (state, action: PayloadAction<Delta>) => {
       state.rx = arcUtil.calculateDistance({
@@ -86,11 +92,11 @@ export const arcSlice = createSlice({
         x2: state.rxDragX + action.payload.dx,
         y2: state.rxDragY + action.payload.dy,
       });
-      onRadiusOrRotationChanged(state);
+      onChange(state);
     },
     setRadiusXByValue: (state, action: PayloadAction<number>) => {
       state.rx = action.payload;
-      onRadiusOrRotationChanged(state);
+      onChange(state);
     },
     setRadiusY: (state, action: PayloadAction<Delta>) => {
       state.ry = arcUtil.calculateDistance({
@@ -99,11 +105,11 @@ export const arcSlice = createSlice({
         x2: state.ryDragX + action.payload.dx,
         y2: state.ryDragY + action.payload.dy,
       });
-      onRadiusOrRotationChanged(state);
+      onChange(state);
     },
     setRadiusYByValue: (state, action: PayloadAction<number>) => {
       state.ry = action.payload;
-      onRadiusOrRotationChanged(state);
+      onChange(state);
     },
     setFlags: (
       state,
@@ -112,21 +118,18 @@ export const arcSlice = createSlice({
       const { largeArcFlag, sweepFlag } = action.payload;
       if (largeArcFlag !== undefined) state.largeArcFlag = largeArcFlag;
       if (sweepFlag !== undefined) state.sweepFlag = sweepFlag;
-
-      onPointOrFlagChanged(state);
+      onChange(state);
     },
     setEndPoint: (state, action: PayloadAction<Delta>) => {
       state.x2 = overrideX(state.x2 + action.payload.dx, viewBox.width);
       state.y2 = overrideY(state.y2 + action.payload.dy, viewBox.height);
-
-      onPointOrFlagChanged(state);
+      onChange(state);
     },
     setEndPointByCoord: (state, action: PayloadAction<Partial<Point>>) => {
       const { x, y } = action.payload;
       if (x !== undefined) state.x2 = overrideX(x, viewBox.width);
       if (y !== undefined) state.y2 = overrideY(y, viewBox.height);
-
-      onPointOrFlagChanged(state);
+      onChange(state);
     },
   },
   extraReducers: (builder) => {

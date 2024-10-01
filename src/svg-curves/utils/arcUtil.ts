@@ -66,6 +66,9 @@ export function calculateArcCenter({
     };
 }
 
+/*
+// Deprecated
+
 export function calculateArcPoints({
     cx,
     cy,
@@ -104,6 +107,10 @@ export function calculateArcPoints({
         // sweepFlag,
     };
 }
+*/
+
+/*
+// Deprecated
 
 export function calculateArcPointAngles({
     x1,
@@ -156,6 +163,7 @@ export function calculateArcPointAngles({
 
     return { θ1, θ2 };
 }
+*/
 
 export function calculateDrags({
     cx,
