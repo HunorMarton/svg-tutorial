@@ -1,19 +1,12 @@
-import { track } from "@vercel/analytics";
-
-const analyticsSent = new Set<string>();
+import { track } from "../utils/analytics";
 
 const callback = (entries: IntersectionObserverEntry[]) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting && entry.target instanceof HTMLElement) {
       const trackId = entry.target.dataset.trackId;
 
-      // Only send analytics once per session
-      if (trackId && !analyticsSent.has(trackId)) {
-        analyticsSent.add(trackId);
-        track("Viewed Section", {
-          page: "home",
-          section: trackId,
-        });
+      if (trackId) {
+        track("Viewed Section", { page: "home", section: trackId }, true);
       }
     }
   });

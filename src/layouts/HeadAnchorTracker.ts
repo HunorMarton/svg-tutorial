@@ -1,4 +1,4 @@
-import { track } from "@vercel/analytics";
+import { track } from "../utils/analytics";
 
 document.addEventListener("astro:page-load", () => {
   const elements = document.querySelectorAll("a");

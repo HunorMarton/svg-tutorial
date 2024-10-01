@@ -1,7 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
-import { track } from "@vercel/analytics";
+import { track } from "../../utils/analytics";
 import { store, type RootState } from "../state/store.ts";
 import { set } from "../state/features/style.ts";
 import {
@@ -52,8 +52,6 @@ function getValue2({ feature, property }: Selector) {
   throw Error(`Unknown feature: ${feature}`);
 }
 
-const analyticsSent = new Set<string>();
-
 export const InputWithoutProvider: React.FC<Props> = (props) => {
   let value = getValue2(props);
   if (typeof value == "undefined") {
@@ -82,10 +80,7 @@ export const InputWithoutProvider: React.FC<Props> = (props) => {
     const { feature, property } = props;
 
     // Log the event to analytics. Only log one event per feature/property per session
-    if (!analyticsSent.has(`${feature}/${property}`)) {
-      analyticsSent.add(`${feature}/${property}`);
-      track("Editor Input Change", { feature, property });
-    }
+    track("Editor Input Change", { feature, property }, true);
 
     // Special handling for arc because of the many side effects of setting a property
     if (feature === "arc") {

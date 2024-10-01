@@ -1,5 +1,5 @@
 import React from "react";
-import { track } from "@vercel/analytics";
+import { track } from "../../../utils/analytics";
 import { ArrowHead } from "../canvas/ArrowHead";
 import "./ExpandButton.css";
 
