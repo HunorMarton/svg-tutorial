@@ -1,5 +1,7 @@
 ---
 import Head from "./Head.astro";
+import BrowserScrollSupport from "../components/BrowserScrollSupport.astro";
+import ScreenSizeCheck from "../components/ScreenSizeCheck.astro";
 import FigmaCursors from "./FigmaCursors.astro";
 import "@fontsource/lato";
 import "./SVGCurves.css";
@@ -15,7 +17,22 @@ import "./SVGCurves.css";
   />
 
   <body data-cursor>
-    <slot />
+    <BrowserScrollSupport>
+      <Fragment slot="fallback">
+        <h1>Or</h1>
+        <p>Watch this summary as a video on YouTube:</p>
+        <iframe
+          width="400"
+          height="225"
+          src="https://www.youtube.com/embed/hZYaSGUbMds?si=sOE6cWBC8IDaOoba"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </Fragment>
+      <ScreenSizeCheck>
+        <slot />
+      </ScreenSizeCheck>
+    </BrowserScrollSupport>
     <FigmaCursors />
     <style is:global>
       html,
