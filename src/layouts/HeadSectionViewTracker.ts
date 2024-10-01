@@ -6,7 +6,13 @@ const callback = (entries: IntersectionObserverEntry[]) => {
       const trackId = entry.target.dataset.trackId;
 
       if (trackId) {
-        track("Viewed Section", { page: "home", section: trackId }, true);
+        const baseUrl = window.location.origin;
+        const page = window.location.href.replace(baseUrl, "");
+        track(
+          "Viewed Section",
+          { page: page == "/" ? "home" : page, section: trackId },
+          true
+        );
       }
     }
   });

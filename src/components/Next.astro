@@ -14,7 +14,7 @@ const entry = (await getCollection("svg")).find(
 if (!entry) return;
 ---
 
-<nav>
+<nav data-track-id="next">
   <a href={`/svg/${entry.slug}`}>
     <div>
       <div>Next</div>
