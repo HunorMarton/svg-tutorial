@@ -1,4 +1,22 @@
-# Astro
+# SVG-Tutorial.com
+
+This repo contains the source code of [SVG-Tutorial.com](https://SVG-Tutorial.com). While it generally follows the structure of an Astro project, it has three main parts with slightly different approaches. 
+
+### Tutorials
+
+Tutorial pages like [How to Draw Basic Paths with SVG](https://svg-tutorial.com/svg/basic-path) have their content as MDX files in the `/src/content/svg/` folder, with supporting files, among others, in the `/svg/components/markdown/` folder.
+
+### Summary Page
+
+The [Summary page](https://svg-tutorial.com/summary)'s content is an MDX file in the `/src/pages/summary` folder, with supporting files, among others, in the `/svg/components/summary` folder.
+
+### Editors
+
+The editor pages, such as the [Arc editor](https://svg-tutorial.com/editor/arc), the interactive embeds within the tutorial, and the summary page, use React and Redux Toolkit. They mainly live in the `/src/svg-curves folder`. The editors are an updated version of a previous project.
+
+<hr>
+
+## Astro
 
 This directory is a brief example of an [Astro](https://astro.build/) site that can be deployed to Vercel with zero configuration. This demo showcases:
 
