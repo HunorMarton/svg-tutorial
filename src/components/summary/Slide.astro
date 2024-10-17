@@ -1,15 +1,21 @@
 ---
 export interface Props {
+  container?: number | string;
   slides?: number;
   code?: boolean;
 }
 
-const { slides = 1, code } = Astro.props as Props;
+const { container, slides = 1, code } = Astro.props as Props;
 
 const background = code ? "#24292e" : "transparent";
 ---
 
-<div class="slide-container">
+<div
+  class="slide-container"
+  style={{
+    "view-timeline": container ? `--container-${container} block` : "none",
+  }}
+>
   <div class="slide-content">
     <slot />
   </div>
@@ -20,7 +26,7 @@ const background = code ? "#24292e" : "transparent";
   }
 </div>
 
-<style define:vars={{ background, slides }} lang="scss">
+<style define:vars={{ background, slides }}>
   .slide-container {
     width: 100vw;
     height: calc(var(--slides) * 100vh);
@@ -47,12 +53,6 @@ const background = code ? "#24292e" : "transparent";
   .slide-container:nth-of-type(3) {
     .slide-content {
       overflow-x: hidden;
-    }
-  }
-
-  @for $i from 1 to 33 {
-    .slide-container:nth-of-type(#{$i}) {
-      view-timeline: --container-#{$i} block;
     }
   }
 

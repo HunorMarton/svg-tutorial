@@ -2,12 +2,12 @@
 import Slide from "./Slide.astro";
 ---
 
-<Slide slides={3}>
+<Slide container="windmill" slides={3}>
   <div class="slide-windmill" data-track-id="slide-windmill"><slot /></div>
 </Slide>
 
 <style is:global lang="scss">
-  $container: 11;
+  $container: "windmill";
   $slides: 3;
 
   @import "animation";

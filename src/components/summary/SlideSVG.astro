@@ -2,12 +2,12 @@
 import Slide from "./Slide.astro";
 ---
 
-<Slide slides={2}>
+<Slide container="svg" slides={2}>
   <div class="slide-svg" data-track-id="slide-svg"><slot /></div>
 </Slide>
 
 <style is:global lang="scss">
-  $container: 3;
+  $container: "svg";
   $slides: 2;
 
   .slide-svg {

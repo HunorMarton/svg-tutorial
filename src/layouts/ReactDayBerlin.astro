@@ -1,0 +1,44 @@
+---
+import Summary from "./Summary.astro";
+import SnapContainer from "../components/summary/SnapContainer.astro";
+---
+
+<Summary>
+  <SnapContainer>
+    <slot />
+  </SnapContainer>
+</Summary>
+
+<style is:global>
+  :root {
+    --line-height: 1.5em;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  code {
+    padding: 0 5px 2px;
+    background-color: lightgray;
+    font-size: 1.2em;
+    line-height: var(--line-height);
+  }
+
+  pre {
+    color: white;
+    padding: 2em;
+    border-radius: 5px;
+    max-width: 100%;
+  }
+
+  pre code {
+    background-color: inherit;
+    padding: 0;
+  }
+
+  iframe {
+    max-width: 100%;
+    border: 0;
+  }
+</style>

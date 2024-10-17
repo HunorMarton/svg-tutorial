@@ -2,14 +2,14 @@
 import Slide from "./Slide.astro";
 ---
 
-<Slide slides={3} code={true}>
+<Slide container="html" slides={3} code={true}>
   <div class="slide1" data-track-id="slide-html">
     <slot />
   </div>
 </Slide>
 
 <style is:global lang="scss">
-  $container: 2;
+  $container: "html";
   $slides: 3;
 
   @import "animation";
