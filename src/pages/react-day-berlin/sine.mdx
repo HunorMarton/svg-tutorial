@@ -1,0 +1,11 @@
+---
+layout: "../../layouts/ReactDayBerlin.astro"
+next: "colorPicker"
+---
+
+import Slide from "../../components/summary/Slide.astro";
+import { Sine } from "../../components/react-day-berlin/Sine.jsx";
+
+<Slide>
+  <Sine client:idle fullScreen={true} />
+</Slide>

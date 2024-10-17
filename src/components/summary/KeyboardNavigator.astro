@@ -8,6 +8,18 @@ const { next } = Astro.props as Props;
 
 <input class="next" type="text" hidden value={next} />
 <slot />
+<a href={`/react-day-berlin/${next}`}></a>
+
+<style>
+  a {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+  }
+</style>
 
 <script>
   import { navigate } from "astro:transitions/client";
