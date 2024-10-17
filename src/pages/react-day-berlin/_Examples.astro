@@ -1,0 +1,138 @@
+---
+import ThreeWithCurves from "../../components/examples/ThreeWithCurves.astro";
+import Snowflake from "../../components/examples/Snowflake.astro";
+import Tree from "../../components/examples/Tree.astro";
+import Gingerbread from "../../components/examples/Gingerbread.astro";
+import Bell from "../../components/examples/Bell.astro";
+import Star from "../../components/examples/Star.astro";
+import Bear from "../../components/examples/Bear.astro";
+import Forest from "../../components/examples/Forest.astro";
+
+const size = 1;
+---
+
+<div class="header-container">
+  <svg
+    class="header-border"
+    viewBox="0 0 400 300"
+    width="100%"
+    stroke="lightgray"
+    stroke-width="1"
+    stroke-dasharray="2 3"
+  >
+    <line x1="0" y1="100" x2="400" y2="100"></line>
+    <line x1="0" y1="200" x2="400" y2="200"></line>
+
+    <line x1="100" y1="0" x2="100" y2="300"></line>
+    <line x1="200" y1="0" x2="200" y2="300"></line>
+    <line x1="300" y1="0" x2="300" y2="300"></line>
+  </svg>
+
+  <div class="header-grid">
+    <div class="header-title">
+      <slot />
+    </div>
+    <ThreeWithCurves size={size} />
+    <Snowflake size={size} />
+    <Tree size={size} />
+    <Gingerbread size={size} />
+    <Bell size={size} />
+    <Star size={size} />
+    {
+      /*
+        <Bear size={size} />
+        <Forest size={size} />
+        */
+    }
+  </div>
+
+  <style is:global>
+    .header-container {
+      position: relative;
+
+      .header-border {
+        position: absolute;
+        top: 0;
+      }
+    }
+
+    .header-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 25%);
+      margin-bottom: 70px;
+    }
+
+    @media (max-width: 700px) {
+      .header-grid {
+        display: none;
+      }
+    }
+
+    .header-grid > * {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      box-sizing: border-box;
+
+      position: relative;
+      top: 30px;
+      opacity: 0;
+      animation: moveToPosition 0.6s ease-in forwards;
+      --delay: 0.1s;
+    }
+
+    .header-grid > *:nth-child(1) {
+      animation-delay: 0;
+    }
+    .header-grid > *:nth-child(2) {
+      animation-delay: calc(var(--delay) * 1);
+    }
+    .header-grid > *:nth-child(3) {
+      animation-delay: calc(var(--delay) * 2);
+    }
+    .header-grid > *:nth-child(4) {
+      animation-delay: calc(var(--delay) * 3);
+    }
+    .header-grid > *:nth-child(5) {
+      animation-delay: calc(var(--delay) * 4);
+    }
+    .header-grid > *:nth-child(6) {
+      animation-delay: calc(var(--delay) * 5);
+    }
+    .header-grid > *:nth-child(7) {
+      animation-delay: calc(var(--delay) * 6);
+    }
+    .header-grid > *:nth-child(8) {
+      animation-delay: calc(var(--delay) * 7);
+    }
+    .header-grid > *:nth-child(9) {
+      animation-delay: calc(var(--delay) * 8);
+    }
+
+    .header-title {
+      grid-column: 1/4;
+      grid-row: 1/3;
+      aspect-ratio: 3 / 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 0 20px;
+      box-sizing: border-box;
+
+      h1 {
+        font-size: 5em;
+        font-weight: 900;
+        margin: 0;
+      }
+    }
+
+    @keyframes moveToPosition {
+      100% {
+        top: 0;
+        opacity: 1;
+      }
+    }
+  </style>
+</div>
