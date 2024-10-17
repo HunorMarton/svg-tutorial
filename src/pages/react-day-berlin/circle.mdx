@@ -1,0 +1,51 @@
+---
+layout: "../../layouts/ReactDayBerlin.astro"
+next: "rect"
+---
+
+import SlideCircle from "../../components/summary/SlideCircle.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+
+<SlideCircle>
+
+    <Example>
+
+        <SVG width="200" height="200" viewBox="0 0 200 200">
+          <Circle cx="100" cy="100" r="50" />
+          <Circle cx="100" cy="100" r="50" fill="red"/>
+          <Circle cx="100" cy="100" r="50" fill="none" stroke="red" stroke-width="5" />
+        </SVG>
+
+        {/* prettier-ignore */}
+        ```html
+        <svg
+          width="200"
+          height="200"
+          viewBox="0 0 200 200"
+        >
+          <circle
+            cx="100"
+            cy="100"
+            r="50"
+            fill="red"
+            fill="none"
+            stroke="red"
+            stroke-width="5"
+            class="red-circle"
+          />
+        </svg>
+        ```
+
+        ```css
+        .red-circle {
+            fill: none;
+            stroke: red;
+            stroke-width: 2;
+        }
+        ```
+
+  </Example>
+
+</SlideCircle>

@@ -1,0 +1,48 @@
+---
+export interface Props {
+  next: string;
+}
+
+const { next } = Astro.props as Props;
+---
+
+<input class="next" type="text" hidden value={next} />
+<slot />
+
+<script>
+  import { navigate } from "astro:transitions/client";
+
+  document.addEventListener("astro:page-load", () => {
+    // Jumpt to the next slide on right arrow key press
+    window.addEventListener("keydown", (e) => {
+      const snapContainer = document.querySelector(".snap-container");
+      const next = (document.querySelector(".next") as HTMLInputElement)?.value;
+      if (!snapContainer) return;
+
+      const scrollY = snapContainer.scrollTop;
+      const snapHeight = snapContainer.clientHeight;
+      const fullHeight = snapContainer.scrollHeight;
+      const maxSlide = Math.floor(fullHeight / snapHeight);
+
+      const slide = Math.ceil(scrollY / snapHeight);
+
+      if (e.key === "ArrowRight") {
+        if (slide + 1 === maxSlide) {
+          if (!next) return;
+          navigate(`/react-day-berlin/${next}`);
+          return;
+        }
+        snapContainer.scrollTo({
+          top: (slide + 1) * snapHeight + 10,
+          behavior: "smooth",
+        });
+      }
+      if (e.key === "ArrowLeft") {
+        snapContainer.scrollTo({
+          top: (slide - 1) * snapHeight,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+</script>

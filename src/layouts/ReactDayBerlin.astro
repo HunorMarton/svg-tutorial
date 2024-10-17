@@ -1,12 +1,17 @@
 ---
 import Summary from "./Summary.astro";
 import SnapContainer from "../components/summary/SnapContainer.astro";
+import KeyboardNavigator from "../components/summary/KeyboardNavigator.astro";
+
+const { frontmatter } = Astro.props;
 ---
 
 <Summary>
-  <SnapContainer>
-    <slot />
-  </SnapContainer>
+  <KeyboardNavigator next={frontmatter?.next}>
+    <SnapContainer>
+      <slot />
+    </SnapContainer>
+  </KeyboardNavigator>
 </Summary>
 
 <style is:global>

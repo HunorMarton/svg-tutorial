@@ -1,0 +1,35 @@
+---
+layout: "../../layouts/ReactDayBerlin.astro"
+next: "diagram"
+---
+
+import SlideRect from "../../components/summary/SlideRect.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Rect from "../../components/markdown/elements/Rect.astro";
+
+<SlideRect>
+  <Example>
+
+    <SVG width="200" height="200" viewBox="0 0 200 200">
+      <Rect x="25" y="50" width="150" height="100" />
+    </SVG>
+
+    {/* prettier-ignore */}
+    ```html
+    <svg
+      width="200"
+      height="200"
+      viewBox="0 0 200 200"
+    >
+      <rect
+        x="25"
+        y="50"
+        width="150"
+        height="100"
+      />
+    </svg>
+    ```
+
+  </Example>
+</SlideRect>

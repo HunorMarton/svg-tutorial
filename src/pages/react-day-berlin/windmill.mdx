@@ -1,0 +1,50 @@
+---
+layout: "../../layouts/ReactDayBerlin.astro"
+next: "clock"
+---
+
+import SlideWindmill from "../../components/summary/SlideWindmill.astro";
+import Windmill from "../../components/examples/Windmill.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+
+<SlideWindmill>
+  <Example>
+    <Windmill />
+
+    ```html
+    <svg width="200" height="400">
+      <g id="windmill-head">
+        <circle r="8" />
+        <path
+          id="arm"
+          d="
+            M -7 -20
+            C -7 -10 7 -10 7 -20
+            L 2 -80
+            L -2 -80" />
+        <use href="#arm" transform="rotate(+120)" />
+        <use href="#arm" transform="rotate(-120)" />
+      </g>
+      <path d="M 93 300 L 107 300 L 103 165 L 97 165" />
+    </svg>
+    ```
+
+    ```css
+    #windmill-head {
+      translate: 100, 150;
+      animation: 4s linear infinite rotate;
+    }
+
+    @keyframes rotate {
+      from {
+        rotate: 0deg;
+      }
+      to {
+        rotate: 360deg;
+      }
+    }
+    ```
+
+  </Example>
+
+</SlideWindmill>

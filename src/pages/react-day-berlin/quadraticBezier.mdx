@@ -1,0 +1,11 @@
+---
+layout: "../../layouts/ReactDayBerlin.astro"
+next: "cubicBezier"
+---
+
+import Slide from "../../components/summary/Slide.astro";
+import { QuadraticBezier } from "../../svg-curves/connected/QuadraticBezier";
+
+<Slide>
+  <QuadraticBezier client:idle fullScreen={true} />
+</Slide>

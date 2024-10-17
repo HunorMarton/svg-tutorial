@@ -1,0 +1,11 @@
+---
+layout: "../../layouts/ReactDayBerlin.astro"
+next: "end"
+---
+
+import Slide from "../../components/summary/Slide.astro";
+import { Arc } from "../../svg-curves/connected/Arc";
+
+<Slide>
+  <Arc client:idle fullScreen={true} />
+</Slide>

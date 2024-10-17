@@ -1,0 +1,41 @@
+---
+layout: "../../layouts/ReactDayBerlin.astro"
+next: "arc"
+---
+
+import SlideConnection from "../../components/summary/SlideConnection.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Path from "../../components/markdown/elements/Path.astro";
+
+<SlideConnection>
+  <Example>
+    <SVG width="300" height="300" viewBox="-100 -100 200 200">
+      <Path
+        d="
+              M -90,0 
+              L -30,-30
+              C 30,-60 60,-30 30,30
+              L 0,90"
+        fill="none"
+        stroke="red"
+        stroke-width="10"
+      />
+    </SVG>
+  </Example>
+
+  <Example>
+    <SVG width="300" height="300" viewBox="-100 -100 200 200">
+      <Path 
+        d="
+          M -30,70 
+          L 30,0
+          C 90,-70 -80,-30 -20,10
+          L 40,50"
+        fill="none"
+        stroke="red"
+        stroke-width="10"
+      />
+    </SVG>
+  </Example>
+</SlideConnection>

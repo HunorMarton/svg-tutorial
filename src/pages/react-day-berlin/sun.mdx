@@ -1,0 +1,59 @@
+---
+layout: "../../layouts/ReactDayBerlin.astro"
+next: "windmill"
+---
+
+import SlideSun from "../../components/summary/SlideSun.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Path from "../../components/markdown/elements/Path.astro";
+
+<SlideSun>
+  <Example>
+    <SVG 
+      width="200" 
+      height="200" 
+      viewBox="-15 -15 30 30"
+    >
+      <Circle r="6" />
+      <Path
+        id="ray"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        d="M 0, 11 L 0, 14"
+      />
+      <use href="#ray" transform="rotate(45)" />
+      <use href="#ray" transform="rotate(90)" />
+      <use href="#ray" transform="rotate(135)" />
+      <use href="#ray" transform="rotate(180)" />
+      <use href="#ray" transform="rotate(225)" />
+      <use href="#ray" transform="rotate(270)" />
+      <use href="#ray" transform="rotate(315)" />
+    </SVG>
+
+    ```html
+    <svg width="200" height="200" viewBox="-15 -15 30 30">
+      <circle r="6" />
+      <path id="ray" d="M 0, 11 L 0, 14" />
+      <use href="#ray" transform="rotate(45)" />
+      <use href="#ray" transform="rotate(90)" />
+      <use href="#ray" transform="rotate(135)" />
+      <use href="#ray" transform="rotate(180)" />
+      <use href="#ray" transform="rotate(225)" />
+      <use href="#ray" transform="rotate(270)" />
+      <use href="#ray" transform="rotate(315)" />
+    </svg>
+    ```
+
+    ```css
+    #ray {
+      stroke: black;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+    ```
+
+  </Example>
+</SlideSun>

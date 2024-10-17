@@ -11,29 +11,3 @@
     background-color: white;
   }
 </style>
-
-<script>
-  // Jumpt to the next slide on right arrow key press
-  window.addEventListener("keydown", (e) => {
-    const snapContainer = document.querySelector(".snap-container");
-    if (!snapContainer) return;
-
-    const scrollY = snapContainer.scrollTop;
-    const snapHeight = snapContainer.clientHeight;
-
-    const slide = Math.ceil(scrollY / snapHeight);
-
-    if (e.key === "ArrowRight") {
-      snapContainer.scrollTo({
-        top: (slide + 1) * snapHeight,
-        behavior: "smooth",
-      });
-    }
-    if (e.key === "ArrowLeft") {
-      snapContainer.scrollTo({
-        top: (slide - 1) * snapHeight,
-        behavior: "smooth",
-      });
-    }
-  });
-</script>
