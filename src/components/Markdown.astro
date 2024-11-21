@@ -2,7 +2,6 @@
 
 <style is:global>
   p {
-    line-height: 1.3em;
     font-family: "Source Sans 3 Variable", sans-serif;
   }
 
@@ -29,6 +28,20 @@
     border-radius: 5px;
     overflow: scroll;
     max-width: 100%;
+    position: relative;
+  }
+
+  pre[data-language="html"]::before,
+  pre[data-language="css"]::before {
+    content: attr(data-language);
+    text-transform: uppercase;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    font-size: 0.6rem;
+    color: gray;
+    top: 1.5rem;
+    right: 1.5rem;
   }
 
   pre code {
