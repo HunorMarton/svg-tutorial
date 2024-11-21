@@ -1,5 +1,5 @@
 ---
-import HideIcon from "../common/HideIcon.astro"
+import HideIcon from "../common/HideIcon.astro";
 export interface Props {
   curve?: boolean;
 }
@@ -43,20 +43,20 @@ const { curve } = Astro.props as Props;
 <style is:global lang="scss">
   @import "./note-animation";
 
-  @include set-up-notes(2, 3); // HTML
-  @include set-up-notes(3, 2); // SVG
-  @include set-up-notes(4, 5); // Circle
-  @include set-up-notes(5, 2); // Rectangle
-  @include set-up-notes(6, 2); // Diagram
-  @include set-up-notes(7, 1); // Path
-  @include set-up-notes(8, 2); // Hamburger
-  @include set-up-notes(9, 1); // Fullscreen
-  @include set-up-notes(10, 4); // Sun
-  @include set-up-notes(11, 3); // Windmill
-  @include set-up-notes(12, 1); // Clock
+  @include set-up-notes("html", 3);
+  @include set-up-notes("svg", 2);
+  @include set-up-notes("circle", 5);
+  @include set-up-notes("rect", 2);
+  @include set-up-notes("diagram", 2);
+  @include set-up-notes("path", 1);
+  @include set-up-notes("hamburger", 2);
+  @include set-up-notes("fullscreen", 1);
+  @include set-up-notes("sun", 4);
+  @include set-up-notes("windmill", 3);
+  @include set-up-notes("clock", 1);
   // Smile
-  @include set-up-notes(14, 1); // Quadratic Bezier Curve
-  @include set-up-notes(15, 1); // Cubic Bezier Curve
-  @include set-up-notes(16, 1); // Connection
-  @include set-up-notes(17, 1); // Arc
+  @include set-up-notes("quadratic-bezier", 1);
+  @include set-up-notes("cubic-bezier", 1);
+  @include set-up-notes("connection", 1);
+  @include set-up-notes("arc", 1);
 </style>

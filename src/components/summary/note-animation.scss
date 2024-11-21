@@ -47,7 +47,7 @@
 
 @mixin set-up-notes($container, $slides) {
     @for $i from 1 through $slides {
-        .slide-container:nth-of-type(#{$container}) .note:nth-child(#{$i} of .note) {
+        .slide-container[data-container="#{$container}"] .note:nth-child(#{$i} of .note) {
             @include _display-note($container, $slides, $i);
         }
     }

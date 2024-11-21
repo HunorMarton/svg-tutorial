@@ -3,7 +3,7 @@ import Slide from "./Slide.astro";
 ---
 
 <Slide container="smile" slides={2}>
-  <div class="slide-clock" data-track-id="slide-smile">
+  <div class="slide-smile" data-track-id="slide-smile">
     <svg width="200" height="200" viewBox="-100 -100 200 200">
       <circle
         cx="0"
@@ -30,7 +30,7 @@ import Slide from "./Slide.astro";
 
   @import "animation";
 
-  .slide-clock {
+  .slide-smile {
     path {
       @include animation(
         d,

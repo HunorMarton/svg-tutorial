@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  container?: number | string;
+  container: string;
   slides?: number;
   code?: boolean;
 }
@@ -12,6 +12,7 @@ const background = code ? "#24292e" : "transparent";
 
 <div
   class="slide-container"
+  data-container={container}
   style={{
     "view-timeline": container ? `--container-${container} block` : "none",
   }}

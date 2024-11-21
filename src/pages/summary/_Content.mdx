@@ -227,7 +227,7 @@ export const Page = () => (
   <Note>Here, we map some data points in React to rectangles.</Note>
 </SlideDiagram>
 
-<Slide code={true}>
+<Slide container="path" code={true}>
   ```html
   <path d=". . ." />
   ```
@@ -280,7 +280,7 @@ export const Page = () => (
 
 </SlideHamburger>
 
-<Slide>
+<Slide container="fullscreen">
   <svg width="200" height="200" viewBox="0 0 30 30">
     <path
       stroke="black"
@@ -400,7 +400,7 @@ export const Page = () => (
 
 <SlideSmile />
 
-<Slide>
+<Slide container="quadratic-bezier">
   <QuadraticBezier client:idle fullScreen={true} />
   <Note curve={true}>
     The quadratic bezier curve has one control point that defines how to bend
@@ -408,7 +408,7 @@ export const Page = () => (
   </Note>
 </Slide>
 
-<Slide>
+<Slide container="cubic-bezier">
   <CubicBezier client:idle fullScreen={true} />
   <Note curve={true}>
     A cubic bezier curve has two control points, giving you much greater
@@ -449,7 +449,7 @@ export const Page = () => (
   <Note>Cubic bezier curves are great for creating smooth transitions between line segments. Hover over the paths to see how they connect two straight line segment.</Note>
 </SlideConnection>
 
-<Slide>
+<Slide container="arc">
   <Arc client:idle fullScreen={true} />
   <Note curve={true}>
     Arcs are one of the most complicated path segments. Click [here](/svg/arc)
