@@ -1,5 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import "@fontsource-variable/figtree"; // Supports weights 300-900
+import "@fontsource-variable/source-sans-3"; // Supports weights 200-900
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -64,9 +66,21 @@ const { title, description, image, article } = Astro.props as Props;
     inject();
   </script>
   <script>
-    import './HeadSectionViewTracker';
-    import './HeadAnchorTracker';
+    import "./HeadSectionViewTracker";
+    import "./HeadAnchorTracker";
   </script>
 
   <ViewTransitions />
+
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Figtree Variable", sans-serif;
+    }
+  </style>
 </head>

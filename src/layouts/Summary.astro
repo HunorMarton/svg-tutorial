@@ -3,7 +3,6 @@ import Head from "./Head.astro";
 import BrowserScrollSupport from "../components/BrowserScrollSupport.astro";
 import ScreenSizeCheck from "../components/ScreenSizeCheck.astro";
 import FigmaCursors from "./FigmaCursors.astro";
-import "@fontsource/lato";
 import "./SVGCurves.css";
 ---
 
@@ -35,16 +34,6 @@ import "./SVGCurves.css";
     </BrowserScrollSupport>
     <FigmaCursors />
     <style is:global>
-      html,
-      body {
-        height: 100%;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
       pre {
         overflow-x: initial !important; /* Overrinde inline style that messes up with scroll based animation */
       }

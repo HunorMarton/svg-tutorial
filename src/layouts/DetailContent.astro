@@ -16,8 +16,6 @@ export interface Props {
 
 const { slug, day, title, Component } = Astro.props as Props;
 
-const longTitle = `Day ${day}: ${title}`;
-
 const numberOfEntries = (await getCollection("svg")).length;
 const thereIsNext = day !== numberOfEntries;
 ---
@@ -28,7 +26,8 @@ const thereIsNext = day !== numberOfEntries;
   </figure>
 
   <article>
-    <h1>{longTitle}</h1>
+    <p class="breadcrumb"><a href="/">SVG Tutorial</a> / Day {day}</p>
+    <h1>{title}</h1>
     <figure class="image-for-small-screen">
       <Component size="1" id="top" />
     </figure>
@@ -72,6 +71,11 @@ const thereIsNext = day !== numberOfEntries;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+  }
+
+  .breadcrumb a {
+    text-decoration: none;
+    color: inherit;
   }
 
   @media (min-width: 900px) {

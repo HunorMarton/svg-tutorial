@@ -2,7 +2,6 @@
 import Head from "./Head.astro";
 import FigmaCursors from "./FigmaCursors.astro";
 import SVGDefs from "../components/markdown/elements/SVGDefs.astro";
-import "@fontsource/lato";
 import "./SVGCurves.css";
 
 export interface Props {
@@ -29,15 +28,8 @@ const { slug, day, title, description } = Astro.props as Props;
     <slot />
     <FigmaCursors />
     <style is:global>
-      html,
-      body {
-        height: 100%;
-      }
-
       body {
         background-color: #151515;
-        margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
         display: flex;
         justify-content: center;
