@@ -9,6 +9,7 @@ import SVG from "../../components/markdown/elements/SVG.astro";
 import Circle from "../../components/markdown/elements/Circle.astro";
 import Rect from "../../components/markdown/elements/Rect.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
+import Note from "../../components/markdown/layouts/Note.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
 SVG (Scalable Vector Graphics) has a similar syntax as HTML. They are both based on XML. Since HTML5 we can simply inline the code of an SVG image inside an HTML file like below.
@@ -117,7 +118,10 @@ Note that now the center position of the circle is `0,0`.
 
 </Example>
 
-SVGs often have an `xmlns` property as well. This, however – if the image is inlined in HTML – can be omitted.
+<Note>
+  The SVG element often has an `xmlns` property as well. If the image is inlined
+  in HTML this can be omitted.
+</Note>
 
 ### How to draw a Christmas Ornament
 
