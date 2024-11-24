@@ -13,7 +13,7 @@ const lightsOn = false;
   class="lights"
   width={400 * size}
   height={200 * size}
-  viewBox="-200 -100 400 200"
+  viewBox="0 0 400 200"
 >
   <title>{title}</title>
   <defs>
@@ -23,38 +23,38 @@ const lightsOn = false;
     </g>
   </defs>
 
-  <path d="M -140 -60 Q -70 -50 0 -60 Q 110 -70 110 10"></path>
-  <line x1="-70" y1="-15" x2="-70" y2="-55"></line>
-  <line x1="30" y1="-25" x2="30" y2="-60"></line>
+  <path d="M 60 40 Q 130 50 200 40 Q 310 30 310 110"></path>
+  <line x1="130" y1="85" x2="130" y2="45"></line>
+  <line x1="230" y1="75" x2="230" y2="40"></line>
   <use
     class="b"
     href="#bulb"
-    x="-120"
-    y="-45"
+    x="80"
+    y="38"
     transform="rotate(5)"
     fill={lightsOn ? "#FFC05B" : "white"}></use>
   <use
     class="b"
     href="#bulb"
-    x="-70"
-    y="-15"
+    x="130"
+    y="85"
     fill={lightsOn ? "#F86285" : "white"}></use>
   <use
     class="b"
     href="#bulb"
-    x="-20"
-    y="-57"
+    x="180"
+    y="60"
     transform="rotate(-5)"
     fill={lightsOn ? "#03A8A8" : "white"}></use>
   <use
     class="b"
     href="#bulb"
-    x="30"
-    y="-25"
+    x="230"
+    y="75"
     fill={lightsOn ? "#748CEF" : "white"}></use>
 
-  <rect x="90" y="10" width="40" height="40" fill="lightgray"></rect>
-  <circle class="button" cx="110" cy="30" r="15" fill="red"></circle>
+  <rect x="290" y="110" width="40" height="40" fill="lightgray"></rect>
+  <circle class="button" cx="310" cy="130" r="15" fill="red"></circle>
 </svg>
 
 <script>

@@ -1,0 +1,38 @@
+---
+export interface Props {
+  show?: boolean;
+  base?: boolean;
+  zoom?: number;
+}
+
+const { show, base, zoom = 1 } = Astro.props as Props;
+
+if (!show) return; // Conditional rendering
+---
+
+<g>
+  <g class={base ? "axis-base" : "axis-main"}>
+    <line x1="0" y1="-100%" x2="0" y2="100%"></line>
+    <line x1="-100%" y1="0" x2="100%" y2="0"></line>
+  </g>
+  {
+    !base && (
+      <text x={10 / zoom} y={-8 / zoom} fill="black">
+        0,0
+      </text>
+    )
+  }
+</g>
+
+<style define:vars={{ zoom }}>
+  .axis-main {
+    stroke: darkgray;
+    stroke-width: calc(1 / var(--zoom));
+  }
+
+  .axis-base {
+    stroke: lightgray;
+    stroke-width: calc(1 / var(--zoom));
+    stroke-dasharray: 3 5;
+  }
+</style>

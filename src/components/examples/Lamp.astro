@@ -1,0 +1,128 @@
+---
+export interface Props {
+  title?: string;
+  size: number;
+  armAngle?: number;
+  tiltAngle?: number;
+}
+
+const {
+  title,
+  size = 1,
+  armAngle = -25,
+  tiltAngle = 45,
+} = Astro.props as Props;
+---
+
+<svg
+  width={200 * size}
+  height={200 * size}
+  viewBox="0 0 200 200"
+  class="lamp"
+  data-arm-angle={armAngle}
+  data-tilt-angle={tiltAngle}
+>
+  <title>{title}</title>
+  <g transform="translate(70, 170)">
+    <g id="arm1" transform={`rotate(${armAngle})`}>
+      <!-- 1st arm -->
+      <path d="M 0 0 L 0 -70" class="arm"></path>
+      <circle r="5"></circle>
+
+      <g transform="translate(0, -70)">
+        <g id="arm2" transform={`rotate(${armAngle * -2})`}>
+          <!-- 2nd arm -->
+          <path d="M 0 0 L 0 -70" class="arm"></path>
+          <circle r="5"></circle>
+
+          <g transform="translate(0, -70)">
+            <g id="arm3" transform={`rotate(${tiltAngle})`}>
+              <!-- 3rd arm -->
+              <path d="M 0 0 L 0 -30" class="arm"></path>
+              <circle r="5"></circle>
+
+              <g transform="translate(0, -30)">
+                <g id="head" transform="rotate(-90)">
+                  <!-- Head -->
+                  <path d="M -30 30 Q 0 -20 30 30 Q 0 35 -30 30" fill="gray"
+                  ></path>
+                  <circle cx="0" cy="25" r="10" fill="gold"></circle>
+                  <path d="M -30 30 Q 0 -20 30 30 Q 0 25 -30 30"></path>
+                  <rect x="-10" y="-10" width="20" height="30" rx="5"></rect>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Base -->
+  <ellipse cx="100" cy="175" rx="30" ry="5"></ellipse>
+  <ellipse cx="100" cy="170" rx="30" ry="5" fill="gray"></ellipse>
+</svg>
+
+<style>
+  .arm {
+    stroke: black;
+    stroke-width: 7;
+    stroke-linecap: round;
+  }
+
+  #head {
+    cursor: grab;
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const lamps = document.querySelectorAll(".lamp");
+
+    lamps.forEach((lamp) => {
+      const head = lamp.querySelector("#head");
+      const arm1 = lamp.querySelector("#arm1");
+      const arm2 = lamp.querySelector("#arm2");
+      const arm3 = lamp.querySelector("#arm3");
+
+      const dataset = (lamp as HTMLElement).dataset;
+      if (!dataset) return;
+
+      let tiltAngle = Number(dataset.tiltAngle);
+      let armAngle = Number(dataset.armAngle);
+      let newTiltAngle = tiltAngle;
+      let newArmAngle = armAngle;
+
+      let isDragging = false;
+      let startX: number, startY: number;
+
+      head?.addEventListener("mousedown", (e: Event) => {
+        isDragging = true;
+        const mouseEvent = e as MouseEvent;
+        startX = mouseEvent.clientX;
+        startY = mouseEvent.clientY;
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+
+        newArmAngle = Math.max(-60, Math.min(0, armAngle - dy * 0.5));
+        newTiltAngle = Math.max(-90, Math.min(90, tiltAngle - dx * 0.8));
+
+        arm1?.setAttribute("transform", `rotate(${newArmAngle})`);
+        arm2?.setAttribute("transform", `rotate(${-newArmAngle * 2})`);
+        arm3?.setAttribute("transform", `rotate(${newTiltAngle})`);
+      });
+
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+
+        tiltAngle = newTiltAngle;
+        armAngle = newArmAngle;
+      });
+    });
+  });
+</script>

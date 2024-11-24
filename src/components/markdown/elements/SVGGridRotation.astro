@@ -1,0 +1,37 @@
+---
+export interface Props {
+  baseRotation?: number;
+  rotation?: number;
+}
+
+const { baseRotation, rotation } = Astro.props as Props;
+
+if (!rotation) return; // Conditional rendering
+
+const r = rotation > 0 ? 50 : 40;
+const x1 = r * Math.cos((((baseRotation ?? 0) - rotation) / 180) * Math.PI);
+const y1 = r * Math.sin((((baseRotation ?? 0) - rotation) / 180) * Math.PI);
+const x2 = r * Math.cos(((baseRotation ?? 0) / 180) * Math.PI);
+const y2 = r * Math.sin(((baseRotation ?? 0) / 180) * Math.PI);
+---
+
+{/* TODO: consider zoom for stroke-width ? */}
+<path
+  d={`M ${x1} ${y1} A ${r} ${r} 0 0 ${rotation > 0 ? 1 : 0} ${x2} ${y2}`}
+  fill="none"
+  stroke="blue"
+  stroke-width="2"
+  marker-end="url(#arrowhead)"></path>
+<defs>
+  <marker
+    id="arrowhead"
+    markerWidth="5"
+    markerHeight="4"
+    refX="4"
+    refY="2"
+    orient="auto"
+  >
+    <polygon points="0 0, 5 2, 0 4" fill="context-stroke"></polygon>
+  </marker>
+</defs>
+<text x={r + (rotation > 0 ? 10 : 0)} y="-8" fill="blue">{rotation}°</text>

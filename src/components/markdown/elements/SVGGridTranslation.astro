@@ -1,0 +1,58 @@
+---
+export interface Props {
+  show?: boolean;
+  translation?: [number, number];
+}
+
+const { show, translation } = Astro.props as Props;
+
+if (!show) return; // Conditional rendering
+if (!translation) return; // Conditional rendering
+
+const margin = 20;
+const padding = 0;
+
+const dx = translation?.[0] ?? 0;
+const dy = translation?.[1] ?? 0;
+---
+
+<g>
+  {/* TODO: consider zoom for stroke-width ? */}
+  {
+    translation[0] && (
+      <path
+        d={`M ${padding} ${margin} L ${dx - padding} ${margin}`}
+        fill="none"
+        stroke="blue"
+        stroke-width="2"
+        marker-end="url(#arrowhead)"
+      />
+      <text x={dx / 2} y={margin + 15} fill="blue" text-anchor="middle">{dx}</text>
+    )
+  }
+  {/* TODO: consider zoom for stroke-width ? */}
+  {
+    translation[1] && (
+      <path
+        d={`M ${dx - margin} ${padding} L ${dx - margin} ${dy - padding}`}
+        fill="none"
+        stroke="blue"
+        stroke-width="2" 
+        marker-end="url(#arrowhead)"
+      />
+        <text x={dx - margin - 8} y={dy / 2 + 5} fill="blue" text-anchor="end">{dy}</text>
+    )
+  }
+  <defs>
+    <marker
+      id="arrowhead"
+      markerWidth="5"
+      markerHeight="4"
+      refX="4"
+      refY="2"
+      orient="auto"
+    >
+      <polygon points="0 0, 5 2, 0 4" fill="context-stroke"></polygon>
+    </marker>
+  </defs>
+</g>

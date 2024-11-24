@@ -1,0 +1,26 @@
+<svg class="lights" width="200" height="200">
+  <line x1="100" y1="80" x2="100" y2="170" stroke="black" stroke-width="15"
+  ></line>
+  <g transform="translate(100, 80)">
+    <path
+      id="arm"
+      d="M 5 0 L 30 -30 C 40 -60 -25 -70 -20 -40 L -5 0"
+      fill="darkgray"></path>
+    <use href="#arm" transform="rotate(+120)"></use>
+    <use href="#arm" transform="rotate(-120)"></use>
+    <circle cx="0" cy="0" r="10"></circle>
+    <g fill="none" stroke="gray" stroke-width="2">
+      <circle r="60"></circle>
+      <circle r="40"></circle>
+      <circle r="20"></circle>
+
+      <line id="grill" x1="-60" x2="60"></line>
+      <use href="#grill" transform="rotate(45)"></use>
+      <use href="#grill" transform="rotate(90)"></use>
+      <use href="#grill" transform="rotate(135)"></use>
+    </g>
+  </g>
+
+  <ellipse cx="100" cy="175" rx="30" ry="5"></ellipse>
+  <ellipse cx="100" cy="170" rx="30" ry="5" fill="gray"></ellipse>
+</svg>

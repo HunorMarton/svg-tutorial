@@ -264,6 +264,13 @@ declare module 'astro:content' {
   collection: "svg";
   data: InferEntrySchema<"svg">
 } & { render(): Render[".mdx"] };
+"lamp.mdx": {
+	id: "lamp.mdx";
+  slug: "lamp";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
 "multiple-components.mdx": {
 	id: "multiple-components.mdx";
   slug: "multiple-components";

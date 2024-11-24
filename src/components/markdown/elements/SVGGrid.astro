@@ -1,46 +1,83 @@
 ---
+import Translation from "./SVGGridTranslation.astro";
+import Axis from "./SVGGridAxis.astro";
+import Rotation from "./SVGGridRotation.astro";
+
 export interface Props {
-  minX: number;
-  minY: number;
   viewBoxWidth: number;
   viewBoxHeight: number;
+  zoom: number;
+  showAxes?: boolean;
+  baseTranslation?: [number, number];
+  translation?: [number, number];
+  baseRotation?: number;
+  rotation?: number;
 }
 
-const { minX, minY, viewBoxWidth, viewBoxHeight } = Astro.props as Props;
+const {
+  viewBoxWidth,
+  viewBoxHeight,
+  zoom,
+  showAxes,
+  baseTranslation,
+  translation,
+  baseRotation,
+  rotation,
+} = Astro.props as Props;
 
 const increment = 20;
+
+const isTranslated = translation !== undefined;
+const isRotated = rotation !== undefined && rotation !== 0;
 ---
 
-{
-  Array.from({ length: viewBoxWidth / increment }, (_, i) => (
-    <line
-      class="grid-line"
-      x1={minX + i * increment}
-      y1={minY}
-      x2={minX + i * increment}
-      y2="100%"
-    />
-  ))
-}
-{
-  Array.from({ length: viewBoxHeight / increment }, (_, i) => (
-    <line
-      class="grid-line"
-      x1={minX}
-      y1={minY + i * increment}
-      x2="100%"
-      y2={minY + i * increment}
-    />
-  ))
-}
+<g
+  transform={`translate(${baseTranslation?.[0] ?? 0} ${baseTranslation?.[1] ?? 0})  rotate(${baseRotation ?? 0})`}
+>
+  <Translation show={!isRotated} translation={translation} />
+  <Axis show={isTranslated && !isRotated} base={true} zoom={zoom} />
+  <g transform={`translate(${translation?.[0] ?? 0} ${translation?.[1] ?? 0})`}>
+    <Axis show={isTranslated && isRotated} base={true} zoom={zoom} />
+    <g transform={`rotate(${rotation ?? 0})`}>
+      {
+        Array.from({ length: (viewBoxWidth / increment) * 2 }, (_, i) => (
+          <line
+            class="grid-line"
+            x1={-viewBoxWidth + i * increment}
+            y1={-viewBoxHeight}
+            x2={-viewBoxWidth + i * increment}
+            y2={viewBoxHeight}
+          />
+        ))
+      }
+      {
+        Array.from({ length: (viewBoxHeight / increment) * 2 }, (_, i) => (
+          <line
+            class="grid-line"
+            x1={-viewBoxWidth}
+            y1={-viewBoxHeight + i * increment}
+            x2={viewBoxWidth}
+            y2={-viewBoxHeight + i * increment}
+          />
+        ))
+      }
+      <Axis show={showAxes || isTranslated || isRotated} zoom={zoom} />
+      <Rotation rotation={rotation} />
+    </g>
+  </g>
+</g>
 
-<style is:global>
+<style is:global define:vars={{ zoom }}>
   svg .grid-line {
     stroke-width: 0;
   }
 
   svg:hover .grid-line {
     stroke: lightgray;
-    stroke-width: 0.5;
+    stroke-width: calc(0.5 / var(--zoom));
+  }
+
+  text {
+    font-size: calc(0.7em / var(--zoom));
   }
 </style>

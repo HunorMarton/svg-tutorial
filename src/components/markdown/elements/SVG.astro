@@ -4,29 +4,41 @@ import SVGContent from "./SVGContent.astro";
 
 export interface Props {
   width: string;
+  height: string;
   viewBox: string;
-  [key: string]: string;
+  showAxes?: boolean;
+  baseTranslation?: [number, number];
+  translation?: [number, number];
+  baseRotation?: number;
+  rotation?: number;
+  [key: string]: any;
 }
 
-const { width, viewBox, ...props } = Astro.props as Props;
+const { width, height, viewBox, showAxes, translation, rotation, ...props } =
+  Astro.props as Props;
+
 const [minX, minY, viewBoxWidth, viewBoxHeight] = viewBox
-  .split(" ")
-  .map(Number);
+  ? viewBox.split(" ").map(Number)
+  : [0, 0, Number(width), Number(height)];
 
 const zoom = viewBoxWidth / Number(width);
 ---
 
 <div class="svg-container">
   <div class="svg-viewbox-values">
-    <span>{minX}, {minY}</span>
+    <span>{!translation && !rotation && `${minX}, ${minY}`}</span>
     <span></span>
   </div>
-  <svg width={width} viewBox={viewBox} {...props}>
+  <svg width={width} height={height} viewBox={viewBox} {...props}>
     <SVGGrid
-      minX={minX}
-      minY={minY}
       viewBoxWidth={viewBoxWidth}
       viewBoxHeight={viewBoxHeight}
+      zoom={Number(width) / viewBoxWidth}
+      showAxes={showAxes}
+      baseTranslation={Astro.props.baseTranslation}
+      translation={Astro.props.translation}
+      baseRotation={Astro.props.baseRotation}
+      rotation={Astro.props.rotation}
     />
     <SVGContent>
       <slot />
