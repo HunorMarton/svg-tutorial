@@ -6,61 +6,265 @@ description: In this example we learn how to make an SVG image interactive with 
 ---
 
 import Final from "../../components/markdown/layouts/Final.astro";
+import Note from "../../components/markdown/layouts/Note.astro";
 
-We can not only manipulate an SVG from JavaScript but we can also assign event listeners to parts of an SVG. Here, by clicking the red button we switch on or off the lights. The possibilities are endless. You can even create a full-featured game with SVG and JavaScript.
+In this chapter, we cover a lightbulb that we can toggle on and off and an adjustable lamp that we can drag with the mouse. In both cases, we assign event listeners to SVG elements to make them interactive.
 
-<Final>
+### Example 1: Toggling the Lights
+
+Let's start with an easy example. By clicking the lightbulb, we switch the lights on or off. For this example, let's reuse the lightbulb example from the arc lesson. Here's its final source code. This chapter focuses on the interaction, so if you need to refresh your knowledge of how this icon is created, check back to the arc chapter.
 
 {/* prettier-ignore */}
-```html
-<svg class="lights" width="200" height="200" viewBox="-100 -100 200 200">
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const button = document.getElementById("button");
-      let lightsOn = false;
-
-      button.addEventListener("click", () => {
-        const bulbs = document.querySelectorAll(".b");
-        bulbs[0].setAttribute("fill", lightsOn ? "white" : "#FFC05B");
-        bulbs[1].setAttribute("fill", lightsOn ? "white" : "#F86285");
-        bulbs[2].setAttribute("fill", lightsOn ? "white" : "#03A8A8");
-        bulbs[3].setAttribute("fill", lightsOn ? "white" : "#748CEF");
-        
-        lightsOn = !lightsOn;
-      });
-    });
-  </script>
-
-  <defs>
-    <g id="bulb">
-      <path d="M 0,0 Q 20 25 0 40 Q -20 25 0 0" />
-      <rect x="-6" y="-1" width="12" height="10" rx="3" fill="#5F4C6C" />
-    </g>
-  </defs>
-
-  <path d="M -140 -60 Q -70 -50 0 -60 Q 110 -70 110 10" />
-  <line x1="-70" y1="-15" x2="-70" y2="-55" />
-  <line x1="30" y1="-25" x2="30" y2="-60" />
-  <use class="b" href="#bulb" x="-120" y="-45" transform="rotate(5)" />
-  <use class="b" href="#bulb" x="-70" y="-15" />
-  <use class="b" href="#bulb" x="-20" y="-57" transform="rotate(-5)" />
-  <use class="b" href="#bulb" x="30" y="-25" />
-
-  <rect x="90" y="10" width="40" height="40" fill="lightgray" />
-  <circle id="button" cx="110" cy="30" r="15" fill="red" />
+```html {7} 'id="bulb"' collapse={19-31}
+<svg 
+  width="200" 
+  height="200" 
+  viewBox="-100 -100 200 200"
+>
+  <path
+    id="bulb"
+    d="
+      M -30 20 
+      A 50 50 0 1 1 30 20 
+      Q 20 30 20 50
+      L -20 50
+      Q -20 30 -30 20"
+    fill="yellow"
+    stroke="black"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M -30 -20 A 30 30 0 0 1 0 -50"
+    fill="none"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+  <path
+    d="M -18 62 L 18 62 M -15 75 L 15 75"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
 </svg>
 ```
 
-```css
-.lights {
-  fill: none;
-  stroke: #5f4c6c;
-  stroke-width: 2;
-}
+The only difference in the example above is that the first path element now has an `id`. We use this id to access the element in JavaScript.
 
-.lights #button {
+Then, in JavaScript, we can assign an event handler to this element and toggle its fill color. We keep track of whether the light is on or off with the `lightOn` variable, and based on this, we set the `fill` property to gold or transparent.
+
+```js /"(bulb)"/
+const bulb = document.getElementById("bulb");
+
+let lightOn = true;
+
+bulb.addEventListener("click", () => {
+  bulb.setAttribute("fill", lightOn ? "transparent" : "gold");
+  lightOn = !lightOn;
+});
+```
+
+In CSS we can add a cursor pointer to the bulb to indicate that it's clickable.
+
+```css "bulb"
+#bulb {
   cursor: pointer;
 }
 ```
 
+#### Toggling the Light in React
+
+We can do the same logic with a React component. We can create a new `lightOn` state and set the fill property of the first path element based on this state. Then, we can also toggle this with the `toggleLight` event handler bound to the same path element.
+
+```jsx collapse={25-43} "lightOn" "toggleLight"
+import { useState } from "react";
+
+export const Lightbulb = () => {
+  const [lightOn, setLightOn] = useState(false);
+
+  const toggleLight = () => {
+    setLightOn(!lightOn);
+  };
+
+  return (
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <path
+        d="
+            M -30 20 
+            A 50 50 0 1 1 30 20 
+            Q 20 30 20 50
+            L -20 50
+            Q -20 30 -30 20"
+        fill={lightOn ? "gold" : "transparent"}
+        stroke="black"
+        strokeWidth="10"
+        strokeLinejoin="round"
+        onClick={toggleLight}
+      />
+      <path
+        d="
+            M -30 -20 
+            A 30 30 0 0 1 0 -50"
+        fill="none"
+        stroke="black"
+        strokeWidth="10"
+        strokeLinecap="round"
+      />
+      <path
+        d="
+            M -18 62 
+            L 18 62 
+            M -15 75 
+            L 15 75"
+        stroke="black"
+        strokeWidth="10"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+};
+```
+
+<Note>
+  When using React, we need to convert some property names to camelCase. For
+  example, we use `strokeWidth` instead of `stroke-width` and `strokeLinejoin`
+  instead of `stroke-linejoin`.
+</Note>
+
+### Example 2: Adjusting the Lamp
+
+Now, let's cover a more complex example. You can adjust the lamp by dragging its head. You can adjust the lamp's height by dragging its head vertically and tilt it by dragging it horizontally.
+
+For this example, we reuse the lamp we created in a previous chapter. Here's the source code that we ended up with. This one is a complex SVG that uses transformations to position its elements. Revisit the Transform chapter for a refresher.
+
+<Final>
+
+```html 'id="head"' 'id="arm1"' 'id="arm2"' 'id="arm3"' 'rotate(-25)' 'rotate(50)' 'rotate(45)'
+<svg width="200" height="200">
+  <g transform="translate(70, 170)">
+    <g id="arm1" transform="rotate(-25)">
+      <!-- 1st arm -->
+      <path d="M 0 0 L 0 -70" class="arm" />
+      <circle r="5" />
+
+      <g transform="translate(0, -70)">
+        <g id="arm2" transform="rotate(50)">
+          <!-- 2nd arm -->
+          <path d="M 0 0 L 0 -70" class="arm" />
+          <circle r="5" />
+
+          <g transform="translate(0, -70)">
+            <g id="arm3" transform="rotate(45)">
+              <!-- 3rd arm -->
+              <path d="M 0 0 L 0 -30" class="arm" />
+              <circle r="5" />
+
+              <g transform="translate(0, -30)">
+                <g id="head" transform="rotate(-90)">
+                  <!-- Head -->
+                  <path d="M -30 30 Q 0 -20 30 30 Q 0 35 -30 30" fill="gray" />
+                  <circle cx="0" cy="25" r="10" fill="gold" />
+                  <path d="M -30 30 Q 0 -20 30 30 Q 0 25 -30 30" />
+                  <rect x="-10" y="-10" width="20" height="30" rx="5" />
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Base -->
+  <ellipse cx="100" cy="175" rx="30" ry="5" />
+  <ellipse cx="100" cy="170" rx="30" ry="5" fill="gray" />
+</svg>
+```
+
+```css
+.arm {
+  stroke: black;
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+```
+
 </Final>
+
+The only difference in the example above is that some group elements now have an `id`. We use these ids to access these groups in JavaScript.
+
+This SVG is constructed in a way that allows us to tilt the arms of the lamp by simply adjusting some rotation values. You can see above that the first arm rotates `25°` to the left, the second arm turns `50°` to the right, and the third arm that connects the head tilts by `45°` to the right again.
+
+These are the rotation values we need to change while dragging the head of the lamp. That's why each of these groups has an id (`arm1`, `arm2`, `arm3`). We get these groups by id in JavaScript.
+
+Let's say the second arm always balances out the first arm. If the first arm turns 25° to the left, the second one will turn 50° to the right. It's always double the first rotation in the other direction.
+
+So, in the code, we only need to keep track of two rotation values — the rotation of the first and third arms. Let's call these values `arm1Rotation` and `arm3Rotation`. Let's initialize these variables in JavaScript with values matching the rotations defined in SVG.
+
+```js "arm1" "arm2" "arm3" "head" "arm1Rotation" "arm3Rotation"
+const head = document.getElementById("head");
+const arm1 = document.getElementById("arm1");
+const arm2 = document.getElementById("arm2");
+const arm3 = document.getElementById("arm3");
+
+let arm1Rotation = -25;
+let arm3Rotation = 45;
+
+let newArm1Rotation = arm1Rotation;
+let newArm3Rotation = arm3Rotation;
+
+let isDragging = false;
+let dragStartX, dragStartY;
+
+head.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  dragStartX = e.clientX;
+  dragStartY = e.clientY;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  const dx = e.clientX - dragStartX;
+  const dy = e.clientY - dragStartY;
+
+  newArm1Rotation = Math.max(-60, Math.min(0, arm1Rotation - dy * 0.5));
+  newArm3Rotation = Math.max(-90, Math.min(90, arm3Rotation - dx * 0.8));
+
+  arm1.setAttribute("transform", `rotate(${newArm1Rotation})`);
+  arm2.setAttribute("transform", `rotate(${-newArm1Rotation * 2})`);
+  arm3.setAttribute("transform", `rotate(${newArm3Rotation})`);
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+
+  arm3Rotation = newArm3Rotation;
+  arm1Rotation = newArm1Rotation;
+});
+```
+
+Then, we implement a simple drag-and-drop by adding the `mousedown` event listener to the head of the lamp and a `mousemove` and `mouseup` event listener to the document.
+
+We keep track if the mouse is dragging the head with the `isDragging` variable. In the case of dragging, we calculate the horizontal and vertical movement of the mouse.
+
+From `dx` and `dy` we calculate the new rotation of the first and the third arm. We change the rotation of arm one based on the vertical movement and the rotation of arm three based on the horizontal movement. We also limit the range of these rotations. Arm one can tilt between -60° and 0, while arm three can tilt between -90° and 90°.
+
+We set these groups' `transform` attributes at each step with a new rotation value. Then, once the mouse button is released, we update the `arm1Rotation` and `arm3Rotation` to have the current state of the lamp.
+
+As a finishing touch, we can change the cursor on the head element to drag to indicate that we can adjust the lamp.
+
+```css collapse={1-5}
+.arm {
+  stroke: black;
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+#head {
+  cursor: grab;
+}
+```
+
+We saw how we can manipulate SVG with JavaScript. The possibilities are endless. You can create infographics, charts, editors, or even a full-featured game with SVG and JavaScript.

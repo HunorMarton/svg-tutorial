@@ -32,7 +32,9 @@
   }
 
   pre[data-language="html"]::before,
-  pre[data-language="css"]::before {
+  pre[data-language="css"]::before,
+  pre[data-language="js"]::before,
+  pre[data-language="jsx"]::before {
     content: attr(data-language);
     text-transform: uppercase;
     display: block;

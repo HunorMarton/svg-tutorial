@@ -12,6 +12,7 @@ import react from "@astrojs/react";
 import sentry from "@sentry/astro";
 
 import astroExpressiveCode from "astro-expressive-code";
+import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,6 +23,7 @@ export default defineConfig({
   }),
   integrations: [
     astroExpressiveCode({
+      plugins: [pluginCollapsibleSections()],
       styleOverrides: {
         codeFontSize: "12px", // How to use em or rem here?
       },
