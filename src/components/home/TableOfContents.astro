@@ -3,25 +3,49 @@ import { getCollection } from "astro:content";
 const entries = (await getCollection("svg")).sort(
   (a, b) => a.data.day - b.data.day
 );
+
+const groups: Array<{
+  category: string;
+  start: number;
+  entries: typeof entries;
+}> = [];
+
+for (let entry of entries) {
+  if (entry.data.category !== groups[groups.length - 1]?.category) {
+    groups.push({
+      category: entry.data.category,
+      start: entry.data.day,
+      entries: [],
+    });
+  }
+  groups[groups.length - 1].entries.push(entry);
+}
+
+console.log(groups);
 ---
 
-<nav>
+<nav id="table-of-contents">
   <h2>Table of Contents</h2>
   <div class="content">
     <ul>
-      <li>
-        <a href="/summary">TLDR: SVG Tutorial Summary</a>
+      <li class="summary">
+        <a href="/summary"><h3>TLDR: SVG Tutorial Summary</h3></a>
       </li>
-    </ul>
-    <ol>
       {
-        entries.map((entry) => (
-          <li>
-            <a href={`/svg/${entry.slug}`}>{entry.data.title}</a>
+        groups.map((group) => (
+          <li class="group">
+            <h3>{group.category}</h3>
+            <ol start={group.start}>
+              {group.entries.map((entry) => (
+                <li>
+                  <a href={`/svg/${entry.slug}`}>{entry.data.title}</a>
+                </li>
+              ))}
+            </ol>
           </li>
         ))
       }
-    </ol>
+    </ul>
   </div>
 </nav>
 
@@ -36,11 +60,13 @@ const entries = (await getCollection("svg")).sort(
 
   h2 {
     padding-left: 40px;
+    padding-bottom: 1.5em;
   }
 
   @media (min-width: 770px) {
     .content {
       columns: 2;
+      gap: 40px;
     }
   }
 
@@ -54,15 +80,29 @@ const entries = (await getCollection("svg")).sort(
     text-decoration: underline;
   }
 
-  ul {
-    margin: 0;
-    list-style: square;
-    list-style: url("data:image/svg+xml,<svg width='10' height='10' xmlns='http://www.w3.org/2000/svg'><rect fill='%23fcba29' width='100%' height='100%' /></svg>");
+  .summary h3 {
     color: #fcba29;
-    font-weight: bold;
+    margin-top: 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
   }
 
   ol {
     margin-top: 0;
+  }
+
+  li {
+    break-inside: avoid-column;
+  }
+
+  .group {
+    margin-top: 20px;
+
+    ol {
+      padding-left: 20px;
+    }
   }
 </style>
