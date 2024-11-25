@@ -39,6 +39,9 @@ export default defineConfig({
     }),
   ],
   redirects: {
+    // SVG Tutorial
+    "/svg/bell": "/svg/animation-on-hover",
+    // Editor
     "/arc": "/editor/arc",
     "/cubicBezier": "/editor/cubicBezier",
     "/quadraticBezier": "/editor/quadraticBezier",

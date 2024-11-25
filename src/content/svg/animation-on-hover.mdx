@@ -5,19 +5,213 @@ component: RingingBell
 description: In this example we learn how to animate an SVG bell on mouse hover with CSS.
 ---
 
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Path from "../../components/markdown/elements/Path.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
-We can also set more traditional animations with CSS. Here we animate the `transform` property with keyframes. We can even trigger this effect on mouse hover.
+We can define keyframe animations for SVG elements with CSS. In this example, we animate the transform property with keyframes. Here, we trigger this effect on mouse hover.
 
-Here we are reusing [the bell example](/svg/bell) we went through earlier, then adding a keyframe animation on `hover` on both the whole bell itself and the bell tongue.
+### Drawing a Bell
+
+First, let's define the bell as an SVG. We draw the bell as a path with cubic and quadratic Béziers curves and straight line segments. Let's start with the bottom. We begin with a move-to command and then use the line-to command to draw straight lines.
+
+<Example>
+
+<SVG
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
+  <Path
+    d="
+        M -50 40
+        L -50 50
+        L 50 50
+        L 50 40"
+    fill="#FDEA96"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html
+<svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
+  <path
+    d="
+      M -50 40
+      L -50 50
+      L 50 50
+      L 50 40"
+    fill="#FDEA96"
+  />
+</svg>
+```
+
+</Example>
+
+Then a [quadratic Beziers](./quadratic-bezier) starts the bell cloak.
+
+<Example>
+
+<SVG
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
+  <Path
+    d="
+      M -50 40
+      L -50 50
+      L 50 50
+      L 50 40
+      Q 40 40 40 10"
+    fill="#FDEA96"
+  />
+  <Circle cx="40" cy="40" r="2" stroke="none" fill="red" />
+</SVG>
+
+{/* prettier-ignore */}
+```html ins={14}
+<svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
+  <path
+    d="
+      M -50 40
+      L -50 50
+      L 50 50
+      L 50 40
+      Q 40 40 40 10"
+    fill="#FDEA96"
+  />
+</svg>
+```
+
+</Example>
+
+Then the line is continued with a [cubic Bezier](./cubic-bezier) to form the top of the bell.
+
+<Example>
+
+<SVG
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
+  <Path
+    d="
+      M -50 40
+      L -50 50
+      L 50 50
+      L 50 40
+      Q 40 40 40 10
+      C 40 -60 -40 -60 -40 10"
+    fill="#FDEA96"
+  />
+  <Circle cx="-40" cy="-60" r="2" stroke="none" fill="red" />
+  <Circle cx="40" cy="-60" r="2" stroke="none" fill="red" />
+</SVG>
+
+{/* prettier-ignore */}
+```html ins={15}
+<svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
+  <path
+    d="
+      M -50 40
+      L -50 50
+      L 50 50
+      L 50 40
+      Q 40 40 40 10
+      C 40 -60 -40 -60 -40 10"
+    fill="#FDEA96"
+  />
+</svg>
+```
+
+</Example>
+
+Then we reach the bottom part with another quadratic bezier that mirrors the previous one.
+
+<Example>
+
+<SVG
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
+  <Path
+    d="
+      M -50 40
+      L -50 50
+      L 50 50
+      L 50 40
+      Q 40 40 40 10
+      C 40 -60 -40 -60 -40 10
+      Q -40 40 -50 40"
+    fill="#FDEA96"
+  />
+  <Circle cx="-40" cy="40" r="2" stroke="none" fill="red" />
+</SVG>
+
+{/* prettier-ignore */}
+```html ins={16}
+<svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  stroke="black"
+  stroke-width="2"
+>
+  <path
+      d="
+        M -50 40
+        L -50 50
+        L 50 50
+        L 50 40
+        Q 40 40 40 10
+        C 40 -60 -40 -60 -40 10
+        Q -40 40 -50 40"
+      fill="#FDEA96"
+    />
+</svg>
+```
+
+</Example>
+
+We finish the bell, by adding two circles for the bell-clapper, and the hanger.
 
 <Final>
 
-```html
-<svg class="bell" width="200" height="200" viewBox="-100 -100 200 200">
-  <g stroke="#001514" stroke-width="2">
+```html ins={3-4}
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <g stroke="black" stroke-width="2">
     <circle cx="0" cy="-45" r="7" fill="#4F6D7A" />
-    <circle class="bell-tongue" cx="0" cy="50" r="10" fill="#F79257" />
+    <circle cx="0" cy="50" r="10" fill="#F79257" />
     <path
       d="
         M -50 40
@@ -33,13 +227,41 @@ Here we are reusing [the bell example](/svg/bell) we went through earlier, then 
 </svg>
 ```
 
+</Final>
+
+### Adding Animation on Hover
+
+Now, let's add an id for the elements we move. We assign an id to the group containing the whole bell and one for the bell clapper.
+
+```html ins='id="bell"' ins='id="bell-clapper"'
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <g id="bell" stroke="black" stroke-width="2">
+    <circle cx="0" cy="-45" r="7" fill="#4F6D7A" />
+    <circle id="bell-clapper" cx="0" cy="50" r="10" fill="#F79257" />
+    <path
+      d="
+        M -50 40
+        L -50 50
+        L 50 50
+        L 50 40
+        Q 40 40 40 10
+        C 40 -60 -40 -60 -40 10
+        Q -40 40 -50 40"
+      fill="#FDEA96"
+    />
+  </g>
+</svg>
+```
+
+Then, we can add a keyframe animation on `hover` on the bell and the bell clapper. We use the same animation that alternates the rotation back and forth for both of them. We also set the timing function to `ease-in-out` to slow the animation at the leftmost and rightmost positions.
+
 ```css
-.bell:hover {
-  transform-origin: center 30%;
+.bell {
+  transform-origin: 0 -45px;
 }
 
-.bell:hover,
-.bell:hover .bell-tongue {
+svg:hover .bell,
+svg:hover .bell-clapper {
   animation-duration: 0.5s;
   animation-delay: -0.25s;
   animation-iteration-count: infinite;
@@ -58,4 +280,4 @@ Here we are reusing [the bell example](/svg/bell) we went through earlier, then 
 }
 ```
 
-</Final>
+Notice that we also set the `transform-origin` property for the group. This ensures that the rotation occurs around the bell hanger and not the origin of the coordinate system.
