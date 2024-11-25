@@ -11,7 +11,6 @@ import Path from "../../components/markdown/elements/Path.astro";
 import Command from "../../components/markdown/layouts/Command.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
-import "../../components/MarkdownArc.scss";
 
 An arc is a segment of a circle or an ellipse. In SVG, we can draw an arc using the `<path>` element with the `A` command. Like other path segments, the arc to command continues the previous segment. In this example, we use the `M` command to move to the starting point, and from there, we draw an arc.
 
@@ -31,7 +30,7 @@ A rx ry rotation large-arc-flag sweep-flag `x y`
 
 The arc's endpoints are the last two parameters of the `A` command, x and y. That's the only coordinate the arc defines. For instance, we don't set the center point of the arc. All the rest of the parameters define how to reach this endpoint.
 
-#### Horizontal and Vertical Radiuses {/* id: radiuses */}
+#### Horizontal and Vertical Radiuses
 
 <Command>
 
@@ -63,7 +62,7 @@ The first two parameters are the imaginary circle's horizontal and vertical radi
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html {9} "70 70"
 <svg 
   width="200"
   height="200"
@@ -82,7 +81,7 @@ The first two parameters are the imaginary circle's horizontal and vertical radi
 
 </Example>
 
-#### Sweep Flag {/* id: sweep-flag */}
+#### Sweep Flag
 
 <Command>
 
@@ -114,7 +113,7 @@ With the given radiuses, four different ways to reach the arc's endpoint exist. 
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html {9} /0 (1)/
 <svg 
   width="200"
   height="200"
@@ -133,7 +132,7 @@ With the given radiuses, four different ways to reach the arc's endpoint exist. 
 
 </Example>
 
-#### Large Arc Flag {/* id: large-arc-flag */}
+#### Large Arc Flag
 
 <Command>
 
@@ -165,7 +164,7 @@ In both cases, the arc has reached its endpoint in the shortest possible way. Ho
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html {9} /(1) 1/
 <svg 
   width="200"
   height="200"
@@ -184,7 +183,7 @@ In both cases, the arc has reached its endpoint in the shortest possible way. Ho
 
 </Example>
 
-#### Drawing an Elliptic Arc {/* id: elliptic */}
+#### Drawing an Elliptic Arc
 
 <Command>
 
@@ -216,7 +215,7 @@ We draw an elliptic arc if we set the horizontal and vertical radiuses to two di
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html {9} "70 40"
 <svg 
   width="200"
   height="200"
@@ -235,7 +234,7 @@ We draw an elliptic arc if we set the horizontal and vertical radiuses to two di
 
 </Example>
 
-#### Rotating an Elliptic Arc {/* id: rotation */}
+#### Rotating an Elliptic Arc
 
 <Command>
 
@@ -267,7 +266,7 @@ We can turn our imaginary ellipse by an angle when we draw an elliptic arc. The 
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html {9} "30"
 <svg 
   width="200"
   height="200"

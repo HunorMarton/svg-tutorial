@@ -1,26 +1,32 @@
-.highlight {
-  position: relative;
-  z-index: 1;
-  cursor: default;
+.code {
+  /* 
+  Scope to .code because otherwise .highlight is clashing with Expressive Code's .highlight.
+  TODO: Replace this with @scope once it is supported by Firefox.
+  */
+  .highlight {
+    position: relative;
+    z-index: 1;
+    cursor: default;
 
-  &::before {
-    opacity: 0; /* Displayed by highlight utility */
-    position: absolute;
-    content: "";
-    top: -5px;
-    left: -5px;
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
-    background-color: yellow;
-    z-index: -1;
+    &::before {
+      opacity: 0; /* Displayed by highlight utility */
+      position: absolute;
+      content: "";
+      top: -5px;
+      left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+      background-color: yellow;
+      z-index: -1;
 
-    transition: opacity 0.5s ease-in-out;
+      transition: opacity 0.5s ease-in-out;
+    }
   }
-}
 
-.highlight-description {
-  display: none;
-  position: absolute;
-  color: white;
-  top: 3.2em; /* TODO: Make sure this looks good on all pages (/svg/arc, /summary, /editor/arc) */
+  .highlight-description {
+    display: none;
+    position: absolute;
+    color: white;
+    top: 3.2em; /* TODO: Make sure this looks good on all pages (/svg/arc, /summary, /editor/arc) */
+  }
 }

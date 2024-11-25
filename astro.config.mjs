@@ -11,6 +11,8 @@ import react from "@astrojs/react";
 
 import sentry from "@sentry/astro";
 
+import astroExpressiveCode from "astro-expressive-code";
+
 // https://astro.build/config
 export default defineConfig({
   output: "static",
@@ -19,6 +21,11 @@ export default defineConfig({
     imageService: true,
   }),
   integrations: [
+    astroExpressiveCode({
+      styleOverrides: {
+        codeFontSize: "12px", // How to use em or rem here?
+      },
+    }),
     mdx(),
     react(),
     sentry({
