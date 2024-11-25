@@ -322,9 +322,9 @@ In this example, we draw a single path. We start with a move-to command to get t
 
 Note how these two arcs look very different despite using the same radiuses. The large arc flag and the sweep flag mirror each other. The first arc goes the long way between the two endpoints, and the second goes the short way. Note that the first one goes counterclockwise (as it goes down), and the second goes clockwise (as it goes up).
 
-### Drawing a Candy
+### Drawing a Candy Cane
 
-Now after all these introductions we finally got to today's example. We are only going to draw a simple arc in this one.
+After all these introductions, we finally got to today's example. We are going to draw a candy cane in three layers.
 
 <Example>
 
@@ -335,7 +335,7 @@ Now after all these introductions we finally got to today's example. We are only
         L 50 -80
         A 50 50 0 0 0 -50 -80"
     fill="none"
-    stroke="#cd803d"
+    stroke="black"
     stroke-width="45"
     stroke-linecap="round"
   />
@@ -349,80 +349,277 @@ Now after all these introductions we finally got to today's example. We are only
   viewBox="-100 -200 200 400"
 >
   <path
-    class="body" 
     d="
-      M 50 120
-      L 50 -80
-      A 50 50 0 0 0 -50 -80"
-    stroke="#cd803d"
+        M 50 120
+        L 50 -80
+        A 50 50 0 0 0 -50 -80"
+    fill="none"
+    stroke="black"
     stroke-width="45"
+    stroke-linecap="round"
   />
 </svg>
-```
-
-```css
-.body {
-  stroke-linecap: round;
-  fill: none;
-}
 ```
 
 </Example>
 
-To draw a candy, we draw a thick line that consists of a straight line and a half circle. Then we draw the same line again, with a slightly thinner stroke width. By setting two different colors for them, they will look as if one is the border of the other.
+To draw the candy, we draw a thick line that consists of a straight line and a half circle. Then, we draw the same line again, with a slightly thinner stroke width. By setting two different colors for them, they will look as if one is the outline of the other.
 
-For the finishing touches, we add a few straight lines inside this shape as markings.
+<Example>
 
-<Final>
-
-```html
-<svg width="200" height="400" viewBox="-100 -200 200 400">
-  <path
-    class="body"
+<SVG width="200" height="400" viewBox="-100 -200 200 400">
+  <Path
     d="
-      M 50 120
-      L 50 -80
-      A 50 50 0 0 0 -50 -80"
-    stroke="#cd803d"
+        M 50 120
+        L 50 -80
+        A 50 50 0 0 0 -50 -80"
+    fill="none"
+    stroke="black"
     stroke-width="45"
+    stroke-linecap="round"
+  />
+
+  <Path
+    d="
+        M 50 120
+        L 50 -80
+        A 50 50 0 0 0 -50 -80"
+    fill="none"
+    stroke="red"
+    stroke-width="35"
+    stroke-linecap="round"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html ins={17-26}
+<svg 
+  width="200"
+  height="400"
+  viewBox="-100 -200 200 400"
+>
+  <path
+    d="
+        M 50 120
+        L 50 -80
+        A 50 50 0 0 0 -50 -80"
+    fill="none"
+    stroke="black"
+    stroke-width="45"
+    stroke-linecap="round"
   />
 
   <path
-    class="body"
     d="
-      M 50 120
-      L 50 -80
-      A 50 50 0 0 0 -50 -80"
-    stroke="white"
-    stroke-width="40"
-    class="body"
+        M 50 120
+        L 50 -80
+        A 50 50 0 0 0 -50 -80"
+    fill="none"
+    stroke="red"
+    stroke-width="35"
+    stroke-linecap="round"
   />
-
-  <line class="green-mark" x1="-35" y1="-90" x2="-60" y2="-100" />
-  <line class="red-mark" x1="-15" y1="-115" x2="-25" y2="-135" />
-  <line class="green-mark" x1="20" y1="-110" x2="35" y2="-130" />
-  <line class="red-mark" x1="40" y1="-60" x2="60" y2="-80" />
-  <line class="green-mark" x1="40" y1="-10" x2="60" y2="-30" />
-  <line class="red-mark" x1="40" y1="40" x2="60" y2="20" />
-  <line class="green-mark" x1="40" y1="90" x2="60" y2="70" />
 </svg>
 ```
 
-```css
-.body {
-  stroke-linecap: round;
-  fill: none;
-}
+</Example>
 
-.red-mark {
-  stroke: #d1495b;
-  stroke-width: 2.5px;
-}
+Then, finally, we draw the same path again, but this time in white, and we use the `stroke-dasharray` property to draw a dashed line.
 
-.green-mark {
-  stroke: #234236;
-  stroke-width: 2.5px;
-}
+<Final>
+
+```html ins={24-33} 'stroke-dasharray="30 30"'
+<svg width="200" height="400" viewBox="-100 -200 200 400">
+  <path
+    d="
+        M 50 120
+        L 50 -80
+        A 50 50 0 0 0 -50 -80"
+    fill="none"
+    stroke="black"
+    stroke-width="45"
+    stroke-linecap="round"
+  />
+
+  <path
+    d="
+        M 50 120
+        L 50 -80
+        A 50 50 0 0 0 -50 -80"
+    fill="none"
+    stroke="red"
+    stroke-width="35"
+    stroke-linecap="round"
+  />
+
+  <path
+    d="
+        M 50 120
+        L 50 -80
+        A 50 50 0 0 0 -50 -80"
+    fill="none"
+    stroke="white"
+    stroke-width="35"
+    stroke-dasharray="30 30"
+  />
+</svg>
 ```
 
 </Final>
+
+### Bonus: Drawing a Lightbulb
+
+For a more advanced example, we can draw a lightbulb. We start with an arc that will be the bulky part of the lightbulb.
+
+<Example>
+
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
+    d="
+      M -30 20 
+      A 50 50 0 1 1 30 20"
+    fill="yellow"
+    stroke="black"
+    stroke-width="10"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html
+<svg 
+  width="200" 
+  height="200" 
+  viewBox="-100 -100 200 200"
+>
+  <path
+    d="
+      M -30 20 
+      A 50 50 0 1 1 30 20"
+    fill="yellow"
+    stroke="black"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+</svg>
+```
+
+</Example>
+
+Then, with a [quadratic Bézier curve](./quadratic-bezier), we continue the shape down, draw the bottom with a line-to segment, and return to the beginning of the path with another quadratic Bézier curve.
+
+<Example>
+
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
+    d="
+      M -30 20 
+      A 50 50 0 1 1 30 20 
+      Q 20 30 20 50
+      L -20 50
+      Q -20 30 -30 20"
+    fill="yellow"
+    stroke="black"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html ins={10-12}
+<svg 
+  width="200" 
+  height="200" 
+  viewBox="-100 -100 200 200"
+>
+  <path
+    d="
+      M -30 20 
+      A 50 50 0 1 1 30 20 
+      Q 20 30 20 50
+      L -20 50
+      Q -20 30 -30 20"
+    fill="yellow"
+    stroke="black"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+</svg>
+```
+
+</Example>
+
+Finally, we add another contour arc and two lines at the bottom for the cap.
+
+<Example>
+
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Path
+    d="
+      M -30 20 
+      A 50 50 0 1 1 30 20 
+      Q 20 30 20 50
+      L -20 50
+      Q -20 30 -30 20"
+    fill="yellow"
+    stroke="black"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+  <Path
+    d="M -30 -20 A 30 30 0 0 1 0 -50"
+    fill="none"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+  <Path
+    d="M -18 62 L 18 62 M -15 75 L 15 75"
+    fill="none"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html ins={18-36}
+<svg 
+  width="200" 
+  height="200" 
+  viewBox="-100 -100 200 200"
+>
+  <path
+    d="
+      M -30 20 
+      A 50 50 0 1 1 30 20 
+      Q 20 30 20 50
+      L -20 50
+      Q -20 30 -30 20"
+    fill="yellow"
+    stroke="black"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+  <path
+    d="
+      M -30 -20 
+      A 30 30 0 0 1 0 -50"
+    fill="none"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+  <path
+    d="
+      M -18 62 
+      L 18 62 
+      M -15 75 
+      L 15 75"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+</SVG>
+```
+
+</Example>
