@@ -5,30 +5,7 @@ import DetailLayout from "../../layouts/DetailLayout.astro";
 import DetailHeader from "../../layouts//DetailHeader.astro";
 import DetailContent from "../../layouts/DetailContent.astro";
 
-import Arrow from "../../components/examples/Arrow.astro";
-import Decoration from "../../components/examples/Decoration.astro";
-import Tree from "../../components/examples/Tree.astro";
-import Gingerbread from "../../components/examples/Gingerbread.astro";
-import House from "../../components/examples/House.astro";
-import DecorationWithClip from "../../components/examples/DecorationWithClip.astro";
-import Star from "../../components/examples/Star.astro";
-import Snowflake from "../../components/examples/Snowflake.astro";
-import Lamp from "../../components/examples/Lamp.astro";
-import Forest from "../../components/examples/Forest.astro";
-import Snowman from "../../components/examples/Snowman.astro";
-import ThreeWithCurves from "../../components/examples/ThreeWithCurves.astro";
-import Gift from "../../components/examples/Gift.astro";
-import Candy from "../../components/examples/Candy.astro";
-import Bear from "../../components/examples/Bear.astro";
-import Text from "../../components/examples/Text.astro";
-import Sled from "../../components/examples/Sled.astro";
-import RingingBell from "../../components/examples/RingingBell.astro";
-import Background from "../../components/examples/Background.astro";
-import Clock from "../../components/examples/Clock.astro";
-import Lights from "../../components/examples/Lights.astro";
-import Diagram from "../../components/examples/Diagram.astro";
-import SnowGlobe from "../../components/examples/SnowGlobe.astro";
-import Windmill from "../../components/examples/Windmill.astro";
+import getComponent from "../../components/examples/getComponent";
 
 import { Content as Introduction } from "./Introduction.mdx";
 
@@ -46,36 +23,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 // 3. Look up component
-const componentNamesObject: {
-  [key: string]: any;
-} = {
-  Arrow,
-  Decoration,
-  Tree,
-  Gingerbread,
-  House,
-  DecorationWithClip,
-  Star,
-  Snowflake,
-  Lamp,
-  Forest,
-  Snowman,
-  ThreeWithCurves,
-  Gift,
-  Candy,
-  Bear,
-  Text,
-  Sled,
-  RingingBell,
-  Background,
-  Clock,
-  Lights,
-  Diagram,
-  SnowGlobe,
-  Windmill,
-};
-
-const Component = componentNamesObject[entry.data.component];
+const Component = getComponent(entry.data.component);
 
 const headerLookup: {
   [key: number]: any;
