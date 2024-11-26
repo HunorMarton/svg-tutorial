@@ -6,6 +6,7 @@ category: SVG and CSS
 description: In this example we learn how to animate an SVG with CSS.
 ---
 
+import Prerequisite from "../../components/markdown/layouts/Prerequisite.astro";
 import SVG from "../../components/markdown/elements/SVG.astro";
 import Circle from "../../components/markdown/elements/Circle.astro";
 import Path from "../../components/markdown/elements/Path.astro";
@@ -19,7 +20,9 @@ You can move some SVG properties to CSS and even animate them with CSS keyframes
 
 Let's start by composing the windmill's head. Thanks to its central symmetry, we can define a single arm and reuse this element with a rotation.
 
-The path of this arm also covers something we will cover later: a [cubic bezier curve](/svg/cubic-bezier). The path segment starting with the letter C draws the bottom round part of this arm. We will cover curves in detail in upcoming chapters.
+<Prerequisite slug="basic-path" />
+
+We define the arm as a path. We start with the move-to command, draw a [cubic bezier curve](/svg/cubic-bezier) curve, then finish the shape with two straight lines.
 
 <Example>
 

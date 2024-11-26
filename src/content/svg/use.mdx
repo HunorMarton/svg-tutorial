@@ -6,6 +6,7 @@ category: Transformations
 description: In this example, we draw a snowflake with SVG elements. We learn how to reuse a path element to form a complex shape.
 ---
 
+import Prerequisite from "../../components/markdown/layouts/Prerequisite.astro";
 import SVG from "../../components/markdown/elements/SVG.astro";
 import Circle from "../../components/markdown/elements/Circle.astro";
 import Line from "../../components/markdown/elements/Line.astro";
@@ -136,6 +137,8 @@ You can use the Sun icon above and the [Moon icon](/svg/arc) we are about to cov
 ### How to Draw a Snowflake with SVG
 
 We can use the same technique to define a branch of a snowflake and then reuse it six times to draw a snowflake.
+
+<Prerequisite slug="basic-path" />
 
 The branch is defined as a `path`. Earlier we already covered [how to draw basic paths](/svg/basic-path). Here we draw the branch in a similar way. We can draw a simple line – the main branch – by using the move to (`M`) and line to (`L`) commands:
 

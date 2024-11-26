@@ -6,6 +6,7 @@ category: Transformations
 description: In this example, we learn how to position elements relative to each other with transformations.
 ---
 
+import Prerequisite from "../../components/markdown/layouts/Prerequisite.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Center from "../../components/markdown/layouts/Center.astro";
 import Lamp from "../../components/examples/Lamp.astro";
@@ -62,6 +63,8 @@ Lets start with the easy part. We create the lamp's base with two ellipses.
 ### The arm of the lamp
 
 Now, let's start building up the arm of the lamp. We draw it in its own space independent of its actual position and direction. We go from the `0,0` coordinate and draw a straight line upwards with the `path` element. And add a circle for the joint.
+
+<Prerequisite slug="basic-path" />
 
 For now, most of this is invisible. The `0,0` coordinate is at the top left corner of the canvas, and the arm is pointing upwards. We move it to the correct position in the next step.
 

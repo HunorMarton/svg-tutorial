@@ -9,7 +9,7 @@ description: In this example we draw a Christmas Ornament with a decorational mo
 import Center from "../../components/markdown/layouts/Center.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
-This ornament is the same as we drew on [the first day](/svg/basic-shapes), except it has a motif on its side defined as a polyline. By default, the polyline wouldn’t match the edge of the circle shape. Without clipping this motif would look like this:
+You can clip shapes with a mask to hide parts of the shape you don't want to see. This ornament is the same as we drew on [the first day](/svg/basic-shapes), except it has a motif on its side defined as a polyline. By default, the polyline wouldn't match the edge of the circle. Without clipping, this motif would look like this:
 
 <Center>
   <svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -32,9 +32,9 @@ This ornament is the same as we drew on [the first day](/svg/basic-shapes), exce
   </svg>
 </Center>
 
-We use clip-path here to make sure that the motif fits perfectly on the ornament. The clip-path is defined in the definitions section.
+We use clip-path here to ensure the motif fits perfectly on the ornament. The clip-path is defined in the definitions section.
 
-Here we define a `clipPath` with an ID. The content of this clip-path is a circle that matches the size of our ornament. Then we use it to clip the polyline, by setting its `clip-path` property.
+Here we define a `clipPath` with an id. The content of this clip-path is a circle that matches the size of our ornament. Then we use it to clip the polyline, by setting its `clip-path` property.
 
 <Final>
 
