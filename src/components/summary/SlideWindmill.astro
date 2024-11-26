@@ -20,19 +20,19 @@ import Slide from "./Slide.astro";
   }
 
   // HTML Code
-  .slide-windmill pre:nth-of-type(1) {
+  .slide-windmill .markdown-example > *:has([data-language="html"]) {
     @include animation(opacity, [0, 1, 0]);
-    top: top(9.5);
+    top: top(7.5);
   }
 
   // CSS Code
-  .slide-windmill pre:nth-of-type(2) {
+  .slide-windmill .markdown-example > *:has([data-language="css"]) {
     @include animations(
       (
         opacity: 0 0 1,
         pointer-events: none none auto,
       )
     );
-    top: top(-12);
+    top: top(-9);
   }
 </style>

@@ -18,7 +18,11 @@ import ShowNote from "../../components/summary/ShowNote.astro";
 
 <style is:global>
   :root {
-    --line-height: 1.5em;
+    --line-height: 1.65em; /* var(--ec-codeLineHt)
+    /* Overrides for expressive code */
+    --ec-frm-frameBoxShdCssVal: none !important;
+    --ec-brdWd: 0 !important;
+    --ec-codeFontSize: 1em !important;
   }
 
   * {
@@ -28,14 +32,22 @@ import ShowNote from "../../components/summary/ShowNote.astro";
   code {
     padding: 0 5px 2px;
     background-color: lightgray;
-    font-size: 1.2em;
     line-height: var(--line-height);
+  }
+
+  /* Overrides for expressive code */
+  pre {
+    min-width: 275px !important;
+    border-radius: 5px !important;
+  }
+
+  .copy {
+    display: none !important;
   }
 
   pre {
     color: white;
     padding: 2em;
-    border-radius: 5px;
     max-width: 100%;
   }
 

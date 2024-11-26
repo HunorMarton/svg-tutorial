@@ -34,7 +34,7 @@ import Slide from "./Slide.astro";
   }
 
   // Code blocks
-  .slide-rect pre {
+  .slide-rect .markdown-example > *:has([data-language="html"]) {
     @include animation(opacity, [0, 1]);
   }
 </style>

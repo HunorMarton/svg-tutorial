@@ -25,7 +25,7 @@ import Slide from "./Slide.astro";
   }
 
   // Code blocks
-  .slide-diagram pre {
+  .slide-diagram .markdown-example > *:has([data-language="js"]) {
     @include animation(opacity, [0, 1]);
   }
 </style>

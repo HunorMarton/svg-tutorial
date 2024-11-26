@@ -15,15 +15,15 @@ import Slide from "./Slide.astro";
   @import "animation";
 
   // Code lines for React
-  .slide1 pre .line:nth-child(1),
-  .slide1 pre .line:nth-child(8) {
+  .slide1 pre .ec-line:nth-child(1),
+  .slide1 pre .ec-line:nth-child(8) {
     @include animation(opacity, [0, 0, 1]);
   }
 
   // Code lines for HTML
-  .slide1 pre .line:nth-child(2),
-  .slide1 pre .line:nth-child(3),
-  .slide1 pre .line:nth-child(7) {
+  .slide1 pre .ec-line:nth-child(2),
+  .slide1 pre .ec-line:nth-child(3),
+  .slide1 pre .ec-line:nth-child(7) {
     @include animation(opacity, [0, 1]);
   }
 </style>

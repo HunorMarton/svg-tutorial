@@ -33,28 +33,28 @@ import Slide from "./Slide.astro";
   }
 
   // HTML Code
-  .slide-sun pre:nth-of-type(1) {
+  .slide-sun .markdown-example > *:has([data-language="html"]) {
     @include animations(
       (
         opacity: 0 1,
-        top: 5 5 0,
+        top: 3.5 3.5 0,
       )
     );
   }
 
   // CSS Code
-  .slide-sun pre:nth-of-type(2) {
+  .slide-sun .markdown-example > *:has([data-language="css"]) {
     @include animation(opacity, [0, 0, 1]);
   }
 
   // Code lines before
-  .slide-sun pre:nth-of-type(1) .line:nth-child(1),
-  .slide-sun pre:nth-of-type(1) .line:nth-child(2) {
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(1),
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(2) {
     @include animation(top, [4, 4, 4, 0]);
   }
 
   // Code line for the path element
-  .slide-sun pre:nth-of-type(1) .line:nth-child(3) {
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(3) {
     @include animations(
       (
         opacity: 0 0 1,
@@ -64,18 +64,18 @@ import Slide from "./Slide.astro";
   }
 
   // Code lines for the use elements
-  .slide-sun pre:nth-of-type(1) .line:nth-child(4),
-  .slide-sun pre:nth-of-type(1) .line:nth-child(5),
-  .slide-sun pre:nth-of-type(1) .line:nth-child(6),
-  .slide-sun pre:nth-of-type(1) .line:nth-child(7),
-  .slide-sun pre:nth-of-type(1) .line:nth-child(8),
-  .slide-sun pre:nth-of-type(1) .line:nth-child(9),
-  .slide-sun pre:nth-of-type(1) .line:nth-child(10) {
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(4),
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(5),
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(6),
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(7),
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(8),
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(9),
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(10) {
     @include animation(opacity, [0, 0, 0, 1]);
   }
 
   // Code lines after
-  .slide-sun pre:nth-of-type(1) .line:nth-child(11) {
+  .slide-sun pre[data-language="html"] .ec-line:nth-child(11) {
     @include animation(top, [-4, -4, -3, 0]);
   }
 </style>

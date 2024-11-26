@@ -47,57 +47,56 @@ import Slide from "./Slide.astro";
   }
 
   // Code blocks
-  .slide-circle pre:nth-of-type(1) {
-    padding: 0 52px 0 26px;
+  .slide-circle .markdown-example > *:has([data-language="html"]) {
     @include animations(
       (
         opacity: 0 1,
-        top: 5 5 5 5 0,
+        top: 4 4 4 4 0,
       )
     );
   }
 
-  .slide-circle pre:nth-of-type(2) {
+  .slide-circle .markdown-example > *:has([data-language="css"]) {
     @include animation(opacity, [0, 0, 0, 0, 1]);
   }
 
   // Code lines before
-  .slide-circle pre:nth-of-type(1) .line:nth-child(1),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(2),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(3),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(4),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(5),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(6),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(7),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(8),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(9),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(10) {
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(1),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(2),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(3),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(4),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(5),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(6),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(7),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(8),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(9),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(10) {
     @include animation(top, [2.5, 2.5, 2, 1, 2]);
   }
 
   // Code line of the fill property
-  .slide-circle pre:nth-of-type(1) .line:nth-child(10) {
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(10) {
     @include animation(opacity, [0, 0, 1, 0]);
     top: top(2);
   }
 
   // Code line of the stroke properties
-  .slide-circle pre:nth-of-type(1) .line:nth-child(11),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(12),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(13) {
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(11),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(12),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(13) {
     @include animation(opacity, [0, 0, 0, 1, 0]);
     top: top(0);
   }
 
   // Code line of the class property
-  .slide-circle pre:nth-of-type(1) .line:nth-child(14) {
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(14) {
     @include animation(opacity, [0, 0, 0, 0, 1]);
     top: top(-2);
   }
 
   // Code lines after
-  .slide-circle pre:nth-of-type(1) .line:nth-child(15),
-  .slide-circle pre:nth-of-type(1) .line:nth-child(16) {
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(15),
+  .slide-circle pre[data-language="html"] .ec-line:nth-child(16) {
     @include animation(top, [-2.5, -2.5, -2, -1, -2]);
   }
 </style>
