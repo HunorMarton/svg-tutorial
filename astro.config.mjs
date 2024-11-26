@@ -24,6 +24,7 @@ export default defineConfig({
   integrations: [
     astroExpressiveCode({
       plugins: [pluginCollapsibleSections()],
+      useDarkModeMediaQuery: false,
       styleOverrides: {
         codeFontSize: "12px", // How to use em or rem here?
       },
