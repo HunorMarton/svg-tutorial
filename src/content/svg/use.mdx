@@ -1,9 +1,9 @@
 ---
 day: 11
-title: How to reuse image elements with SVG
+title: How to Reuse Image Elements in SVG
 component: Snowflake
 category: Transformations
-description: In this example we draw a Snowflake with SVG, learn how to draw basic paths and how to reuse image elements.
+description: In this example, we draw a snowflake with SVG elements. We learn how to reuse a path element to form a complex shape.
 ---
 
 import SVG from "../../components/markdown/elements/SVG.astro";
@@ -60,7 +60,7 @@ Let's draw simple sun icon. We start with a circle element to draw the core of t
 
 Now, once we have one ray, we can reuse the same line element to draw the others. We can give this ray an `id` and reuse it with the `use` element.
 
-Then, we can move the lines to their correct position with the `transform` command in the same way we did with [the star example](/svg/transform), except that this time, we increment the rotation by 45 degrees for each ray.
+Then, we can move the lines to their correct position with the `transform` command in the same way we did with [the star example](/svg/rotate), except that this time, we increment the rotation by 45 degrees for each ray.
 
 <Example>
 
