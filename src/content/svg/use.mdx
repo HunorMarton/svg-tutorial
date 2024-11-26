@@ -86,7 +86,7 @@ Then, we can move the lines to their correct position with the `transform` comma
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={9} ins={19-39} ins="ray"
 <svg 
   width="200" 
   height="200" 
@@ -171,7 +171,7 @@ Then we can continue drawing, and add a side branch by adding another move to an
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={9}
 <svg 
   width="200" 
   height="200" 
@@ -189,7 +189,7 @@ Then we can continue drawing, and add a side branch by adding another move to an
 
 </Example>
 
-The finished branch looks like this:
+We continue adding side branches with the move-to and line-to command. The finished branch looks like this:
 
 <Example>
 
@@ -210,7 +210,7 @@ The finished branch looks like this:
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={7} ins={11-15}
 <svg 
   width="200" 
   height="200" 
@@ -234,11 +234,11 @@ The finished branch looks like this:
 
 </Example>
 
-Once we defined a branch, we can reuse it multiple times with the `use` command.
+Note that we also assigned an `id` for this path. Once we define the branch, we can reuse it multiple times with the `use` command.
 
 <Final>
 
-```html
+```html ins={16-20}
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <path
     id="branch"

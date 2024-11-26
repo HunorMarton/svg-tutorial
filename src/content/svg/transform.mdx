@@ -118,7 +118,7 @@ We can move the arm into position by grouping the elements together and using th
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={2} ins={9} ins="translate(70, 170)"
 <svg width="200" height="200">
   <g transform="translate(70, 170)">
     <!-- 1st arm -->
@@ -161,7 +161,7 @@ Transformations are relative to the origin of the element. Initially this was th
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={3} ins={10} ins="rotate(-25)"
 <svg width="200" height="200">
   <g transform="translate(70, 170)">
     <g transform="rotate(-25)">
@@ -223,7 +223,7 @@ Building up the arm this way has two benefits. First, we can define the line wit
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={11-18}
 <svg width="200" height="200">
   <g transform="translate(70, 170)">
     <g transform="rotate(-25)">
@@ -294,7 +294,7 @@ The second benefit of defining the arms this way is that we can rotate the secon
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={12} ins={19} ins="rotate(50)"
 <svg width="200" height="200">
   <g transform="translate(70, 170)">
     <g transform="rotate(-25)">
@@ -381,7 +381,7 @@ Now lets add the third piece that connects the arm to the head of the lamp. We c
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={20-29} ins="rotate(45)"
 <svg width="200" height="200">
   <g transform="translate(70, 170)">
     <g transform="rotate(-25)">
@@ -479,7 +479,7 @@ Finally, let's add a placeholder for the lamp's head. For now let's just add a p
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={29-40} ins="rotate(-90)"
 <svg width="200" height="200">
   <g transform="translate(70, 170)">
     <g transform="rotate(-25)">
@@ -584,7 +584,7 @@ Then we create the back side of the lamp's shade from two quadratic Bézier curv
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={6-12}
 <svg 
   width="200" 
   height="200" 
@@ -619,7 +619,7 @@ Then we create the front part of the lamp's shade from two other quadratic Bézi
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={19-24}
 <svg 
   width="200" 
   height="200" 
@@ -661,7 +661,7 @@ Finally, we add a rounded rectangle to finish the head of the lamp.
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={25-31}
 <svg 
   width="200" 
   height="200" 

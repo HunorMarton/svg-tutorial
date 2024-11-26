@@ -34,7 +34,7 @@ Before we get to the arrow example, let's draw a simple hamburger menu icon. We 
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html {7-9}
 <svg
   width="200"
   height="200"
@@ -67,7 +67,7 @@ Then we continue and draw to more lines the same way. What is cool about paths, 
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={10-13}
 <svg
   width="200"
   height="200"
@@ -143,7 +143,7 @@ In the example above if we reduce the value of the `stroke-width` property, then
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html 'stroke-width="10"'
 <svg
   width="200"
   height="200"
@@ -192,7 +192,7 @@ Then to get to our example for today, we can draw an arrow in a very similar way
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html 'stroke-linejoin="round"'
 <svg
   width="200"
   height="200"
@@ -214,7 +214,7 @@ Then to get to our example for today, we can draw an arrow in a very similar way
 
 </Example>
 
-You might note that with the previous example, we also had a `stroke-linejoin` property to make the join rounded. It works in a similar way to `stroke-linecap` but that only affects the end of the lines. Without that property, the same line would look as follows.
+You might note that we also had a `stroke-linejoin` property in the previous example. This works similarly to `stroke-linecap`, but this one affects the connections of the path segments. If we remove this property, the path will look as follows:
 
 <Example>
 
@@ -229,7 +229,7 @@ You might note that with the previous example, we also had a `stroke-linejoin` p
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html del={15}
 <svg
   width="200"
   height="200"
@@ -244,6 +244,7 @@ You might note that with the previous example, we also had a `stroke-linejoin` p
     stroke="#D1495B"
     stroke-width="25"
     stroke-linecap="round"
+    stroke-linejoin="round"
   />
 </svg>
 ```
@@ -254,7 +255,7 @@ Then we can finish the line with moving to the end of the horizontal line again,
 
 <Final>
 
-```html
+```html ins="M 70 0 L 30 50"
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <path
     d="M -70 0 L 70 0 L 30 -50 M 70 0 L 30 50"

@@ -165,7 +165,7 @@ But by setting a thick stroke width and a round line cap we can shape legs and a
 </svg>
 ```
 
-```css
+```css ins={3-4} "stroke-linecap"
 .limb {
   stroke: #cd803d;
   stroke-width: 35px;
@@ -177,7 +177,7 @@ But by setting a thick stroke width and a round line cap we can shape legs and a
 
 ### Rounded rectangles
 
-Also, note the `rx` property at the rectangle defining the mouth. This will make the edges rounded. It is similar to the `border-radius` property for regular HTML elements.
+Now, let's add the mouth of the figure. We use another rectangle for it. Note the `rx` property at its definition. This will make the edges of the rectangle rounded. It is similar to the `border-radius` property for regular HTML elements.
 
 <Example>
 
@@ -197,7 +197,7 @@ Also, note the `rx` property at the rectangle defining the mouth. This will make
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={12-19} "rx"
 <svg 
   width="200"
   height="200"
@@ -220,7 +220,7 @@ Also, note the `rx` property at the rectangle defining the mouth. This will make
 </svg>
 ```
 
-```css
+```css ins={5-9}
 .head {
   fill: #cd803d;
 }
@@ -240,7 +240,7 @@ Once we put it all together, and add eyes and buttons, this is how the final cod
 
 <Final>
 
-```html
+```html ins={4-5, 12-13}
 <svg class="gingerbread" width="200" height="200" viewBox="-100 -100 200 200">
   <circle class="head" cx="0" cy="-50" r="30" />
 
@@ -252,12 +252,12 @@ Once we put it all together, and add eyes and buttons, this is how the final cod
   <line class="limb" x1="-25" y1="50" x2="0" y2="-15" />
   <line class="limb" x1="25" y1="50" x2="0" y2="-15" />
 
-  <circle class="button" cx="0" cy="-10" r="5" />
-  <circle class="button" cx="0" cy="10" r="5" />
+  <circle cx="0" cy="-10" r="5" />
+  <circle cx="0" cy="10" r="5" />
 </svg>
 ```
 
-```css
+```css ins={5-7}
 .head {
   fill: #cd803d;
 }

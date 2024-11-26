@@ -11,6 +11,7 @@ import Circle from "../../components/markdown/elements/Circle.astro";
 import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import Note from "../../components/markdown/layouts/Note.astro";
 
 You can move some SVG properties to CSS and even animate them with CSS keyframes. In this example, we create a spinning windmill.
 
@@ -73,7 +74,7 @@ To finish the head of the windmill, we reuse the same arm element with a rotatio
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html ins={6} ins={17-23}
 <svg
   width="200"
   height="200"
@@ -104,15 +105,15 @@ To finish the head of the windmill, we reuse the same arm element with a rotatio
 
 ### Finish the windmill and add CSS animation
 
-To finish the windmill, we add a stand, and wrap the head of the windmill into two group elements.
+To finish the windmill, we add a stand and wrap the head of the windmill into two group elements. The outer group positions the head, and the inner will do the rotation.
 
-The outer group element moves the head of the windmill into the correct position. We `translate` the head by -50 units.
+We `translate` the outer group by -50 units to position the head.
 
-We assign the ID windmill-head to the inner group and set a keyframe animation in CSS that rotates the head. Note that when we set the rotation in CSS, we need to add the unit of measurement.
+We assign the id `windmill-head` to the inner group and set a keyframe animation in CSS that rotates the head.
 
 <Final>
 
-```html
+```html "translate(0, -50)" "windmill-head"
 <svg
   width="200"
   height="400"
@@ -133,24 +134,26 @@ We assign the ID windmill-head to the inner group and set a keyframe animation i
 </svg>
 ```
 
-```html
-<style>
-  #windmill-head {
-    animation-name: rotate;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
+```css "windmill-head"
+#windmill-head {
+  animation-name: rotate;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
 
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
   }
-</style>
+  to {
+    transform: rotate(360deg);
+  }
+}
 ```
 
 </Final>
+
+<Note>
+  When we set the rotation in CSS, we need to add the unit of measurement.
+</Note>
