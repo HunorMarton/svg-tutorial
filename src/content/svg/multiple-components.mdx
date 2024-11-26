@@ -12,7 +12,7 @@ If you've made it this far, give yourself a well-deserved pat on the back. You j
 
 If you continue your journey and start writing more complex SVGs, their code might get a bit out of hand. Then, you can break them down into components.
 
-Let's take our [forest example](/svg/forest) a step further. We'll add a snowing effect and clip the scene with a circle. That is already enough complexity to break down our image into multiple components. We use React again, but the same concept applies to any other front-end library you might use.
+Let's take our [forest example](/svg/scale) a step further. We'll add a snowing effect and clip the scene with a circle. That is already enough complexity to break down our image into multiple components. We use React again, but the same concept applies to any other front-end library you might use.
 
 In the root component, we have the SVG element itself and take care of clipping. We define a clip-path, apply it, and add a circle to show where the clip path is. That's enough complexity in one component. We move the content that we clip into another component.
 

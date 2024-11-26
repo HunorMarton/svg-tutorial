@@ -222,13 +222,6 @@ declare module 'astro:content' {
   collection: "svg";
   data: InferEntrySchema<"svg">
 } & { render(): Render[".mdx"] };
-"forest.mdx": {
-	id: "forest.mdx";
-  slug: "forest";
-  body: string;
-  collection: "svg";
-  data: InferEntrySchema<"svg">
-} & { render(): Render[".mdx"] };
 "gingerbread-figure.mdx": {
 	id: "gingerbread-figure.mdx";
   slug: "gingerbread-figure";
@@ -288,6 +281,13 @@ declare module 'astro:content' {
 "quadratic-bezier.mdx": {
 	id: "quadratic-bezier.mdx";
   slug: "quadratic-bezier";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"scale.mdx": {
+	id: "scale.mdx";
+  slug: "scale";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">

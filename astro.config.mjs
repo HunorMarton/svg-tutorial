@@ -42,6 +42,7 @@ export default defineConfig({
   redirects: {
     // SVG Tutorial
     "/svg/bell": "/svg/animation-on-hover",
+    "/svg/forest": "/svg/scale",
     // Editor
     "/arc": "/editor/arc",
     "/cubicBezier": "/editor/cubicBezier",
