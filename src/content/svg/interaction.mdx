@@ -8,12 +8,15 @@ description: In this example we learn how to make an SVG image interactive with 
 
 import Final from "../../components/markdown/layouts/Final.astro";
 import Note from "../../components/markdown/layouts/Note.astro";
+import Prerequisite from "../../components/markdown/layouts/Prerequisite.astro";
 
 In this chapter, we cover a lightbulb that we can toggle on and off and an adjustable lamp that we can drag with the mouse. In both cases, we assign event listeners to SVG elements to make them interactive.
 
 ### Example 1: Toggling the Lights
 
-Let's start with an easy example. By clicking the lightbulb, we switch the lights on or off. For this example, let's reuse the lightbulb example from the arc lesson. Here's its final source code. This chapter focuses on the interaction, so if you need to refresh your knowledge of how this icon is created, check back to the arc chapter.
+Let's start with an easy example. By clicking the lightbulb, we switch the lights on or off. For this example, let's reuse the [lightbulb](./arc/#bonus-drawing-a-lightbulb) example from the arc lesson. Here's its final source code. This chapter focuses on the interaction, so if you need to refresh your knowledge of how this icon is created, check back to the arc chapter.
+
+<Prerequisite slug="arc" />
 
 {/* prettier-ignore */}
 ```html {7} 'id="bulb"' collapse={19-31}
