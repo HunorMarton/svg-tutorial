@@ -1,0 +1,236 @@
+---
+day: 10
+title: How to Rotate and Translate SVG Elements
+component: Star
+category: Transformations
+description: In this example, we draw a Star with SVG and learn how to use the transform property.
+---
+
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Polygon from "../../components/markdown/elements/Polygon.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
+import "./rotate.scss";
+
+### How to Draw a Star with SVG
+
+A star is a simple shape. We could define it as a bunch of polygons and set each point individually. But then we would need to know each coordinate. Instead of that, we can define just one arm, and then repeat it five times with a rotation to get the same shape. We will use the `transform` attribute to set a rotation.
+
+First, let's define an arm. In this example, each arm consists of two polygons.
+
+<Example>
+
+<SVG width="200" height="200" viewBox="-100 -100 200 200">
+  <Polygon
+    points="0,0 36,-50 0,-100"
+    fill="#EDD8B7"
+    data-element-id="polygon-1"
+  />
+  <Polygon
+    points="0,0 -36,-50 0,-100"
+    fill="#E5C39C"
+    data-element-id="polygon-2"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html
+<svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <polygon
+    points="0,0 36,-50 0,-100"
+    fill="#EDD8B7" 
+  />
+  <polygon 
+    points="0,0 -36,-50 0,-100"
+    fill="#E5C39C" 
+  />
+</svg>
+```
+
+</Example>
+
+### Rotating Elements
+
+We can group them with a `g` element and rotate them together. You can think of the `g` element as the `div` element in HTML. It can contain other elements and attributes defined on the group element apply to its children.
+
+<Example>
+
+<SVG width="200" height="200" viewBox="-100 -100 200 200" rotation={-72}>
+  <g transform="rotate(-72)">
+    <Polygon
+      points="0,0 36,-50 0,-100"
+      fill="#EDD8B7"
+      data-element-id="polygon-1"
+    />
+    <Polygon
+      points="0,0 -36,-50 0,-100"
+      fill="#E5C39C"
+      data-element-id="polygon-2"
+    />
+  </g>
+</SVG>
+
+{/* prettier-ignore */}
+```html
+<svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <g transform="rotate(-72)">
+    <polygon
+      points="0,0 36,-50 0,-100"
+      fill="#EDD8B7" 
+    />
+    <polygon 
+      points="0,0 -36,-50 0,-100"
+      fill="#E5C39C" 
+    />
+  </g>
+</svg>
+```
+
+</Example>
+
+Then, we `rotate` this group into the correct position. We have five wings, and a full circle is 360°, so the rotation between two wings has to be 72° (360° / 5).
+
+If we repeat these elements five times and keep increasing the rotation, we end up with a star shape.
+
+<Final>
+
+```html "rotate" "translate"
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <g transform="translate(0 5)">
+    <g>
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </g>
+    <g transform="rotate(72)">
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </g>
+    <g transform="rotate(-72)">
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </g>
+    <g transform="rotate(144)">
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </g>
+    <g transform="rotate(-144)">
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </g>
+  </g>
+</svg>
+```
+
+</Final>
+
+By default, the rotation also revolves around the origin of the coordinate system, the `0,0` position. Because of our `viewBox` setting, the origin is in the middle of the image.
+
+What if we want to rotate around a different position? Despite turning around the center of the image, the final result is not entirely in the middle of the image (because of its horizontal asymmetry). We need to move it down along the Y-axis slightly.
+
+### Translating Elements
+
+We can group our elements and apply the `translate` function to move to a new position before the rotation. In the example above, we move everything down by 5 units along the Y-axis. As a result, the image elements rotate around the `0,5` coordinate.
+
+In the following figure, you can also see the effects of the `translate` function. We define the same polylines with the same coordinates, but the translate function moves it to the middle of the image.
+
+<Example>
+
+<SVG width="200" height="200" viewBox="-100 -100 200 200" translation={[0, 50]}>
+  <g transform="translate(0, 50)">
+    <Polygon
+      points="0,0 36,-50 0,-100"
+      fill="#EDD8B7"
+      data-element-id="polygon-1"
+    />
+    <Polygon
+      points="0,0 -36,-50 0,-100"
+      fill="#E5C39C"
+      data-element-id="polygon-2"
+    />
+  </g>
+</SVG>
+
+{/* prettier-ignore */}
+```html "translate"
+<svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <g transform="translate(0, 50)">
+    <polygon
+      points="0,0 36,-50 0,-100"
+      fill="#EDD8B7" 
+    />
+    <polygon 
+      points="0,0 -36,-50 0,-100"
+      fill="#E5C39C" 
+    />
+  </g>
+</svg>
+```
+
+</Example>
+
+To highlight the behavior, we moved this group by 50 units down instead of just 5. Now, if we rotate it, we can see that it rotates around the `0,50` coordinate.
+
+<Example>
+
+<SVG
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+  translation={[0, 50]}
+  rotation={45}
+>
+  <g transform="translate(0, 50)">
+    <g transform="rotate(45)">
+      <Polygon
+        points="0,0 36,-50 0,-100"
+        fill="#EDD8B7"
+        data-element-id="polygon-1"
+      />
+      <Polygon
+        points="0,0 -36,-50 0,-100"
+        fill="#E5C39C"
+        data-element-id="polygon-2"
+      />
+    </g>
+  </g>
+</SVG>
+
+{/* prettier-ignore */}
+```html "rotate"
+<svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <g transform="translate(0, 50)">
+    <g transform="rotate(45)">
+      <polygon
+        points="0,0 36,-50 0,-100"
+        fill="#EDD8B7" 
+      />
+      <polygon 
+        points="0,0 -36,-50 0,-100"
+        fill="#E5C39C" 
+      />
+    </g>
+  </g>
+</svg>
+```
+
+</Example>
+
+We used the same technique in our main example, except the movement we needed to center the image was much more subtle.
+
+In this example, we had to copy-paste the code for each arm over and over again. In [the next example](/svg/use), we will see how to reuse shapes. In an upcoming chapter, we are also going to explore how to use [transformations](/svg/transform) to create an adjustable lamp.

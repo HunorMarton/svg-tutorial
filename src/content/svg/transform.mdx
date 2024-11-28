@@ -32,6 +32,8 @@ We can also define each part in its own space so that they are relative to an an
 
 You can morph the two lamps above to each other by dragging their head. You can adjust their height by dragging the head vertically and tilt the head by dragging it horizontally. We will cover how to make this lamp interactive in the [Interaction](./interaction) chapter.
 
+<Prerequisite slug="rotate-and-translate" />
+
 ### The base of the lamp
 
 Lets start with the easy part. We create the lamp's base with two ellipses.
@@ -51,7 +53,7 @@ Lets start with the easy part. We create the lamp's base with two ellipses.
 </SVG>
 
 {/* prettier-ignore */}
-```html something=else
+```html
 <svg width="200" height="200">
   <ellipse 
     cx="100" 
@@ -606,7 +608,7 @@ First we add a gold circle slightly below the anchor point. This will be our lig
   `width` and `height` do not match the size defined by the `viewBox`.
 </Note>
 
-Then we create the back side of the lamp's shade from two quadratic Bézier curves. This one comes before the circle, because it is behind the light bulb.
+Then we create the back side of the lamp's shade from two [quadratic Bézier curves](/svg/quadratic-bezier). This one comes before the circle, because it is behind the light bulb.
 
 <Example>
 
@@ -644,7 +646,7 @@ Then we create the back side of the lamp's shade from two quadratic Bézier curv
 
 </Example>
 
-Then we create the front part of the lamp's shade from two other quadratic Bézier curves. This shape has almost the same values as the back side, except the bottom curve is bending upwards.
+Then we create the front part of the lamp's shade from two other [quadratic Bézier curves](/svg/quadratic-bezier). This shape has almost the same values as the back side, except the bottom curve is bending upwards.
 
 <Example>
 

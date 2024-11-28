@@ -278,9 +278,9 @@ declare module 'astro:content' {
   collection: "svg";
   data: InferEntrySchema<"svg">
 } & { render(): Render[".mdx"] };
-"rotate.mdx": {
-	id: "rotate.mdx";
-  slug: "rotate";
+"rotate-and-translate.mdx": {
+	id: "rotate-and-translate.mdx";
+  slug: "rotate-and-translate";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">

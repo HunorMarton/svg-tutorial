@@ -37,7 +37,7 @@ const isRotated = rotation !== undefined && rotation !== 0;
   <Translation show={!isRotated} translation={translation} />
   <Axis show={isTranslated && !isRotated} base={true} zoom={zoom} />
   <g transform={`translate(${translation?.[0] ?? 0} ${translation?.[1] ?? 0})`}>
-    <Axis show={isTranslated && isRotated} base={true} zoom={zoom} />
+    <Axis show={isTranslated || isRotated} base={true} zoom={zoom} />
     <g transform={`rotate(${rotation ?? 0})`}>
       {
         Array.from({ length: (viewBoxWidth / increment) * 2 }, (_, i) => (
@@ -83,7 +83,8 @@ const isRotated = rotation !== undefined && rotation !== 0;
 
   svg:hover {
     .translation,
-    .rotation {
+    .rotation,
+    .axis text {
       display: none;
     }
   }
