@@ -13,6 +13,7 @@ import Polygon from "../../components/markdown/elements/Polygon.astro";
 import Line from "../../components/markdown/elements/Line.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "./scale.scss";
 
 Rotation is not the only way we can generate images from simple shapes. In this example, we define a tree shape and then place it at various positions in different sizes to draw a forest.
 
@@ -21,8 +22,15 @@ First, we create a background out of a rectangle and a circle.
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3" />
-  <Circle cx="0" cy="380" r="350" fill="#F8F4E8" />
+  <Rect
+    x="-100"
+    y="-100"
+    width="200"
+    height="200"
+    fill="#F1DBC3"
+    data-element-id="rect-1"
+  />
+  <Circle cx="0" cy="380" r="350" fill="#F8F4E8" data-element-id="circle-1" />
 </SVG>
 
 {/* prettier-ignore */}
@@ -55,8 +63,20 @@ Then we define a tree shape from a simple polygon and a line.
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Polygon points="-10,0 10,0 0,-50" fill="#38755b" />
-  <Line x1="0" y1="0" x2="0" y2="10" stroke="#778074" stroke-width="2" />
+  <Polygon
+    points="-10,0 10,0 0,-50"
+    fill="#38755b"
+    data-element-id="polygon-1"
+  />
+  <Line
+    x1="0"
+    y1="0"
+    x2="0"
+    y2="10"
+    stroke="#778074"
+    stroke-width="2"
+    data-element-id="line-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}

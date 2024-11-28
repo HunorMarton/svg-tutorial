@@ -2,7 +2,7 @@
   /* 
     We render the SVG twice. 
     This is to achieve a similar effect as increasing the z-index property of an image element on hover. 
-    Unfortunatelly we can't modify the z-index in SVG, so instead we have a passthrough and by default hidden highlight layer on top of the original image.
+    Unfortunately we can't modify the z-index in SVG, so instead we have a passthrough and by default hidden highlight layer on top of the original image.
     On hovering an image element in the base layer, we display the corresponding image element from the highlight layer (which will appear on top)
     */
 }
@@ -13,74 +13,76 @@
   <slot />
 </g>
 
-<style is:global>
+<style is:global lang="scss">
+  @import "SVGContent";
+
   .svg-base .coordinates {
     display: none;
   }
 
-  .svg-highlight * {
-    pointer-events: none;
-  }
-
-  .svg-highlight > * {
+  .svg-highlight use {
     display: none;
   }
 
-  /* Once a base element is hovered, turn every other base element into a gray transparent skeleton */
-  .svg-base:has(> *:hover) > *:not(:hover) {
-    > *:nth-child(1) {
-      fill: rgb(255 255 255 / 0.75);
-      stroke: rgb(128 128 128 / 0.5);
-      stroke-width: calc(1 * var(--zoom));
-    }
+  .svg-highlight * {
+    pointer-events: none; /* It's always the base layer that should be interacted with */
   }
 
-  /* Once a base element is hovered, turn it to transparent */
-  .svg-base:has(> *:hover) > *:hover {
-    /* Select filled elements */
-    > circle,
-    > polygon,
-    > *:nth-child(1)[fill]:not([fill="none"]) {
-      fill: transparent;
-      stroke-width: 0;
-    }
+  .svg-highlight .element {
+    display: none;
 
-    /* Select non-filled elements */
-    > *:nth-child(1):not([fill]),
-    > *:nth-child(1)[fill="none"] {
-      fill: transparent;
-      stroke: rgba(217, 217, 217, 0.75);
-    }
-  }
-
-  /* 
-  Once a base element is hovered, display the corresponding highlight element as a skeleton 
-  Corresponding highlight elements are necessary to be able to display it on top of the other elements (there's no z-index in SVG)
-  */
-  .svg-base:has(> *:nth-child(1):hover) + .svg-highlight > *:nth-child(1),
-  .svg-base:has(> *:nth-child(2):hover) + .svg-highlight > *:nth-child(2),
-  .svg-base:has(> *:nth-child(3):hover) + .svg-highlight > *:nth-child(3),
-  .svg-base:has(> *:nth-child(4):hover) + .svg-highlight > *:nth-child(4) {
-    display: block;
-
-    > *:nth-child(1) {
+    > *:first-child {
       stroke: black;
       stroke-width: calc(2 * var(--zoom));
       stroke-dasharray: calc(5 * var(--zoom)) calc(5 * var(--zoom));
     }
 
     /* Select filled elements */
-    > *:nth-child(1)[fill]:not([fill="none"]) {
+    > *:first-child[fill]:not([fill="none"]) {
       fill: rgb(255 255 255 / 0.75);
     }
 
     /* Select non-filled elements */
-    > *:nth-child(1):not([fill]),
-    > *:nth-child(1)[fill="none"] {
+    > *:first-child:not([fill]),
+    > *:first-child[fill="none"] {
       fill: transparent;
     }
+  }
 
-    .coordinates {
+  /* If it has a direct child that is hovered */
+  .svg-base:has(.element:hover) {
+    /* Once an SVG element is hovered, turn its base element to transparent */
+    .element:hover {
+      @include selectedSVGBase();
+    }
+
+    /* If an SVG element is selected turn every other base element into a wireframe */
+    .element:not(:hover) {
+      @include otherSVGBase();
+    }
+
+    use {
+      display: none; /* There doesn't seem to be a way to change the style of a use element so hide it entirely */
+    }
+  }
+
+  /* 
+  Once a base element is hovered, display the corresponding highlight element as a skeleton 
+  Corresponding highlight elements are necessary to be able to display it on top of the other elements (there's no z-index in SVG)
+
+  This whole '* >' part is specifically for the 'transform' chapter that nests elements into groups
+  */
+  /* prettier-ignore */
+  @for $i from 1 through 4 {
+    .svg-base:has(> .element:nth-child(#{$i}):hover) + .svg-highlight > .element:nth-child(#{$i}),
+    .svg-base:has(> * > .element:nth-child(#{$i}):hover) + .svg-highlight > * > .element:nth-child(#{$i}),
+    .svg-base:has(> * > * > .element:nth-child(#{$i}):hover) + .svg-highlight > * >  * > .element:nth-child(#{$i}),
+    .svg-base:has(> * > * > * > .element:nth-child(#{$i}):hover) + .svg-highlight > * >  * > * > .element:nth-child(#{$i}),
+    .svg-base:has(> * > * > * > * > .element:nth-child(#{$i}):hover) + .svg-highlight > * >  * > * > * > .element:nth-child(#{$i}),
+    .svg-base:has(> * > * > * > * > * > .element:nth-child(#{$i}):hover) + .svg-highlight > * >  * > * > * > * > .element:nth-child(#{$i}),
+    .svg-base:has(> * > * > * > * > * > * > .element:nth-child(#{$i}):hover) + .svg-highlight > * >  * > * > * > * > * > .element:nth-child(#{$i}),
+    .svg-base:has(> * > * > * > * > * > * > * > .element:nth-child(#{$i}):hover) + .svg-highlight > * >  * > * > * > * > * > * > .element:nth-child(#{$i}),
+    .svg-base:has(> * > * > * > * > * > * > * > * > .element:nth-child(#{$i}):hover) + .svg-highlight > * >  * > * > * > * > * > * > * > .element:nth-child(#{$i}) {
       display: block;
     }
   }

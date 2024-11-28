@@ -12,6 +12,7 @@ import Line from "../../components/markdown/elements/Line.astro";
 import Rect from "../../components/markdown/elements/Rect.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "./gingerbread-figure.scss";
 
 ### Moving styling properties to CSS
 
@@ -20,7 +21,14 @@ Since our SVG is living inside an HTML file now, we can assign CSS classes to ea
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Circle class="head" cx="0" cy="-50" r="30" fill="#cd803d" />
+  <Circle
+    class="head"
+    cx="0"
+    cy="-50"
+    r="30"
+    fill="#cd803d"
+    data-element-id="circle-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -56,9 +64,30 @@ To give you a comparison if we remove the line cap and set a smaller stroke-widt
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Line x1="-40" y1="-10" x2="40" y2="-10" stroke="#cd803d" />
-  <Line x1="-25" y1="50" x2="0" y2="-15" stroke="#cd803d" />
-  <Line x1="25" y1="50" x2="0" y2="-15" stroke="#cd803d" />
+  <Line
+    x1="-40"
+    y1="-10"
+    x2="40"
+    y2="-10"
+    stroke="#cd803d"
+    data-element-id="line-1"
+  />
+  <Line
+    x1="-25"
+    y1="50"
+    x2="0"
+    y2="-15"
+    stroke="#cd803d"
+    data-element-id="line-2"
+  />
+  <Line
+    x1="25"
+    y1="50"
+    x2="0"
+    y2="-15"
+    stroke="#cd803d"
+    data-element-id="line-3"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -113,6 +142,7 @@ But by setting a thick stroke width and a round line cap we can shape legs and a
     stroke="#cd803d"
     stroke-width="35"
     stroke-linecap="round"
+    data-element-id="line-1"
   />
   <Line
     x1="-25"
@@ -122,6 +152,7 @@ But by setting a thick stroke width and a round line cap we can shape legs and a
     stroke="#cd803d"
     stroke-width="35"
     stroke-linecap="round"
+    data-element-id="line-2"
   />
   <Line
     x1="25"
@@ -131,6 +162,7 @@ But by setting a thick stroke width and a round line cap we can shape legs and a
     stroke="#cd803d"
     stroke-width="35"
     stroke-linecap="round"
+    data-element-id="line-3"
   />
 </SVG>
 
@@ -182,7 +214,14 @@ Now, let's add the mouth of the figure. We use another rectangle for it. Note th
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Circle class="head" cx="0" cy="-50" r="30" fill="#cd803d" />
+  <Circle
+    class="head"
+    cx="0"
+    cy="-50"
+    r="30"
+    fill="#cd803d"
+    data-element-id="circle-1"
+  />
   <Rect
     class="mouth"
     x="-10"
@@ -193,11 +232,12 @@ Now, let's add the mouth of the figure. We use another rectangle for it. Note th
     stroke="white"
     stroke-width="2"
     rx="2"
+    data-element-id="rect-1"
   />
 </SVG>
 
 {/* prettier-ignore */}
-```html ins={12-19} "rx"
+```html ins={12-19} ins="rx"
 <svg 
   width="200"
   height="200"

@@ -1,0 +1,26 @@
+/* Once an SVG element is hovered, turn its base element to transparent */
+@mixin selectedSVGBase() {
+    /* Handle filled elements */
+    > circle,
+    > polygon,
+    > *:first-child[fill]:not([fill="none"]) {
+        fill: transparent;
+        stroke-width: 0;
+    }
+
+    /* Handle non-filled elements */
+    > *:first-child:not([fill]),
+    > *:first-child[fill="none"] {
+        fill: transparent;
+        stroke: rgba(217, 217, 217, 0.75); /* This is the gray outline behind the highlight's wireframe */
+    }
+}
+
+/* If an SVG element is selected turn every other base element into a wireframe */
+@mixin otherSVGBase() {
+    > *:first-child {
+        fill: rgb(255 255 255 / 0.75);
+        stroke: rgb(128 128 128 / 0.5);
+        stroke-width: calc(1 * var(--zoom));
+    }
+}

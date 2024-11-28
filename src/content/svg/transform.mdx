@@ -12,10 +12,12 @@ import Center from "../../components/markdown/layouts/Center.astro";
 import Lamp from "../../components/examples/Lamp.astro";
 import SVG from "../../components/markdown/elements/SVG.astro";
 import Circle from "../../components/markdown/elements/Circle.astro";
+import Ellipse from "../../components/markdown/elements/Ellipse.astro";
 import Rect from "../../components/markdown/elements/Rect.astro";
 import Path from "../../components/markdown/elements/Path.astro";
 import Note from "../../components/markdown/layouts/Note.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "./transform.scss";
 
 So far, we mainly used absolute positions to define elements on the SVG canvas. This can sometimes be tricky. Let's look at the head of this lamp in this example. We need to know where the end of the arm is to position it correctly, and the whole head is tilted. And what if we need to make a slight adjustment? Like changing the rotation of one of the arms.
 
@@ -37,8 +39,15 @@ Lets start with the easy part. We create the lamp's base with two ellipses.
 <Example>
 
 <SVG width="200" height="200">
-  <ellipse cx="100" cy="175" rx="30" ry="5"></ellipse>
-  <ellipse cx="100" cy="170" rx="30" ry="5" fill="gray"></ellipse>
+  <Ellipse cx="100" cy="175" rx="30" ry="5" data-element-id="ellipse-1" />
+  <Ellipse
+    cx="100"
+    cy="170"
+    rx="30"
+    ry="5"
+    fill="gray"
+    data-element-id="ellipse-2"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -71,14 +80,15 @@ For now, most of this is invisible. The `0,0` coordinate is at the top left corn
 <Example>
 
 <SVG width="200" height="200">
-  <circle r="5"></circle>
-  <path
+  <Circle r="5" data-element-id="circle-1" />
+  <Path
     d="M 0 0 L 0 -70"
     class="arm"
     stroke="black"
     stroke-width="7"
     stroke-linecap="round"
-  ></path>
+    data-element-id="path-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -109,14 +119,15 @@ We can move the arm into position by grouping the elements together and using th
 
 <SVG width="200" height="200" translation={[70, 170]}>
   <g transform="translate(70, 170)">
-    <circle r="5"></circle>
-    <path
+    <Circle r="5" data-element-id="circle-1" />
+    <Path
       d="M 0 0 L 0 -70"
       class="arm"
       stroke="black"
       stroke-width="7"
       stroke-linecap="round"
-    ></path>
+      data-element-id="path-1"
+    />
   </g>
 </SVG>
 
@@ -151,14 +162,15 @@ Transformations are relative to the origin of the element. Initially this was th
 <SVG width="200" height="200" translation={[70, 170]} rotation={-25}>
   <g transform="translate(70, 170)">
     <g transform="rotate(-25)">
-      <circle r="5"></circle>
-      <path
+      <Circle r="5" data-element-id="circle-1" />
+      <Path
         d="M 0 0 L 0 -70"
         class="arm"
         stroke="black"
         stroke-width="7"
         stroke-linecap="round"
-      ></path>
+        data-element-id="path-1"
+      />
     </g>
   </g>
 </SVG>
@@ -205,21 +217,23 @@ Building up the arm this way has two benefits. First, we can define the line wit
 >
   <g transform="translate(70, 170)">
     <g transform="rotate(-25)">
-      <circle r="5"></circle>
-      <path
+      <Circle r="5" data-element-id="circle-1" />
+      <Path
         d="M 0 0 L 0 -70"
         stroke="black"
         stroke-width="7"
         stroke-linecap="round"
-      ></path>
+        data-element-id="path-1"
+      />
       <g transform="translate(0, -70)">
-        <circle r="5"></circle>
-        <path
+        <Circle r="5" data-element-id="circle-2" />
+        <Path
           d="M 0 0 L 0 -70"
           stroke="black"
           stroke-width="7"
           stroke-linecap="round"
-        ></path>
+          data-element-id="path-2"
+        />
       </g>
     </g>
   </g>
@@ -274,22 +288,24 @@ The second benefit of defining the arms this way is that we can rotate the secon
 >
   <g transform="translate(70, 170)">
     <g transform="rotate(-25)">
-      <circle r="5"></circle>
-      <path
+      <Circle r="5" data-element-id="circle-1" />
+      <Path
         d="M 0 0 L 0 -70"
         stroke="black"
         stroke-width="7"
         stroke-linecap="round"
-      ></path>
+        data-element-id="path-1"
+      />
       <g transform="translate(0, -70)">
         <g transform="rotate(50)">
-          <circle r="5"></circle>
-          <path
+          <Circle r="5" data-element-id="circle-2" />
+          <Path
             d="M 0 0 L 0 -70"
             stroke="black"
             stroke-width="7"
             stroke-linecap="round"
-          ></path>
+            data-element-id="path-2"
+          />
         </g>
       </g>
     </g>
@@ -350,31 +366,34 @@ Now lets add the third piece that connects the arm to the head of the lamp. We c
 >
   <g transform="translate(70, 170)">
     <g transform="rotate(-25)">
-      <circle r="5"></circle>
-      <path
+      <Circle r="5" data-element-id="circle-1" />
+      <Path
         d="M 0 0 L 0 -70"
         stroke="black"
         stroke-width="7"
         stroke-linecap="round"
-      ></path>
+        data-element-id="path-1"
+      />
       <g transform="translate(0, -70)">
         <g transform="rotate(50)">
-          <circle r="5"></circle>
-          <path
+          <Circle r="5" data-element-id="circle-2" />
+          <Path
             d="M 0 0 L 0 -70"
             stroke="black"
             stroke-width="7"
             stroke-linecap="round"
-          ></path>
+            data-element-id="path-2"
+          />
           <g transform="translate(0, -70)">
             <g transform="rotate(45)">
-              <circle r="5"></circle>
-              <path
+              <Circle r="5" data-element-id="circle-3" />
+              <Path
                 d="M 0 0 L 0 -30"
                 stroke="black"
                 stroke-width="7"
                 stroke-linecap="round"
-              ></path>
+                data-element-id="path-3"
+              />
             </g>
           </g>
         </g>
@@ -445,33 +464,43 @@ Finally, let's add a placeholder for the lamp's head. For now let's just add a p
 >
   <g transform="translate(70, 170)">
     <g transform="rotate(-25)">
-      <circle r="5"></circle>
-      <path
+      <Circle r="5" data-element-id="circle-1" />
+      <Path
         d="M 0 0 L 0 -70"
         stroke="black"
         stroke-width="7"
         stroke-linecap="round"
-      ></path>
+        data-element-id="path-1"
+      />
       <g transform="translate(0, -70)">
         <g transform="rotate(50)">
-          <circle r="5"></circle>
-          <path
+          <Circle r="5" data-element-id="circle-2" />
+          <Path
             d="M 0 0 L 0 -70"
             stroke="black"
             stroke-width="7"
             stroke-linecap="round"
-          ></path>
+            data-element-id="path-2"
+          />
           <g transform="translate(0, -70)">
             <g transform="rotate(45)">
-              <circle r="5"></circle>
-              <path
+              <Circle r="5" data-element-id="circle-3" />
+              <Path
                 d="M 0 0 L 0 -30"
                 stroke="black"
                 stroke-width="7"
                 stroke-linecap="round"
-              ></path>
+                data-element-id="path-3"
+              />
               <g transform="translate(0, -30) rotate(-90)">
-                <rect x="-10" y="-10" width="20" height="30" rx="5" />
+                <Rect
+                  x="-10"
+                  y="-10"
+                  width="20"
+                  height="30"
+                  rx="5"
+                  data-element-id="rect-1"
+                />
               </g>
             </g>
           </g>
@@ -551,7 +580,7 @@ First we add a gold circle slightly below the anchor point. This will be our lig
 <Example>
 
 <SVG width="200" height="200" viewBox="-60 -60 120 120" showAxes={true}>
-  <Circle cx="0" cy="25" r="10" fill="gold"></Circle>
+  <Circle cx="0" cy="25" r="10" fill="gold" data-element-id="circle-1" />
 </SVG>
 
 {/* prettier-ignore */}
@@ -582,8 +611,12 @@ Then we create the back side of the lamp's shade from two quadratic Bézier curv
 <Example>
 
 <SVG width="200" height="200" viewBox="-60 -60 120 120" showAxes={true}>
-  <Path d="M -30 30 Q 0 -20 30 30 Q 0 35 -30 30" fill="gray"></Path>
-  <Circle cx="0" cy="25" r="10" fill="gold"></Circle>
+  <Path
+    d="M -30 30 Q 0 -20 30 30 Q 0 35 -30 30"
+    fill="gray"
+    data-element-id="path-1"
+  />
+  <Circle cx="0" cy="25" r="10" fill="gold" data-element-id="circle-1" />
 </SVG>
 
 {/* prettier-ignore */}
@@ -616,9 +649,13 @@ Then we create the front part of the lamp's shade from two other quadratic Bézi
 <Example>
 
 <SVG width="200" height="200" viewBox="-60 -60 120 120" showAxes={true}>
-  <Path d="M -30 30 Q 0 -20 30 30 Q 0 35 -30 30" fill="gray"></Path>
-  <Circle cx="0" cy="25" r="10" fill="gold"></Circle>
-  <Path d="M -30 30 Q 0 -20 30 30 Q 0 25 -30 30"></Path>
+  <Path
+    d="M -30 30 Q 0 -20 30 30 Q 0 35 -30 30"
+    fill="gray"
+    data-element-id="path-1"
+  />
+  <Circle cx="0" cy="25" r="10" fill="gold" data-element-id="circle-1" />
+  <Path d="M -30 30 Q 0 -20 30 30 Q 0 25 -30 30" data-element-id="path-2" />
 </SVG>
 
 {/* prettier-ignore */}
@@ -657,10 +694,21 @@ Finally, we add a rounded rectangle to finish the head of the lamp.
 <Example>
 
 <SVG width="200" height="200" viewBox="-60 -60 120 120" showAxes={true}>
-  <Path d="M -30 30 Q 0 -20 30 30 Q 0 35 -30 30" fill="gray"></Path>
-  <Circle cx="0" cy="25" r="10" fill="gold"></Circle>
-  <Path d="M -30 30 Q 0 -20 30 30 Q 0 25 -30 30"></Path>
-  <Rect x="-10" y="-10" width="20" height="30" rx="5"></Rect>
+  <Path
+    d="M -30 30 Q 0 -20 30 30 Q 0 35 -30 30"
+    fill="gray"
+    data-element-id="path-1"
+  />
+  <Circle cx="0" cy="25" r="10" fill="gold" data-element-id="circle-1" />
+  <Path d="M -30 30 Q 0 -20 30 30 Q 0 25 -30 30" data-element-id="path-2" />
+  <Rect
+    x="-10"
+    y="-10"
+    width="20"
+    height="30"
+    rx="5"
+    data-element-id="rect-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}

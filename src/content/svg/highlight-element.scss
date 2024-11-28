@@ -1,0 +1,82 @@
+@import "../../components/markdown/elements/SVGContent";
+
+@mixin svg-highlight($element) {
+    .markdown-example:has([data-highlight][data-element-id=#{$element}]) {
+        .svg-base {
+            /* Once an SVG element is hovered, turn its base element to transparent */
+            :has([data-element-id=#{$element}]) {
+                @include selectedSVGBase();
+            }
+
+            /* If an SVG element is selected turn every other base element into a wireframe */
+            :not(:has([data-element-id=#{$element}])) {
+                @include otherSVGBase();
+            }
+        }
+
+        /* Display highlight element */
+        .svg-highlight *:has([data-element-id=#{$element}]) {
+            display: block;
+        }
+
+        svg {
+            .translation,
+            .rotation {
+              display: none;
+            }
+        }
+
+        use {
+            display: none;
+        }
+    }
+}
+
+@mixin code-highlight($element) {
+    .markdown-example:has(svg [data-element-id=#{$element}]:hover) pre { 
+
+        /* Turn off line markers */
+        /* This is the same code as in the expressive code plugin */
+        .ec-line {
+            background-color: transparent;
+            transition: background-color 0.3s;
+
+            .code {
+                border-color: transparent;
+
+                &::before {
+                    color: transparent;
+                }
+            }
+        }
+
+        /* Turn off annotation markers */
+        /* This is the same code as in the expressive code plugin */
+        mark,
+        ins,
+        del {
+            background-color: transparent;
+        }
+
+        mark::before,
+        ins::before,
+        del::before {
+            opacity: 0.5;
+        }
+
+        /* Add new line markers */
+        /* This is the same code as in the expressive code plugin */
+        .ec-line[data-element-id=#{$element}] {
+            background-color: rgba(38, 74, 137, 0.5);
+
+            .code {
+                border-color: rgba(85, 112, 179, 0.816);
+            }
+        }
+    }
+}
+
+@mixin highlightElement($element) {
+    @include svg-highlight($element);
+    @include code-highlight($element);
+}

@@ -1,0 +1,22 @@
+@import "highlight-element";
+@import "highlight-coordinate";
+
+@include highlightElement("path-1");
+
+// Hamburger
+@include highlightCoordinate("-40", "-40");
+@include highlightCoordinate("40", "-40");
+@include highlightCoordinate("-40", "0");
+@include highlightCoordinate("40", "0");
+@include highlightCoordinate("-40", "40");
+@include highlightCoordinate("40", "40");
+
+// Heart
+@include highlightCoordinate("-30", "-20");
+@include highlightCoordinate("0", "10");
+@include highlightCoordinate("30", "-20");
+
+// Arrow icon
+@include highlightCoordinate("-70", "0");
+@include highlightCoordinate("70", "0");
+@include highlightCoordinate("30", "-50");

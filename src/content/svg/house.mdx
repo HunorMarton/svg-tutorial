@@ -11,6 +11,7 @@ import Polygon from "../../components/markdown/elements/Polygon.astro";
 import Polyline from "../../components/markdown/elements/Polyline.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "./house.scss";
 
 In this example, we combine everything we learned so far. We use circles, rectangles, lines, polylines, and polygons here.
 
@@ -26,7 +27,10 @@ We start with the front itself. Note that we not only have a class on the wall e
   stroke-width="2"
   fill="white"
 >
-  <Polygon points="-65,80 -65,-10 0,-70 65,-10 65,80" />
+  <Polygon
+    points="-65,80 -65,-10 0,-70 65,-10 65,80"
+    data-element-id="polygon-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -72,6 +76,7 @@ Then we add a roof on top of it. This is the only thing that is new here. We use
     stroke="#d1495b"
     stroke-width="10"
     stroke-linecap="round"
+    data-element-id="polyline-1"
   />
 </SVG>
 

@@ -12,6 +12,7 @@ import Circle from "../../components/markdown/elements/Circle.astro";
 import Rect from "../../components/markdown/elements/Rect.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "./gradient.scss";
 
 The filling of a shape can be defined as a gradient. Today add a subtle 3D effect to our Christmas decoration and build a snowman.
 
@@ -24,7 +25,7 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Circle cx="0" cy="20" r="70" fill="#D1495B" />
+  <Circle cx="0" cy="20" r="70" fill="#D1495B" data-element-id="circle-1" />
   <Circle
     cx="0"
     cy="-75"
@@ -32,8 +33,16 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
     fill="none"
     stroke="#F79257"
     stroke-width="2"
+    data-element-id="circle-2"
   />
-  <Rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+  <Rect
+    x="-17.5"
+    y="-65"
+    width="35"
+    height="20"
+    fill="#F79257"
+    data-element-id="rect-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -83,7 +92,7 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
     </radialGradient>
   </defs>
 
-  <Circle cx="0" cy="20" r="70" fill="url(#shine)" />
+  <Circle cx="0" cy="20" r="70" fill="url(#shine)" data-element-id="circle-1" />
   <Circle
     cx="0"
     cy="-75"
@@ -91,8 +100,9 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
     fill="none"
     stroke="#F79257"
     stroke-width="2"
+    data-element-id="circle-2"
   />
-  <Rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+  <Rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" data-element-id="rect-1" />
 </SVG>
 
 {/* prettier-ignore */}
@@ -165,7 +175,13 @@ For the snowman we draw two circles with a similar gradient as follows.
       <stop offset="100%" stop-color="#d6d6d6" />
     </radialGradient>
   </defs>
-  <Circle cx="0" cy="0" r="80" fill="url(#snowball0)" />
+  <Circle
+    cx="0"
+    cy="0"
+    r="80"
+    fill="url(#snowball0)"
+    data-element-id="circle-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}

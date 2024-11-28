@@ -10,7 +10,7 @@ export interface Props {
 const { x, y, ...props } = Astro.props as Props;
 ---
 
-<g>
+<g class="element">
   <rect x={x} y={y} {...props}></rect>
   <g class="coordinates">
     <Coordiante x={x} y={y} />

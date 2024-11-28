@@ -1,0 +1,13 @@
+@mixin highlightCoordinate($x, $y) {
+    .markdown-example:has(pre .coordinate[data-x="#{$x}"][data-y="#{$y}"]:hover) {
+
+        /* Display highlight element */
+        .svg-highlight > *:has(.coordinate[data-x="#{$x}"][data-y="#{$y}"]) {
+
+            /* Only show the selected coordinate specifically, hide every other coordinate */
+            .coordinate:not([data-x="#{$x}"][data-y="#{$y}"]) {
+                display: none;
+            }
+        }
+    }
+}

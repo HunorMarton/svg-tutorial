@@ -1,0 +1,37 @@
+@import "highlight-element";
+@import "highlight-coordinate";
+
+@include highlightElement("circle-1");
+@include highlightElement("circle-2");
+@include highlightElement("rect-1");
+@include highlightElement("path-1");
+@include highlightElement("path-2");
+@include highlightElement("path-3");
+
+// Nose 
+@include highlightCoordinate("-30", "0");
+@include highlightCoordinate("-30", "-25");
+@include highlightCoordinate("30", "-25");
+@include highlightCoordinate("30", "0");
+@include highlightCoordinate("30", "30");
+@include highlightCoordinate("30", "40");
+@include highlightCoordinate("20", "40");
+@include highlightCoordinate("-20", "40");
+@include highlightCoordinate("-30", "40");
+@include highlightCoordinate("-30", "30");
+
+// Nose tip
+@include highlightCoordinate("-10", "0");
+@include highlightCoordinate("10", "0");
+@include highlightCoordinate("10", "20");
+@include highlightCoordinate("-10", "20");
+@include highlightCoordinate("-10", "0");
+
+// Mouth
+@include highlightCoordinate("0", "10");
+@include highlightCoordinate("0", "25");
+@include highlightCoordinate("10", "25");
+
+@include highlightCoordinate("0", "10");
+@include highlightCoordinate("0", "25");
+@include highlightCoordinate("-10", "25");

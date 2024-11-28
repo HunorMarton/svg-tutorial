@@ -1,0 +1,63 @@
+@import "highlight-element";
+@import "highlight-coordinate";
+
+@include highlightElement("circle-1");
+@include highlightElement("ellipse-1");
+@include highlightElement("ellipse-2");
+@include highlightElement("path-1");
+
+// Smile
+@include highlightCoordinate("-40", "30");
+@include highlightCoordinate("0", "60");
+@include highlightCoordinate("40", "30");
+
+// Bended curve
+@include highlightCoordinate("-60", "50");
+@include highlightCoordinate("40", "-50");
+@include highlightCoordinate("40", "50");
+
+// Curvy tree
+@include highlightCoordinate("0", "-80");
+@include highlightCoordinate("5", "-75");
+@include highlightCoordinate("0", "-70");
+@include highlightCoordinate("-10", "-65");
+@include highlightCoordinate("0", "-60");
+@include highlightCoordinate("15", "-55");
+@include highlightCoordinate("0", "-50");
+@include highlightCoordinate("-20", "-45");
+@include highlightCoordinate("0", "-40");
+@include highlightCoordinate("25", "-35");
+@include highlightCoordinate("0", "-30");
+@include highlightCoordinate("-30", "-25");
+@include highlightCoordinate("0", "-20");
+@include highlightCoordinate("35", "-15");
+@include highlightCoordinate("0", "-10");
+@include highlightCoordinate("-40", "-5");
+@include highlightCoordinate("0", "0");
+@include highlightCoordinate("45", "5");
+@include highlightCoordinate("0", "10");
+@include highlightCoordinate("-50", "15");
+@include highlightCoordinate("0", "20");
+@include highlightCoordinate("55", "25");
+@include highlightCoordinate("0", "30");
+@include highlightCoordinate("-60", "35");
+@include highlightCoordinate("0", "40");
+@include highlightCoordinate("65", "45");
+@include highlightCoordinate("0", "50");
+@include highlightCoordinate("-70", "55");
+@include highlightCoordinate("0", "60");
+@include highlightCoordinate("75", "65");
+@include highlightCoordinate("0", "70");
+@include highlightCoordinate("-80", "75");
+@include highlightCoordinate("0", "80");
+@include highlightCoordinate("85", "85");
+@include highlightCoordinate("0", "90");
+@include highlightCoordinate("-90", "95");
+@include highlightCoordinate("0", "100");
+@include highlightCoordinate("95", "105");
+@include highlightCoordinate("0", "110");
+@include highlightCoordinate("-100", "115");
+@include highlightCoordinate("0", "120");
+@include highlightCoordinate("0", "140");
+@include highlightCoordinate("20", "140");
+@include highlightCoordinate("-20", "140");

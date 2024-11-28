@@ -10,7 +10,7 @@ const { points, ...props } = Astro.props as Props;
 const coordinates = points.split(" ").map((point) => point.split(","));
 ---
 
-<g>
+<g class="element">
   <polyline points={points} {...props}></polyline>
   <g class="coordinates">
     {coordinates.map(([x, y]) => <Coordiante x={x} y={y} />)}

@@ -1,0 +1,22 @@
+@import "highlight-element";
+@import "highlight-coordinate";
+
+@include highlightElement("circle-1");
+@include highlightElement("line-1");
+@include highlightElement("path-1");
+
+// Snowflake
+@include highlightCoordinate("0", "0");
+@include highlightCoordinate("0", "-90");
+@include highlightCoordinate("0", "-20");
+@include highlightCoordinate("20", "-34");
+@include highlightCoordinate("0", "-20");
+@include highlightCoordinate("-20", "-34");
+@include highlightCoordinate("0", "-40");
+@include highlightCoordinate("20", "-54");
+@include highlightCoordinate("0", "-40");
+@include highlightCoordinate("-20", "-54");
+@include highlightCoordinate("0", "-60");
+@include highlightCoordinate("20", "-74");
+@include highlightCoordinate("0", "-60");
+@include highlightCoordinate("-20", "-74");

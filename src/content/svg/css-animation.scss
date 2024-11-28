@@ -1,0 +1,12 @@
+@import "highlight-element";
+@import "highlight-coordinate";
+
+@include highlightElement("circle-1");
+@include highlightElement("path-1");
+
+@include highlightCoordinate("-7", "-20");
+@include highlightCoordinate("-7", "-10");
+@include highlightCoordinate("7", "-10");
+@include highlightCoordinate("7", "-20");
+@include highlightCoordinate("2", "-80");
+@include highlightCoordinate("-2", "-80");

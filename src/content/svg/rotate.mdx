@@ -10,6 +10,7 @@ import SVG from "../../components/markdown/elements/SVG.astro";
 import Polygon from "../../components/markdown/elements/Polygon.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "./rotate.scss";
 
 ### How to Draw a Star with SVG
 
@@ -20,8 +21,16 @@ First, let's define an arm. In this example, each arm consists of two polygons.
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
-  <Polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+  <Polygon
+    points="0,0 36,-50 0,-100"
+    fill="#EDD8B7"
+    data-element-id="polygon-1"
+  />
+  <Polygon
+    points="0,0 -36,-50 0,-100"
+    fill="#E5C39C"
+    data-element-id="polygon-2"
+  />
 </SVG>
 
 {/* prettier-ignore */}

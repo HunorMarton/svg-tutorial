@@ -12,6 +12,7 @@ import Rect from "../../components/markdown/elements/Rect.astro";
 import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "./bear.scss";
 
 Let's draw a bear to practice drawing [cubic](/svg/cubic-bezier) and [quadratic Bézier](quadratic-bezier) curves.
 
@@ -32,6 +33,7 @@ We start with the ears. These are two circles that both have the `fill` and the 
     fill="#E5C39C"
     stroke="white"
     stroke-width="5"
+    data-element-id="circle-1"
   />
   <Circle
     cx="40"
@@ -40,6 +42,7 @@ We start with the ears. These are two circles that both have the `fill` and the 
     fill="#E5C39C"
     stroke="white"
     stroke-width="5"
+    data-element-id="circle-2"
   />
 </SVG>
 
@@ -90,9 +93,18 @@ Then let's add the face and the eyes. Here's another thing we haven't covered be
   height="200"
   viewBox="-100 -100 200 200"
 >
-  <Rect x="-55" y="-60" width="110" height="120" fill="white" rx="50" ry="30" />
-  <Circle cx="20" cy="-30" r="3" />
-  <Circle cx="-20" cy="-30" r="3" />
+  <Rect
+    x="-55"
+    y="-60"
+    width="110"
+    height="120"
+    fill="white"
+    rx="50"
+    ry="30"
+    data-element-id="rect-1"
+  />
+  <Circle cx="20" cy="-30" r="3" data-element-id="circle-1" />
+  <Circle cx="-20" cy="-30" r="3" data-element-id="circle-2" />
 </SVG>
 
 {/* prettier-ignore */}
@@ -148,12 +160,14 @@ Finally, we can add the nose and the mouth as a few paths as follows.
       L -20 40
       Q -30 40 -30 30"
     fill="#E5C39C"
+    data-element-id="path-1"
   />
   <Path
     d="
       M -10 0
       L 10 0
       C 10 20 -10 20 -10 0"
+    data-element-id="path-2"
   />
   <Path
     d="
@@ -164,6 +178,7 @@ Finally, we can add the nose and the mouth as a few paths as follows.
     fill="none"
     stroke="black"
     stroke-width="2"
+    data-element-id="path-3"
   />
 </SVG>
 

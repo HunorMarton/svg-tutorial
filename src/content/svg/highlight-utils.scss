@@ -1,0 +1,29 @@
+/* Turn the base element of the selected element to semi-transparent */
+@mixin handleSelectedBase() {
+    /* Select filled elements */
+    /* NOTE: This is the same code block as in  SVGContent.astro */
+    > circle,
+    > polygon,
+    > *:first-child[fill]:not([fill="none"]) {
+        fill: transparent;
+        stroke-width: 0;
+    }
+
+    /* Select non-filled elements */
+    /* NOTE: This is the same code block as in  SVGContent.astro */
+    > *:first-child:not([fill]),
+    > *:first-child[fill="none"] {
+        fill: transparent;
+        stroke: rgba(217, 217, 217, 0.75);
+    }
+}
+
+/* Turn every other base element into a gray transparent skeleton */
+@mixin handleOtherBase() {
+    /* NOTE: This is the same code block as in  SVGContent.astro */
+    > *:first-child{
+        fill: rgb(255 255 255 / 0.75);
+        stroke: rgb(128 128 128 / 0.5);
+        stroke-width: calc(1 * var(--zoom));
+    }
+}

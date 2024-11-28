@@ -13,6 +13,8 @@ import sentry from "@sentry/astro";
 
 import astroExpressiveCode from "astro-expressive-code";
 import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
+import { highlightElementPlugin } from "./src/plugins/highlight-element/index.ts";
+import { highlightCoordinatePlugin } from "./src/plugins/highlight-coordinate/index.ts";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,7 +25,19 @@ export default defineConfig({
   }),
   integrations: [
     astroExpressiveCode({
-      plugins: [pluginCollapsibleSections()],
+      plugins: [
+        pluginCollapsibleSections(),
+        highlightCoordinatePlugin(),
+        highlightElementPlugin([
+          "circle",
+          "ellipse",
+          "rect",
+          "polygon",
+          "polyline",
+          "line",
+          "path",
+        ]),
+      ],
       useDarkModeMediaQuery: false,
       styleOverrides: {
         codeFontSize: "12px", // How to use em or rem here?

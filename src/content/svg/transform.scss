@@ -1,0 +1,19 @@
+@import "highlight-element";
+@import "highlight-coordinate";
+
+@include highlightElement("ellipse-1");
+@include highlightElement("ellipse-2");
+@include highlightElement("circle-1");
+@include highlightElement("circle-2");
+@include highlightElement("circle-3");
+@include highlightElement("path-1");
+@include highlightElement("path-2");
+@include highlightElement("path-3");
+@include highlightElement("rect-1");
+
+@include highlightCoordinate("-30", "30");
+@include highlightCoordinate("0", "-20");
+@include highlightCoordinate("0", "35");
+@include highlightCoordinate("30", "30");
+@include highlightCoordinate("0", "25");
+@include highlightCoordinate("-30", "30");

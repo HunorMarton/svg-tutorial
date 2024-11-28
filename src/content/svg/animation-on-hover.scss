@@ -1,0 +1,16 @@
+@import "highlight-element";
+@import "highlight-coordinate";
+
+@include highlightElement("path-1");
+
+@include highlightCoordinate(-50, 40);
+@include highlightCoordinate(-50, 50);
+@include highlightCoordinate(50, 50);
+@include highlightCoordinate(50, 40);
+@include highlightCoordinate(40, 40);
+@include highlightCoordinate(40, 10);
+@include highlightCoordinate(40, -60);
+@include highlightCoordinate(-40, -60);
+@include highlightCoordinate(-40, 10);
+@include highlightCoordinate(-40, 40);
+@include highlightCoordinate(-50, 40);

@@ -10,7 +10,7 @@ const { show, base, zoom = 1 } = Astro.props as Props;
 if (!show) return; // Conditional rendering
 ---
 
-<g>
+<g class="axis">
   <g class={base ? "axis-base" : "axis-main"}>
     <line x1="0" y1="-100%" x2="0" y2="100%"></line>
     <line x1="-100%" y1="0" x2="100%" y2="0"></line>
@@ -34,5 +34,11 @@ if (!show) return; // Conditional rendering
     stroke: lightgray;
     stroke-width: calc(1 / var(--zoom));
     stroke-dasharray: 3 5;
+  }
+</style>
+
+<style>
+  .axis {
+    pointer-events: none;
   }
 </style>

@@ -1,0 +1,6 @@
+@import "highlight-element";
+
+@include highlightElement("circle-1");
+@include highlightElement("rect-1");
+@include highlightElement("polygon-1");
+@include highlightElement("line-1");

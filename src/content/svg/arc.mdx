@@ -12,6 +12,7 @@ import Path from "../../components/markdown/elements/Path.astro";
 import Command from "../../components/markdown/layouts/Command.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "./arc.scss";
 
 An arc is a segment of a circle or an ellipse. In SVG, we can draw an arc using the `<path>` element with the `A` command. Like other path segments, the arc to command continues the previous segment. In this example, we use the `M` command to move to the starting point, and from there, we draw an arc.
 
@@ -59,6 +60,7 @@ The first two parameters are the imaginary circle's horizontal and vertical radi
     fill="none"
     stroke="red"
     stroke-width="5"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -110,6 +112,7 @@ With the given radiuses, four different ways to reach the arc's endpoint exist. 
     fill="none"
     stroke="red"
     stroke-width="5"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -161,6 +164,7 @@ In both cases, the arc has reached its endpoint in the shortest possible way. Ho
     fill="none"
     stroke="red"
     stroke-width="5"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -212,6 +216,7 @@ We draw an elliptic arc if we set the horizontal and vertical radiuses to two di
     fill="none"
     stroke="red"
     stroke-width="5"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -263,6 +268,7 @@ We can turn our imaginary ellipse by an angle when we draw an elliptic arc. The 
     fill="none"
     stroke="red"
     stroke-width="5"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -297,9 +303,10 @@ In this example, we draw a single path. We start with a move-to command to get t
 <SVG width="200" height="200" viewBox="0 0 30 30">
   <Path
     d="
-    M 23, 5
-    A 12 12 0 1 0 23, 25
-    A 12 12 0 0 1 23, 5"
+      M 23, 5
+      A 12 12 0 1 0 23, 25
+      A 12 12 0 0 1 23, 5"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -312,9 +319,9 @@ In this example, we draw a single path. We start with a move-to command to get t
 >
   <path
     d="
-    M 23, 5
-    A 12 12 0 1 0 23, 25
-    A 12 12 0 0 1 23, 5"
+      M 23, 5
+      A 12 12 0 1 0 23, 25
+      A 12 12 0 0 1 23, 5"
   />
 </svg>
 ```
@@ -339,6 +346,7 @@ After all these introductions, we finally got to today's example. We are going t
     stroke="black"
     stroke-width="45"
     stroke-linecap="round"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -378,6 +386,7 @@ To draw the candy, we draw a thick line that consists of a straight line and a h
     stroke="black"
     stroke-width="45"
     stroke-linecap="round"
+    data-element-id="path-1"
   />
 
   <Path
@@ -389,6 +398,7 @@ To draw the candy, we draw a thick line that consists of a straight line and a h
     stroke="red"
     stroke-width="35"
     stroke-linecap="round"
+    data-element-id="path-2"
   />
 </SVG>
 
@@ -482,6 +492,7 @@ For a more advanced example, we can draw a lightbulb. We start with an arc that 
     fill="gold"
     stroke="black"
     stroke-width="10"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -522,6 +533,7 @@ Then, with a [quadratic Bézier curve](./quadratic-bezier), we continue the shap
     stroke="black"
     stroke-width="10"
     stroke-linejoin="round"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -565,6 +577,7 @@ Finally, we add another contour arc and two lines at the bottom for the cap.
     stroke="black"
     stroke-width="10"
     stroke-linejoin="round"
+    data-element-id="path-1"
   />
   <Path
     d="M -30 -20 A 30 30 0 0 1 0 -50"
@@ -572,6 +585,7 @@ Finally, we add another contour arc and two lines at the bottom for the cap.
     stroke="black"
     stroke-width="10"
     stroke-linecap="round"
+    data-element-id="path-2"
   />
   <Path
     d="M -18 62 L 18 62 M -15 75 L 15 75"
@@ -579,6 +593,7 @@ Finally, we add another contour arc and two lines at the bottom for the cap.
     stroke="black"
     stroke-width="10"
     stroke-linecap="round"
+    data-element-id="path-3"
   />
 </SVG>
 

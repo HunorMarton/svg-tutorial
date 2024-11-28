@@ -1,0 +1,35 @@
+@import "highlight-element";
+@import "highlight-coordinate";
+
+@include highlightElement("circle-1");
+@include highlightElement("path-1");
+
+// Connected line 1
+@include highlightCoordinate("-90", "0");
+@include highlightCoordinate("-30", "-30");
+@include highlightCoordinate("30", "-60");
+@include highlightCoordinate("60", "-30");
+@include highlightCoordinate("30", "30");
+@include highlightCoordinate("0", "90");
+
+// Connected line 2
+@include highlightCoordinate("-30", "70");
+@include highlightCoordinate("30", "0");
+@include highlightCoordinate("90", "-70");
+@include highlightCoordinate("-80", "-30");
+@include highlightCoordinate("-20", "10");
+@include highlightCoordinate("40", "50");
+
+// Profile icon
+@include highlightCoordinate("-50", "70");
+@include highlightCoordinate("-50", "-20");
+@include highlightCoordinate("50", "-20");
+@include highlightCoordinate("50", "70");
+
+// Gift wrap
+@include highlightCoordinate("0", "0");
+@include highlightCoordinate("30", "0");
+@include highlightCoordinate("50", "0");
+@include highlightCoordinate("50", "-25");
+@include highlightCoordinate("30", "-15");
+@include highlightCoordinate("0", "0");

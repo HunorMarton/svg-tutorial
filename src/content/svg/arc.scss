@@ -1,0 +1,38 @@
+@import "highlight-element";
+@import "highlight-coordinate";
+
+@include highlightElement("path-1");
+@include highlightElement("path-2");
+@include highlightElement("path-3");
+
+// Arc parameter examples
+@include highlightCoordinate("-40", "-40");
+@include highlightCoordinate("40", "40");
+
+// Moon
+@include highlightCoordinate("23", "5");
+@include highlightCoordinate("23", "25");
+
+// Candy cane
+@include highlightCoordinate("50", "120");
+@include highlightCoordinate("50", "-80");
+@include highlightCoordinate("-50", "-80");
+
+// Lightbulb path 1
+@include highlightCoordinate("-30", "20");
+@include highlightCoordinate("30", "20");
+@include highlightCoordinate("20", "30");
+@include highlightCoordinate("20", "50");
+@include highlightCoordinate("-20", "50");
+@include highlightCoordinate("-20", "30");
+@include highlightCoordinate("-30", "20");
+
+// Lightbulb path 2
+@include highlightCoordinate("-30", "-20");
+@include highlightCoordinate("0", "-50");
+
+// Lightbulb path 3
+@include highlightCoordinate("-18", "62");
+@include highlightCoordinate("18", "62");
+@include highlightCoordinate("-15", "75");
+@include highlightCoordinate("15", "75");

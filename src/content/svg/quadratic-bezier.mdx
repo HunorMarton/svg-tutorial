@@ -13,6 +13,7 @@ import Ellipse from "../../components/markdown/elements/Ellipse.astro";
 import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "./quadratic-bezier.scss";
 
 The [path](/svg/basic-path) element becomes really powerful when we start using curves, such as the quadratic Bezier curve. For a curve, we also have to set a control point apart from the endpoint.
 
@@ -27,15 +28,24 @@ In this image, we also introduce a new element, the `ellipse`. An ellipse behave
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Circle cx="0" cy="0" r="90" fill="none" stroke="black" stroke-width="10" />
-  <Ellipse cx="-25" cy="-25" rx="10" ry="15" />
-  <Ellipse cx="25" cy="-25" rx="10" ry="15" />
+  <Circle
+    cx="0"
+    cy="0"
+    r="90"
+    fill="none"
+    stroke="black"
+    stroke-width="10"
+    data-element-id="circle-1"
+  />
+  <Ellipse cx="-25" cy="-25" rx="10" ry="15" data-element-id="ellipse-1" />
+  <Ellipse cx="25" cy="-25" rx="10" ry="15" data-element-id="ellipse-2" />
   <Path
     d="M -40,30 Q 0,60 40,30"
     fill="none"
     stroke="black"
     stroke-width="10"
     stroke-linecap="round"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -64,7 +74,7 @@ In this image, we also introduce a new element, the `ellipse`. An ellipse behave
     rx="10" 
     ry="15" />
   <path
-    d="M -40,30 Q 0,30 40,30"
+    d="M -40,30 Q 0,60 40,30"
     fill="none"
     stroke="black"
     stroke-width="10"
@@ -84,6 +94,7 @@ In the example above, the control point is at the same distance from the two end
     fill="none"
     stroke="black"
     stroke-width="10"
+    data-element-id="path-1"
   />
 </SVG>
 
@@ -181,6 +192,7 @@ If we break down each quadratic bézier above into two line segments with the sa
       L -20 140"
     fill="none"
     stroke="black"
+    data-element-id="path-1"
   />
 </SVG>
 

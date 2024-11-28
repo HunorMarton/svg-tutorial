@@ -16,7 +16,7 @@ const dx = translation?.[0] ?? 0;
 const dy = translation?.[1] ?? 0;
 ---
 
-<g>
+<g class="translation">
   {/* TODO: consider zoom for stroke-width ? */}
   {
     translation[0] && (
@@ -56,3 +56,9 @@ const dy = translation?.[1] ?? 0;
     </marker>
   </defs>
 </g>
+
+<style>
+  .translation {
+    pointer-events: none;
+  }
+</style>

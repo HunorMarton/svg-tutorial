@@ -13,6 +13,7 @@ import Line from "../../components/markdown/elements/Line.astro";
 import Path from "../../components/markdown/elements/Path.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
+import "./use.scss";
 
 Instead of repeating the same code over and over again we can also reuse image elements.
 
@@ -23,7 +24,7 @@ Let's draw simple sun icon. We start with a circle element to draw the core of t
 <Example>
 
 <SVG width="200" height="200" viewBox="-15 -15 30 30">
-  <Circle r="6" />
+  <Circle r="6" data-element-id="circle-1" />
   <Line
     id="ray"
     stroke="black"
@@ -33,6 +34,7 @@ Let's draw simple sun icon. We start with a circle element to draw the core of t
     y1="11"
     x2="0"
     y2="14"
+    data-element-id="line-1"
   />
 </SVG>
 
@@ -53,7 +55,7 @@ Let's draw simple sun icon. We start with a circle element to draw the core of t
     y1="11"
     x2="0"
     y2="14"
-  ></line>
+  />
 </svg>
 ```
 
@@ -66,7 +68,7 @@ Then, we can move the lines to their correct position with the `transform` comma
 <Example>
 
 <SVG width="200" height="200" viewBox="-15 -15 30 30">
-  <Circle r="6" />
+  <Circle r="6" data-element-id="circle-1" />
   <Line
     id="ray"
     stroke="black"
@@ -76,6 +78,7 @@ Then, we can move the lines to their correct position with the `transform` comma
     y1="11"
     x2="0"
     y2="14"
+    data-element-id="line-1"
   />
   <use href="#ray" transform="rotate(45)" />
   <use href="#ray" transform="rotate(90)" />
@@ -104,7 +107,7 @@ Then, we can move the lines to their correct position with the `transform` comma
     y1="11"
     x2="0"
     y2="14"
-  ></line>
+  />
 
   <use 
     href="#ray" 
@@ -145,7 +148,12 @@ The branch is defined as a `path`. Earlier we already covered [how to draw basic
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Path d="M 0 0 L 0 -90" stroke="#E5C39C" stroke-width="5" />
+  <Path
+    d="M 0 0 L 0 -90"
+    stroke="#E5C39C"
+    stroke-width="5"
+    data-element-id="path-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -170,7 +178,12 @@ Then we can continue drawing, and add a side branch by adding another move to an
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Path d="M 0 0 L 0 -90 M 0 -20 L 20 -34" stroke="#E5C39C" stroke-width="5" />
+  <Path
+    d="M 0 0 L 0 -90 M 0 -20 L 20 -34"
+    stroke="#E5C39C"
+    stroke-width="5"
+    data-element-id="path-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -209,6 +222,7 @@ We continue adding side branches with the move-to and line-to command. The finis
         M 0 -60 L -20 -74"
     stroke="#E5C39C"
     stroke-width="5"
+    data-element-id="path-1"
   />
 </SVG>
 
