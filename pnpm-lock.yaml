@@ -68,6 +68,9 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
+      unist-util-visit:
+        specifier: ^5.0.0
+        version: 5.0.0
       web-vitals:
         specifier: ^3.5.2
         version: 3.5.2

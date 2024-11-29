@@ -16,6 +16,8 @@ import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-s
 import { highlightElementPlugin } from "./src/plugins/highlight-element/index.ts";
 import { highlightCoordinatePlugin } from "./src/plugins/highlight-coordinate/index.ts";
 
+import markdownHighlightCode from "./src/plugins/markdown-highlight-code/index.ts";
+
 // https://astro.build/config
 export default defineConfig({
   output: "static",
@@ -53,6 +55,9 @@ export default defineConfig({
       },
     }),
   ],
+  markdown: {
+    remarkPlugins: [markdownHighlightCode],
+  },
   redirects: {
     // SVG Tutorial
     "/svg/polygon": "/svg/viewbox",

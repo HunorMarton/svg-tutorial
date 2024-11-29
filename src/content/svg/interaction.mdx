@@ -54,7 +54,7 @@ Let's start with an easy example. By clicking the lightbulb, we switch the light
 </svg>
 ```
 
-The only difference in the example above is that the first path element now has an `id`. We use this id to access the element in JavaScript.
+The only difference in the example above is that the first path element now has an `property:id`. We use this id to access the element in JavaScript.
 
 Then, in JavaScript, we can assign an event handler to this element and toggle its fill color. We keep track of whether the light is on or off with the `lightOn` variable, and based on this, we set the `fill` property to gold or transparent.
 
@@ -198,11 +198,11 @@ For this example, we reuse the lamp we created in a previous chapter. Here's the
 
 </Final>
 
-The only difference in the example above is that some group elements now have an `id`. We use these ids to access these groups in JavaScript.
+The only difference in the example above is that some group elements now have an `property:id`. We use these ids to access these groups in JavaScript.
 
 This SVG is constructed in a way that allows us to tilt the arms of the lamp by simply adjusting some rotation values. You can see above that the first arm rotates `25°` to the left, the second arm turns `50°` to the right, and the third arm that connects the head tilts by `45°` to the right again.
 
-These are the rotation values we need to change while dragging the head of the lamp. That's why each of these groups has an id (`arm1`, `arm2`, `arm3`). We get these groups by id in JavaScript.
+These are the rotation values we need to change while dragging the head of the lamp. That's why each of these groups has an id (`value:arm1`, `value:arm2`, `value:arm3`). We get these groups by id in JavaScript.
 
 Let's say the second arm always balances out the first arm. If the first arm turns 25° to the left, the second one will turn 50° to the right. It's always double the first rotation in the other direction.
 

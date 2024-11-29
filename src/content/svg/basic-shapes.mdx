@@ -28,7 +28,7 @@ SVG (Scalable Vector Graphics) has a similar syntax as HTML. They are both based
 
 This opens up a lot of cool options. We can access parts of an image with JavaScript to make something interactive or we can generate art with code. We can also move some of the styling to CSS and animate image elements with CSS.
 
-We define an `svg` element with its `width` and `height` properties. This defines the drawing canvas where the coordinates go from the `0,0` coordinate from the top-left corner and grow downwards and to the right.
+We define an `element:svg` element with its `property:width` and `property:height` properties. This defines the drawing canvas where the coordinates go from the `0,0` coordinate from the top-left corner and grow downwards and to the right.
 
 <Example>
 
@@ -49,10 +49,10 @@ We can place shapes onto this canvas by coordinates. In the next chapter, we lea
 
 ### How to draw a Circle in SVG
 
-To define a `circle` we need to set the following properties:
+To define a `element:circle` we need to set the following properties:
 
-- We set its center position with the `cx` and `cy` properties.
-- We set the radius with the `r`.
+- We set its center position with the `property:cx` and `property:cy` properties.
+- We set the radius with the `property:r`.
 
 Drag the handlers below to see how the code gets updated.
 
@@ -60,15 +60,15 @@ Drag the handlers below to see how the code gets updated.
 
 ### Styling SVG elements
 
-To fill the shape, we can use the `fill` property. This property is similar to the `background-color` property in CSS for regular HTML elements.
+To fill the shape, we can use the `property:fill` property. This property is similar to the `background-color` property in CSS for regular HTML elements.
 
-For the value of the color, we can use named color values (e.g., `red`), hex color code (e.g., `#ff0000`), or even CSS functions (e.g., `rgb(255 0 0)`). If we don't want to fill the shape, we can set it to `none`.
+For the value of the color, we can use named color values like `value:red`, hex color code like `value:#ff0000`, or even CSS functions like `value:rgb(255 0 0)`. If we don't want to fill the shape, we can set it to `value:none`.
 
 ### How to draw a Christmas Ornament
 
 For today's example, we draw a simple Christmas ornament. Here, we only use simple shapes: two circles and a rectangle.
 
-First, we define the main part of the Christmas ornament by drawing a `circle`. We set its center position on the x-axis to the middle at `100` and on the y-axis, slightly below the middle at `120`. We set a large radius and set its fill color.
+First, we define the main part of the Christmas ornament by drawing a `element:circle`. We set its center position on the x-axis to the middle at `value:100` and on the y-axis, slightly below the middle at `value:120`. We set a large radius and set its fill color.
 
 <Example>
 
@@ -90,7 +90,7 @@ First, we define the main part of the Christmas ornament by drawing a `circle`. 
 
 </Example>
 
-Then we draw a rectangle as a little cap on top of the Christmas ornament with the `rect` element. In this case, we have to set the top-left position of the rectangle and its size. We use the `fill` attribute the same way as we did with the circle.
+Then we draw a rectangle as a little cap on top of the Christmas ornament with the `element:rect` element. In this case, we have to set the top-left position of the rectangle and its size. We use the `property:fill` attribute the same way as we did with the circle.
 
 <Example>
 
@@ -127,7 +127,7 @@ Then we draw a rectangle as a little cap on top of the Christmas ornament with t
 
 </Example>
 
-Finally, we add another circle as a hanger on top of these. Note that we use the same `circle` element, but with different attributes. We set the fill property to "none" and set a border for the shape with the `stroke` and `stroke-width` properties.
+Finally, we add another circle as a hanger on top of these. Note that we use the same `element:circle` element, but with different attributes. We set the fill property to "none" and set a border for the shape with the `property:stroke` and `property:stroke-width` properties.
 
 The final code of the image on the left is as follows:
 

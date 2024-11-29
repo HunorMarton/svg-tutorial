@@ -23,3 +23,8 @@
 .space-separated:last-of-type .space {
   display: none;
 }
+
+.code code {
+  border: unset;
+  padding: unset;
+}

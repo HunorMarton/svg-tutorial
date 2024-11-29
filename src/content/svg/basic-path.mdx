@@ -13,15 +13,15 @@ import Fullscreen from "../../components/markdown/examples/Fullscreen.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 import "./basic-path.scss";
 
-Once we covered [basic shapes](/svg/basic-shapes), it's time to move on to the `path` element. The path is the most powerful SVG element. We can define pretty much anything with paths and if you open any SVG file, you will mostly see paths.
+Once we covered [basic shapes](/svg/basic-shapes), it's time to move on to the `element:path` element. The path is the most powerful SVG element. We can define pretty much anything with paths and if you open any SVG file, you will mostly see paths.
 
-The shape of a path is defined by the `d` attribute. Here we define several drawing commands. A command always starts with a letter defining the command type and ends with a coordinate.
+The shape of a path is defined by the `property:d` attribute. Here we define several drawing commands. A command always starts with a letter defining the command type and ends with a coordinate.
 
 Here we only have the two most basic commands, move-to and line-to. The move-to command moves the cursor to a point without drawing a line and the line-to command draws a straight line from the previous point. A command always continues the previous command. When we draw a line we only define the endpoint. The starting point will be the previous command’s endpoint.
 
 ### Hamburger menu icon
 
-Before we get to the arrow example, let's draw a simple hamburger menu icon. We draw three lines within the same path with the move-to (`M`) and line-to (`L`) commands. First, we move to the start of the top line (`M -40, -40`) and draw a line to its end (`L 40, -40`).
+Before we get to the arrow example, let's draw a simple hamburger menu icon. We draw three lines within the same path with the move-to (`value:M`) and line-to (`value:L`) commands. First, we move to the start of the top line with `value:M -40, -40` and draw a line to its end with `value:L 40, -40`.
 
 <Example>
 
@@ -132,7 +132,7 @@ Here's another example made with a move to command and two line to commands.
 
 </Example>
 
-In the example above if we reduce the value of the `stroke-width` property, then we realize that the code above is actually a simple V shape.
+In the example above if we reduce the value of the `property:stroke-width` property, then we realize that the code above is actually a simple V shape.
 
 <Example>
 
@@ -220,7 +220,7 @@ Then to get to our example for today, we can draw an arrow in a very similar way
 
 </Example>
 
-You might note that we also had a `stroke-linejoin` property in the previous example. This works similarly to `stroke-linecap`, but this one affects the connections of the path segments. If we remove this property, the path will look as follows:
+You might note that we also had a `property:stroke-linejoin` property in the previous example. This works similarly to `property:stroke-linecap`, but this one affects the connections of the path segments. If we remove this property, the path will look as follows:
 
 <Example>
 

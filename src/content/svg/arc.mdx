@@ -14,7 +14,7 @@ import Example from "../../components/markdown/layouts/Example.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 import "./arc.scss";
 
-An arc is a segment of a circle or an ellipse. In SVG, we can draw an arc using the `<path>` element with the `A` command. Like other path segments, the arc to command continues the previous segment. In this example, we use the `M` command to move to the starting point, and from there, we draw an arc.
+An arc is a segment of a circle or an ellipse. In SVG, we can draw an arc using the `element:path` element with the `value:A` command. Like other path segments, the arc to command continues the previous segment. In this example, we use the `value:M` command to move to the starting point, and from there, we draw an arc.
 
 Drag the handlers below to see how it works, or go to the [editor](/editor/arc).
 
@@ -22,7 +22,7 @@ Drag the handlers below to see how it works, or go to the [editor](/editor/arc).
 
 ### The different parameters of an SVG arc
 
-The arc command continues the previous path segment. It does not define where the arc starts; that information comes from the previous command. That's why the following examples start with the `M` command to move to the start of the arc.
+The arc command continues the previous path segment. It does not define where the arc starts; that information comes from the previous command. That's why the following examples start with the `value:M` command to move to the start of the arc.
 
 <Command>
 
@@ -30,7 +30,7 @@ A rx ry rotation large-arc-flag sweep-flag `x y`
 
 </Command>
 
-The arc's endpoints are the last two parameters of the `A` command, x and y. That's the only coordinate the arc defines. For instance, we don't set the center point of the arc. All the rest of the parameters define how to reach this endpoint.
+The arc's endpoints are the last two parameters of the `value:A` command, x and y. That's the only coordinate the arc defines. For instance, we don't set the center point of the arc. All the rest of the parameters define how to reach this endpoint.
 
 #### Horizontal and Vertical Radiuses
 
@@ -435,7 +435,7 @@ To draw the candy, we draw a thick line that consists of a straight line and a h
 
 </Example>
 
-Then, finally, we draw the same path again, but this time in white, and we use the `stroke-dasharray` property to draw a dashed line.
+Then, finally, we draw the same path again, but this time in white, and we use the `property:stroke-dasharray` property to draw a dashed line.
 
 <Final>
 

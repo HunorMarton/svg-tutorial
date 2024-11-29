@@ -73,7 +73,7 @@ Lets start with the easy part. We create the lamp's base with two ellipses.
 
 ### The arm of the lamp
 
-Now, let's start building up the arm of the lamp. We draw it in its own space independent of its actual position and direction. We go from the `0,0` coordinate and draw a straight line upwards with the `path` element. And add a circle for the joint.
+Now, let's start building up the arm of the lamp. We draw it in its own space independent of its actual position and direction. We go from the `0,0` coordinate and draw a straight line upwards with the `element:path` element. And add a circle for the joint.
 
 <Prerequisite slug="basic-path" />
 
@@ -115,7 +115,7 @@ For now, most of this is invisible. The `0,0` coordinate is at the top left corn
 
 </Example>
 
-We can move the arm into position by grouping the elements together and using the `transform` attribute. We use the `translate` function to move the origin to the `70, 170` position.
+We can move the arm into position by grouping the elements together and using the `property:transform` property. We use the `value:translate` function to move the origin to the `70, 170` position.
 
 <Example>
 
@@ -157,7 +157,7 @@ We can move the arm into position by grouping the elements together and using th
 
 </Example>
 
-Transformations are relative to the origin of the element. Initially this was the origin of the viewBox, the top-left corner. By applying the `translate` function we also moved the origin to the `70, 170` position. As a result, we can rotate the arm around the joint with the `rotate` function.
+Transformations are relative to the origin of the element. Initially this was the origin of the viewBox, the top-left corner. By applying the `value:translate` function we also moved the origin to the `70, 170` position. As a result, we can rotate the arm around the joint with the `value:rotate` function.
 
 <Example>
 
@@ -203,7 +203,7 @@ Transformations are relative to the origin of the element. Initially this was th
 
 </Example>
 
-Now let's add the second piece of the arm. We can do this by nesting another `g` element inside the previous ones. We move this group to the end of the first arm by applying another `translate` transformation (we move it vertically by -70, that matches the length of the first arm).
+Now let's add the second piece of the arm. We can do this by nesting another `element:g` element inside the previous ones. We move this group to the end of the first arm by applying another `value:translate` transformation (we move it vertically by -70, that matches the length of the first arm).
 
 Building up the arm this way has two benefits. First, we can define the line with the same attributes as the previous one. The arm doesn't need to know where its absolute position is on the canvas. We simply define a line that goes from the `0,0` position straight up to `0,-70`.
 
@@ -276,7 +276,7 @@ Building up the arm this way has two benefits. First, we can define the line wit
 
 </Example>
 
-The second benefit of defining the arms this way is that we can rotate the second arm piece around the joint by applying a `rotate` transformation. Now lets turn back this second arm to balance out the lamp. We wrap the second arm piece into another group and apply another `rotate` transformation.
+The second benefit of defining the arms this way is that we can rotate the second arm piece around the joint by applying a `value:rotate` transformation. Now lets turn back this second arm to balance out the lamp. We wrap the second arm piece into another group and apply another `value:rotate` transformation.
 
 <Example>
 
@@ -351,7 +351,7 @@ The second benefit of defining the arms this way is that we can rotate the secon
 
 </Example>
 
-Now lets add the third piece that connects the arm to the head of the lamp. We can do this by nesting another `g` element inside the previous ones. We move this group to the end of the second arm by applying another `translate` transformation (we move it vertically by -70, that matches the length of the second arm).
+Now lets add the third piece that connects the arm to the head of the lamp. We can do this by nesting another `element:g` element inside the previous ones. We move this group to the end of the second arm by applying another `value:translate` transformation (we move it vertically by -70, that matches the length of the second arm).
 
 <Example>
 
@@ -605,7 +605,8 @@ First we add a gold circle slightly below the anchor point. This will be our lig
 
 <Note>
   Note that these images appear bigger than in the final result because the
-  `width` and `height` do not match the size defined by the `viewBox`.
+  `property:width` and `property:height` do not match the size defined by the
+  `property:viewBox`.
 </Note>
 
 Then we create the back side of the lamp's shade from two [quadratic Bézier curves](/svg/quadratic-bezier). This one comes before the circle, because it is behind the light bulb.

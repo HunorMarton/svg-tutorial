@@ -18,9 +18,38 @@
     margin-bottom: 0.7em;
   }
 
+  a {
+    text-underline-offset: 2px;
+  }
+
   code {
-    padding: 0 5px 2px;
-    background-color: lightgray;
+    padding: 2px 5px;
+    border-radius: 2px;
+    border: 1px solid rgb(211, 211, 211, 1);
+    background-color: rgb(211, 211, 211, 0.1);
+  }
+
+  code.element,
+  code.property,
+  code.value {
+    color: black;
+    border: 1px solid lightgray;
+    background-color: white;
+  }
+
+  code.element {
+    border-color: rgb(133, 232, 157, 1);
+    background-color: rgb(133, 232, 157, 0.1);
+  }
+
+  code.property {
+    border-color: rgb(179, 146, 240, 1);
+    background-color: rgb(179, 146, 240, 0.1);
+  }
+
+  code.value {
+    border-color: rgb(158, 203, 255, 1);
+    background-color: rgb(158, 203, 255, 0.1);
   }
 
   pre {

@@ -104,15 +104,15 @@ Then we define a tree shape from a simple polygon and a line.
 </Example>
 
 This tree shape, however, shouldn't appear on the UI like this.
-We can hide it by moving the entire tree into the `defs` section. The `defs` section is a hidden compartment of our image. Things here don't show up on the screen, but we can refer to them and use them later.
+We can hide it by moving the entire tree into the `element:defs` section. The `element:defs` section is a hidden compartment of our image. Things here don't show up on the screen, but we can refer to them and use them later.
 
-Then, we can reuse it similarly as in [the snowflake example](/svg/use). We wrap the two elements into a group, set an `id`, and then reuse it with the `use` element.
+Then, we can reuse it similarly as in [the snowflake example](/svg/use). We wrap the two elements into a group, set an `property:id`, and then reuse it with the `element:use` element.
 
-Here, we also position the reused elements by setting an `x` and `y` coordinate, and we use the `scale` transformation to add some perspective to the image.
+Here, we also position the reused elements by setting an `property:x` and `property:y` coordinate, and we use the `value:scale` transformation to add some perspective to the image.
 
 <Final>
 
-```html
+```html "scale"
 <svg width="200" height="200" viewBox="-100 -100 200 200">
   <defs>
     <g id="tree">

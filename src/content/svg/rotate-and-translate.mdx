@@ -14,7 +14,7 @@ import "./rotate.scss";
 
 ### How to Draw a Star with SVG
 
-A star is a simple shape. We could define it as a bunch of polygons and set each point individually. But then we would need to know each coordinate. Instead of that, we can define just one arm, and then repeat it five times with a rotation to get the same shape. We will use the `transform` attribute to set a rotation.
+A star is a simple shape. We could define it as a bunch of polygons and set each point individually. But then we would need to know each coordinate. Instead of that, we can define just one arm, and then repeat it five times with a rotation to get the same shape. We will use the `property:transform` attribute to set a rotation.
 
 First, let's define an arm. In this example, each arm consists of two polygons.
 
@@ -55,7 +55,7 @@ First, let's define an arm. In this example, each arm consists of two polygons.
 
 ### Rotating Elements
 
-We can group them with a `g` element and rotate them together. You can think of the `g` element as the `div` element in HTML. It can contain other elements and attributes defined on the group element apply to its children.
+We can group them with a `element:g` element and rotate them together. You can think of the `element:g` element as the `div` element in HTML. It can contain other elements and attributes defined on the group element apply to its children.
 
 <Example>
 
@@ -75,7 +75,7 @@ We can group them with a `g` element and rotate them together. You can think of 
 </SVG>
 
 {/* prettier-ignore */}
-```html
+```html "rotate"
 <svg 
   width="200"
   height="200"
@@ -96,7 +96,7 @@ We can group them with a `g` element and rotate them together. You can think of 
 
 </Example>
 
-Then, we `rotate` this group into the correct position. We have five wings, and a full circle is 360°, so the rotation between two wings has to be 72° (360° / 5).
+Then, we `value:rotate` this group into the correct position. We have five wings, and a full circle is 360°, so the rotation between two wings has to be 72° (360° / 5).
 
 If we repeat these elements five times and keep increasing the rotation, we end up with a star shape.
 
@@ -131,15 +131,15 @@ If we repeat these elements five times and keep increasing the rotation, we end 
 
 </Final>
 
-By default, the rotation also revolves around the origin of the coordinate system, the `0,0` position. Because of our `viewBox` setting, the origin is in the middle of the image.
+By default, the rotation also revolves around the origin of the coordinate system, the `0,0` position. Because of our `property:viewBox` setting, the origin is in the middle of the image.
 
 What if we want to rotate around a different position? Despite turning around the center of the image, the final result is not entirely in the middle of the image (because of its horizontal asymmetry). We need to move it down along the Y-axis slightly.
 
 ### Translating Elements
 
-We can group our elements and apply the `translate` function to move to a new position before the rotation. In the example above, we move everything down by 5 units along the Y-axis. As a result, the image elements rotate around the `0,5` coordinate.
+We can group our elements and apply the `value:translate` function to move to a new position before the rotation. In the example above, we move everything down by 5 units along the Y-axis. As a result, the image elements rotate around the `0,5` coordinate.
 
-In the following figure, you can also see the effects of the `translate` function. We define the same polylines with the same coordinates, but the translate function moves it to the middle of the image.
+In the following figure, you can also see the effects of the `value:translate` function. We define the same polylines with the same coordinates, but the translate function moves it to the middle of the image.
 
 <Example>
 
