@@ -5,7 +5,7 @@
     > polygon,
     > *:first-child[fill]:not([fill="none"]) {
         fill: transparent;
-        stroke-width: 0;
+        stroke: transparent;
     }
 
     /* Handle non-filled elements */
