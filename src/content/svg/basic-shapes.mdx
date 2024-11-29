@@ -6,7 +6,6 @@ category: SVG Basics
 description: Learn how to draw basic shaped with SVG. In the first example we draw a Christmas Ornament with two circles and a rectangle element.
 ---
 
-import { Circle as Embed } from "../../svg-curves/connected/Circle.tsx";
 import SVG from "../../components/markdown/elements/SVG.astro";
 import Circle from "../../components/markdown/elements/Circle.astro";
 import Rect from "../../components/markdown/elements/Rect.astro";
@@ -47,28 +46,21 @@ We define an `element:svg` element with its `property:width` and `property:heigh
 
 We can place shapes onto this canvas by coordinates. In the next chapter, we learn how to adjust this coordinate system with the [viewBox](/svg/viewbox) property.
 
+<Note>
+  The SVG element often has an `property:xmlns` property as well. If the image
+  is inlined in HTML this can be omitted.
+</Note>
+
 ### How to draw a Circle in SVG
+
+For today's example, we draw a simple Christmas ornament. Here, we only use simple shapes: two circles and a rectangle.
 
 To define a `element:circle` we need to set the following properties:
 
 - We set its center position with the `property:cx` and `property:cy` properties.
 - We set the radius with the `property:r`.
 
-Drag the handlers below to see how the code gets updated.
-
-<Embed client:load />
-
-### Styling SVG elements
-
-To fill the shape, we can use the `property:fill` property. This property is similar to the `background-color` property in CSS for regular HTML elements.
-
-For the value of the color, we can use named color values like `value:red`, hex color code like `value:#ff0000`, or even CSS functions like `value:rgb(255 0 0)`. If we don't want to fill the shape, we can set it to `value:none`.
-
-### How to draw a Christmas Ornament
-
-For today's example, we draw a simple Christmas ornament. Here, we only use simple shapes: two circles and a rectangle.
-
-First, we define the main part of the Christmas ornament by drawing a `element:circle`. We set its center position on the x-axis to the middle at `value:100` and on the y-axis, slightly below the middle at `value:120`. We set a large radius and set its fill color.
+We define the main part of the Christmas ornament as a circle. We set its center position on the x-axis to the middle at `value:100` and on the y-axis, slightly below the middle at `value:120`. We set a large radius and set its fill color. Hover over the element to see how it is positioned.
 
 <Example>
 
@@ -90,7 +82,18 @@ First, we define the main part of the Christmas ornament by drawing a `element:c
 
 </Example>
 
-Then we draw a rectangle as a little cap on top of the Christmas ornament with the `element:rect` element. In this case, we have to set the top-left position of the rectangle and its size. We use the `property:fill` attribute the same way as we did with the circle.
+To add some color, we use the `property:fill` property. This property is similar to the `background-color` property in CSS for regular HTML elements.
+
+The color value can be a color name like `value:red`, a hex color code like `value:#ff0000`, or a CSS function like `value:rgb(255 0 0)`. If we don't want to fill the shape, we can set it to `value:none`.
+
+### How to draw a Rectangle in SVG
+
+We draw a little cap on top of the Christmas ornament with the `element:rect` element:
+
+- We set the top-left position with the `property:x` and `property:y` coordinate.
+- We set the size with the `property:width` and `property:height` properties.
+
+We position this rectangle above the previous circle and set a smaller size. Hover over the element to see how it is positioned. We use the `property:fill` attribute the same way as we did with the circle.
 
 <Example>
 
@@ -127,9 +130,13 @@ Then we draw a rectangle as a little cap on top of the Christmas ornament with t
 
 </Example>
 
-Finally, we add another circle as a hanger on top of these. Note that we use the same `element:circle` element, but with different attributes. We set the fill property to "none" and set a border for the shape with the `property:stroke` and `property:stroke-width` properties.
+### How to draw a Ring in SVG
 
-The final code of the image on the left is as follows:
+We finish the example with the hanger on top. We use the `element:circle` element again but with different attributes. Instead of filling it, we set the outline color with the `property:stroke` property and the width of this stroke with `property:stroke-width`.
+
+We also set the `property:fill` color to `value:none` because the default value would be black.
+
+The final code of the Christmas ornament is as follows:
 
 <Final>
 
@@ -150,4 +157,4 @@ The final code of the image on the left is as follows:
 
 </Final>
 
-Great! We drew our first SVG image. Now, let's get into something more complex!
+Great! We drew our first SVG image. Now, let's get into the next challenge!

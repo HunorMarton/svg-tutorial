@@ -11,7 +11,6 @@ import Circle from "../../components/markdown/elements/Circle.astro";
 import Rect from "../../components/markdown/elements/Rect.astro";
 import Polygon from "../../components/markdown/elements/Polygon.astro";
 import Example from "../../components/markdown/layouts/Example.astro";
-import Note from "../../components/markdown/layouts/Note.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 import "./viewbox.scss";
 
@@ -22,7 +21,14 @@ In the [previous chapter](/svg/basic-shapes), we defined the SVG element with it
 <Example>
 
 <SVG width="200" height="200">
-  <Rect x="10" y="10" width="20" height="20" data-element-id="rect-1" />
+  <Rect
+    x="10"
+    y="10"
+    width="20"
+    height="20"
+    fill="brown"
+    data-element-id="rect-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -33,6 +39,7 @@ In the [previous chapter](/svg/basic-shapes), we defined the SVG element with it
     y="10" 
     width="20" 
     height="20" 
+    fill="brown" 
   />
 </svg>
 ```
@@ -44,7 +51,14 @@ We can move the origin of the coordinate system by setting the `property:viewBox
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200" showAxes={true}>
-  <Rect x="10" y="10" width="20" height="20" data-element-id="rect-1" />
+  <Rect
+    x="10"
+    y="10"
+    width="20"
+    height="20"
+    fill="brown"
+    data-element-id="rect-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -59,6 +73,7 @@ We can move the origin of the coordinate system by setting the `property:viewBox
     y="10" 
     width="20" 
     height="20" 
+    fill="brown" 
   />
 </svg>
 ```
@@ -74,7 +89,14 @@ If these values do not match, the image elements scale down or up. Below, we def
 <Example>
 
 <SVG width="200" height="200" viewBox="0 0 100 100">
-  <Rect x="10" y="10" width="20" height="20" data-element-id="rect-1" />
+  <Rect
+    x="10"
+    y="10"
+    width="20"
+    height="20"
+    fill="brown"
+    data-element-id="rect-1"
+  />
 </SVG>
 
 {/* prettier-ignore */}
@@ -89,16 +111,12 @@ If these values do not match, the image elements scale down or up. Below, we def
     y="10" 
     width="20" 
     height="20" 
+    fill="brown" 
   />
 </svg>
 ```
 
 </Example>
-
-<Note>
-  The SVG element often has an `property:xmlns` property as well. If the image
-  is inlined in HTML this can be omitted.
-</Note>
 
 ### How to draw a Christmas Tree with SVG
 
