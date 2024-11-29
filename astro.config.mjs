@@ -55,6 +55,8 @@ export default defineConfig({
   ],
   redirects: {
     // SVG Tutorial
+    "/svg/polygon": "/svg/viewbox",
+    "/svg/house": "/svg/polygon-and-polyline",
     "/svg/bell": "/svg/animation-on-hover",
     "/svg/forest": "/svg/scale",
     "/svg/rotate": "/svg/rotate-and-translate",

@@ -236,13 +236,6 @@ declare module 'astro:content' {
   collection: "svg";
   data: InferEntrySchema<"svg">
 } & { render(): Render[".mdx"] };
-"house.mdx": {
-	id: "house.mdx";
-  slug: "house";
-  body: string;
-  collection: "svg";
-  data: InferEntrySchema<"svg">
-} & { render(): Render[".mdx"] };
 "interaction.mdx": {
 	id: "interaction.mdx";
   slug: "interaction";
@@ -264,9 +257,9 @@ declare module 'astro:content' {
   collection: "svg";
   data: InferEntrySchema<"svg">
 } & { render(): Render[".mdx"] };
-"polygon.mdx": {
-	id: "polygon.mdx";
-  slug: "polygon";
+"polygon-and-polyline.mdx": {
+	id: "polygon-and-polyline.mdx";
+  slug: "polygon-and-polyline";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">
@@ -316,6 +309,13 @@ declare module 'astro:content' {
 "use.mdx": {
 	id: "use.mdx";
   slug: "use";
+  body: string;
+  collection: "svg";
+  data: InferEntrySchema<"svg">
+} & { render(): Render[".mdx"] };
+"viewbox.mdx": {
+	id: "viewbox.mdx";
+  slug: "viewbox";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">

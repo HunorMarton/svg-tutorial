@@ -7,10 +7,10 @@ export interface Props {
 const { title, size } = Astro.props as Props;
 ---
 
-<svg width={200 * size} height={200 * size} viewBox="-100 -100 200 200">
+<svg width={200 * size} height={200 * size} viewBox="0 0 200 200">
   <title>{title}</title>
-  <circle cx="0" cy="20" r="70" fill="#D1495B"></circle>
-  <circle cx="0" cy="-75" r="12" fill="none" stroke="#F79257" stroke-width="2"
+  <circle cx="100" cy="120" r="70" fill="#D1495B"></circle>
+  <circle cx="100" cy="25" r="12" fill="none" stroke="#F79257" stroke-width="2"
   ></circle>
-  <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257"></rect>
+  <rect x="82.5" y="35" width="35" height="20" fill="#F79257"></rect>
 </svg>

@@ -1,0 +1,246 @@
+---
+day: 2
+title: How to use the viewBox property
+component: Tree
+category: SVG Basics
+description: How to use the viewBox property of the SVG element and how to draw a Christmas Tree the polygon element.
+---
+
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Circle from "../../components/markdown/elements/Circle.astro";
+import Rect from "../../components/markdown/elements/Rect.astro";
+import Polygon from "../../components/markdown/elements/Polygon.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Note from "../../components/markdown/layouts/Note.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
+import "./viewbox.scss";
+
+### How to move the origin of the coordinate system
+
+In the [previous chapter](/svg/basic-shapes), we defined the SVG element with its `width` and `height` properties. These properties define how much space the image takes up in the browser. Without further properties, the coordinate system for the image is also derived from these two. It starts at `0,0` at the top-left corner and grows one pixel at a time downwards and right.
+
+<Example>
+
+<SVG width="200" height="200">
+  <Rect x="10" y="10" width="20" height="20" data-element-id="rect-1" />
+</SVG>
+
+{/* prettier-ignore */}
+```html
+<svg width="200" height="200">
+  <rect 
+    x="10" 
+    y="10" 
+    width="20" 
+    height="20" 
+  />
+</svg>
+```
+
+</Example>
+
+We can move the origin of the coordinate system by setting the `viewBox` property. For this property, we need to set four numbers. The first two are the position of the top-left corner. If we set it to `-100,-100`, the origin will end up in the middle of the image. The image elements will position themself compared to this new origin.
+
+<Example>
+
+<SVG width="200" height="200" viewBox="-100 -100 200 200" showAxes={true}>
+  <Rect x="10" y="10" width="20" height="20" data-element-id="rect-1" />
+</SVG>
+
+{/* prettier-ignore */}
+```html "-100 -100"
+<svg 
+  width="200" 
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <rect 
+    x="10" 
+    y="10" 
+    width="20" 
+    height="20" 
+  />
+</svg>
+```
+
+</Example>
+
+### How to scale the image
+
+The last two numbers in the `viewBox` property define the image's inner size from the image elements' perspective. If these values match the width and height, then one pixel on the screen will be one unit within the SVG image.
+
+If these values do not match, the image elements scale down or up. Below, we define the same rectangle as in the previous examples, but it appears to be bigger this time. This is because while the image's actual size did not change, the image elements now think of the available space as a 100 x 100 grid.
+
+<Example>
+
+<SVG width="200" height="200" viewBox="0 0 100 100">
+  <Rect x="10" y="10" width="20" height="20" data-element-id="rect-1" />
+</SVG>
+
+{/* prettier-ignore */}
+```html "100 100"
+<svg 
+  width="200" 
+  height="200"
+  viewBox="0 0 100 100"
+>
+  <rect 
+    x="10" 
+    y="10" 
+    width="20" 
+    height="20" 
+  />
+</svg>
+```
+
+</Example>
+
+<Note>
+  The SVG element often has an `xmlns` property as well. If the image is inlined
+  in HTML this can be omitted.
+</Note>
+
+### How to draw a Christmas Tree with SVG
+
+For the following example, let's move the origin of the coordinate system to the middle of the image. This way, every position we define is relative to this midpoint.
+
+<Example>
+
+<SVG width="200" height="400" viewBox="-100 -200 200 400" showAxes={true}></SVG>
+
+{/* prettier-ignore */}
+```html
+<svg 
+  width="200"
+  height="400"
+  viewBox="-100 -200 200 400"
+>
+  
+</svg>
+```
+
+</Example>
+
+In this example, we will use the `polygon` element. A polygon is the easiest way to draw a freeform shape. Polygons have a `points` property that sets a list of coordinates that are connected with straight lines.
+
+We can me the crown of the tree from three triangles. We start with the one at the bottom, and we add it layer by layer.
+
+<Example>
+
+<SVG width="200" height="400" viewBox="-100 -200 200 400">
+  <Polygon
+    points="0,0 80,120 -80,120"
+    fill="#234236"
+    data-element-id="polygon-1"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html
+<svg 
+  width="200"
+  height="400"
+  viewBox="-100 -200 200 400"
+>
+  <polygon 
+    points="0,0 80,120 -80,120" 
+    fill="#234236" 
+  />
+</svg>
+```
+
+</Example>
+
+<Example>
+
+<SVG width="200" height="400" viewBox="-100 -200 200 400">
+  <Polygon
+    points="0,0 80,120 -80,120"
+    fill="#234236"
+    data-element-id="polygon-1"
+  />
+  <Polygon
+    points="0,-40 60,60 -60,60"
+    fill="#0C5C4C"
+    data-element-id="polygon-2"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html ins={10-13}
+<svg 
+  width="200"
+  height="400"
+  viewBox="-100 -200 200 400"
+>
+  <polygon 
+    points="0,0 80,120 -80,120" 
+    fill="#234236" 
+  />
+  <polygon
+    points="0,-40 60,60 -60,60"
+    fill="#0C5C4C" 
+  />
+</svg>
+```
+
+</Example>
+
+<Example>
+
+<SVG width="200" height="400" viewBox="-100 -200 200 400">
+  <Polygon
+    points="0,0 80,120 -80,120"
+    fill="#234236"
+    data-element-id="polygon-1"
+  />
+  <Polygon
+    points="0,-40 60,60 -60,60"
+    fill="#0C5C4C"
+    data-element-id="polygon-2"
+  />
+  <Polygon
+    points="0,-80 40,0 -40,0"
+    fill="#38755B"
+    data-element-id="polygon-3"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html ins={14-17}
+<svg 
+  width="200"
+  height="400"
+  viewBox="-100 -200 200 400"
+>
+  <polygon 
+    points="0,0 80,120 -80,120" 
+    fill="#234236" 
+  />
+  <polygon
+    points="0,-40 60,60 -60,60"
+    fill="#0C5C4C" 
+  />
+  <polygon 
+    points="0,-80 40,0 -40,0"
+    fill="#38755B" 
+  />
+</svg>
+```
+
+</Example>
+
+Finally, we add the trunk of the tree as a rectangle.
+
+<Final>
+
+```html ins={5}
+<svg width="200" height="400" viewBox="-100 -200 200 400">
+  <polygon points="0,0 80,120 -80,120" fill="#234236" />
+  <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
+  <polygon points="0,-80 40,0 -40,0" fill="#38755B" />
+  <rect x="-20" y="120" width="40" height="30" fill="brown" />
+</svg>
+```
+
+</Final>

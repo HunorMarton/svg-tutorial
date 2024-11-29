@@ -6,6 +6,7 @@ category: SVG Basics
 description: Learn how to draw basic shaped with SVG. In the first example we draw a Christmas Ornament with two circles and a rectangle element.
 ---
 
+import { Circle as Embed } from "../../svg-curves/connected/Circle.tsx";
 import SVG from "../../components/markdown/elements/SVG.astro";
 import Circle from "../../components/markdown/elements/Circle.astro";
 import Rect from "../../components/markdown/elements/Rect.astro";
@@ -27,128 +28,60 @@ SVG (Scalable Vector Graphics) has a similar syntax as HTML. They are both based
 
 This opens up a lot of cool options. We can access parts of an image with JavaScript to make something interactive or we can generate art with code. We can also move some of the styling to CSS and animate image elements with CSS.
 
-In this tutorial series, we learn the foundations of the SVG syntax step by step from basic to more advanced topics.
-
-### Sizing an SVG
-
-Before we start drawing, we have to talk about the `svg` element itself. The SVG element contains the image elements and defines the frame of our image. It sets the inner size and the outer size of the image.
-
-The `width` and `height` properties define how much space the image takes up in the browser. There's also a `viewBox` property that defines a coordinate system for the image elements. The first two values in viewBox define the top-left coordinate in the image and the last two define the size from the perspective of the image elements.
-
-- The size defined by `width` and `height` is how the rest of the HTML thinks of the image and how big it appears in the browser.
-- The size defined by `viewBox` is how the image elements think of the image when they position themself.
-
-In these next three examples, we have three SVGs that have the very same content. A `circle` element with the same center coordinate and same radius. They appear quite different though. In case the size defined by viewBox does not match the width and the height properties, then the image scales up or scales down.
+We define an `svg` element with its `width` and `height` properties. This defines the drawing canvas where the coordinates go from the `0,0` coordinate from the top-left corner and grow downwards and to the right.
 
 <Example>
 
-<SVG width="100" height="100" viewBox="0 0 200 200">
-  <Circle cx="100" cy="100" r="50" data-element-id="circle-1" />
+<SVG width="200" height="200">
+
 </SVG>
 
 {/* prettier-ignore */}
 ```html
-<svg 
-  width="100" 
-  height="100" 
-  viewBox="0 0 200 200"
->
-  <circle cx="100" cy="100" r="50" />
+<svg width="200" height="200">
+  <!-- Here we can place shapes -->
 </svg>
 ```
 
 </Example>
 
-<Example>
+We can place shapes onto this canvas by coordinates. In the next chapter, we learn how to adjust this coordinate system with the [viewBox](/svg/viewbox) property.
 
-<SVG width="200" height="200" viewBox="0 0 200 200">
-  <Circle cx="100" cy="100" r="50" data-element-id="circle-1" />
-</SVG>
+### How to draw a Circle in SVG
 
-{/* prettier-ignore */}
-```html
-<svg 
-  width="200" 
-  height="200" 
-  viewBox="0 0 200 200"
->
-  <circle cx="100" cy="100" r="50" />
-</svg>
-```
+To define a `circle` we need to set the following properties:
 
-</Example>
+- We set its center position with the `cx` and `cy` properties.
+- We set the radius with the `r`.
 
-<Example>
+Drag the handlers below to see how the code gets updated.
 
-<SVG width="200" height="200" viewBox="0 0 100 100">
-  <Circle cx="100" cy="100" r="50" data-element-id="circle-1" />
-</SVG>
+<Embed client:load />
 
-{/* prettier-ignore */}
-```html
-<svg 
-  width="200" 
-  height="200" 
-  viewBox="0 0 100 100"
->
-  <circle cx="100" cy="100" r="50" />
-</svg>
-```
+### Styling SVG elements
 
-</Example>
+To fill the shape, we can use the `fill` property. This property is similar to the `background-color` property in CSS for regular HTML elements.
 
-We can also set what coordinate should be in the top-left corner of the image. In the following example, we move the origin of the coordinate system to the center of the image. We set the top left corner to `-100,-100` which is half of the image size in negative.
-
-Note that now the center position of the circle is `0,0`.
-
-<Example>
-
-<SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Circle cx="0" cy="0" r="50" data-element-id="circle-1" />
-</SVG>
-
-{/* prettier-ignore */}
-```html
-<svg 
-  width="200"
-  height="200"
-  viewBox="-100 -100 200 200"
->
-  <circle cx="0" cy="0" r="50" />
-</svg>
-```
-
-</Example>
-
-<Note>
-  The SVG element often has an `xmlns` property as well. If the image is inlined
-  in HTML this can be omitted.
-</Note>
+For the value of the color, we can use named color values (e.g., `red`), hex color code (e.g., `#ff0000`), or even CSS functions (e.g., `rgb(255 0 0)`). If we don't want to fill the shape, we can set it to `none`.
 
 ### How to draw a Christmas Ornament
 
-Let's start with a simple Christmas ornament. Here we only use simple shapes, a rectangle, and two circles. Note, that the origin of the coordinate system is in the center of the image.
+For today's example, we draw a simple Christmas ornament. Here, we only use simple shapes: two circles and a rectangle.
 
-First, we define the main part of the Christmas ornament, by drawing a `circle`. To draw a circle we set their center position (`cx` and `cy`) and the radius with the `r` property.
-
-We also have presentational attributes that style our shapes. Similar to the `background-color` property in CSS, we set the color for the shape with the `fill` attribute.
+First, we define the main part of the Christmas ornament by drawing a `circle`. We set its center position on the x-axis to the middle at `100` and on the y-axis, slightly below the middle at `120`. We set a large radius and set its fill color.
 
 <Example>
 
-<SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Circle cx="0" cy="20" r="70" fill="#D1495B" data-element-id="circle-1" />
+<SVG width="200" height="200">
+  <Circle cx="100" cy="120" r="70" fill="#D1495B" data-element-id="circle-1" />
 </SVG>
 
 {/* prettier-ignore */}
 ```html
-<svg 
-  width="200"
-  height="200"
-  viewBox="-100 -100 200 200"
->
+<svg width="200" height="200">
   <circle 
-    cx="0"
-    cy="20"
+    cx="100"
+    cy="120"
     r="70"
     fill="#D1495B" 
   />
@@ -161,12 +94,12 @@ Then we draw a rectangle as a little cap on top of the Christmas ornament with t
 
 <Example>
 
-<SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Circle cx="0" cy="20" r="70" fill="#D1495B" data-element-id="circle-1" />
+<SVG width="200" height="200">
+  <Circle cx="100" cy="120" r="70" fill="#D1495B" data-element-id="circle-1" />
   <Rect
-    x="-17.5"
-    y="-65"
-    width="35"
+    x="82"
+    y="35"
+    width="36"
     height="20"
     fill="#F79257"
     data-element-id="rect-1"
@@ -174,22 +107,18 @@ Then we draw a rectangle as a little cap on top of the Christmas ornament with t
 </SVG>
 
 {/* prettier-ignore */}
-```html ins={12-18}
-<svg 
-  width="200"
-  height="200"
-  viewBox="-100 -100 200 200"
->
+```html ins={8-14}
+<svg width="200" height="200">
   <circle 
-    cx="0"
-    cy="20"
+    cx="100"
+    cy="120"
     r="70"
     fill="#D1495B" 
   />
   <rect 
-    x="-17.5" 
-    y="-65"
-    width="35"
+    x="82" 
+    y="35"
+    width="36"
     height="20"
     fill="#F79257" 
   />
@@ -205,12 +134,12 @@ The final code of the image on the left is as follows:
 <Final>
 
 ```html ins={4-11}
-<svg width="200" height="200" viewBox="-100 -100 200 200">
-  <circle cx="0" cy="20" r="70" fill="#D1495B" />
-  <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+<svg width="200" height="200">
+  <circle cx="100" cy="120" r="70" fill="#D1495B" />
+  <rect x="82" y="35" width="36" height="20" fill="#F79257" />
   <circle
-    cx="0"
-    cy="-75"
+    cx="100"
+    cy="25"
     r="12"
     fill="none"
     stroke="#F79257"

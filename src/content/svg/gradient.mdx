@@ -24,11 +24,11 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
 
 <Example>
 
-<SVG width="200" height="200" viewBox="-100 -100 200 200">
-  <Circle cx="0" cy="20" r="70" fill="#D1495B" data-element-id="circle-1" />
+<SVG width="200" height="200">
+  <Circle cx="100" cy="120" r="70" fill="#D1495B" data-element-id="circle-1" />
   <Circle
-    cx="0"
-    cy="-75"
+    cx="100"
+    cy="25"
     r="12"
     fill="none"
     stroke="#F79257"
@@ -36,9 +36,9 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
     data-element-id="circle-2"
   />
   <Rect
-    x="-17.5"
-    y="-65"
-    width="35"
+    x="82"
+    y="35"
+    width="36"
     height="20"
     fill="#F79257"
     data-element-id="rect-1"
@@ -47,29 +47,25 @@ Let's upgrade the Christmas Ornament we created on [the first day](/svg/basic-sh
 
 {/* prettier-ignore */}
 ```html
-<svg 
-  width="200"
-  height="200"
-  viewBox="-100 -100 200 200"
->
+<svg width="200" height="200">
   <circle 
-    cx="0"
-    cy="20"
+    cx="100"
+    cy="120"
     r="70"
     fill="#D1495B" 
   />
   <circle
-    cx="0"
-    cy="-75"
+    cx="100"
+    cy="25"
     r="12"
     fill="none"
     stroke="#F79257"
     stroke-width="2"
   />
   <rect
-    x="-17.5"
-    y="-65"
-    width="35"
+    x="82"
+    y="35"
+    width="36"
     height="20"
     fill="#F79257" 
   />
@@ -84,7 +80,7 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
 
 <Example>
 
-<SVG width="200" height="200" viewBox="-100 -100 200 200">
+<SVG width="200" height="200">
   <defs>
     <radialGradient id="shine" cx="0.25" cy="0.25" r="0.35">
       <stop offset="0%" stop-color="#e3a8b0" />
@@ -92,26 +88,22 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
     </radialGradient>
   </defs>
 
-  <Circle cx="0" cy="20" r="70" fill="url(#shine)" data-element-id="circle-1" />
+  <Circle cx="100" cy="120" r="70" fill="url(#shine)" data-element-id="circle-1" />
   <Circle
-    cx="0"
-    cy="-75"
+    cx="100"
+    cy="25"
     r="12"
     fill="none"
     stroke="#F79257"
     stroke-width="2"
     data-element-id="circle-2"
   />
-  <Rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" data-element-id="rect-1" />
+  <Rect x="82" y="35" width="36" height="20" fill="#F79257" data-element-id="rect-1" />
 </SVG>
 
 {/* prettier-ignore */}
-```html ins={6-22, 28 } /shine/
-<svg
-  width="200"
-  height="200"
-  viewBox="-100 -100 200 200"
->
+```html ins={2-18, 24 } /shine/
+<svg width="200" height="200">
   <defs>
     <radialGradient 
       id="shine" 
@@ -131,23 +123,23 @@ We define its ID, center position with `cx` and `cy`, set its radian, and the st
   </defs>
 
   <circle 
-    cx="0"
-    cy="20"
+    cx="100"
+    cy="120"
     r="70"
     fill="url(#shine)" 
   />
   <circle
-    cx="0"
-    cy="-75"
+    cx="100"
+    cy="25"
     r="12"
     fill="none"
     stroke="#F79257"
     stroke-width="2"
   />
   <rect 
-    x="-17.5" 
-    y="-65"
-    width="35"
+    x="82" 
+    y="35"
+    width="36"
     height="20"
     fill="#F79257" 
   />
