@@ -13,8 +13,8 @@ import sentry from "@sentry/astro";
 
 import astroExpressiveCode from "astro-expressive-code";
 import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
-import { highlightElementPlugin } from "./src/plugins/highlight-element/index.ts";
-import { highlightCoordinatePlugin } from "./src/plugins/highlight-coordinate/index.ts";
+import { highlightElementPlugin } from "./src/plugins/code-highlight-element/index.ts";
+import { highlightCoordinatePlugin } from "./src/plugins/code-highlight-coordinate/index.ts";
 
 import markdownHighlightCode from "./src/plugins/markdown-highlight-code/index.ts";
 

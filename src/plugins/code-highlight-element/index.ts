@@ -15,22 +15,27 @@ function detectElementEnd(line: string) {
   return line.trim().endsWith(`/>`);
 }
 
-export interface PluginSVGProps {
-  elements: string[];
+export interface PluginProps {
+  elements: string[]; // Element ids for each line by line index
 }
 
 declare module "@expressive-code/core" {
-  export interface ExpressiveCodeBlockProps extends PluginSVGProps {}
+  export interface ExpressiveCodeBlockProps extends PluginProps {}
 }
 
 export function highlightElementPlugin(elements: string[]) {
   return definePlugin({
-    name: "Add section id to lines",
+    name: "Annotate element id for the lines",
     jsModules: [module],
     baseStyles,
     hooks: {
       preprocessCode: ({ codeBlock }) => {
-        // Indicates the current element type
+        // Only process html code blocks
+        if (codeBlock.language !== "html") return;
+        // Ignore code blocks with the `ignore-highlight` meta
+        if (codeBlock.meta.includes("ignore-highlight")) return;
+
+        // Current line element type
         let type: string | undefined = undefined;
 
         // Counts how many elements of each type have been found so far
@@ -38,35 +43,40 @@ export function highlightElementPlugin(elements: string[]) {
           [key: string]: number;
         } = {};
 
-        // Go through each line and log the element type
+        // Go through each line and mark the element type
         codeBlock.getLines().forEach((line, index) => {
           // If no element found so far, then check if the line starts with an element
           if (!type) {
             type = detectElementStart(line.text, elements);
-            if (!type) return; // Return if no new element found
+            if (!type) return; // Return if no element found
 
             // Increase the counter for the element type
             elementCounter[type] = (elementCounter[type] ?? 0) + 1;
           }
 
-          // Log element for the line with a counter
+          // Mark element id for the line index
+          const elementId = `${type}-${elementCounter[type]}`;
           codeBlock.props.elements ??= [];
-          codeBlock.props.elements[index] = `${type}-${elementCounter[type]}`;
+          codeBlock.props.elements[index] = elementId;
 
-          // If the elements ends in this line then reset the element type
+          // If the elements ends in this line then clear the element type
           const end = detectElementEnd(line.text);
           if (end) type = undefined;
         });
-
-        // console.log(codeBlock.props.elements);
       },
 
-      postprocessRenderedLine: (context) => {
-        if (context.codeBlock.props.elements?.[context.lineIndex]) {
+      postprocessRenderedLine: ({ codeBlock, renderData, lineIndex }) => {
+        // Only process html code blocks
+        if (codeBlock.language !== "html") return;
+        // Ignore code blocks with the `ignore-highlight` meta
+        if (codeBlock.meta.includes("ignore-highlight")) return;
+
+        // Set the element id to the line
+        if (codeBlock.props.elements?.[lineIndex]) {
           setProperty(
-            context.renderData.lineAst,
+            renderData.lineAst,
             "data-element-id",
-            context.codeBlock.props.elements[context.lineIndex]
+            codeBlock.props.elements[lineIndex]
           );
         }
       },

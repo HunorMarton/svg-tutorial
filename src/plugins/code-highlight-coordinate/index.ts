@@ -13,12 +13,16 @@ export function highlightCoordinatePlugin() {
     name: "Annotate coordinates",
     baseStyles,
     hooks: {
-      annotateCode: (context) => {
-        context.codeBlock.getLines().forEach((line, index) => {
+      annotateCode: ({ codeBlock }) => {
+        // Only process html code blocks
+        if (codeBlock.language !== "html") return;
+        // Ignore code blocks with the `ignore-highlight` meta
+        if (codeBlock.meta.includes("ignore-highlight")) return;
+
+        codeBlock.getLines().forEach((line) => {
           const coordinates = extractCoordinates(line.text);
           if (!coordinates.length) return;
 
-          // console.log("coordinates:", index, coordinates);
           coordinates.forEach((match) => {
             line.addAnnotation(
               new CoordinateAnnotation(
@@ -36,6 +40,8 @@ export function highlightCoordinatePlugin() {
   });
 }
 
+// Annotation class that takes a coordinate and the range of the annotation
+// then annotates the node with the coordinate data at the specified range
 class CoordinateAnnotation extends ExpressiveCodeAnnotation {
   constructor(
     readonly inlineRange: { columnStart: number; columnEnd: number },
@@ -47,8 +53,8 @@ class CoordinateAnnotation extends ExpressiveCodeAnnotation {
   render({ nodesToTransform }: AnnotationRenderOptions) {
     return nodesToTransform.map((node) => {
       return h(
-        "span.coordinate",
-        { dataX: this.coordinate.x, dataY: this.coordinate.y },
+        "span.coordinate", // Wrapping html element and class name
+        { dataX: this.coordinate.x, dataY: this.coordinate.y }, // Assigned data attributes
         node
       );
     });

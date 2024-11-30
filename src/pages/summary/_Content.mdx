@@ -30,7 +30,7 @@ import Polygon from "../../components/markdown/elements/Polygon.astro";
 
 <SlideHTML>
 
-```js
+```js ignore-highlight
 export const Page = () => (
   <html>
     <h1>Hi there</h1>
@@ -57,7 +57,7 @@ export const Page = () => (
         </SVG>
 
         {/* prettier-ignore */}
-        ```html
+        ```html ignore-highlight
         <svg
           width="100"
           height="100"
@@ -76,7 +76,7 @@ export const Page = () => (
         </SVG>
 
         {/* prettier-ignore */}
-        ```html
+        ```html ignore-highlight
         <svg
           width="200"
           height="200"
@@ -95,7 +95,7 @@ export const Page = () => (
         </SVG>
 
         {/* prettier-ignore */}
-        ```html
+        ```html ignore-highlight
         <svg
           width="200"
           height="200"
@@ -123,7 +123,7 @@ export const Page = () => (
         </SVG>
 
         {/* prettier-ignore */}
-        ```html
+        ```html ignore-highlight
         <svg
           width="200"
           height="200"
@@ -177,7 +177,7 @@ export const Page = () => (
     </SVG>
 
     {/* prettier-ignore */}
-    ```html
+    ```html ignore-highlight
     <svg
       width="200"
       height="200"
@@ -201,7 +201,7 @@ export const Page = () => (
   <Example>
     <Diagram />
 
-    ```js
+    ```js ignore-highlight
     function Diagram() {
       const dataPoints = [3, 4, 7, 5, 3, 6];
 
@@ -228,7 +228,7 @@ export const Page = () => (
 </SlideDiagram>
 
 <Slide container="path" code={true}>
-  ```html
+  ```html ignore-highlight
   <path d=". . ." />
   ```
   <Note>To draw more complex shapes, we can use the `path` element.</Note>
@@ -253,7 +253,7 @@ export const Page = () => (
         </SVG>
 
         {/* prettier-ignore */}
-        ```html
+        ```html ignore-highlight
         <svg width="100" height="100" viewBox="0 0 100 100">
           <path
             class="line"
@@ -320,7 +320,7 @@ export const Page = () => (
       <use href="#ray" transform="rotate(315)" />
     </SVG>
 
-    ```html
+    ```html ignore-highlight
     <svg width="200" height="200" viewBox="-15 -15 30 30">
       <circle r="6" />
       <path id="ray" d="M 0, 11 L 0, 14" />
@@ -353,7 +353,7 @@ export const Page = () => (
   <Example>
     <Windmill />
 
-    ```html
+    ```html ignore-highlight
     <svg width="200" height="400">
       <g id="windmill-head">
         <circle r="8" />
