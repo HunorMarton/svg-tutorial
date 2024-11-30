@@ -3,12 +3,19 @@ import { getColorHex } from "../../utils/colorUtil";
 import "./Input.css";
 
 type Props = {
-  type: "text" | "number" | "color" | "range" | "radio" | "checkbox";
+  type:
+    | "text"
+    | "textarea"
+    | "number"
+    | "color"
+    | "range"
+    | "radio"
+    | "checkbox";
   options?: string[];
   max?: number;
   long?: boolean;
   value: string | number | boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (arg: React.ChangeEvent<HTMLInputElement> | string) => void;
 };
 
 export const Input: React.FC<Props> = ({
@@ -105,20 +112,47 @@ export const Input: React.FC<Props> = ({
   if (type === "number" || type === "text") {
     if (typeof value === "boolean") throw Error("Text input must be a string");
 
-    const [localValue, setLocalValue] = React.useState(value);
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setLocalValue(event.target.value);
-      onChange(event);
-    };
-
     return (
       <input
         className={`editor-input ${long ? "long" : ""}`}
         type={type}
-        value={localValue}
-        onChange={handleChange}
+        value={value}
+        onChange={onChange}
       />
+    );
+  }
+  if (type === "textarea") {
+    if (typeof value === "boolean" || typeof value === "number") {
+      throw Error("Text input must be a string");
+    }
+
+    const [localValue, setLocalValue] = React.useState(value);
+
+    // Update the local value when the store value changes
+    React.useEffect(() => {
+      setLocalValue(value);
+    }, [value]);
+
+    // Set the value locally
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setLocalValue(event.target.value);
+    };
+
+    // Set the value in the store
+    const setValue = () => {
+      onChange(localValue);
+    };
+
+    return (
+      <div>
+        <textarea
+          className="editor-input"
+          value={localValue}
+          onChange={handleChange}
+          rows={3}
+        />
+        <button onClick={setValue}>Set</button>
+      </div>
     );
   }
   throw Error("Invalid input type");

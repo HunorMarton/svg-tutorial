@@ -15,9 +15,19 @@ import {
 import { type Selector } from "../utils/types.ts";
 import { parsePoints } from "../utils/pointsUtil.ts";
 import { Input as UnconnectedInput } from "../components/editor/Input.tsx";
+import type { Dispatch } from "@reduxjs/toolkit";
+
+type Type =
+  | "text"
+  | "textarea"
+  | "number"
+  | "color"
+  | "range"
+  | "radio"
+  | "checkbox";
 
 type Props = Selector & {
-  type: "text" | "number" | "color" | "range" | "radio" | "checkbox";
+  type: Type;
   options?: string[]; // Used for radio inputs
   max?: number; // Used for range inputs
   long?: boolean; // Used for text inputs
@@ -52,6 +62,93 @@ function getValue2({ feature, property }: Selector) {
   throw Error(`Unknown feature: ${feature}`);
 }
 
+const extractValueFromEvent = (
+  e: React.ChangeEvent<HTMLInputElement>,
+  type: Type
+) => {
+  if (type === "number" || type === "range") {
+    return Number(e.currentTarget.value);
+  }
+
+  if (type === "checkbox") {
+    if (e.currentTarget.type === "checkbox") {
+      return (e.currentTarget as HTMLInputElement).checked;
+    }
+    // Checkbox inputs are represented both as a checkbox and a number input
+    return e.currentTarget.value === "1";
+  }
+
+  return e.currentTarget.value;
+};
+
+const onChange = (
+  arg: React.ChangeEvent<HTMLInputElement> | string,
+  props: Props,
+  dispatch: Dispatch
+) => {
+  const { feature, property, type } = props;
+
+  const value =
+    typeof arg === "string" ? arg : extractValueFromEvent(arg, type);
+
+  // Log the event to analytics. Only log one event per feature/property per session
+  track("Editor Input Change", { feature, property }, true);
+
+  // Special handling for arc because of the many side effects of setting a property
+  if (feature === "arc") {
+    if (property === "x1") {
+      if (typeof value !== "number") throw Error("x1 must be a number");
+      return dispatch(setStartPointByCoord({ x: value }));
+    }
+    if (property === "y1") {
+      if (typeof value !== "number") throw Error("y1 must be a number");
+      return dispatch(setStartPointByCoord({ y: value }));
+    }
+    if (property === "x2") {
+      if (typeof value !== "number") throw Error("x2 must be a number");
+      return dispatch(setEndPointByCoord({ x: value }));
+    }
+    if (property === "y2") {
+      if (typeof value !== "number") throw Error("y2 must be a number");
+      return dispatch(setEndPointByCoord({ y: value }));
+    }
+    if (property === "rx") {
+      if (typeof value !== "number") throw Error("rx must be a number");
+      return dispatch(setRadiusXByValue(value));
+    }
+    if (property === "ry") {
+      if (typeof value !== "number") throw Error("ry must be a number");
+      return dispatch(setRadiusYByValue(value));
+    }
+    if (property === "degree") {
+      if (typeof value !== "number") throw Error("degree must be a number");
+      return dispatch(setRotationByValue(value));
+    }
+    if (property === "largeArcFlag") {
+      if (typeof value !== "boolean")
+        throw Error("largeArcFlag must be a boolean");
+      return dispatch(setFlags({ largeArcFlag: value }));
+    }
+    if (property === "sweepFlag") {
+      if (typeof value !== "boolean")
+        throw Error("sweepFlag must be a boolean");
+      return dispatch(setFlags({ sweepFlag: value }));
+    }
+  }
+
+  // Special handling of polygon and polyline points
+  if (
+    (feature === "polygon" || feature === "polyline") &&
+    property === "points"
+  ) {
+    if (typeof value !== "string") throw Error("points must be a string");
+    const points = parsePoints(value);
+    return dispatch(set({ feature, values: { [property]: points } }));
+  }
+
+  dispatch(set({ feature, values: { [property]: value } }));
+};
+
 export const InputWithoutProvider: React.FC<Props> = (props) => {
   let value = getValue2(props);
   if (typeof value == "undefined") {
@@ -61,83 +158,13 @@ export const InputWithoutProvider: React.FC<Props> = (props) => {
 
   const dispatch = useDispatch();
 
-  const extractValueFromEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (props.type === "number" || props.type === "range") {
-      return Number(e.currentTarget.value);
-    }
-
-    if (props.type === "checkbox") {
-      if (e.currentTarget.type === "checkbox") return e.currentTarget.checked;
-      return e.currentTarget.value === "1";
-    }
-
-    return e.currentTarget.value;
-  };
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = extractValueFromEvent(e);
-
-    const { feature, property } = props;
-
-    // Log the event to analytics. Only log one event per feature/property per session
-    track("Editor Input Change", { feature, property }, true);
-
-    // Special handling for arc because of the many side effects of setting a property
-    if (feature === "arc") {
-      if (property === "x1") {
-        if (typeof value !== "number") throw Error("x1 must be a number");
-        return dispatch(setStartPointByCoord({ x: value }));
-      }
-      if (property === "y1") {
-        if (typeof value !== "number") throw Error("y1 must be a number");
-        return dispatch(setStartPointByCoord({ y: value }));
-      }
-      if (property === "x2") {
-        if (typeof value !== "number") throw Error("x2 must be a number");
-        return dispatch(setEndPointByCoord({ x: value }));
-      }
-      if (property === "y2") {
-        if (typeof value !== "number") throw Error("y2 must be a number");
-        return dispatch(setEndPointByCoord({ y: value }));
-      }
-      if (property === "rx") {
-        if (typeof value !== "number") throw Error("rx must be a number");
-        return dispatch(setRadiusXByValue(value));
-      }
-      if (property === "ry") {
-        if (typeof value !== "number") throw Error("ry must be a number");
-        return dispatch(setRadiusYByValue(value));
-      }
-      if (property === "degree") {
-        if (typeof value !== "number") throw Error("degree must be a number");
-        return dispatch(setRotationByValue(value));
-      }
-      if (property === "largeArcFlag") {
-        if (typeof value !== "boolean")
-          throw Error("largeArcFlag must be a boolean");
-        return dispatch(setFlags({ largeArcFlag: value }));
-      }
-      if (property === "sweepFlag") {
-        if (typeof value !== "boolean")
-          throw Error("sweepFlag must be a boolean");
-        return dispatch(setFlags({ sweepFlag: value }));
-      }
-    }
-
-    // Special handling of polygon and polyline points
-    if (
-      (feature === "polygon" || feature === "polyline") &&
-      property === "points"
-    ) {
-      if (typeof value !== "string") throw Error("points must be a string");
-      const points = parsePoints(value);
-      return dispatch(set({ feature, values: { [property]: points } }));
-    }
-
-    dispatch(set({ feature, values: { [property]: value } }));
-  };
-
-  return <UnconnectedInput {...props} value={value} onChange={onChange} />;
+  return (
+    <UnconnectedInput
+      {...props}
+      value={value}
+      onChange={(e) => onChange(e, props, dispatch)}
+    />
+  );
 };
 
 export const Input: React.FC<Props> = (props) => (

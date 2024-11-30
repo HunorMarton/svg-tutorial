@@ -4,7 +4,7 @@
   gap: 10px;
 }
 
-.editor-input:not([type="range"]) {
+.editor-input:not([type="range"], :is(textarea)) {
   border: 1px solid #ccc;
   width: 50px;
 }
@@ -46,6 +46,7 @@
   border: 1px solid #ccc;
   min-width: 50px;
   text-align: center;
+  cursor: pointer;
 
   &.selected {
     background-color: #f0f0f0;
@@ -59,4 +60,15 @@
 .editor-input[type="checkbox"] {
   width: 20px;
   height: 20px;
+}
+
+textarea.editor-input {
+  width: 255px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea.editor-input + button {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
