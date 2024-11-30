@@ -1,38 +1,53 @@
-<div class="clock">
-  <svg width="200" height="200" viewBox="-100 -100 200 200">
-    <circle class="minute_marker" r="90" pathLength="60"></circle>
-    <circle class="hour_marker" r="90" pathLength="60"></circle>
-    <text id="text" class="text" x="45" y="5"></text>
+---
+export interface Props {
+  simplified?: boolean;
+  size: number;
+}
 
-    <g id="hour_hand">
-      <line class="hand" x1="0" y1="0" x2="0" y2="-50"></line>
-      <line class="hand hand--thick" x1="0" y1="-12" x2="0" y2="-50"></line>
-    </g>
+const { simplified, size = 1 } = Astro.props as Props;
+const backgroundColor = simplified ? "#34C58B" : "#7b0828"; // 419D78, 5FAD56
+const handColor = simplified ? "black" : "white";
+const scale = simplified ? 0.85 : 1;
+---
 
-    <g id="minute_hand">
-      <line class="hand" x1="0" y1="0" x2="0" y2="-80"></line>
-      <line class="hand hand--thick" x1="0" y1="-12" x2="0" y2="-80"></line>
-    </g>
+<svg
+  class={`clock ${simplified ? "simplified" : ""}`}
+  width={200 * size}
+  height={200 * size}
+  viewBox="-100 -100 200 200"
+>
+  <circle class="minute_marker" r={90 * scale} pathLength="60"></circle>
+  <circle class="hour_marker" r={90 * scale} pathLength="60"></circle>
+  {!simplified && <text id="text" class="text" x="45" y="5" />}
 
-    <g id="second_hand">
-      <line class="hand hand--second" x1="0" y1="12" x2="0" y2="-80"></line>
-    </g>
+  <g id="hour_hand">
+    <line class="hand" y2={-45 * scale}></line>
+    <line class="hand hand--thick" y1="-12" y2={-45 * scale}></line>
+  </g>
 
-    <circle class="center" r="3"></circle>
-  </svg>
-</div>
+  <g id="minute_hand">
+    <line class="hand" y2={-75 * scale}></line>
+    <line class="hand hand--thick" y1="-12" y2={-75 * scale}></line>
+  </g>
+
+  <g id="second_hand">
+    <line class="hand hand--second" y1="12" y2={-75 * scale}></line>
+  </g>
+
+  <circle class="center" r={3}></circle>
+</svg>
 
 <script>
   document.addEventListener("astro:page-load", () => {
     /*
-
-    Learn how to code this watch step by step on YouTube:
-
-    https://www.youtube.com/watch?v=ULomsOSk4JA
-
-    Follow me on twitter for more: https://twitter.com/HunorBorbely
-
-    */
+  
+      Learn how to code this watch step by step on YouTube:
+  
+      https://www.youtube.com/watch?v=ULomsOSk4JA
+  
+      Follow me on twitter for more: https://twitter.com/HunorBorbely
+  
+      */
 
     const textElement = document.getElementById("text");
     const hoursElement = document.getElementById("hour_hand");
@@ -42,7 +57,6 @@
     let showDate = true;
 
     function animate() {
-      if (!textElement) return;
       if (!hoursElement) return;
       if (!minutesElement) return;
       if (!secondsElement) return;
@@ -55,7 +69,7 @@
       const minute = date.getMinutes() + date.getSeconds() / 60;
       const second = date.getSeconds() + date.getMilliseconds() / 1000;
 
-      textElement.textContent = showDate ? `${day}` : ampm;
+      if (textElement) textElement.textContent = showDate ? `${day}` : ampm;
       hoursElement.setAttribute("transform", `rotate(${(360 / 12) * hour})`);
       minutesElement.setAttribute(
         "transform",
@@ -77,28 +91,31 @@
   });
 </script>
 
-<style>
+<style define:vars={{ backgroundColor, handColor }}>
   .clock {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    padding: 40px 0;
-    margin: 20px 0;
-
-    background-color: #7b0828;
+    background-color: var(--backgroundColor);
   }
 
   .hour_marker {
     fill: transparent;
+    stroke: black;
+    stroke-width: 10;
+  }
+
+  svg:not(.simplified) .hour_marker {
     stroke: #f0f0c9;
-    stroke-width: 7;
+    stroke-width: 10;
     stroke-dasharray: 0.2, 4.8;
     stroke-dashoffset: 0.1;
   }
 
   .minute_marker {
     fill: transparent;
+    stroke: black;
+    stroke-width: 7;
+  }
+
+  svg:not(.simplified) .minute_marker {
     stroke: #0f0e0e;
     stroke-width: 7;
     stroke-dasharray: 0.2, 0.8;
@@ -106,7 +123,7 @@
   }
 
   .hand {
-    stroke: #ffffff;
+    stroke: var(--handColor);
     stroke-width: 2;
     stroke-linecap: round;
   }
@@ -116,11 +133,12 @@
   }
 
   .hand--second {
-    stroke: yellow;
+    stroke: white;
+    opacity: 0.8;
   }
 
   .center {
-    fill: #7b0828;
+    fill: var(--backgroundColor);
     stroke-width: 2;
     stroke: white;
   }

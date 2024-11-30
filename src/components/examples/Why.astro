@@ -1,0 +1,58 @@
+<svg width="550" height="100" viewBox="-275 -50 550 100">
+  <defs>
+    <path id="text-arc" d="M -260, 0 Q -125 20 0 0 Q 125 -60 260 0"></path>
+  </defs>
+
+  <text>
+    <textPath href="#text-arc" alignment-baseline="middle">
+      Why would you code an image?
+    </textPath>
+  </text>
+  <g transform="translate(135, 20)">
+    <ellipse cx="-15" rx="7" ry="10"></ellipse>
+    <ellipse cx="+15" rx="7" ry="10"></ellipse>
+  </g>
+</svg>
+<h1>Why would you code an image?</h1>
+
+<style>
+  svg {
+    display: none;
+  }
+  @media (min-width: 550px) {
+    svg {
+      display: block;
+      margin: 1em 0;
+    }
+
+    h1 {
+      display: none;
+    }
+  }
+
+  text {
+    font-family: "Figtree Variable", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+  }
+
+  ellipse {
+    animation: blink 4s infinite ease-in-out;
+  }
+
+  @keyframes blink {
+    0% {
+      scale: 1 1;
+    }
+    80% {
+      scale: 1 1;
+    }
+
+    90% {
+      scale: 1 0.1;
+    }
+    100% {
+      scale: 1 1;
+    }
+  }
+</style>
