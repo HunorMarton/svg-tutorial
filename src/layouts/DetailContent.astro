@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 import Markdown from "../components/Markdown.astro";
 import Share from "../components/ShareThisArticle.astro";
-import Next from "../components/Next.astro";
+import Suggestions from "../components/Suggestions.astro";
 import End from "../components/End.astro";
 
 export interface Props {
@@ -13,9 +13,11 @@ export interface Props {
   Component: any;
   category: string;
   description: string;
+  suggestions: string[];
 }
 
-const { slug, day, title, Component, category } = Astro.props as Props;
+const { slug, day, title, Component, category, suggestions } =
+  Astro.props as Props;
 
 const numberOfEntries = (await getCollection("svg")).length;
 const thereIsNext = day !== numberOfEntries;
@@ -43,7 +45,7 @@ const thereIsNext = day !== numberOfEntries;
     </figure>
 
     <Share slug={slug} title={title} />
-    {thereIsNext && <Next day={day + 1} />}
+    <Suggestions current={day} suggestions={suggestions} />
     {!thereIsNext && <End />}
   </article>
 </div>

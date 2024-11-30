@@ -10,6 +10,7 @@ const svgCollection = defineCollection({
       component: z.string(),
       category: z.string(),
       description: z.string(),
+      suggestions: z.array(z.string()).optional(),
     }),
 });
 // 3. Export a single `collections` object to register your collection(s)

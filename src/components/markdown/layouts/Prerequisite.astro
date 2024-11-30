@@ -9,7 +9,7 @@ const { slug } = Astro.props as Props;
 
 const entry = (await getCollection("svg")).find((entry) => entry.slug === slug);
 
-if (!entry) return "hello";
+if (!entry) return null;
 ---
 
 <a href={entry.slug}>{entry.data.title}</a>

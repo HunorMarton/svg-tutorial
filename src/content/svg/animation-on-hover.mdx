@@ -4,8 +4,10 @@ title: How to Add Animation on Hover for an SVG Element
 component: RingingBell
 category: SVG and CSS
 description: In this example we learn how to animate an SVG bell on mouse hover with CSS.
+suggestions: [css-animation, path-based-animation, svg-in-css, text-path]
 ---
 
+import Prerequisite from "../../components/markdown/layouts/Prerequisite.astro";
 import SVG from "../../components/markdown/elements/SVG.astro";
 import Path from "../../components/markdown/elements/Path.astro";
 import Circle from "../../components/markdown/elements/Circle.astro";
@@ -14,6 +16,8 @@ import Final from "../../components/markdown/layouts/Final.astro";
 import "./animation-on-hover.scss";
 
 We can define keyframe animations for SVG elements with CSS. In this example, we animate the transform property with keyframes. Here, we trigger this effect on mouse hover.
+
+<Prerequisite slug="quadratic-bezier" />
 
 ### Drawing a Bell
 

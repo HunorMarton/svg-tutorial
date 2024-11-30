@@ -1,0 +1,121 @@
+---
+import { getCollection } from "astro:content";
+import getComponent from "../components/examples/getComponent";
+
+export interface Props {
+  current: number;
+  slug: string;
+}
+
+const { current, slug } = Astro.props as Props;
+
+const entry = (await getCollection("svg")).find((entry) => entry.slug === slug);
+
+if (!entry) return null;
+
+const Component = getComponent(entry.data.component);
+const next = current + 1 === entry.data.day;
+---
+
+<a href={entry.slug}>
+  <figure>
+    <Component size={0.6} />
+  </figure>
+  <div class="content">
+    <div class="category">
+      <span>{entry.data.category} / Day {entry.data.day}</span>
+      <svg width="12" height="12" viewBox="0 0 32 32">
+        <path
+          d="M2 16 L 30 16 L 20 6 M 30 16 L 20 26"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </div>
+    <div class="title">
+      {entry.data.title}
+    </div>
+  </div>
+  {
+    next && (
+      <div class="next">
+        Next
+        <svg width="20" height="20" viewBox="0 0 32 32">
+          <path
+            d="M2 16 L 30 16 L 20 6 M 30 16 L 20 26"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    )
+  }
+</a>
+
+<style>
+  a {
+    position: relative;
+    text-decoration: none;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    padding: 10px 10px 1.5em 10px;
+    border-bottom: 5px solid #f0f0f0;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+  }
+
+  a:has(.next) {
+    background-color: #f0f0f0;
+    border-bottom: 5px solid #e0e0e0;
+  }
+
+  figure {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    aspect-ratio: 1;
+  }
+
+  .content {
+    padding: 0 10px;
+  }
+
+  .category {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .next {
+    content: "Next";
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 2px;
+    font-weight: bold;
+  }
+</style>

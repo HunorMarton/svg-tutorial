@@ -1,0 +1,27 @@
+---
+import Suggestion from "../components/Suggestion.astro";
+
+export interface Props {
+  current: number;
+  suggestions: string[];
+}
+
+const { current, suggestions } = Astro.props as Props;
+---
+
+<div>
+  {suggestions?.map((s) => <Suggestion current={current} slug={s} />)}
+</div>
+
+<style>
+  div {
+    display: grid;
+    @media (min-width: 500px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    row-gap: 20px;
+    column-gap: 10px;
+    justify-content: center;
+    margin: 1em 0;
+  }
+</style>
