@@ -5,7 +5,9 @@
 <style>
   .snap-container {
     overflow: auto;
-    width: 100vw;
+    width: calc(
+      100vw - 0
+    ); /* This seems to help with the annoying case of scrollbar width not counting into vw */
     height: 100vh;
     scroll-snap-type: y mandatory;
     background-color: white;

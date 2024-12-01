@@ -29,7 +29,9 @@ const background = code ? "#24292e" : "transparent";
 
 <style define:vars={{ background, slides }}>
   .slide-container {
-    width: 100vw;
+    width: calc(
+      100vw - 0
+    ); /* This seems to help with the annoying case of scrollbar width not counting into vw */
     height: calc(var(--slides) * 100vh);
     box-sizing: border-box;
 
@@ -42,7 +44,9 @@ const background = code ? "#24292e" : "transparent";
   .slide-content {
     position: sticky;
     top: 0;
-    width: 100vw;
+    width: calc(
+      100vw - 0
+    ); /* This seems to help with the annoying case of scrollbar width not counting into vw */
     height: 100vh;
     box-sizing: border-box;
 
@@ -61,7 +65,9 @@ const background = code ? "#24292e" : "transparent";
     color: transparent;
     /* color: pink; */
     /* outline: 1px solid teal; */
-    width: 100vw;
+    width: calc(
+      100vw - 0
+    ); /* This seems to help with the annoying case of scrollbar width not counting into vw */
     height: 100vh;
     box-sizing: border-box;
     pointer-events: none;
