@@ -295,9 +295,9 @@ We can turn our imaginary ellipse by an angle when we draw an elliptic arc. The 
 
 ### Drawing a Moon Icon
 
-After drawing a [Sun Icon](/svg/use) it's time to draw a Moon icon. You can also check out this [YouTube tutorial](https://youtu.be/GUSUA72t7p0) that covers this icon in more details.
+We can draw a moon icon with a single path. We start with a move-to command to get to the starting position (upper corner). Then, we draw two arcs. We draw a longer arc to get down to the bottom corner and then return to the starting position with a shorter arc.
 
-In this example, we draw a single path. We start with a move-to command to get to the starting position (upper corner). Then, we draw two arcs. We draw a longer arc to get down to the bottom corner and then return to the starting position with a shorter arc.
+Hover over the coordinates in the code or on the image to see how they are positioned.
 
 <Example>
 
@@ -329,7 +329,7 @@ In this example, we draw a single path. We start with a move-to command to get t
 
 </Example>
 
-Note how these two arcs look very different despite using the same radiuses. The large arc flag and the sweep flag mirror each other. The first arc goes the long way between the two endpoints, and the second goes the short way. Note that the first one goes counterclockwise (as it goes down), and the second goes clockwise (as it goes up).
+These two arcs look very different despite using the same radiuses and positions. The large arc flag and the sweep flag mirror each other. The first arc goes the long way between the two endpoints, and the second goes the short way. The first goes counterclockwise (as it goes down), and the second goes clockwise (as it goes up).
 
 ### Drawing a Candy Cane
 
@@ -518,7 +518,7 @@ For a more advanced example, we can draw a lightbulb. We start with an arc that 
 
 </Example>
 
-Then, with a [quadratic Bézier curve](./quadratic-bezier), we continue the shape down, draw the bottom with a line-to segment, and return to the beginning of the path with another quadratic Bézier curve.
+Then, with a [quadratic Bézier curve](./quadratic-bezier), we continue the shape down, draw the bottom with a line-to segment, and return to the beginning of the path with another quadratic Bézier curve. Hover over the coordinates in the code or on the image to see how they are positioned.
 
 <Example>
 

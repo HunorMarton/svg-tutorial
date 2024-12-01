@@ -142,7 +142,9 @@ Then let's add the face and the eyes. Here's another thing we haven't covered be
 
 </Example>
 
-Finally, we can add the nose and the mouth as a few paths as follows.
+Then, let's draw the muzzle. We use the `element:path` element for this.
+
+We draw the upper part of it as a [cubic Bézier curve](/svg/cubic-bezier) and the two bottom corners with two [quadratic Bézier curves](/svg/quadratic-bezier). Hover over the coordinates in the code or on the image to see how they are positioned.
 
 <Example>
 
@@ -162,24 +164,6 @@ Finally, we can add the nose and the mouth as a few paths as follows.
       Q -30 40 -30 30"
     fill="#E5C39C"
     data-element-id="path-1"
-  />
-  <Path
-    d="
-      M -10 0
-      L 10 0
-      C 10 20 -10 20 -10 0"
-    data-element-id="path-2"
-  />
-  <Path
-    d="
-      M 0 10
-      Q 0 25 10 25
-      M 0 10
-      Q 0 25 -10 25"
-    fill="none"
-    stroke="black"
-    stroke-width="2"
-    data-element-id="path-3"
   />
 </SVG>
 
@@ -201,6 +185,55 @@ Finally, we can add the nose and the mouth as a few paths as follows.
       Q -30 40 -30 30"
     fill="#E5C39C"
   />
+</svg>
+```
+
+```css
+.bear {
+  background-color: #f5eed7;
+}
+```
+
+</Example>
+
+Finally, we can add the nose and the mouth as two more paths. The nose uses a [cubic Bézier curve](/svg/cubic-bezier), and the mouth uses two [quadratic Bézier curves](/svg/quadratic-bezier).
+
+<Example>
+
+<SVG
+  style="background-color: #f5eed7"
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <Path
+    d="
+      M -10 0
+      L 10 0
+      C 10 20 -10 20 -10 0"
+    data-element-id="path-1"
+  />
+  <Path
+    d="
+      M 0 10
+      Q 0 25 10 25
+      M 0 10
+      Q 0 25 -10 25"
+    fill="none"
+    stroke="black"
+    stroke-width="2"
+    data-element-id="path-2"
+  />
+</SVG>
+
+{/* prettier-ignore */}
+```html
+<svg 
+  class="bear"
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
   <path
     d="
       M -10 0

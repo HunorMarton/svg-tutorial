@@ -17,7 +17,7 @@ import "./cubic-bezier.scss";
 
 [Quadratic Bézier](/svg/quadratic-bezier) curves are great when we want to bend a line, but they are limited. We cannot draw a bulky curve or make smooth connections between line segments.
 
-With cubic Bézier curves, we have not one but two control points. The first control point defines the curve's initial direction, and the second one sets how the curve should reach its endpoint. Drag the coordinates below to see how it works.
+With cubic Bézier curves, we have two control points. The first control point defines the curve's initial direction, and the second one sets how the curve should reach its endpoint. Drag the coordinates below to see how it works.
 
 <CubicBezier client:load />
 
@@ -25,7 +25,9 @@ With cubic Bézier curves, we have not one but two control points. The first con
 
 ## Connecting lines
 
-Cubic Béziers are great for making smooth connections between line segments. We can set the first control point to continue the previous line segment and then place the second control point in line with the following line segment.
+Cubic Béziers are great for making smooth connections between line segments. We can set the first control point to continue the previous line segment and place the second control point in line with the following line segment.
+
+Hover over the coordinates in the code or on the image to see how they are positioned.
 
 <Example>
 
