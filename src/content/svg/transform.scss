@@ -11,6 +11,15 @@
 @include highlightElement("path-3");
 @include highlightElement("rect-1");
 
+// Lamp arm
+@include highlightElementCoordinate("path-1", "0", "0");
+@include highlightElementCoordinate("path-1", "0", "-70");
+@include highlightElementCoordinate("path-2", "0", "0");
+@include highlightElementCoordinate("path-2", "0", "-70");
+@include highlightElementCoordinate("path-3", "0", "0");
+@include highlightElementCoordinate("path-3", "0", "-30");
+
+// Lamp shade
 @include highlightCoordinate("-30", "30");
 @include highlightCoordinate("0", "-20");
 @include highlightCoordinate("0", "35");

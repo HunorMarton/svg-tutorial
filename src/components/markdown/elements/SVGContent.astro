@@ -17,11 +17,33 @@
   @import "SVGContent";
 
   .svg-base .coordinates {
-    display: none;
+    .dot {
+      // Make the hover area bigger but make it transparent
+      fill: transparent;
+      stroke: transparent;
+      stroke-width: 8;
+    }
+
+    .label {
+      // Never show base layer coordinate labels, only show the highlight layer labels
+      display: none;
+    }
   }
 
   .svg-highlight use {
     display: none;
+  }
+
+  // Special handling for path coordinates
+  .svg-highlight path + .coordinates {
+    .dot {
+      // Hide dot shadows. These are re-displayed by the highlight-coordinate mixin on hovering the base coordinate
+      filter: none;
+    }
+    .label {
+      // Hide path coordinate labels. These are re-displayed by the highlight-coordinate mixin on hovering the base coordinate
+      display: none;
+    }
   }
 
   .svg-highlight * {

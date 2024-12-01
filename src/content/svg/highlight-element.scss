@@ -1,15 +1,15 @@
 @import "../../components/markdown/elements/SVGContent";
 
 @mixin svg-highlight($element) {
-    .markdown-example:has([data-highlight][data-element-id=#{$element}]) {
+    .markdown-example:has(pre [data-highlight][data-element-id=#{$element}]) {
         .svg-base {
             /* Once an SVG element is hovered, turn its base element to transparent */
-            :has([data-element-id=#{$element}]) {
+            .element:has([data-element-id=#{$element}]) {
                 @include selectedSVGBase();
             }
 
             /* If an SVG element is selected turn every other base element into a wireframe */
-            :not(:has([data-element-id=#{$element}])) {
+            .element:not(:has([data-element-id=#{$element}])) {
                 @include otherSVGBase();
             }
         }
@@ -33,7 +33,8 @@
 }
 
 @mixin code-highlight($element) {
-    .markdown-example:has(svg [data-element-id=#{$element}]:hover) pre { 
+    // If the svg element or the corresponding coordinate is hovered highlight the code
+    .markdown-example:has(svg [data-element-id=#{$element}]:hover, svg [data-element-id=#{$element}] + .coordinates:hover) pre { 
 
         /* Turn off line markers */
         /* This is the same code as in the expressive code plugin */

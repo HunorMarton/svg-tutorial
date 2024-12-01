@@ -13,9 +13,9 @@ const textBoxHeight = textBoxVPad * 2 + 7;
 ---
 
 <g class="coordinate" data-x={x} data-y={y}>
-  <circle r="3" fill="red"></circle>
+  <circle class="dot" r="3" fill="red"></circle>
 
-  <g transform="translate(5 5)">
+  <g class="label" transform="translate(5 5)">
     <rect width={textBoxWidth} height={textBoxHeight} filter="url(#shadow)"
     ></rect>
     <text
@@ -35,23 +35,25 @@ const textBoxHeight = textBoxVPad * 2 + 7;
       scale(var(--zoom));
   }
 
-  circle {
-    filter: drop-shadow(0px 0px 5px rgb(0 0 0 / 0.5));
+  .dot {
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
     stroke-width: 0;
   }
 
-  rect {
-    fill: rgb(255 255 255);
-    stroke: none;
-    opacity: 0.9;
-    rx: 5px;
-    ry: 5px;
-  }
+  .label {
+    rect {
+      fill: rgb(255 255 255);
+      stroke: none;
+      opacity: 0.9;
+      rx: 5px;
+      ry: 5px;
+    }
 
-  text {
-    font-size: 9px;
-    font-weight: bold;
-    fill: black;
-    stroke: none;
+    text {
+      font-size: 9px;
+      font-weight: bold;
+      fill: black;
+      stroke: none;
+    }
   }
 </style>
