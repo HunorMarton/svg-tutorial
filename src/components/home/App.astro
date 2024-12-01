@@ -32,16 +32,14 @@ import AppHeader from "./AppHeader.astro";
       <slot name="day-16" />
       <slot name="day-17" />
 
-      <div class="twitter">
-        Say Hello
-        <a
-          href="https://twitter.com/HunorBorbely"
-          target="_blank"
-          rel="noopener"
-        >
-          @HunorBorbely
-        </a>
-      </div>
+      <a
+        class="hello"
+        href="https://bio.link/hunor"
+        target="_blank"
+        rel="noopener"
+      >
+        Say Hello!
+      </a>
 
       <slot name="day-18" />
       <slot name="day-19" />
@@ -251,10 +249,12 @@ import AppHeader from "./AppHeader.astro";
     }
   }
 
-  .twitter {
+  .hello {
     color: #f5eed7;
-    font-size: 0.8em;
+    font-weight: bold;
+    font-family: "Fredoka One", cursive;
     background-color: #16212b;
+    text-decoration: none;
 
     display: flex;
     align-items: center;
