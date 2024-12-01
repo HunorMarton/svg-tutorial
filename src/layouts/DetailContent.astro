@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
+import DetailContentGrid from "./DetailContentGrid.astro";
 import Markdown from "../components/Markdown.astro";
 import Share from "../components/ShareThisArticle.astro";
 import Suggestions from "../components/Suggestions.astro";
@@ -13,7 +14,7 @@ export interface Props {
   Component: any;
   category: string;
   description: string;
-  suggestions: string[];
+  suggestions?: string[];
 }
 
 const { slug, day, title, Component, category, suggestions } =
@@ -23,7 +24,7 @@ const numberOfEntries = (await getCollection("svg")).length;
 const thereIsNext = day !== numberOfEntries;
 ---
 
-<div class="detail-content">
+<DetailContentGrid>
   <figure class="image-for-big-screen">
     <Component size="1" id="big" />
   </figure>
@@ -45,24 +46,12 @@ const thereIsNext = day !== numberOfEntries;
     </figure>
 
     <Share slug={slug} title={title} />
-    <Suggestions current={day} suggestions={suggestions} />
+    {suggestions && <Suggestions current={day} suggestions={suggestions} />}
     {!thereIsNext && <End />}
   </article>
-</div>
+</DetailContentGrid>
 
 <style>
-  .detail-content {
-    display: grid;
-    justify-content: center;
-    width: 100%;
-  }
-
-  @media (min-width: 900px) {
-    .detail-content {
-      grid-template-columns: 1.2fr minmax(500px, 2fr);
-    }
-  }
-
   figure {
     margin: 0;
     padding: 0;

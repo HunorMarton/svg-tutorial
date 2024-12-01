@@ -1,0 +1,73 @@
+---
+export interface Props {
+  dark?: boolean;
+}
+
+const { dark = false } = Astro.props as Props;
+
+const backgroundColor = dark ? "white" : "#f0f0f0";
+const strokeColor = dark ? "black" : "#e0e0e0";
+
+const top = 50;
+const bottom = 200;
+const wingWidth = 815;
+const steepness = 300;
+const topWidth = 275;
+---
+
+<div class="wave">
+  <svg width="1600" height="300" viewBox="-815 0 1600 300">
+    <path
+      d=`
+            M ${-wingWidth} ${bottom} 
+            C ${-wingWidth + steepness} ${bottom} ${-topWidth} ${top} 0 ${top} 
+            C ${topWidth} ${top} ${wingWidth - steepness} ${bottom} ${wingWidth} ${bottom}
+            L ${wingWidth} 450 L ${-wingWidth} 450 Z`
+      fill={backgroundColor}
+      stroke={strokeColor}
+      stroke-width="2"></path>
+
+    <g class="sleigh">
+      <path
+        d="
+            M -30 -2 L 30 -2 A 10 10 0 0 0 30 -22
+            M -20 -2 L -20 -17
+            M 20 -2 L 20 -17"
+        fill="none"
+        stroke="#AF6455"
+        stroke-width="5"></path>
+      <path d="M -27 -17 L 27 -17" stroke="#7A504F" stroke-width="6"></path>
+    </g>
+  </svg>
+</div>
+
+<style>
+  .wave {
+    position: absolute;
+    left: -500px;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  @media (max-width: 550px) {
+    .wave {
+      left: -800px;
+    }
+  }
+
+  .sleigh {
+    offset-path: path(
+      "M -815 200 C -515 200 -275 50 0 50 C 275 50 515 200 815 200 L 815 450 L -815 450 Z"
+    );
+    animation: roller-coaster 16s infinite linear;
+  }
+
+  @keyframes roller-coaster {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+</style>

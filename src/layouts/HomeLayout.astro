@@ -4,7 +4,7 @@ import TableOfContents from "../components/home/TableOfContents.astro";
 import SVGElements from "../components/home/SVGElements.astro";
 import PathSegments from "../components/home/PathSegments.astro";
 import Videos from "../components/home/Videos.astro";
-import Footer from "../components/home/Footer.astro";
+import Footer from "../components/Footer.astro";
 import "@fontsource/fredoka-one";
 import "./SVGCurves.css";
 
@@ -29,7 +29,9 @@ const description =
       <SVGElements />
       <PathSegments />
       <Videos />
-      <Footer />
+    </div>
+    <div class="footer-container" data-track-id="Footer">
+      <Footer dark={true} />
     </div>
   </body>
 </html>
@@ -60,5 +62,12 @@ const description =
     padding: 20px 20px 50px 20px;
 
     font-size: 0.8em;
+  }
+
+  .footer-container {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
   }
 </style>

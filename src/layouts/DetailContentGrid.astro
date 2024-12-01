@@ -1,0 +1,27 @@
+---
+export interface Props {
+  allowOverflow?: boolean;
+}
+
+const { allowOverflow = true } = Astro.props as Props;
+const overflow = allowOverflow ? "visible" : "hidden"; // Overflow has to be allowed for the main article figure, because otherwise it would not be sticky. However at the footer the overflowing part needs to be cut off
+---
+
+<div class="detail-content">
+  <slot />
+</div>
+
+<style define:vars={{ overflow }}>
+  .detail-content {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    overflow: var(--overflow);
+  }
+
+  @media (min-width: 900px) {
+    .detail-content {
+      grid-template-columns: 1.2fr minmax(500px, 2fr);
+    }
+  }
+</style>

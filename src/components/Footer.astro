@@ -1,0 +1,110 @@
+---
+export interface Props {
+  dark?: boolean;
+}
+
+import FooterWave from "./FooterWave.astro";
+
+const { dark = false } = Astro.props as Props;
+---
+
+<footer data-track-id="Footer">
+  <div>
+    <div class="title">SVG Tutorial</div>
+    <div class="made-by">
+      Made by <a href="https://bio.link/hunor" target="_blank" rel="noopener"
+        >Hunor Márton Borbély</a
+      >
+    </div>
+    <a
+      class="coffee"
+      href="https://www.buymeacoffee.com/hunor"
+      target="_blank"
+      rel="noopener">Buy Me a Coffee</a
+    >
+  </div>
+  <div>
+    <ul>
+      <li>
+        <a href="https://hunormarton.com/" target="_blank" rel="noopener"
+          >Website</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/hunor-marton-borbely/"
+          target="_blank"
+          rel="noopener">LinkedIn</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.youtube.com/@HunorMartonBorbely"
+          target="_blank"
+          rel="noopener">YouTube</a
+        >
+      </li>
+      <li>
+        <a href="https://codepen.io/HunorMarton" target="_blank" rel="noopener"
+          >CodePen</a
+        >
+      </li>
+    </ul>
+  </div>
+  <FooterWave dark={dark} />
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+
+    gap: 10px;
+    margin-top: 80px;
+    padding: 40px;
+
+    position: relative;
+    max-width: 550px;
+  }
+
+  @media screen and (min-width: 550px) {
+    footer {
+      width: 550px;
+    }
+  }
+
+  footer > *:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .title {
+    text-align: center;
+    text-wrap: balance;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .made-by {
+    font-size: 0.9em;
+  }
+
+  .coffee {
+    display: flex;
+    align-items: center;
+    background-color: #fcba28;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  li {
+    margin-bottom: 0.7em;
+    list-style-type: none;
+  }
+</style>

@@ -9,6 +9,9 @@ import getComponent from "../../components/examples/getComponent";
 
 import { Content as Introduction } from "./_Introduction.mdx";
 
+import DetailContentGrid from "../../layouts/DetailContentGrid.astro";
+import Footer from "../../components/Footer.astro";
+
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const entries = await getCollection("svg");
@@ -59,5 +62,10 @@ const Header = headerLookup[entry.data.day];
     >
       <Content />
     </DetailContent>
+    <DetailContentGrid allowOverflow={false}>
+      <div></div>
+
+      <Footer />
+    </DetailContentGrid>
   </DetailLayout>
 </Details>
