@@ -4,10 +4,13 @@ import Coordiante from "./Coordinate.astro";
 export interface Props {
   cx: string;
   cy: string;
-  [key: string]: string;
+  helper?: boolean;
+  [key: string]: any;
 }
 
 const { cx, cy, ...props } = Astro.props as Props;
+
+const pointerEvents = props.helper ? "none" : "auto";
 ---
 
 <g class="element">
@@ -16,3 +19,9 @@ const { cx, cy, ...props } = Astro.props as Props;
     <Coordiante x={cx} y={cy} />
   </g>
 </g>
+
+<style define:vars={{ pointerEvents }}>
+  .element {
+    pointer-events: var(--pointerEvents, auto);
+  }
+</style>
