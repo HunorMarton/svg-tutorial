@@ -9,12 +9,12 @@ export interface Props {
 const { current, suggestions } = Astro.props as Props;
 ---
 
-<div>
+<nav data-track-id="next">
   {suggestions?.map((s) => <Suggestion current={current} slug={s} />)}
-</div>
+</nav>
 
 <style>
-  div {
+  nav {
     display: grid;
     @media (min-width: 500px) {
       grid-template-columns: repeat(2, 1fr);
