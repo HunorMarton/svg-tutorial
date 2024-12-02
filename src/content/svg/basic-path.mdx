@@ -4,7 +4,7 @@ title: How to Draw Basic Paths with SVG
 component: Arrow
 category: The Path Element
 description: In this example we draw a hamburger menu icon and simple arrow and learn how to draw basic paths with SVG.
-suggestions: [quadratic-bezier, cubic-bezier, arc, rotate-and-translate]
+suggestions: [quadratic-bezier, cubic-bezier, arc, svg-in-css]
 ---
 
 import SVG from "../../components/markdown/elements/SVG.astro";
@@ -22,15 +22,15 @@ Here we only have the two most basic commands, move-to and line-to. The move-to 
 
 ### Hamburger menu icon
 
-Before we get to the arrow example, let's draw a simple hamburger menu icon. We draw three lines within the same path with the move-to (`value:M`) and line-to (`value:L`) commands. First, we move to the start of the top line with `value:M -40, -40` and draw a line to its end with `value:L 40, -40`. Hover over the coordinates in the code or on the image to see how they are positioned.
+Before we get to the arrow example, let's draw a simple hamburger menu icon. We draw three lines within the same path with the move-to (`value:M`) and line-to (`value:L`) commands. First, we move to the start of the top line with `value:M -45, -45` and draw a line to its end with `value:L 45, -45`. Hover over the coordinates in the code or on the image to see how they are positioned.
 
 <Example>
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
   <Path
-    d="M -40, -40 L 40, -40"
+    d="M -45, -45 L 45, -45"
     stroke="#333333"
-    stroke-width="25"
+    stroke-width="15"
     stroke-linecap="round"
     data-element-id="path-1"
   />
@@ -45,10 +45,10 @@ Before we get to the arrow example, let's draw a simple hamburger menu icon. We 
 >
   <path
     d="
-        M -40, -40
-        L  40, -40"
+        M -45, -45
+        L  45, -45"
     stroke="#333333"
-    stroke-width="25"
+    stroke-width="15"
     stroke-linecap="round"
   />
 </svg>
@@ -62,9 +62,9 @@ Then we continue and draw to more lines the same way. What is cool about paths, 
 
 <SVG width="200" height="200" viewBox="-100 -100 200 200">
   <Path
-    d="M -40 -40 L 40 -40 M -40 0 L 40 0 M -40 40 L 40 40"
+    d="M -45 -45 L 45 -45 M -45 0 L 45 0 M -45 45 L 45 45"
     stroke="#333333"
-    stroke-width="25"
+    stroke-width="15"
     stroke-linecap="round"
     data-element-id="path-1"
   />
@@ -79,20 +79,22 @@ Then we continue and draw to more lines the same way. What is cool about paths, 
 >
   <path
     d="
-        M -40 -40
-        L  40 -40 
-        M -40   0 
-        L  40   0 
-        M -40  40 
-        L  40  40"
+        M -45 -45
+        L  45 -45 
+        M -45   0 
+        L  45   0 
+        M -45  45 
+        L  45  45"
     stroke="#333333"
-    stroke-width="25"
+    stroke-width="15"
     stroke-linecap="round"
   />
 </svg>
 ```
 
 </Example>
+
+Icons like this often feel like noise on HTML. In a later chapter, we learn how to inline this [icon in CSS](/svg/svg-in-css) and use it as you see it at the top left corner of this page.
 
 ### Heart shape icon
 

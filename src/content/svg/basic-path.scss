@@ -4,12 +4,12 @@
 @include highlightElement("path-1");
 
 // Hamburger
-@include highlightCoordinate("-40", "-40");
-@include highlightCoordinate("40", "-40");
-@include highlightCoordinate("-40", "0");
-@include highlightCoordinate("40", "0");
-@include highlightCoordinate("-40", "40");
-@include highlightCoordinate("40", "40");
+@include highlightCoordinate("-45", "-45");
+@include highlightCoordinate("45", "-45");
+@include highlightCoordinate("-45", "0");
+@include highlightCoordinate("45", "0");
+@include highlightCoordinate("-45", "45");
+@include highlightCoordinate("45", "45");
 
 // Heart
 @include highlightCoordinate("-30", "-20");

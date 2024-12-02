@@ -8,31 +8,40 @@ suggestions: [css-animation, animation-on-hover, text-path, clip-path]
 ---
 
 import Example from "../../components/markdown/layouts/Example.astro";
+import Note from "../../components/markdown/layouts/Note.astro";
 import Final from "../../components/markdown/layouts/Final.astro";
 
-In many cases, an inlined SVG feels like a bit of noise in HTML. If we add an icon then the icon itself feels more like styling than content that should be part of the DOM structure. The good news is, we can move SVG images entirely into CSS.
+In many cases, an inlined SVG feels like a bit of noise in HTML. An icon feels more like styling than content that should be part of the DOM structure. The good news is, we can move SVG images entirely into CSS.
 
-For example, let's take the close button on this page at the top right corner. In HTML the close button is simply an anchor element with a class:
+### Hamburger Menu Button
+
+Let's take the hamburger menu button on this page in the top right corner. In HTML, the button is simply an anchor element with a class.
 
 ```html
-<a href="/" class="close"></a>
+<a href="/" class="menu"></a>
 ```
 
-Then in CSS we can set a `background-image` property. For this CSS property, we usually provide a link to an image, but we can also inline an SVG:
+Then, in CSS, we can set a `background-image` property. For this CSS property, we usually provide a link to an image, but we can also inline an SVG.
 
 ```css
-.close {
+.menu {
   display: block;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  background-color: gray;
+  border-radius: 10px;
+  background-color: #f0f0f0;
 
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 100 100'><path d='M 30 30 L 70 70 M 30 70 L 70 30' stroke='white' stroke-width='10' /></svg>");
 }
 ```
 
-The inlined SVG above is simply an X as follows (except that the `property:stroke` property is set to black in this case for visibility). The gray circle around it is made with CSS (by setting the `background-color` and the `border-radius` properties).
+<Note>
+
+Some characters [need to be escaped](https://developer.mozilla.org/en-US/docs/Web/CSS/url_function#url) when inlining an SVG in CSS's `url` function. The `#` character for instance, becomes `%23`.
+
+</Note>
+
+The inlined SVG above is the same [hamburger menu icon](/svg/basic-path#hamburger-menu-icon) as we created in the basic paths chapter. The only difference is that we changed its `property:width` and `property:height` to match the button's size, and we set the XML namespace.
 
 <Example>
 
@@ -40,34 +49,46 @@ The inlined SVG above is simply an X as follows (except that the `property:strok
   xmlns="http://www.w3.org/2000/svg"
   width="50"
   height="50"
-  viewBox="0 0 100 100"
+  viewBox="-100 -100 200 200"
 >
-  <path d="M 30 30 L 70 70 M 30 70 L 70 30" stroke="black" stroke-width="10" />
+  <path
+    d="M -45 -45 L  45 -45 M -45   0 L  45   0 M -45  45 L  45  45"
+    stroke="black"
+    stroke-width="15"
+    stroke-linecap="round"
+  />
 </svg>
 
 {/* prettier-ignore */}
 ```html
-<svg 
-  xmlns='http://www.w3.org/2000/svg' 
-  width='50' 
-  height='50' 
-  viewBox='0 0 100 100'
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="50"
+  height="50"
+  viewBox="-100 -100 200 200"
 >
-  <path 
-    d='
-      M 30 30 
-      L 70 70 
-      M 30 70 
-      L 70 30'
-    stroke='black' 
-    stroke-width='10' 
+  <path
+    d="
+      M -45 -45 
+      L  45 -45 
+      M -45   0 
+      L  45   0 
+      M -45  45 
+      L  45  45"
+    stroke="black"
+    stroke-width="15"
+    stroke-linecap="round"
   />
 </svg>
 ```
 
 </Example>
 
+<Note>
+
 When we inline an SVG in CSS, we need to set the XML namespace property. Earlier we inlined SVGs into HTML and in that case it's optional. In CSS we have to set the `property:xmlns` property.
+
+</Note>
 
 ### Custom Mouse Cursor with SVG in CSS
 
