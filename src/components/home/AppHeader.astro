@@ -1,6 +1,6 @@
 <header>
   <div class="header-text">
-    <h1>SVG Tutorial</h1>
+    <a href="/"><h1>SVG Tutorial</h1></a>
     <h2>Learn how to code images in HTML with SVG</h2>
   </div>
   <a href="/summary" class="summary-link">
@@ -18,6 +18,10 @@
   .header-text {
     display: flex;
     flex-direction: column;
+
+    a {
+      text-decoration: none;
+    }
 
     @media (min-width: 770px) {
       flex-direction: row;
