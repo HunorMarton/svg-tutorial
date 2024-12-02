@@ -241,7 +241,7 @@ We finish the bell, by adding two circles for the bell-clapper, and the hanger.
 
 ### Adding Animation on Hover
 
-Now, let's add an id for the elements we move. We assign an id to the group containing the whole bell and one for the bell clapper.
+Now, let's add an `property:id` for the elements we move. We assign an id to the group containing the whole bell and one for the bell clapper.
 
 ```html ins='id="bell"' ins='id="bell-clapper"'
 <svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -266,12 +266,12 @@ Now, let's add an id for the elements we move. We assign an id to the group cont
 Then, we can add a keyframe animation on `hover` on the bell and the bell clapper. We use the same animation that alternates the rotation back and forth for both of them. We also set the timing function to `ease-in-out` to slow the animation at the leftmost and rightmost positions.
 
 ```css "bell" "bell-clapper"
-.bell {
+#bell {
   transform-origin: 0 -45px;
 }
 
-svg:hover .bell,
-svg:hover .bell-clapper {
+svg:hover #bell,
+svg:hover #bell-clapper {
   animation-duration: 0.5s;
   animation-delay: -0.25s;
   animation-iteration-count: infinite;
