@@ -1,207 +1,78 @@
 ---
-import HomeLayout from "../layouts/HomeLayout.astro";
-import App from "../components/home/App.astro";
-import Day from "../components/home/Day.astro";
-import Decoration from "../components/examples/Decoration.astro";
-import Tree from "../components/examples/Tree.astro";
-import Gingerbread from "../components/examples/Gingerbread.astro";
-import House from "../components/examples/House.astro";
-import Arrow from "../components/examples/Arrow.astro";
-import Star from "../components/examples/Star.astro";
-import Snowflake from "../components/examples/Snowflake.astro";
-import Forest from "../components/examples/Forest.astro";
-import DecorationWithClip from "../components/examples/DecorationWithClip.astro";
-import Snowman from "../components/examples/Snowman.astro";
-import ThreeWithCurves from "../components/examples/ThreeWithCurves.astro";
-import Gift from "../components/examples/Gift.astro";
-import Lamp from "../components/examples/Lamp.astro";
-import Candy from "../components/examples/Candy.astro";
-import Bear from "../components/examples/Bear.astro";
-import Text from "../components/examples/Text.astro";
-import Sled from "../components/examples/Sled.astro";
-import RingingBell from "../components/examples/RingingBell.astro";
-import Background from "../components/examples/Background.astro";
-import Clock from "../components/examples/Clock.astro";
-import Lights from "../components/examples/Lights.astro";
-import Diagram from "../components/examples/Diagram.astro";
-import SnowGlobe from "../components/examples/SnowGlobe.astro";
-import Windmill from "../components/examples/Windmill.astro";
+import Head from "../layouts/Head.astro";
+import Advent from "../components/home/Advent.astro";
+import TableOfContents from "../components/home/TableOfContents.astro";
+import SVGElements from "../components/home/SVGElements.astro";
+import PathSegments from "../components/home/PathSegments.astro";
+import Videos from "../components/home/Videos.astro";
+import Footer from "../components/Footer.astro";
+import "@fontsource/fredoka-one";
+import "../layouts/SVGCurves.css";
+
+const title = "SVG Tutorial - Learn how to code images in HTML with SVG";
+const description =
+  "In this advent calendar-themed tutorial, you will learn the fundamentals of Scalable Vector Graphics (SVG), from the basics to advanced concepts like animation and interactivity.";
 
 export const prerender = true;
 ---
 
-<HomeLayout>
-  <main>
-    <App>
-      <Day
-        day={1}
-        slot={`day-${1}`}
-        Component={Decoration}
-        link="basic-shapes"
-        title="How to Draw Basic Shapes with SVG"
-      />
-      <Day
-        day={2}
-        slot={`day-${2}`}
-        Component={Tree}
-        link="viewbox"
-        title="How to use the viewBox property"
-      />
-      <Day
-        day={3}
-        slot={`day-${3}`}
-        Component={Gingerbread}
-        link="gingerbread-figure"
-        title="How to Make a Gingerbread Figure with SVG"
-      />
-      <Day
-        day={4}
-        slot={`day-${4}`}
-        Component={House}
-        link="polygon-and-polyline"
-        title="How to use the Polygon and Polyline elements"
-      />
-      <Day
-        day={5}
-        slot={`day-${5}`}
-        Component={Arrow}
-        link="basic-path"
-        title="How to Draw a Basic Path with SVG"
-      />
-      <Day
-        day={6}
-        slot={`day-${6}`}
-        Component={ThreeWithCurves}
-        link="quadratic-bezier"
-        title="How to Draw Quadratic Bézier Curves with SVG"
-      />
-      <Day
-        day={7}
-        slot={`day-${7}`}
-        Component={Gift}
-        link="cubic-bezier"
-        title="How to Draw Cubic Bézier Curves with SVG"
-      />
-      <Day
-        day={8}
-        slot={`day-${8}`}
-        Component={Bear}
-        link="bear"
-        title="How to Draw a Bear with SVG"
-      />
-      <Day
-        day={9}
-        slot={`day-${9}`}
-        Component={Candy}
-        link="arc"
-        title="How to Draw an Arc with SVG"
-      />
-      <Day
-        day={10}
-        slot={`day-${10}`}
-        Component={Star}
-        link="rotate-and-translate"
-        title="How to Rotate and Translate SVG Elements"
-      />
-      <Day
-        day={11}
-        slot={`day-${11}`}
-        Component={Snowflake}
-        link="use"
-        title="How to Draw a Snowflake with SVG"
-      />
-      <Day
-        day={12}
-        slot={`day-${12}`}
-        Component={Forest}
-        link="scale"
-        title="How to Scale SVG Elements"
-      />
-      <Day
-        day={13}
-        slot={`day-${13}`}
-        Component={Lamp}
-        link="transform"
-        title="How to Transform SVG Elements"
-      />
-      <Day
-        day={14}
-        slot={`day-${14}`}
-        Component={Windmill}
-        link="css-animation"
-        title="How to Animate an SVG with CSS"
-      />
-      <Day
-        day={15}
-        slot={`day-${15}`}
-        Component={RingingBell}
-        link="animation-on-hover"
-        title="How to Add Animation on Hover for an SVG Element"
-      />
-      <Day
-        day={16}
-        slot={`day-${16}`}
-        Component={Sled}
-        link="path-based-animation"
-        title="How to Animate Along a Path with SVG"
-      />
-      <Day
-        day={17}
-        slot={`day-${17}`}
-        Component={Background}
-        link="svg-in-css"
-        title="How to Inline SVG in CSS"
-      />
+<!doctype html>
+<html lang="en">
+  <Head
+    title={title}
+    description={description}
+    image={"https://svg-tutorial.com/image.png"}
+  />
 
-      <Day
-        day={18}
-        slot={`day-${18}`}
-        Component={Text}
-        link="text-path"
-        title="How to Draw Text Along a Path with SVG"
-      />
-      <Day
-        day={19}
-        slot={`day-${19}`}
-        Component={DecorationWithClip}
-        link="clip-path"
-        title="How to use clip-path with SVG"
-      />
-      <Day
-        day={20}
-        slot={`day-${20}`}
-        Component={Snowman}
-        link="gradient"
-        title="How to Use Gradients with SVG"
-      />
-      <Day
-        day={21}
-        slot={`day-${21}`}
-        Component={Clock}
-        link="clock"
-        title="How to Draw a Clock with SVG and JavaScript that Shows the Actual Time"
-      />
-      <Day
-        day={22}
-        slot={`day-${22}`}
-        Component={Lights}
-        link="interaction"
-        title="How to Add Interaction to SVG elements with JavaScript"
-      />
-      <Day
-        day={23}
-        slot={`day-${23}`}
-        Component={Diagram}
-        link="data-driven-diagram"
-        title="How to Generate an SVG Diagram from JavaScript"
-      />
-      <Day
-        day={24}
-        slot={`day-${24}`}
-        Component={SnowGlobe}
-        link="multiple-components"
-        title="How to Break Down an SVG Image into Multiple Components"
-      />
-    </App>
-  </main>
-</HomeLayout>
+  <body>
+    <main>
+      <Advent />
+    </main>
+
+    <div class="things">
+      <TableOfContents />
+      <SVGElements />
+      <PathSegments />
+      <Videos />
+    </div>
+    <div class="footer-container" data-track-id="Footer">
+      <Footer dark={true} />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  body {
+    background-color: #151515;
+    margin: 0;
+  }
+
+  a,
+  a:visited {
+    color: inherit;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+</style>
+
+<style>
+  .things {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 20px 50px 20px;
+
+    font-size: 0.8em;
+  }
+
+  .footer-container {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+</style>

@@ -1,16 +1,16 @@
 ---
-import Head from "./Head.astro";
+import Content from "../components/home/Advent.astro";
+
+import Head from "../layouts/Head.astro";
 import TableOfContents from "../components/home/TableOfContents.astro";
-import SVGElements from "../components/home/SVGElements.astro";
-import PathSegments from "../components/home/PathSegments.astro";
-import Videos from "../components/home/Videos.astro";
 import Footer from "../components/Footer.astro";
 import "@fontsource/fredoka-one";
-import "./SVGCurves.css";
 
 const title = "SVG Tutorial - Learn how to code images in HTML with SVG";
 const description =
   "In this advent calendar-themed tutorial, you will learn the fundamentals of Scalable Vector Graphics (SVG), from the basics to advanced concepts like animation and interactivity.";
+
+export const prerender = true;
 ---
 
 <!doctype html>
@@ -22,13 +22,12 @@ const description =
   />
 
   <body>
-    <slot />
+    <main>
+      <Content />
+    </main>
 
     <div class="things">
       <TableOfContents />
-      <SVGElements />
-      <PathSegments />
-      <Videos />
     </div>
     <div class="footer-container" data-track-id="Footer">
       <Footer dark={true} />
