@@ -56,17 +56,17 @@ function Content() {
 
   const snowflakes = [
     { x: 0, y: 0, big: true, fast: true },
-    { x: -50, y: -20, big: true, fast: true, opaque: true },
-    { x: 30, y: -40, big: true, fast: true },
-    { x: 50, y: -20, big: true, fast: true, opaque: true },
-    { x: 30, y: 50, big: true },
-    { x: -70, y: -80, big: true, opaque: true },
-    { x: 30, y: 50, big: true },
-    { x: 90, y: -80, big: true, opaque: true },
-    { x: 10, y: -50 },
-    { x: -50, y: -60, opaque: true },
-    { x: 30, y: 70 },
-    { x: 10, y: -80, opaque: true },
+    { x: -50, y: 120, big: true, fast: true },
+    { x: -30, y: 40, big: true, fast: true },
+    { x: 50, y: 20, big: true, fast: true },
+    { x: 30, y: 150, big: true },
+    { x: -70, y: 80, big: true },
+    { x: 60, y: 150, big: true },
+    { x: 90, y: 80, big: true },
+    { x: 10, y: 50 },
+    { x: -50, y: 60 },
+    { x: -50, y: 170 },
+    { x: 10, y: 80 },
   ];
 
   return (
@@ -88,7 +88,7 @@ function Content() {
           x={snowflake.x}
           y={snowflake.y}
           big={snowflake.big}
-          fast={snowflake.big}
+          fast={snowflake.fast}
         />
       ))}
     </g>
@@ -109,14 +109,14 @@ function Background() {
         width="200"
         height="200"
         fill="#F1DBC3"
-      ></rect>
+      />
 
       <circle
         cx="0"
         cy="380"
         r="350"
         fill="#F8F4E8"
-      ></circle>
+      />
     </g>
   );
 }
@@ -126,59 +126,62 @@ The Tree component generates and places a tree in the correct position and size.
 
 {/* prettier-ignore */}
 ```jsx
-function Three({ x, y, scale }) {
+function Tree({ x, y, scale }) {
   return (
     <g transform={`scale(${scale}), translate(${x} ${y})`}>
       <polygon
         points="-10,0 10,0 0 -50"
         fill="#38755b"
-      ></polygon>
+      />
 
       <line
         x2="0"
         y2="10"
         stroke="#778074"
         stroke-width="2"
-      ></line>
+      />
     </g>
   );
 }
 ```
 
-Finally, the Snowflake component generates a snowflake based on properties like position, size, and opaqueness. We also add an animation in CSS to make them look like snowing. The animation is glitchy and not very sophisticated, but you get the idea.
+Finally, the Snowflake component generates a snowflake based on properties like position, size, and opaqueness. We also add an animation in CSS to make them look like snowing.
 
 ```jsx
 function Snowflake({ x, y, big, fast, opaque }) {
   let className = "snowflake";
   if (fast) className += " fast";
-  if (opaque) className += " opaque";
 
   return (
     <circle
       cx={x}
-      cy={y}
+      cy="0"
       r={big ? 5 : 3}
       fill="white"
+      style={{ "--y": y }}
       className={className}
-    ></circle>
+    />
   );
 }
 ```
 
+There's a trick with the snowflake positioning. Instead of positioning the snowflakes by the `y` position, we place all of them at the `0` position on the Y-axis. Then, to distribute them along the Y-axis, we delay their animation based on their `y` prop. Setting a negative delay acts as a starting offset.
+
 ```css
 .snowflake {
-  animation-duration: 5s;
+  --duration: 5s;
+}
+
+.snowflake.fast {
+  --duration: 3s;
+}
+
+.snowflake {
+  animation-duration: var(--duration);
   animation-name: snowing;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-
-  .opaque {
-    opacity: 0.7;
-  }
-
-  .fast {
-    animation-duration: 3s;
-  }
+  animation-delay: calc(-1 * var(--duration) * (var(--y) / 200));
 }
 
 @keyframes snowing {

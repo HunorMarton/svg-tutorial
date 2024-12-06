@@ -7,43 +7,38 @@ export interface Props {
   opaque?: boolean;
 }
 
-const {
-  x,
-  y,
-  big = false,
-  fast = false,
-  opaque = false,
-} = Astro.props as Props;
+const { x, y, big = false, fast = false } = Astro.props as Props;
 ---
 
 <circle
   cx={x}
-  cy={y}
+  cy="0"
   r={big ? 5 : 3}
   fill="white"
+  style={{ "--y": y }}
   class:list={[
     "snowflake",
     {
       big: big,
       fast: fast,
-      opaque: opaque,
     },
   ]}></circle>
 
 <style is:global>
   .snowflake {
-    animation-duration: 5s;
+    --duration: 5s;
+  }
+
+  .snowflake.fast {
+    --duration: 3s;
+  }
+
+  .snowflake {
+    animation-duration: var(--duration);
     animation-name: snowing;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-
-    .opaque {
-      opacity: 0.7;
-    }
-
-    .fast {
-      animation-duration: 3s;
-    }
+    animation-delay: calc(-1 * var(--duration) * (var(--y) / 200));
   }
 
   @keyframes snowing {
