@@ -15,12 +15,17 @@ export interface Props {
 }
 
 const { title, description, image, article } = Astro.props as Props;
+
+// Favicons: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs?ck_subscriber_id=2449759466
+// Favicons created with Figma
 ---
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" /><!-- 180×180 -->
   <link rel="canonical" href={canonicalURL} />
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
