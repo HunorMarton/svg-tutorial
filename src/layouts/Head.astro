@@ -24,6 +24,14 @@ const { title, description, image, article } = Astro.props as Props;
   <link rel="canonical" href={canonicalURL} />
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SVG Tutorial",
+      "url": "https://svg-tutorial.com/"
+    }
+  </script>
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="article" />
   {
