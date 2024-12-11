@@ -1,6 +1,6 @@
 # SVG-Tutorial.com
 
-This repo contains the source code of [SVG-Tutorial.com](https://SVG-Tutorial.com). While it generally follows the structure of an Astro project, it has three main parts with slightly different approaches. 
+This repo contains the source code of [SVG-Tutorial.com](https://SVG-Tutorial.com). While it generally follows the structure of an Astro project, it has three main parts with slightly different approaches.
 
 ### Tutorials
 
@@ -13,6 +13,11 @@ The [Summary page](https://svg-tutorial.com/summary)'s content is an MDX file i
 ### Editors
 
 The editor pages, such as the [Arc editor](https://svg-tutorial.com/editor/arc), the interactive embeds within the tutorial, and the summary page, use React and Redux Toolkit. They mainly live in the `/src/svg-curves folder`. The editors are an updated version of a previous project.
+
+### Mentions
+
+- [Bytes Newsletter](https://bytes.dev/archives/245)
+- [Unicorn Club Newsletter](https://unicornclub.dev/newsletters/2024-12-11-css-wrapped-2024-intent-driven-ux-a11y-design-tips/)
 
 <hr>
 
@@ -48,12 +53,12 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
+| Command                 | Action                                             |
+| :---------------------- | :------------------------------------------------- |
 | `pnpm install`          | Installs dependencies                              |
 | `pnpm run dev`          | Starts local dev server at `localhost:3000`        |
 | `pnpm run build`        | Build your production site to `./dist/`            |
 | `pnpm run preview`      | Preview your build locally, before deploying       |
-| `pnpm run start`       | Starts a production dev server at  `localhost:3000`     |
+| `pnpm run start`        | Starts a production dev server at `localhost:3000` |
 | `pnpm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
 | `pnpm run astro --help` | Get help using the Astro CLI                       |
