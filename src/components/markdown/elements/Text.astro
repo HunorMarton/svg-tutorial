@@ -1,0 +1,18 @@
+---
+import Coordiante from "./Coordinate.astro";
+
+export interface Props {
+  x: string;
+  y: string;
+  [key: string]: any;
+}
+
+const { x, y, ...props } = Astro.props as Props;
+---
+
+<g class="element">
+  <text x={x} y={y} {...props}><slot /></text>
+  <g class="coordinates">
+    <Coordiante x={x} y={y} />
+  </g>
+</g>

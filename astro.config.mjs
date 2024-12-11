@@ -65,6 +65,7 @@ export default defineConfig({
     "/svg/bell": "/svg/animation-on-hover",
     "/svg/forest": "/svg/scale",
     "/svg/rotate": "/svg/rotate-and-translate",
+    "/svg/text-path": "/svg/text",
     // Editor
     "/arc": "/editor/arc",
     "/cubicBezier": "/editor/cubicBezier",

@@ -9,18 +9,23 @@ const { title, size } = Astro.props as Props;
 
 <svg width={200 * size} height={200 * size} viewBox="-100 -100 200 200">
   <title>{title}</title>
-  <defs>
-    <path id="text-arc" d="M 0, 50 A 50 50 0 1 1 1,50"></path>
-  </defs>
+
+  <path
+    id="curve"
+    d="M -80, 40 Q 0, 20 80, 40"
+    fill="transparent"
+    stroke="red"
+    stroke-width="2"></path>
 
   <text
-    fill="#0c5c4c"
-    font-family="Tahoma"
-    font-size="0.77em"
+    font-family="Arial"
+    font-size="120"
     font-weight="bold"
+    fill="white"
+    stroke="black"
+    stroke-width="2"
+    letter-spacing="-20"
   >
-    <textPath href="#text-arc">
-      Happy Holidays! Happy Holidays! Happy Holidays!
-    </textPath>
+    <textPath href="#curve">svg</textPath>
   </text>
 </svg>

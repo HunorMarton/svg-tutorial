@@ -292,9 +292,9 @@ declare module 'astro:content' {
   collection: "svg";
   data: InferEntrySchema<"svg">
 } & { render(): Render[".mdx"] };
-"text-path.mdx": {
-	id: "text-path.mdx";
-  slug: "text-path";
+"text.mdx": {
+	id: "text.mdx";
+  slug: "text";
   body: string;
   collection: "svg";
   data: InferEntrySchema<"svg">

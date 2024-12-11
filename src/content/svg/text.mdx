@@ -1,0 +1,241 @@
+---
+day: 18
+title: How to Add Text to SVG Images
+component: Text
+category: Advanced Topics
+description: We can use paths to render text along an invisible path. We define a path in the definitions section and use it in a textPath element to make the text go around the circle.
+suggestions: [quadratic-bezier, clip-path, gradient, clock]
+---
+
+import SVG from "../../components/markdown/elements/SVG.astro";
+import Text from "../../components/markdown/elements/Text.astro";
+import Example from "../../components/markdown/layouts/Example.astro";
+import Final from "../../components/markdown/layouts/Final.astro";
+
+We can't use regular HTML elements like paragraphs to add text within an SVG element. SVG has a dedicated `element:text` element for that. We can position the text by setting the text's bottom-left corner with the `property:x` and `property:y` attributes.
+
+We can style it with the regular text formatting properties in CSS, except for coloring the text. We use the `property:fill` and the `property:stroke` attributes like in the case of any other shape in SVG. Here is an example of how to render text in SVG:
+
+<Example>
+
+<SVG width="200" height="200">
+  <Text x="20" y="180" font-family="Arial" font-size="50" font-weight="bold">
+    {"Hello"}
+  </Text>
+</SVG>
+
+```html
+<svg width="200" height="200">
+  <text x="20" y="180">Hello</text>
+</svg>
+```
+
+```css
+text {
+  font-family: Arial;
+  font-size: 50px;
+  font-weight: bold;
+}
+```
+
+</Example>
+
+<Example>
+
+<SVG width="200" height="200">
+  <Text
+    x="20"
+    y="180"
+    fill="transparent"
+    stroke="black"
+    stroke-width="2"
+    font-family="Arial"
+    font-size="50"
+    font-weight="bold"
+  >
+    {"Hello"}
+  </Text>
+</SVG>
+
+```html
+<svg width="200" height="200">
+  <text x="20" y="180">Hello</text>
+</svg>
+```
+
+```css {5-7}
+text {
+  font-family: Arial;
+  font-size: 50px;
+  font-weight: bold;
+  fill: transparent;
+  stroke: black;
+  stroke-width: 2;
+}
+```
+
+</Example>
+
+### Text alignment
+
+We can use the `property:text-anchor` attribute to change the horizontal alignment of the text. By default, the text is anchored at the start of the text. We can change it to `value:middle` to center the text or `value:end` to anchor it at the end.
+
+We can use the `property:alignment-baseline` attribute to change the vertical alignment of the text. By default, the text is anchored at the baseline. We can change it to `value:middle` to center the text or `value:hanging` to anchor it at the top.
+
+<Example>
+
+<SVG width="200" height="200">
+  <Text
+    x="100"
+    y="100"
+    fill="transparent"
+    stroke="black"
+    stroke-width="2"
+    font-family="Arial"
+    font-size="50"
+    font-weight="bold"
+    text-anchor="middle"
+    alignment-baseline="middle"
+  >
+    {"Hello"}
+  </Text>
+</SVG>
+
+```html
+<svg width="200" height="200">
+  <text x="100" y="100">Hello</text>
+</svg>
+```
+
+```css {5-6}
+text {
+  font-family: Arial;
+  font-size: 50px;
+  font-weight: bold;
+  text-anchor: middle;
+  alignment-baseline: middle;
+  fill: transparent;
+  stroke: black;
+  stroke-width: 2;
+}
+```
+
+</Example>
+
+### Paint order
+
+There's a new `property:paint-order` attribute that defines if the shape should be filled or stroked first. The default value is `value:fill stroke markers`, which means that the shape is filled first, then stroked, and then the markers are added.
+
+You can change the order by setting the value to `value:stroke fill markers`. This can result in a cool effect if we move the letters closer to each other by changing the `property:letter-spacing` attribute.
+
+<Example>
+
+<SVG width="200" height="200">
+  <Text
+    x="25"
+    y="120"
+    fill="white"
+    stroke="black"
+    stroke-width="4"
+    font-family="Arial"
+    font-size="110"
+    font-weight="900"
+    letter-spacing="-17"
+  >
+    {"svg"}
+  </Text>
+</SVG>
+
+```html
+<svg width="200" height="200">
+  <text x="25" y="120">Hello!</text>
+</svg>
+```
+
+```css {5}
+text {
+  font-family: Arial;
+  font-size: 110px;
+  font-weight: 900;
+  letter-spacing: -17px;
+  fill: white;
+  stroke: black;
+  stroke-width: 4;
+}
+```
+
+</Example>
+
+<Example>
+
+<SVG width="200" height="200">
+  <Text
+    x="25"
+    y="120"
+    fill="white"
+    stroke="black"
+    stroke-width="4"
+    font-family="Arial"
+    font-size="110"
+    font-weight="900"
+    letter-spacing="-17"
+    paint-order="stroke fill markers"
+  >
+    {"svg"}
+  </Text>
+</SVG>
+
+```html
+<svg width="200" height="200">
+  <text x="25" y="120">Hello!</text>
+</svg>
+```
+
+```css {5, 9}
+text {
+  font-family: Arial;
+  font-size: 110px;
+  font-weight: 900;
+  letter-spacing: -17px;
+  fill: white;
+  stroke: black;
+  stroke-width: 4;
+  paint-order: stroke fill markers;
+}
+```
+
+</Example>
+
+### How to draw text along a path
+
+Drawing shapes is not the only use case for [paths](/svg/basic-path). In our primary example, we draw a [quadratic Bézier curve](/svg/quadratic-bezier) and use it as the baseline for the text.
+
+To bend the letters, we wrap the text in the `element:textPath` element. We set the `property:href` attribute to the `property:id` of the path we want to use. The text will follow this path. Here, we also use the path as an underline, but the bending effect would also work if the path is invisible.
+
+<Final>
+
+```html
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <path
+    id="curve"
+    d="M -80, 40 Q 0, 20 80, 40"
+    fill="transparent"
+    stroke="red"
+    stroke-width="2"
+  />
+
+  <text
+    font-family="Arial"
+    font-size="120"
+    font-weight="bold"
+    fill="white"
+    stroke="black"
+    stroke-width="2"
+    letter-spacing="-20"
+  >
+    <textPath href="#curve">svg</textPath>
+  </text>
+</svg>
+```
+
+</Final>
